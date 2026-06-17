@@ -1,0 +1,1612 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Šikuta 4n6">
+<meta name="theme-color" content="#0b1220">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<link rel="icon" type="image/png" href="data:image/png;base64,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">
+<title>Šikuta 4n6 — Forensic Hand Toolkit</title>
+<style>
+  :root{
+    --bg:#0b1220; --card:#141d2e; --card2:#1b2740; --line:#28344f;
+    --txt:#e8eefc; --muted:#9fb0cf; --accent:#56b6ff; --accent2:#7ee0c0;
+    --warn:#ffcf5c; --bad:#ff7a7a; --good:#7ee0a0;
+    --shadow:0 6px 24px rgba(0,0,0,.35);
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--txt);
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,sans-serif;
+    font-size:16px;line-height:1.45}
+  body{padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)}
+  .wrap{max-width:640px;margin:0 auto;padding:14px 14px 60px}
+
+  /* App bar */
+  .appbar{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:10px;
+    padding:calc(env(safe-area-inset-top) + 10px) 14px 12px;background:rgba(11,18,32,.86);
+    backdrop-filter:saturate(160%) blur(12px);-webkit-backdrop-filter:saturate(160%) blur(12px);
+    border-bottom:1px solid var(--line)}
+  .appbar .brand{font-weight:800;font-size:17px;letter-spacing:.3px}
+  .appbar .brand .accent{background:linear-gradient(120deg,var(--accent),var(--accent2));
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:var(--accent)}
+  .appbar .sub{font-size:10.5px;color:var(--muted);margin-top:1px;letter-spacing:.4px;text-transform:uppercase}
+  .logo-mark{flex:0 0 auto;filter:drop-shadow(0 2px 6px rgba(86,182,255,.25));transition:width .2s,height .2s}
+  /* HERO hlavička (domovská obrazovka) */
+  .appbar{transition:padding .2s}
+  .appbar.hero{padding-top:calc(env(safe-area-inset-top) + 17px);padding-bottom:16px;
+    background:linear-gradient(180deg,rgba(20,32,58,.92),rgba(11,18,32,.86))}
+  .appbar.hero .brand{font-size:25px;font-weight:900;letter-spacing:.5px;color:#eef4ff;
+    text-shadow:0 1px 0 rgba(255,255,255,.20), 0 2px 3px rgba(0,0,0,.55), 0 3px 8px rgba(0,0,0,.35)}
+  .appbar.hero .brand .accent{
+    background:linear-gradient(120deg,#8fe6ff 0%,#56b6ff 45%,#7ee0c0 100%);
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+    -webkit-text-stroke:.3px rgba(255,255,255,.18);
+    filter:drop-shadow(0 0 6px rgba(86,182,255,.55));
+    animation:brandGlow 3.6s ease-in-out infinite}
+  .appbar.hero .sub{font-size:11px;letter-spacing:1.5px;color:#9fb0cf}
+  .appbar.hero .logo-mark{width:42px;height:42px;filter:drop-shadow(0 3px 11px rgba(86,182,255,.55))}
+  @keyframes brandGlow{0%,100%{filter:drop-shadow(0 0 4px rgba(86,182,255,.40))}
+    50%{filter:drop-shadow(0 0 13px rgba(126,224,192,.78))}}
+  @media (prefers-reduced-motion:reduce){.appbar.hero .brand .accent{animation:none}}
+  /* 3D plastické logo (náklon telefónu) */
+  .brand3d{display:flex;align-items:center;gap:10px;perspective:520px}
+  .logo3d{position:relative;display:inline-block;line-height:0;transform-style:preserve-3d;
+    transition:transform .12s ease-out;will-change:transform}
+  .logo3d .sheen{position:absolute;inset:0;border-radius:12px;pointer-events:none;opacity:0;
+    background:radial-gradient(circle at 50% 28%,rgba(255,255,255,.5),rgba(255,255,255,0) 62%);
+    mix-blend-mode:screen;transition:opacity .25s}
+  .appbar.hero .logo3d .sheen{opacity:.8}
+  #brandWrap{transition:transform .12s ease-out;will-change:transform}
+  /* prepínač zoradenia */
+  .sort-toggle{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:2px 2px 14px}
+  .sort-lbl{font-size:11px;text-transform:uppercase;letter-spacing:.8px;color:var(--muted);font-weight:700}
+  .sort-seg{flex:0 0 auto;margin:0}
+  .sort-seg button{padding:7px 13px;font-size:12px}
+  /* Info dlaždica na celú šírku (spodok) */
+  .info-wide{display:flex;align-items:center;gap:14px;width:100%;margin-top:18px;cursor:pointer;
+    background:linear-gradient(135deg,rgba(86,182,255,.12),rgba(126,224,192,.05));
+    border:1px solid var(--line);border-radius:16px;padding:14px 16px;box-shadow:var(--shadow);
+    transition:transform .08s,border-color .15s}
+  .info-wide:active{transform:scale(.99)}
+  .info-wide .iw-logo{flex:0 0 auto;width:46px;height:46px;border-radius:13px;background:var(--card2);
+    border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-weight:800;
+    font-size:16px;color:var(--accent2);letter-spacing:.5px}
+  .info-wide .iw-text{flex:1;min-width:0}
+  .info-wide .iw-text h3{margin:0;font-size:15px;font-weight:700}
+  .info-wide .iw-text p{margin:2px 0 0;font-size:12px;color:var(--muted)}
+  .info-wide .iw-arrow{flex:0 0 auto;color:var(--muted);font-size:24px;line-height:1}
+  .boot-note{background:rgba(255,207,92,.10);border:1px solid rgba(255,207,92,.30);border-radius:14px;padding:14px 16px;color:#ffe6a8;font-size:13px}
+  .boot-note strong{display:block;margin-bottom:5px;color:var(--txt);font-size:14px}
+  .boot-note p{margin:0;line-height:1.5;color:var(--muted)}
+  .appbar .back{appearance:none;background:var(--card2);border:1px solid var(--line);color:var(--accent);
+    border-radius:10px;padding:8px 12px;font-size:14px;font-weight:600;cursor:pointer;display:none;align-items:center;gap:6px}
+  .appbar .back.show{display:inline-flex}
+  .appbar .back.show + .logo-mark{display:none}
+  .appbar .spacer{flex:1}
+
+  /* Hub */
+  .hub-intro{color:var(--muted);font-size:13px;margin:14px 2px 14px}
+  .cat-title{font-size:12px;text-transform:uppercase;letter-spacing:.9px;color:var(--muted);
+    margin:18px 4px 10px;font-weight:700;display:flex;align-items:center;gap:8px}
+  .cat-count{font-size:10px;font-weight:700;color:var(--accent);background:var(--card2);
+    border:1px solid var(--line);border-radius:20px;padding:1px 8px;letter-spacing:0}
+  .tile .ico.txt{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:17px;font-weight:800}
+  .tiles{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .tile{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:15px;
+    cursor:pointer;box-shadow:var(--shadow);transition:transform .08s,border-color .15s;
+    display:flex;flex-direction:column;min-height:128px;position:relative;overflow:hidden}
+  .tile:active{transform:scale(.98)}
+  .tile.soon{opacity:.55}
+  .tile .ico{width:42px;height:42px;border-radius:12px;background:var(--card2);border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;font-size:24px;font-family:Georgia,serif;color:var(--accent);margin-bottom:12px}
+  .tile h3{margin:0 0 4px;font-size:15.5px;font-weight:700}
+  .tile p{margin:0;font-size:12px;color:var(--muted);line-height:1.4}
+  .tile .badge{position:absolute;top:12px;right:12px;font-size:9.5px;text-transform:uppercase;
+    letter-spacing:.5px;color:var(--muted);background:var(--card2);border:1px solid var(--line);padding:2px 7px;border-radius:20px}
+
+  /* Plugin host */
+  #host{display:none}
+
+  /* Shared plugin UI */
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;
+    padding:14px;margin-bottom:14px;box-shadow:var(--shadow)}
+  .card h2{font-size:13px;text-transform:uppercase;letter-spacing:.8px;color:var(--muted);
+    margin:0 0 12px;font-weight:600}
+  .plugin-head{padding:6px 2px 4px}
+  .plugin-head h1{font-size:20px;margin:0 0 2px}
+  .plugin-head p{margin:0;font-size:12.5px;color:var(--muted)}
+  label{display:block;font-size:13px;color:var(--muted);margin:0 0 5px}
+  .row{display:flex;gap:10px}
+  .row > .field{flex:1}
+  .field{margin-bottom:12px}
+  input[type=number],input[type=text],input[type=datetime-local],select{
+    width:100%;background:var(--card2);border:1px solid var(--line);color:var(--txt);
+    border-radius:11px;padding:12px;font-size:17px;font-variant-numeric:tabular-nums;
+    -webkit-appearance:none;appearance:none}
+  input:focus,select:focus{outline:none;border-color:var(--accent)}
+  select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%239fb0cf' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+    background-repeat:no-repeat;background-position:right 14px center;padding-right:34px}
+  .hint{font-size:11.5px;color:var(--muted);margin-top:5px}
+  .cf-display{display:flex;align-items:center;justify-content:space-between;
+    background:var(--card2);border:1px solid var(--line);border-radius:11px;padding:10px 12px;margin-top:4px}
+  .cf-display b{font-size:20px;color:var(--accent2);font-variant-numeric:tabular-nums}
+  .btn{display:block;width:100%;background:var(--accent);color:#04101f;border:none;
+    border-radius:13px;padding:15px;font-size:17px;font-weight:700;letter-spacing:.3px;cursor:pointer}
+  .btn:active{transform:scale(.99)}
+  .btn.ghost{background:transparent;color:var(--accent);border:1px solid var(--line);font-weight:600;font-size:15px;padding:12px}
+  .btn.small{padding:9px;font-size:13px;border-radius:10px}
+  .result{text-align:center;padding:8px 4px 2px}
+  .result .big{font-size:46px;font-weight:800;color:var(--accent);line-height:1;font-variant-numeric:tabular-nums}
+  .result .big small{font-size:18px;color:var(--muted);font-weight:600}
+  .result .window{font-size:15px;color:var(--txt);margin-top:10px}
+  .result .ci{font-size:13px;color:var(--muted);margin-top:4px}
+  .result .clock{margin-top:14px;padding:12px;background:var(--card2);border-radius:12px;border:1px solid var(--line)}
+  .result .clock .vbig{font-size:18px;font-weight:700;color:var(--accent2);font-variant-numeric:tabular-nums}
+  .result .clock .lbl{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.6px}
+  .meter{height:8px;border-radius:6px;background:linear-gradient(90deg,#2a7,#7ee0a0 35%,#ffcf5c 70%,#ff7a7a);
+    margin:14px 0 6px;position:relative;opacity:.85}
+  .meter .pin{position:absolute;top:-4px;width:3px;height:16px;background:#fff;border-radius:2px;box-shadow:0 0 0 2px rgba(0,0,0,.4)}
+  .meter-lbl{display:flex;justify-content:space-between;font-size:10.5px;color:var(--muted)}
+  .alert{border-radius:11px;padding:10px 12px;margin-top:10px;font-size:13px;display:flex;gap:8px;align-items:flex-start}
+  .alert.warn{background:rgba(255,207,92,.12);border:1px solid rgba(255,207,92,.35);color:#ffe6a8}
+  .alert.bad{background:rgba(255,122,122,.12);border:1px solid rgba(255,122,122,.35);color:#ffc2c2}
+  .alert.ok{background:rgba(126,224,160,.1);border:1px solid rgba(126,224,160,.3);color:#bdf3d2}
+  .alert .ic{font-weight:800;flex:0 0 auto}
+  .seg{display:flex;background:var(--card2);border:1px solid var(--line);border-radius:11px;padding:3px;margin-bottom:10px}
+  .seg button{flex:1;background:none;border:none;color:var(--muted);padding:9px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer}
+  .seg button.active{background:var(--accent);color:#04101f}
+  details{margin-top:10px;border-top:1px solid var(--line);padding-top:10px}
+  details summary{font-size:13px;color:var(--accent);cursor:pointer;list-style:none}
+  details summary::-webkit-details-marker{display:none}
+  details summary:before{content:"▸ ";}
+  details[open] summary:before{content:"▾ ";}
+  table.ref{width:100%;border-collapse:collapse;font-size:12px;margin-top:8px}
+  table.ref th,table.ref td{border:1px solid var(--line);padding:6px 7px;text-align:left}
+  table.ref th{color:var(--muted);font-weight:600;background:var(--card2)}
+  .muted{color:var(--muted)}
+  .foot{font-size:11px;color:var(--muted);text-align:center;margin-top:8px;line-height:1.5}
+  .export-box{width:100%;min-height:120px;background:var(--card2);border:1px solid var(--line);
+    color:var(--txt);border-radius:11px;padding:11px;font-size:12.5px;font-family:ui-monospace,monospace;line-height:1.5;resize:vertical}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .pill{display:inline-block;font-size:11px;padding:2px 8px;border-radius:20px;background:var(--card2);border:1px solid var(--line);color:var(--muted);margin-left:6px}
+  .chip{display:inline-block;font-size:13px;padding:5px 11px;border-radius:20px;font-weight:700}
+  .chip.flt{font-weight:600;font-size:12px;background:var(--card2);border:1px solid var(--line);color:var(--muted);cursor:pointer}
+  .chip.flt.on{background:var(--accent);border-color:var(--accent);color:#04101f}
+  /* entomológia */
+  .ento-card{display:flex;gap:12px;align-items:center;background:var(--card2);border:1px solid var(--line);border-radius:14px;padding:10px;margin-bottom:10px}
+  .ento-img{flex:0 0 92px;width:92px;height:92px;border-radius:12px;background:radial-gradient(circle at 38% 32%,#22304e,#0c1424);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;cursor:zoom-in;overflow:hidden;position:relative}
+  .ento-img:after{content:"⤢";position:absolute;right:5px;bottom:3px;font-size:11px;color:var(--muted);opacity:.8}
+  .ento-img svg{width:84px;height:84px;display:block}
+  .ento-meta{flex:1}
+  .ento-meta h3{margin:0 0 2px;font-size:14.5px}
+  .ento-meta .t{font-size:12px;color:var(--accent2);font-weight:700}
+  .ento-meta p{margin:3px 0 0;font-size:11.5px;color:var(--muted);line-height:1.35}
+  .lightbox{position:fixed;inset:0;z-index:1000;background:rgba(4,8,16,.93);display:flex;flex-direction:column;-webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px)}
+  .lb-bar{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;color:var(--txt);font-weight:700;font-size:14px}
+  .lb-btn{background:var(--card2);border:1px solid var(--line);color:var(--txt);width:40px;height:40px;border-radius:11px;font-size:19px;margin-left:8px;cursor:pointer}
+  .lb-stage{flex:1;display:flex;align-items:center;justify-content:center;overflow:auto;padding:12px}
+  .lb-inner{transition:transform .15s ease;transform-origin:center}
+  .lb-inner svg{width:min(82vw,440px);height:auto;display:block}
+  .lb-cap{padding:10px 16px calc(env(safe-area-inset-bottom) + 14px);color:var(--muted);font-size:12px;text-align:center}
+</style>
+</head>
+<body>
+
+<div class="appbar hero">
+  <button class="back" id="backBtn">‹ Späť</button>
+  <div class="brand3d" id="brand3d"><div class="logo3d" id="logo3d"><svg class="logo-mark" id="logoMark" viewBox="0 0 40 40" width="34" height="34" aria-hidden="true">
+    <defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#56b6ff"/><stop offset="1" stop-color="#7ee0c0"/></linearGradient></defs>
+    <rect x="1.5" y="1.5" width="37" height="37" rx="11" fill="#141d2e" stroke="#28344f"/>
+    <g fill="none" stroke="url(#lg)" stroke-width="1.7" stroke-linecap="round">
+      <path d="M20 8a12 12 0 0 1 12 12"/><path d="M20 13a7 7 0 0 1 7 7"/>
+      <path d="M20 18a2 2 0 0 1 2 2"/><path d="M8 20a12 12 0 0 1 7-11"/>
+      <path d="M13 20a7 7 0 0 1 4-6.3"/></g>
+  </svg><span class="sheen" id="logoSheen"></span></div>
+  <div id="brandWrap">
+    <div class="brand">Šikuta <span class="accent">4n6</span></div>
+    <div class="sub">Forensic Hand Toolkit</div>
+  </div></div>
+  <div class="spacer"></div>
+</div>
+
+<div class="wrap">
+  <!-- HUB -->
+  <div id="hub">
+    <div class="hub-intro">Vreckové forenzné nástroje pre súdne lekárstvo. Vyber nástroj klikom na dlaždicu.</div>
+    <div id="catalog"><div class="boot-note">
+      <strong>Načítavam aplikáciu…</strong>
+      <p>Ak táto správa zostáva a nevidíš dlaždice, súbor sa otvoril len v <b>náhľade</b> (napr. v aplikácii Súbory na iPhone), ktorý nespúšťa aplikáciu (JavaScript). Otvor ho v prehliadači <b>Safari / Chrome</b>, alebo ho pridaj na plochu — postup nájdeš v sekcii „O aplikácii". Na Macu stačí dvojklik (otvorí sa v Safari).</p>
+    </div></div>
+    <div class="foot" style="margin-top:24px">
+      Orientačné pomôcky pre kvalifikovaného lekára. Výsledky nenahrádzajú odborné posúdenie pitevného lekára.
+    </div>
+  </div>
+
+  <!-- PLUGIN HOST -->
+  <div id="host"></div>
+</div>
+
+<script>
+/* =====================================================================
+   4n6 TOOLKIT — jadro aplikácie (hub + plugin systém)
+   Pridanie pluginu: zavolaj Toolkit.register({...}) nižšie.
+   ===================================================================== */
+/* Android: za behu vlož web-app manifest (len pri hostovaní cez http/https) */
+try{ if((location.protocol||'').indexOf('http')===0){
+  var _ICON="data:image/png;base64,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";
+  var _mf={name:"Šikuta 4n6 — Forensic Hand Toolkit",short_name:"Šikuta 4n6",start_url:".",display:"standalone",orientation:"portrait",background_color:"#0b1220",theme_color:"#0b1220",icons:[{src:_ICON,sizes:"any",type:"image/svg+xml",purpose:"any"}]};
+  var _blob=new Blob([JSON.stringify(_mf)],{type:"application/manifest+json"});
+  var _l=document.createElement('link'); _l.rel='manifest'; _l.setAttribute('href',URL.createObjectURL(_blob)); document.head.appendChild(_l);
+  if('serviceWorker' in navigator){ navigator.serviceWorker.register('sw.js').catch(function(){}); }
+} }catch(e){}
+
+var Toolkit = (function(){
+  var plugins = [];
+  var hub = document.getElementById('hub');
+  var host = document.getElementById('host');
+  var backBtn = document.getElementById('backBtn');
+
+  function register(p){ plugins.push(p); }
+
+  /* poradie kategórií na domovskej obrazovke (ergonómia – najpoužívanejšie hore) */
+  var CATEGORY_ORDER = ['Tanatológia','Entomológia','Biochémia','Kardiopatológia','Identifikácia','Antropológia','Antropometria','Toxikológia','Nástroje','Info'];
+  function getPref(k,d){ try{ var v=localStorage.getItem(k); return v==null?d:v; }catch(e){ return d; } }
+  function setPref(k,v){ try{ localStorage.setItem(k,v); }catch(e){} }
+  function byName(a,b){ return a.name.localeCompare(b.name,'sk'); }
+  function tileHTML(p){
+    var soon = p.soon ? ' soon' : '';
+    return '<div class="tile'+soon+'" data-id="'+p.id+'">'+
+      (p.soon?'<span class="badge">čoskoro</span>':'')+
+      '<div class="ico'+(((p.icon||'').length>1)?' txt':'')+'">'+(p.icon||'•')+'</div>'+
+      '<h3>'+p.name+'</h3><p>'+(p.short||'')+'</p></div>';
+  }
+  function renderHub(){
+    var mode = getPref('tk_sort','abc');
+    var others = plugins.filter(function(p){ return p.id!=='info'; }); // Info ide samostatne na spodok
+    var info = plugins.filter(function(p){ return p.id==='info'; })[0];
+    var html = '<div class="sort-toggle"><span class="sort-lbl">Zoradenie</span>'+
+      '<div class="seg sort-seg"><button data-s="abc" class="'+(mode==='abc'?'active':'')+'">Abecedne</button>'+
+      '<button data-s="cat" class="'+(mode==='cat'?'active':'')+'">Podľa kategórií</button></div></div>';
+    if(mode==='abc'){
+      html += '<div class="tiles">'+others.slice().sort(byName).map(tileHTML).join('')+'</div>';
+    } else {
+      var cats = {};
+      others.forEach(function(p){ var c=p.category||'Nástroje'; (cats[c]=cats[c]||[]).push(p); });
+      var ordered = Object.keys(cats).sort(function(a,b){
+        var ia=CATEGORY_ORDER.indexOf(a), ib=CATEGORY_ORDER.indexOf(b);
+        if(ia<0) ia=99; if(ib<0) ib=99; return ia-ib || a.localeCompare(b,'sk');
+      });
+      ordered.forEach(function(cat){
+        html += '<div class="cat-title">'+cat+' <span class="cat-count">'+cats[cat].length+'</span></div>'+
+          '<div class="tiles">'+cats[cat].slice().sort(byName).map(tileHTML).join('')+'</div>';
+      });
+    }
+    if(info){ html += '<div class="info-wide" data-id="info">'+
+      '<div class="iw-logo">JŠ</div>'+
+      '<div class="iw-text"><h3>'+info.name+'</h3><p>Autor · účel · súkromie · podmienky zdieľania</p></div>'+
+      '<div class="iw-arrow">›</div></div>'; }
+    var cat = document.getElementById('catalog');
+    cat.innerHTML = html;
+    cat.querySelectorAll('.sort-seg button').forEach(function(b){ b.addEventListener('click',function(){ setPref('tk_sort',b.dataset.s); renderHub(); }); });
+    cat.querySelectorAll('.tile, .info-wide').forEach(function(t){
+      t.addEventListener('click',function(){
+        var p = plugins.filter(function(x){return x.id===t.dataset.id;})[0];
+        if(p && !p.soon) location.hash = p.id;
+      });
+    });
+  }
+
+  function openPlugin(p){
+    hub.style.display='none';
+    host.style.display='block';
+    backBtn.classList.add('show');
+    document.querySelector('.appbar').classList.remove('hero');
+    document.querySelector('#brandWrap .brand').innerHTML = p.name;
+    document.querySelector('#brandWrap .sub').textContent = p.category||'';
+    host.innerHTML = '<div class="plugin-head"><h1>'+p.name+'</h1><p>'+(p.long||p.short||'')+'</p></div>';
+    var mountPoint = document.createElement('div');
+    host.appendChild(mountPoint);
+    try{ p.mount(mountPoint); }catch(e){ mountPoint.innerHTML='<div class="alert bad"><span class="ic">✕</span><span>Chyba pluginu: '+e.message+'</span></div>'; }
+    window.scrollTo(0,0);
+  }
+
+  function showHub(){
+    host.style.display='none'; host.innerHTML='';
+    hub.style.display='block';
+    backBtn.classList.remove('show');
+    document.querySelector('.appbar').classList.add('hero');
+    document.querySelector('#brandWrap .brand').innerHTML = 'Šikuta <span class="accent">4n6</span>';
+    document.querySelector('#brandWrap .sub').textContent = 'Forensic Hand Toolkit';
+    window.scrollTo(0,0);
+  }
+
+  function route(){
+    var id = location.hash.replace('#','');
+    var p = plugins.filter(function(x){return x.id===id;})[0];
+    if(p && !p.soon) openPlugin(p); else { if(id) location.hash=''; else showHub(); }
+  }
+
+  backBtn.addEventListener('click',function(){ location.hash=''; });
+  window.addEventListener('hashchange',route);
+
+  function start(){ renderHub(); route(); }
+  return { register:register, start:start };
+})();
+
+/* ---- zdieľané pomocné funkcie ---- */
+function $id(id){ return document.getElementById(id); }
+function fmtNum(x,d){ return Number(x).toFixed(d===undefined?1:d).replace('.',','); }
+function pad(n){ return (n<10?'0':'')+n; }
+function fmtClock(dt){ return pad(dt.getDate())+'.'+pad(dt.getMonth()+1)+'.'+dt.getFullYear()+' '+pad(dt.getHours())+':'+pad(dt.getMinutes()); }
+function copyToClipboard(text, btn, okLabel, normLabel){
+  var done=function(){ btn.textContent=okLabel; setTimeout(function(){btn.textContent=normLabel;},1500); };
+  if(navigator.clipboard){ navigator.clipboard.writeText(text).then(done,function(){fallback();}); }
+  else fallback();
+  function fallback(){ var ta=document.createElement('textarea'); ta.value=text; document.body.appendChild(ta);
+    ta.select(); try{document.execCommand('copy');}catch(e){} document.body.removeChild(ta); done(); }
+}
+</script>
+
+<script>
+/* =====================================================================
+   PLUGIN 1 — HENSSGE PMI (odhad času smrti z rektálnej teploty)
+   ===================================================================== */
+Toolkit.register({
+  id:'henssge',
+  name:'Henssge — čas smrti',
+  icon:'τ',
+  category:'Tanatológia',
+  short:'Odhad PMI z rektálnej teploty.',
+  long:'Post-mortem interval (PMI) podľa Henssgeho nomogramu / Marshall–Hoare.',
+  mount:function(root){
+    root.innerHTML = ''+
+    '<div class="card"><h2>Vstupné údaje</h2>'+
+      '<div class="row"><div class="field"><label>Rektálna teplota (°C)</label>'+
+        '<input id="h_tr" type="number" inputmode="decimal" step="0.1" placeholder="napr. 30,5"></div>'+
+        '<div class="field"><label>Teplota okolia (°C)</label>'+
+        '<input id="h_ta" type="number" inputmode="decimal" step="0.1" placeholder="napr. 18,0"></div></div>'+
+      '<div class="row"><div class="field"><label>Telesná hmotnosť (kg)</label>'+
+        '<input id="h_m" type="number" inputmode="decimal" step="0.5" placeholder="napr. 75"></div>'+
+        '<div class="field"><label>Počiat. teplota jadra (°C)</label>'+
+        '<input id="h_t0" type="number" inputmode="decimal" step="0.1" value="37.2">'+
+        '<div class="hint">Štandard 37,2 °C; uprav pri horúčke/hypotermii.</div></div></div>'+
+      '<div class="field"><label>Čas merania teploty</label>'+
+        '<input id="h_tmeas" type="datetime-local">'+
+        '<div class="hint">PMI sa odráta od tohto času → odhad času smrti.</div></div></div>'+
+    '<div class="card"><h2>Korekčný faktor (f)</h2>'+
+      '<div class="seg" id="h_cfMode"><button data-mode="assist" class="active">Asistent</button>'+
+        '<button data-mode="manual">Ručne</button></div>'+
+      '<div id="h_assist">'+
+        '<div class="field"><label>Prostredie</label><select id="h_env">'+
+          '<option value="air-dry">Vzduch — suché telo / suchý odev</option>'+
+          '<option value="air-wet">Vzduch — mokré telo / mokrý odev</option>'+
+          '<option value="water">Vo vode (ponorené telo)</option></select></div>'+
+        '<div class="field" id="h_coverWrap"><label>Odev / prikrytie</label><select id="h_cover"></select></div>'+
+        '<div class="field" id="h_airWrap"><label>Prúdenie vzduchu</label><select id="h_air">'+
+          '<option value="still">Bezvetrie / stojatý vzduch</option>'+
+          '<option value="moving">Pohybujúci sa vzduch (prievan, vietor)</option></select></div>'+
+        '<div class="hint">Orientačné podľa Henssge &amp; Madea; pri silnej izolácii závisí aj od hmotnosti.</div></div>'+
+      '<div id="h_manual" style="display:none"><div class="field">'+
+        '<label>Korekčný faktor f (0,35 – 2,8)</label>'+
+        '<input id="h_cfManual" type="number" inputmode="decimal" step="0.05" value="1.0"></div></div>'+
+      '<div class="cf-display"><span class="muted">Použitý faktor f</span><b id="h_cfValue">1.00</b></div>'+
+      '<div class="hint" id="h_cfDesc"></div></div>'+
+    '<button class="btn" id="h_calc">Vypočítať PMI</button>'+
+    '<div class="card" id="h_resultCard" style="display:none;margin-top:14px"><h2>Výsledok <span class="pill" id="h_eqPill"></span></h2>'+
+      '<div id="h_alerts"></div>'+
+      '<div class="result"><div class="big" id="h_pmi">– <small>h</small></div>'+
+        '<div class="meter"><div class="pin" id="h_pin" style="left:0%"></div></div>'+
+        '<div class="meter-lbl"><span>čerstvá smrť</span><span>Q</span><span>okolitá tepl.</span></div>'+
+        '<div class="window" id="h_window"></div><div class="ci" id="h_ci"></div>'+
+        '<div class="clock" id="h_clockBox"><div class="lbl">Odhadovaný čas smrti (95 %)</div>'+
+        '<div class="vbig" id="h_clock"></div></div></div>'+
+      '<details><summary>Detail výpočtu</summary><div id="h_detail" class="hint" style="margin-top:8px"></div></details></div>'+
+    '<div class="card" id="h_exportCard" style="display:none"><h2>Prípad / export do zápisnice</h2>'+
+      '<div class="grid2"><div class="field"><label>Číslo protokolu</label><input id="h_prot" type="text" placeholder="napr. 680"></div>'+
+        '<div class="field"><label>Meno zomrelého</label><input id="h_meno" type="text" placeholder="meno priezvisko"></div></div>'+
+      '<textarea id="h_exportText" class="export-box" readonly></textarea>'+
+      '<div class="row" style="margin-top:10px"><button class="btn ghost small" id="h_copy" style="flex:1">Kopírovať text</button>'+
+        '<button class="btn ghost small" id="h_reset" style="flex:1">Nový prípad</button></div></div>'+
+    '<div class="card"><h2>Metóda a referencie</h2>'+
+      '<details><summary>Rovnice (Henssge / Marshall–Hoare)</summary><div class="hint" style="margin-top:8px">'+
+        'Q = (T<sub>rekt</sub> − T<sub>okol</sub>) / (T<sub>0</sub> − T<sub>okol</sub>)<br><br>'+
+        'Okolie ≤ 23,2 °C: Q = 1,25·e<sup>Bt</sup> − 0,25·e<sup>5Bt</sup>, B = −1,2815·(f·M)<sup>−0,625</sup> + 0,0284<br><br>'+
+        'Okolie ≥ 23,3 °C: Q = 1,11·e<sup>Bt</sup> − 0,11·e<sup>10Bt</sup>, B = −1,2815·(f·M)<sup>−0,5</sup> + 0,0764<br><br>'+
+        't sa rieši numericky (bisekcia).</div></details>'+
+      '<details><summary>Korekčné faktory</summary><table class="ref">'+
+        '<tr><th>Podmienky</th><th>f</th></tr>'+
+        '<tr><td>Vo vode, prúdiaca, nahé</td><td>0,35</td></tr>'+
+        '<tr><td>Vo vode, stojatá, nahé</td><td>0,5</td></tr>'+
+        '<tr><td>Vzduch, nahé, mokré, prúdiaci vzduch</td><td>0,5</td></tr>'+
+        '<tr><td>Vzduch, nahé, mokré, bezvetrie</td><td>0,7</td></tr>'+
+        '<tr><td>Vzduch, nahé, suché, prúdiaci vzduch</td><td>0,75</td></tr>'+
+        '<tr><td>Nahé/1 tenká vrstva, bezvetrie</td><td>1,0</td></tr>'+
+        '<tr><td>1–2 tenké vrstvy</td><td>1,1</td></tr>'+
+        '<tr><td>2–3 tenké vrstvy / odev + prikrývka</td><td>1,2</td></tr>'+
+        '<tr><td>3–4 vrstvy / hrubší odev</td><td>1,3–1,4</td></tr>'+
+        '<tr><td>Hrubý odev + hrubá prikrývka</td><td>1,8–2,4</td></tr></table></details>'+
+      '<details><summary>95 % intervaly spoľahlivosti</summary><table class="ref">'+
+        '<tr><th>Podmienky</th><th>± h</th></tr>'+
+        '<tr><td>f = 1,0 (ideálne ochladzovanie)</td><td>2,8</td></tr>'+
+        '<tr><td>Stredná korekcia (f 0,7–1,4)</td><td>3,2</td></tr>'+
+        '<tr><td>Silná korekcia (f &lt; 0,7 / &gt; 1,4)</td><td>4,5</td></tr>'+
+        '<tr><td>Neskorá fáza — Q &lt; 0,2</td><td>7,0</td></tr></table>'+
+        '<div class="hint">Najmenší 95 % CI je ±2,8 h (Henssge). Finálne posúdenie patrí pitevnému lekárovi.</div></details>'+
+      '<div class="foot">Platí pre včasné posmrtné obdobie pri približne konštantnom okolí; nezohľadňuje sálavé teplo, silný vietor, kolísanie teploty ani malé deti bez úpravy.<br>Henssge &amp; Madea, Forensic Sci Int 2004; Henssge 1992; Schweitzer &amp; Schwenke, BMC 2019.</div></div>';
+
+    /* ---- logika ---- */
+    var COVER_DRY=[{v:1.0,t:"Nahé telo / 1 tenká vrstva"},{v:1.1,t:"1–2 tenké vrstvy odevu"},
+      {v:1.2,t:"2–3 tenké vrstvy / odev + tenká prikrývka"},{v:1.3,t:"3–4 vrstvy / hrubší odev"},
+      {v:1.4,t:"Hrubý odev alebo prikrývka"},{v:1.8,t:"Hrubý odev + prikrývka"},{v:2.4,t:"Silná izolácia (perina + odev)"}];
+    var COVER_WET=[{v:0.7,t:"Nahé/oblečené mokré, bezvetrie"},{v:0.9,t:"1–2 mokré vrstvy, bezvetrie"}];
+    var WATER=[{v:0.5,t:"Stojatá voda"},{v:0.35,t:"Prúdiaca voda"}];
+
+    function fillCover(){
+      var env=$id('h_env').value, sel=$id('h_cover'); sel.innerHTML='';
+      var list = env==='water'?WATER:(env==='air-wet'?COVER_WET:COVER_DRY);
+      list.forEach(function(o){ var op=document.createElement('option');
+        op.value=o.v; op.textContent=o.t+'  (f '+String(o.v).replace('.',',')+')'; sel.appendChild(op); });
+      $id('h_airWrap').style.display = env==='water'?'none':'block';
+      updateCF();
+    }
+    function assistCF(){
+      var env=$id('h_env').value, base=parseFloat($id('h_cover').value);
+      if(env==='water') return {f:base,d:(base===0.35?'Prúdiaca voda, nahé telo':'Stojatá voda, nahé telo')};
+      var air=$id('h_air').value, f=base, d='';
+      if(env==='air-wet'){ if(air==='moving') f=(base<=0.7)?0.5:0.7; d='Mokré telo/odev, '+(air==='moving'?'prúdiaci vzduch':'bezvetrie'); }
+      else { if(air==='moving') f=(base<=1.0)?0.75:Math.max(0.75,base-0.15);
+        d=(base<=1.0?'Nahé/tenké, ':'Oblečené/prikryté, ')+(air==='moving'?'prúdiaci vzduch':'suché, bezvetrie'); }
+      return {f:Math.round(f*100)/100,d:d};
+    }
+    function currentCF(){
+      if(root.querySelector('#h_cfMode button.active').dataset.mode==='manual'){
+        var f=parseFloat($id('h_cfManual').value); return {f:isFinite(f)?f:1.0,d:'Ručne zadaný faktor'}; }
+      return assistCF();
+    }
+    function updateCF(){ var c=currentCF(); $id('h_cfValue').textContent=isFinite(c.f)?c.f.toFixed(2):'–'; $id('h_cfDesc').textContent=c.d||''; }
+
+    function Bval(f,M,low){ var fM=f*M; return low?-1.2815*Math.pow(fM,-0.625)+0.0284:-1.2815*Math.pow(fM,-0.5)+0.0764; }
+    function Qmod(B,t,low){ return low?1.25*Math.exp(B*t)-0.25*Math.exp(5*B*t):1.11*Math.exp(B*t)-0.11*Math.exp(10*B*t); }
+    function solveT(Q,B,low){ var lo=0,hi=100,mid,val; if(Qmod(B,hi,low)>Q) return null;
+      for(var i=0;i<200;i++){ mid=(lo+hi)/2; val=Qmod(B,mid,low); if(val>Q) lo=mid; else hi=mid; } return (lo+hi)/2; }
+    function ciHours(f,Q){ if(Q<0.2) return 7.0; if(f===1.0) return 2.8; if(f>=0.7&&f<=1.4) return 3.2; return 4.5; }
+
+    function checks(tr,ta,m,t0,f,Q){
+      var a=[];
+      if(tr<=ta) a.push(['bad','Rektálna teplota nie je vyššia ako okolitá — metóda neaplikovateľná (telo vychladnuté na okolie alebo chyba merania).']);
+      if(Q>1) a.push(['bad','Q > 1: nameraná teplota je vyššia, než zodpovedá počiatočnej teplote jadra. Skontroluj T₀ (horúčka?) alebo merania.']);
+      if(t0>37.5) a.push(['warn','Zvýšená počiat. teplota ('+fmtNum(t0)+' °C) — horúčka pred smrťou; výsledok je na ňu citlivý.']);
+      if(t0<36.5) a.push(['warn','Znížená počiat. teplota ('+fmtNum(t0)+' °C) — hypotermia pred smrťou; PMI sa môže nadhodnotiť.']);
+      if(ta>=23.3) a.push(['warn','Teplé prostredie (≥ 23,3 °C) — použitá horúca rovnica; v teple je odhad menej presný.']);
+      if(Q<0.2&&Q>=0) a.push(['warn','Neskorá fáza ochladzovania (Q < 0,2): teplota blízko okolia, presnosť výrazne klesá (±7 h).']);
+      if(Q>0.9&&Q<=1) a.push(['warn','Tepelné plató (Q ≈ 1): prvé hodiny po smrti, odhad času je menej presný.']);
+      if(m<5) a.push(['warn','Veľmi nízka hmotnosť — metóda nie je validovaná pre malé deti/dojčatá bez úpravy.']);
+      if(f<0.35||f>2.8) a.push(['warn','Korekčný faktor mimo bežného rozsahu (0,35–2,8) — over voľbu podmienok.']);
+      a.push(['ok','Predpoklady: približne konštantná teplota okolia, bez priameho slnka/sálavého tepla a bez silného vetra od smrti po meranie.']);
+      return a;
+    }
+
+    function buildExport(tr,ta,m,t0,f,Q,t,ci){
+      var prot=$id('h_prot').value.trim(), meno=$id('h_meno').value.trim();
+      var meas=$id('h_tmeas').value?new Date($id('h_tmeas').value):new Date();
+      var L=['ODHAD ČASU SMRTI — Henssgeho metóda'];
+      if(prot) L.push('Protokol č.: '+prot);
+      if(meno) L.push('Zomrelý: '+meno);
+      L.push('Čas merania: '+fmtClock(meas),'',
+        'Rektálna teplota: '+fmtNum(tr)+' °C','Teplota okolia: '+fmtNum(ta)+' °C',
+        'Telesná hmotnosť: '+fmtNum(m,1)+' kg','Počiatočná teplota jadra: '+fmtNum(t0)+' °C',
+        'Korekčný faktor f: '+fmtNum(f,2),'Q (rel. ochladenie): '+fmtNum(Q,3),'');
+      if(t!==null){
+        var dE=new Date(meas.getTime()-(t+ci)*3600000), dL=new Date(meas.getTime()-Math.max(0,(t-ci))*3600000);
+        L.push('PMI (čas od smrti): '+fmtNum(t,1)+' h',
+          '95 % interval: '+fmtNum(Math.max(0,t-ci),1)+' – '+fmtNum(t+ci,1)+' h po smrti (±'+fmtNum(ci,1)+' h)',
+          'Odhadovaný čas smrti: '+fmtClock(dE)+' až '+fmtClock(dL));
+      } else L.push('PMI: nevypočítateľné pre zadané hodnoty.');
+      L.push('','Pozn.: orientačný odhad, finálne posúdenie patrí pitevnému lekárovi.');
+      $id('h_exportText').value=L.join('\n');
+    }
+
+    function calculate(){
+      var tr=parseFloat($id('h_tr').value), ta=parseFloat($id('h_ta').value),
+          m=parseFloat($id('h_m').value), t0=parseFloat($id('h_t0').value);
+      var c=currentCF(), f=c.f;
+      if(!isFinite(tr)||!isFinite(ta)||!isFinite(m)||!isFinite(t0)){
+        alert('Vyplň rektálnu teplotu, teplotu okolia, hmotnosť a počiatočnú teplotu.'); return; }
+      var low=ta<=23.2, Q=(tr-ta)/(t0-ta), B=Bval(f,m,low);
+      var t=(Q>0&&Q<=1)?solveT(Q,B,low):null;
+      $id('h_resultCard').style.display='block'; $id('h_exportCard').style.display='block';
+      $id('h_eqPill').textContent=low?'≤23,2°C':'≥23,3°C';
+      var al=$id('h_alerts'); al.innerHTML='';
+      checks(tr,ta,m,t0,f,Q).forEach(function(x){ var d=document.createElement('div'); d.className='alert '+x[0];
+        d.innerHTML='<span class="ic">'+(x[0]==='bad'?'✕':x[0]==='warn'?'!':'✓')+'</span><span>'+x[1]+'</span>'; al.appendChild(d); });
+      if(t===null||!isFinite(t)){
+        $id('h_pmi').innerHTML='–'; $id('h_window').textContent='Výpočet nie je možný pre zadané hodnoty.';
+        $id('h_ci').textContent=''; $id('h_clockBox').style.display='none';
+        $id('h_detail').textContent='Q = '+fmtNum(Q,3)+'; rovnica nemá riešenie v rozsahu (telo pravdepodobne vychladnuté na okolie).';
+        buildExport(tr,ta,m,t0,f,Q,null,null); return;
+      }
+      var ci=ciHours(f,Q);
+      $id('h_clockBox').style.display='block';
+      $id('h_pmi').innerHTML=fmtNum(t,1)+' <small>h</small>';
+      $id('h_window').innerHTML='Interval: <b>'+fmtNum(Math.max(0,t-ci),1)+' – '+fmtNum(t+ci,1)+' h</b> po smrti';
+      $id('h_ci').textContent='95 % interval ± '+fmtNum(ci,1)+' h  ·  Q = '+fmtNum(Q,3)+'  ·  B = '+fmtNum(B,4);
+      $id('h_pin').style.left=Math.min(100,Math.max(0,(1-Q)*100))+'%';
+      var meas=$id('h_tmeas').value?new Date($id('h_tmeas').value):new Date();
+      var dMid=new Date(meas.getTime()-t*3600000), dE=new Date(meas.getTime()-(t+ci)*3600000), dL=new Date(meas.getTime()-Math.max(0,(t-ci))*3600000);
+      $id('h_clock').innerHTML=fmtClock(dE)+'  až  '+fmtClock(dL)+'<br><span class="lbl" style="color:var(--muted)">stred: '+fmtClock(dMid)+'</span>';
+      $id('h_detail').innerHTML='Q = ('+fmtNum(tr)+'−'+fmtNum(ta)+')/('+fmtNum(t0)+'−'+fmtNum(ta)+') = <b>'+fmtNum(Q,3)+'</b><br>'+
+        'f·M = '+fmtNum(f,2)+' × '+fmtNum(m,1)+' = '+fmtNum(f*m,1)+' kg<br>B = '+fmtNum(B,4)+' ('+(low?'≤23,2 °C':'≥23,3 °C')+')<br>'+
+        't (PMI) = <b>'+fmtNum(t,2)+' h</b> → 95 % CI ±'+fmtNum(ci,1)+' h';
+      buildExport(tr,ta,m,t0,f,Q,t,ci);
+    }
+
+    /* eventy */
+    root.querySelectorAll('#h_cfMode button').forEach(function(b){
+      b.addEventListener('click',function(){
+        root.querySelectorAll('#h_cfMode button').forEach(function(x){x.classList.remove('active');});
+        b.classList.add('active'); var man=b.dataset.mode==='manual';
+        $id('h_assist').style.display=man?'none':'block'; $id('h_manual').style.display=man?'block':'none'; updateCF();
+      });
+    });
+    $id('h_env').addEventListener('change',fillCover);
+    $id('h_cover').addEventListener('change',updateCF);
+    $id('h_air').addEventListener('change',updateCF);
+    $id('h_cfManual').addEventListener('input',updateCF);
+    $id('h_calc').addEventListener('click',calculate);
+    ['h_prot','h_meno'].forEach(function(id){ $id(id).addEventListener('input',function(){ if($id('h_exportText').value) calculate(); }); });
+    $id('h_copy').addEventListener('click',function(){ copyToClipboard($id('h_exportText').value,this,'Skopírované ✓','Kopírovať text'); });
+    $id('h_reset').addEventListener('click',function(){
+      ['h_tr','h_ta','h_m','h_prot','h_meno'].forEach(function(id){$id(id).value='';});
+      $id('h_t0').value='37.2'; $id('h_resultCard').style.display='none'; $id('h_exportCard').style.display='none'; setNow();
+    });
+    function setNow(){ var d=new Date(); d.setMinutes(d.getMinutes()-d.getTimezoneOffset()); $id('h_tmeas').value=d.toISOString().slice(0,16); }
+    setNow(); fillCover(); updateCF();
+  }
+});
+
+/* =====================================================================
+   PLUGIN 2 — BMI / stav výživy (pomôcka ku krížovej kontrole nálezu)
+   ===================================================================== */
+Toolkit.register({
+  id:'bmi',
+  name:'BMI / výživa',
+  icon:'⚖',
+  category:'Antropometria',
+  short:'BMI a slovný popis stavu výživy.',
+  long:'Body Mass Index a klasifikácia stavu výživy (WHO) pre krížovú kontrolu s pitevným nálezom.',
+  mount:function(root){
+    root.innerHTML=''+
+    '<div class="card"><h2>Vstupné údaje</h2>'+
+      '<div class="row"><div class="field"><label>Telesná hmotnosť (kg)</label>'+
+        '<input id="b_m" type="number" inputmode="decimal" step="0.5" placeholder="napr. 75"></div>'+
+        '<div class="field"><label>Telesná dĺžka (cm)</label>'+
+        '<input id="b_h" type="number" inputmode="decimal" step="0.5" placeholder="napr. 178"></div></div>'+
+      '<button class="btn" id="b_calc">Vypočítať</button></div>'+
+    '<div class="card" id="b_res" style="display:none"><h2>Výsledok</h2>'+
+      '<div class="result"><div class="big" id="b_bmi">–</div>'+
+        '<div style="margin-top:10px"><span class="chip" id="b_chip"></span></div>'+
+        '<div class="window" id="b_word" style="margin-top:12px"></div></div>'+
+      '<details><summary>Klasifikácia (WHO)</summary><table class="ref">'+
+        '<tr><th>BMI (kg/m²)</th><th>Kategória</th></tr>'+
+        '<tr><td>&lt; 16,0</td><td>Ťažká podvýživa (kachexia)</td></tr>'+
+        '<tr><td>16,0–16,9</td><td>Stredná podvýživa</td></tr>'+
+        '<tr><td>17,0–18,4</td><td>Mierna podvýživa</td></tr>'+
+        '<tr><td>18,5–24,9</td><td>Primeraná výživa</td></tr>'+
+        '<tr><td>25,0–29,9</td><td>Nadhmotnosť</td></tr>'+
+        '<tr><td>30,0–34,9</td><td>Obezita I. stupňa</td></tr>'+
+        '<tr><td>35,0–39,9</td><td>Obezita II. stupňa</td></tr>'+
+        '<tr><td>≥ 40,0</td><td>Obezita III. stupňa (morbídna)</td></tr></table></details>'+
+      '<div class="foot">BMI nezohľadňuje posmrtné zmeny, edémy ani svalovú hmotu — slúži ako orientačná kontrola voči makroskopickému popisu výživy.</div></div>';
+
+    function classify(bmi){
+      if(bmi<16) return {k:'Ťažká podvýživa (kachexia)',w:'kachektický habitus / ťažká podvýživa',c:'var(--bad)'};
+      if(bmi<17) return {k:'Stredná podvýživa',w:'znížený stav výživy (stredná podvýživa)',c:'var(--warn)'};
+      if(bmi<18.5) return {k:'Mierna podvýživa',w:'mierne znížený stav výživy',c:'var(--warn)'};
+      if(bmi<25) return {k:'Primeraná výživa',w:'primeraný stav výživy',c:'var(--good)'};
+      if(bmi<30) return {k:'Nadhmotnosť',w:'zvýšený stav výživy (nadhmotnosť)',c:'var(--warn)'};
+      if(bmi<35) return {k:'Obezita I. stupňa',w:'obézny habitus (obezita I. st.)',c:'var(--warn)'};
+      if(bmi<40) return {k:'Obezita II. stupňa',w:'obézny habitus (obezita II. st.)',c:'var(--bad)'};
+      return {k:'Obezita III. stupňa',w:'morbídne obézny habitus (obezita III. st.)',c:'var(--bad)'};
+    }
+    $id('b_calc').addEventListener('click',function(){
+      var m=parseFloat($id('b_m').value), h=parseFloat($id('b_h').value);
+      if(!isFinite(m)||!isFinite(h)||h<=0){ alert('Vyplň hmotnosť a dĺžku tela.'); return; }
+      var bmi=m/Math.pow(h/100,2), cl=classify(bmi);
+      $id('b_res').style.display='block';
+      $id('b_bmi').innerHTML=fmtNum(bmi,1)+' <small style="font-size:18px;color:var(--muted);font-weight:600">kg/m²</small>';
+      var chip=$id('b_chip'); chip.textContent=cl.k; chip.style.background=cl.c; chip.style.color='#04101f';
+      $id('b_word').innerHTML='Popis do nálezu: <b>'+cl.w+'</b>';
+    });
+  }
+});
+
+/* =====================================================================
+   PLUGIN 3 — VEK Z OBVODOV AORTY (Štefan & Josífko 1984)
+   ===================================================================== */
+Toolkit.register({
+  id:'aorta',
+  name:'Vek z obvodov aorty',
+  icon:'Ao',
+  category:'Identifikácia',
+  short:'Odhad veku z 3 obvodov aorty (muž/žena).',
+  long:'Odhad veku zomrelého z obvodov aorty podľa Štefana &amp; Josífku (1984).',
+  mount:function(root){
+    root.innerHTML=''+
+    '<div class="card"><h2>Pohlavie</h2>'+
+      '<div class="seg" id="a_sex"><button data-sex="m" class="active">Muž</button>'+
+        '<button data-sex="z">Žena</button></div>'+
+      '<div class="hint" id="a_formula"></div></div>'+
+    '<div class="card"><h2>Obvody aorty (cm)</h2>'+
+      '<div class="field"><label>Ao1 — obvod nad aortálnou chlopňou (vzostupná aorta)</label>'+
+        '<input id="a_ao1" type="number" inputmode="decimal" step="0.1" placeholder="cm"></div>'+
+      '<div class="field"><label>Ao2 — obvod v oblúku aorty</label>'+
+        '<input id="a_ao2" type="number" inputmode="decimal" step="0.1" placeholder="cm"></div>'+
+      '<div class="field"><label>Ao3 — obvod nad bifurkáciou (brušná aorta)</label>'+
+        '<input id="a_ao3" type="number" inputmode="decimal" step="0.1" placeholder="cm"></div>'+
+      '<button class="btn" id="a_calc">Vypočítať vek</button></div>'+
+    '<div class="card" id="a_res" style="display:none"><h2>Výsledok</h2>'+
+      '<div id="a_alerts"></div>'+
+      '<div class="result"><div class="big" id="a_age">– <small>r.</small></div>'+
+        '<div class="window" id="a_window"></div><div class="ci" id="a_ci"></div></div>'+
+      '<details><summary>Detail výpočtu</summary><div id="a_detail" class="hint" style="margin-top:8px"></div></details></div>'+
+    '<div class="card" id="a_exportCard" style="display:none"><h2>Export do zápisnice</h2>'+
+      '<div class="grid2"><div class="field"><label>Číslo protokolu</label><input id="a_prot" type="text" placeholder="napr. 680"></div>'+
+        '<div class="field"><label>Meno zomrelého</label><input id="a_meno" type="text" placeholder="meno priezvisko"></div></div>'+
+      '<textarea id="a_exportText" class="export-box" readonly></textarea>'+
+      '<button class="btn ghost small" id="a_copy" style="margin-top:10px">Kopírovať text</button></div>'+
+    '<div class="card"><h2>Metóda, legenda a referencie</h2>'+
+      '<details open><summary>Legenda</summary><div class="hint" style="margin-top:8px">'+
+        '<b>Ao1</b> = obvod aorty nad aortálnou chlopňou (vzostupná aorta)<br>'+
+        '<b>Ao2</b> = obvod v oblúku aorty<br>'+
+        '<b>Ao3</b> = obvod nad bifurkáciou (distálna brušná aorta)<br>'+
+        'Obvody sa merajú v centimetroch (cm). Rozptyl = stredná chyba odhadu (±1 SD v rokoch).</div></details>'+
+      '<details><summary>Regresné rovnice</summary><table class="ref">'+
+        '<tr><th>Pohlavie</th><th>Rovnica (Vek v rokoch)</th><th>±SD</th></tr>'+
+        '<tr><td>Muži</td><td>2,97·Ao1 + 7,04·Ao2 + 5,66·Ao3 − 37,6</td><td>6,67</td></tr>'+
+        '<tr><td>Ženy</td><td>3,12·Ao1 + 9,30·Ao2 + 4,62·Ao3 − 39,3</td><td>8,15</td></tr></table></details>'+
+      '<details><summary>Citácia a poznámka</summary><div class="hint" style="margin-top:8px">'+
+        'Štefan J., Josífko M.: Určenie veku z obvodov aorty. <i>Soudní lékařství</i>, 1984, č. 4.<br><br>'+
+        'Pôvodný článok nebol dostupný na nezávislé online overenie koeficientov — rovnice sú prevzaté z referenčnej tabuľky používateľa a aritmeticky overené. Presný ročník/strany doplň podľa originálu.<br><br>'+
+        'Novšie údaje: rozmery aorty korelujú s vekom (napr. MESA, Mao a kol. 2008; Rylski a kol.), no v rovnakom tvare trojobvodovej regresie publikovaná náhrada nie je. Metóda je orientačná pomôcka pri identifikácii — vek upresni kombináciou znakov (kostra, chrup, ateroskleróza).</div></details>'+
+      '<div class="foot">Orientačný odhad veku. Pri pokročilej ateroskleróze/aneuryzme aorty môže byť obvod zväčšený a vek nadhodnotený — posúď v kontexte nálezu.</div></div>';
+
+    var COEF={
+      m:{a1:2.97,a2:7.04,a3:5.66,k:37.6,sd:6.67,lbl:'Muži'},
+      z:{a1:3.12,a2:9.30,a3:4.62,k:39.3,sd:8.15,lbl:'Ženy'}
+    };
+    function sex(){ return root.querySelector('#a_sex button.active').dataset.sex; }
+    function showFormula(){
+      var c=COEF[sex()];
+      $id('a_formula').innerHTML='Vek = '+fmtNum(c.a1,2)+'·Ao1 + '+fmtNum(c.a2,2)+'·Ao2 + '+fmtNum(c.a3,2)+'·Ao3 − '+fmtNum(c.k,1)+'  &nbsp;(±'+fmtNum(c.sd,2)+' r.)';
+    }
+    function buildExport(c,ao1,ao2,ao3,age){
+      var prot=$id('a_prot').value.trim(), meno=$id('a_meno').value.trim();
+      var L=['ODHAD VEKU Z OBVODOV AORTY — Štefan & Josífko (1984)'];
+      if(prot) L.push('Protokol č.: '+prot);
+      if(meno) L.push('Zomrelý: '+meno);
+      L.push('Pohlavie: '+c.lbl,'',
+        'Ao1 (nad chlopňou): '+fmtNum(ao1,1)+' cm',
+        'Ao2 (oblúk): '+fmtNum(ao2,1)+' cm',
+        'Ao3 (nad bifurkáciou): '+fmtNum(ao3,1)+' cm','',
+        'Odhadovaný vek: '+fmtNum(age,1)+' rokov (± '+fmtNum(c.sd,2)+' r.)',
+        'Interval (±1 SD): '+fmtNum(age-c.sd,1)+' – '+fmtNum(age+c.sd,1)+' r.','',
+        'Pozn.: orientačný odhad, posúdiť v kontexte celkového nálezu.');
+      $id('a_exportText').value=L.join('\n');
+    }
+    function calc(){
+      var c=COEF[sex()];
+      var ao1=parseFloat($id('a_ao1').value), ao2=parseFloat($id('a_ao2').value), ao3=parseFloat($id('a_ao3').value);
+      if(!isFinite(ao1)||!isFinite(ao2)||!isFinite(ao3)){ alert('Vyplň všetky tri obvody Ao1–Ao3.'); return; }
+      var age=c.a1*ao1+c.a2*ao2+c.a3*ao3-c.k;
+      $id('a_res').style.display='block'; $id('a_exportCard').style.display='block';
+      var al=$id('a_alerts'); al.innerHTML='';
+      function add(t,m){ var d=document.createElement('div'); d.className='alert '+t;
+        d.innerHTML='<span class="ic">'+(t==='bad'?'✕':t==='warn'?'!':'✓')+'</span><span>'+m+'</span>'; al.appendChild(d); }
+      if(age<0) add('bad','Záporný vek — skontroluj rozmery (pravdepodobne príliš malé hodnoty alebo zámena Ao1–Ao3).');
+      else if(age<14) add('warn','Veľmi nízky vek ('+fmtNum(age,1)+' r.) — metóda bola odvodená na dospelých, mimo rozsahu môže byť nepresná.');
+      if(age>100) add('warn','Veľmi vysoký vek ('+fmtNum(age,1)+' r.) — pri aneuryzme/ektázii aorty môže byť obvod zväčšený a vek nadhodnotený.');
+      add('ok','Vek upresni kombináciou s ďalšími znakmi (kostra, chrup, stupeň aterosklerózy).');
+      $id('a_age').innerHTML=fmtNum(age,1)+' <small>r.</small>';
+      $id('a_window').innerHTML='Interval (±1 SD): <b>'+fmtNum(age-c.sd,1)+' – '+fmtNum(age+c.sd,1)+' r.</b>';
+      $id('a_ci').textContent='Rozptyl ± '+fmtNum(c.sd,2)+' r. ('+c.lbl+')  ·  95 % ≈ ± '+fmtNum(2*c.sd,1)+' r.';
+      $id('a_detail').innerHTML='Vek = '+fmtNum(c.a1,2)+'×'+fmtNum(ao1,1)+' + '+fmtNum(c.a2,2)+'×'+fmtNum(ao2,1)+' + '+fmtNum(c.a3,2)+'×'+fmtNum(ao3,1)+' − '+fmtNum(c.k,1)+'<br>= <b>'+fmtNum(age,2)+' r.</b>';
+      buildExport(c,ao1,ao2,ao3,age);
+    }
+    root.querySelectorAll('#a_sex button').forEach(function(b){
+      b.addEventListener('click',function(){
+        root.querySelectorAll('#a_sex button').forEach(function(x){x.classList.remove('active');});
+        b.classList.add('active'); showFormula(); if($id('a_exportText').value) calc();
+      });
+    });
+    $id('a_calc').addEventListener('click',calc);
+    ['a_prot','a_meno'].forEach(function(id){ $id(id).addEventListener('input',function(){ if($id('a_exportText').value) calc(); }); });
+    $id('a_copy').addEventListener('click',function(){ copyToClipboard($id('a_exportText').value,this,'Skopírované ✓','Kopírovať text'); });
+    showFormula();
+  }
+});
+
+/* =====================================================================
+   PLUGIN 4 — PMI z draslíka (K+) v sklovci
+   ===================================================================== */
+Toolkit.register({
+  id:'vitreous_k',
+  name:'K⁺ v sklovci — PMI',
+  icon:'K⁺',
+  category:'Tanatológia',
+  short:'Čas od smrti z draslíka v sklovci.',
+  long:'PMI z koncentrácie draslíka (K⁺) v sklovci — 4 metódy vrátane modelu Zilg (vek + teplota).',
+  mount:function(root){
+    root.innerHTML=''+
+    '<div class="card"><h2>Vstupné údaje</h2>'+
+      '<div class="field"><label>Draslík K⁺ v sklovci (mmol/l)</label>'+
+        '<input id="k_k" type="number" inputmode="decimal" step="0.1" placeholder="napr. 11,0"></div>'+
+      '<div class="row"><div class="field"><label>Vek (rokov)</label>'+
+        '<input id="k_age" type="number" inputmode="decimal" step="1" placeholder="napr. 34"></div>'+
+        '<div class="field"><label>Teplota okolia (°C)</label>'+
+        '<input id="k_temp" type="number" inputmode="decimal" step="0.5" placeholder="napr. 20"></div></div>'+
+      '<div class="hint">Vek a teplota sa používajú len pre model Zilg; lineárne metódy ich neberú do úvahy.</div>'+
+      '<button class="btn" id="k_calc" style="margin-top:6px">Vypočítať PMI</button></div>'+
+    '<div class="card" id="k_res" style="display:none"><h2>Výsledok</h2>'+
+      '<div id="k_alerts"></div>'+
+      '<div class="result"><div class="lbl" style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.6px">Model Zilg (vek + teplota)</div>'+
+        '<div class="big" id="k_zilg">– <small>h</small></div>'+
+        '<div class="ci" id="k_zilgd"></div></div>'+
+      '<table class="ref" style="margin-top:14px"><tr><th>Metóda</th><th>PMI (h)</th><th>PMI (dni)</th></tr>'+
+        '<tr><td>Zilg 2015 (vek+tepl.)</td><td id="k_z_h">–</td><td id="k_z_d">–</td></tr>'+
+        '<tr><td>Sturner 1964</td><td id="k_s_h">–</td><td id="k_s_d">–</td></tr>'+
+        '<tr><td>Madea 1989</td><td id="k_m_h">–</td><td id="k_m_d">–</td></tr>'+
+        '<tr><td>James 1997</td><td id="k_j_h">–</td><td id="k_j_d">–</td></tr></table>'+
+      '<div class="hint" id="k_note" style="margin-top:8px"></div></div>'+
+    '<div class="card" id="k_exportCard" style="display:none"><h2>Export do zápisnice</h2>'+
+      '<div class="grid2"><div class="field"><label>Číslo protokolu</label><input id="k_prot" type="text" placeholder="napr. 680"></div>'+
+        '<div class="field"><label>Meno zomrelého</label><input id="k_meno" type="text" placeholder="meno priezvisko"></div></div>'+
+      '<textarea id="k_exportText" class="export-box" readonly></textarea>'+
+      '<button class="btn ghost small" id="k_copy" style="margin-top:10px">Kopírovať text</button></div>'+
+    '<div class="card"><h2>Metódy, legenda a referencie</h2>'+
+      '<details open><summary>Lineárne regresie (PMI v hodinách)</summary><table class="ref">'+
+        '<tr><th>Autor</th><th>PMI (h) = </th></tr>'+
+        '<tr><td>Sturner & Gantner 1964</td><td>7,14·K⁺ − 39,1</td></tr>'+
+        '<tr><td>Madea et al. 1989</td><td>5,26·K⁺ − 30,9</td></tr>'+
+        '<tr><td>James et al. 1997</td><td>4,32·K⁺ − 18,35</td></tr></table>'+
+        '<div class="hint">K⁺ v mmol/l. Lineárny vzostup platí cca v intervale 0–100 h po smrti.</div></details>'+
+      '<details><summary>Model Zilg 2015 (Karolinska)</summary><div class="hint" style="margin-top:8px">'+
+        'Posmrtný vzostup K⁺ nie je lineárny, ale asymptotický. Model koriguje na vek a teplotu okolia:<br><br>'+
+        'PMI(dni) = ln((M − C₀)/(M − K)) / |mₐ·vek + m_T·tepl. + b|<br>'+
+        'M = 34,44; C₀ = 4,4; mₐ = −0,001122; m_T = 0,009857; b = 0,135<br><br>'+
+        'Validované na 462 prípadoch (PMI 2 h – 17 dní); vek vysvetlil ~16 %, teplota ~5 % variability.</div></details>'+
+      '<details><summary>Faktory a CSF</summary><div class="hint" style="margin-top:8px">'+
+        '<b>Ovplyvňujúce faktory:</b> dehydratácia/urémia (ochorenie obličiek), požitie alkoholu, dlhá agónia a telesná hmotnosť môžu zvýšiť rozptyl odhadu.<br><br>'+
+        '<b>CSF (mozgovomiechový mok):</b> draslík v CSF tiež stúpa posmrtne, ale je <b>menej spoľahlivý</b> než sklovec (rýchlejšia kontaminácia a bakteriálny rozklad). Pre PMI sa preto uprednostňuje sklovec; samostatný CSF výpočet zámerne neuvádzam. Ak máš konkrétny CSF vzorec, viem ho doplniť.</div></details>'+
+      '<div class="foot">Orientačný odhad. Modely sa môžu líšiť aj o desiatky %; finálne posúdenie patrí pitevnému lekárovi.<br>Sturner & Gantner, Am J Clin Pathol 1964; Madea et al., Forensic Sci Int 1989; James et al., Am J Forensic Med Pathol 1997; Zilg et al., Forensic Sci Int 2015; Bévalot/CSF: Forensic Sci Int 2015 (porovnanie CSF vs sklovec).</div></div>';
+
+    function lin(a,b,K){ return a*K-b; }
+    function zilg(K,age,temp){
+      var M=34.44,C0=4.4,mA=-0.001122,mT=0.009857,b=0.135;
+      if(K<=C0||K>=M) return null;
+      var rate=Math.abs(mA*age+mT*temp+b);
+      if(rate<=0) return null;
+      return Math.log((M-C0)/(M-K))/rate; // dni
+    }
+    function cell(id,h){ $id(id+'_h').textContent=(h===null||!isFinite(h))?'–':fmtNum(h,1);
+      $id(id+'_d').textContent=(h===null||!isFinite(h))?'–':fmtNum(h/24,2); }
+
+    function calc(){
+      var K=parseFloat($id('k_k').value), age=parseFloat($id('k_age').value), temp=parseFloat($id('k_temp').value);
+      if(!isFinite(K)){ alert('Vyplň koncentráciu draslíka K⁺.'); return; }
+      var hasZ = isFinite(age)&&isFinite(temp);
+      var zd = hasZ ? zilg(K,age,temp) : null;
+      var zh = (zd===null)?null:zd*24;
+      var sh=lin(7.14,39.1,K), mh=lin(5.26,30.9,K), jh=lin(4.32,18.35,K);
+      $id('k_res').style.display='block'; $id('k_exportCard').style.display='block';
+      cell('k_z',zh); cell('k_s',sh); cell('k_m',mh); cell('k_j',jh);
+      $id('k_zilg').innerHTML=(zh===null)?'–':fmtNum(zh,1)+' <small>h</small>';
+      $id('k_zilgd').textContent=(zh===null)?(hasZ?'Mimo rozsahu modelu (K mimo 4,4–34,4 mmol/l)':'Doplň vek a teplotu pre model Zilg'):fmtNum(zd,2)+' dní';
+
+      var al=$id('k_alerts'); al.innerHTML='';
+      function add(t,m){ var d=document.createElement('div'); d.className='alert '+t;
+        d.innerHTML='<span class="ic">'+(t==='bad'?'✕':t==='warn'?'!':'✓')+'</span><span>'+m+'</span>'; al.appendChild(d); }
+      if(K<5) add('warn','Nízky K⁺ ('+fmtNum(K,1)+' mmol/l) — krátky PMI; lineárne metódy môžu dať záporné hodnoty (vzorec extrapoluje pod nulu).');
+      if(K>15) add('warn','Vysoký K⁺ ('+fmtNum(K,1)+' mmol/l) — dlhší PMI; presnosť klesá, rozptyl medzi metódami rastie.');
+      if(!hasZ) add('warn','Bez veku a teploty počítam len lineárne metódy. Pre presnejší model Zilg ich doplň.');
+      add('ok','Zvážiť faktory: ochorenie obličiek/dehydratácia, alkohol, dlhá agónia — môžu skresliť K⁺.');
+
+      var vals=[sh,mh,jh].concat(zh!==null?[zh]:[]).filter(function(x){return isFinite(x);});
+      var lo=Math.min.apply(null,vals), hi=Math.max.apply(null,vals);
+      $id('k_note').innerHTML='Rozpätie metód: <b>'+fmtNum(Math.max(0,lo),1)+' – '+fmtNum(hi,1)+' h</b> ('+fmtNum(Math.max(0,lo)/24,1)+' – '+fmtNum(hi/24,1)+' dní). Model Zilg je najnovší a koriguje vek+teplotu.';
+
+      var prot=$id('k_prot').value.trim(), meno=$id('k_meno').value.trim();
+      var L=['ODHAD PMI Z DRASLÍKA (K⁺) V SKLOVCI'];
+      if(prot) L.push('Protokol č.: '+prot); if(meno) L.push('Zomrelý: '+meno);
+      L.push('K⁺ v sklovci: '+fmtNum(K,1)+' mmol/l'+(hasZ?('  | vek '+fmtNum(age,0)+' r. | teplota '+fmtNum(temp,1)+' °C'):''),'');
+      if(zh!==null) L.push('Zilg 2015 (vek+tepl.): '+fmtNum(zh,1)+' h ('+fmtNum(zh/24,2)+' dní)');
+      L.push('Sturner 1964: '+fmtNum(sh,1)+' h ('+fmtNum(sh/24,2)+' dní)',
+        'Madea 1989: '+fmtNum(mh,1)+' h ('+fmtNum(mh/24,2)+' dní)',
+        'James 1997: '+fmtNum(jh,1)+' h ('+fmtNum(jh/24,2)+' dní)','',
+        'Pozn.: orientačný odhad, posúdiť v kontexte nálezu a faktorov (obličky, alkohol, agónia).');
+      $id('k_exportText').value=L.join('\n');
+    }
+    $id('k_calc').addEventListener('click',calc);
+    ['k_prot','k_meno'].forEach(function(id){ $id(id).addEventListener('input',function(){ if($id('k_exportText').value) calc(); }); });
+    $id('k_copy').addEventListener('click',function(){ copyToClipboard($id('k_exportText').value,this,'Skopírované ✓','Kopírovať text'); });
+  }
+});
+
+/* =====================================================================
+   PLUGIN 5 — TRAUBEHO (TRAUBOV) INDEX (glukóza + laktát, sklovec/CSF)
+   ===================================================================== */
+Toolkit.register({
+  id:'traube',
+  name:'Traubeho index',
+  icon:'G+L',
+  category:'Biochémia',
+  short:'Glukóza + laktát — antemortem glykémia.',
+  long:'Traubov index (glukóza + laktát) zo sklovca alebo CSF — posúdenie antemortem glykémie.',
+  mount:function(root){
+    root.innerHTML=''+
+    '<div class="card"><h2>Typ vzorky</h2>'+
+      '<div class="seg" id="t_type"><button data-t="vitreous" class="active">Sklovec</button>'+
+        '<button data-t="csf">CSF (likvor)</button></div></div>'+
+    '<div class="card"><h2>Vstupné koncentrácie</h2>'+
+      '<div class="row"><div class="field"><label>Glukóza (mmol/l)</label>'+
+        '<input id="t_glu" type="number" inputmode="decimal" step="0.1" placeholder="napr. 34,96"></div>'+
+        '<div class="field"><label>Laktát (mmol/l)</label>'+
+        '<input id="t_lac" type="number" inputmode="decimal" step="0.1" placeholder="napr. 38,82"></div></div>'+
+      '<div class="hint">Zadávaj v mmol/l (laboratórne jednotky); appka prepočíta na mg/dl a sčíta.</div>'+
+      '<button class="btn" id="t_calc" style="margin-top:6px">Vypočítať index</button></div>'+
+    '<div class="card" id="t_res" style="display:none"><h2>Výsledok</h2>'+
+      '<div class="result"><div class="lbl" style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.6px">Traubeho index</div>'+
+        '<div class="big" id="t_idx">– <small>mg/dl</small></div>'+
+        '<div style="margin-top:10px"><span class="chip" id="t_chip"></span></div>'+
+        '<div class="ci" id="t_break" style="margin-top:10px"></div></div>'+
+      '<div class="hint" id="t_interp" style="margin-top:8px"></div>'+
+      '<details><summary>Detail výpočtu</summary><div id="t_detail" class="hint" style="margin-top:8px"></div></details></div>'+
+    '<div class="card" id="t_exportCard" style="display:none"><h2>Export do zápisnice</h2>'+
+      '<div class="grid2"><div class="field"><label>Číslo protokolu</label><input id="t_prot" type="text" placeholder="napr. 680"></div>'+
+        '<div class="field"><label>Meno zomrelého</label><input id="t_meno" type="text" placeholder="meno priezvisko"></div></div>'+
+      '<textarea id="t_exportText" class="export-box" readonly></textarea>'+
+      '<button class="btn ghost small" id="t_copy" style="margin-top:10px">Kopírovať text</button></div>'+
+    '<div class="card"><h2>Metóda, interpretácia a referencie</h2>'+
+      '<details open><summary>Výpočet</summary><div class="hint" style="margin-top:8px">'+
+        'Traubeho (Traubov) index = glukóza [mg/dl] + laktát [mg/dl]<br><br>'+
+        'Prepočet z mmol/l: glukóza × 18,016 (MW 180,16); laktát × 9,008 (MW 90,08).<br><br>'+
+        'Princíp: po smrti sa glukóza anaeróbne mení na laktát, preto ich súčet odráža antemortem glykémiu lepšie než samotná glukóza.</div></details>'+
+      '<details><summary>Interpretácia (Dettmeyer 2014, s. 587)</summary><table class="ref">'+
+        '<tr><th>Stav</th><th>Sklovec</th><th>CSF</th></tr>'+
+        '<tr><td>Hypoglykémia</td><td>100–160 mg/dl</td><td>50–80 mg/dl</td></tr>'+
+        '<tr><td>Hyperglykémia</td><td>&gt; 410 mg/dl</td><td>&gt; 362 mg/dl</td></tr></table>'+
+        '<div class="hint">Hodnoty medzi pásmami sú nediagnostické (normoglykémia/nešpecifické).</div></details>'+
+      '<details><summary>Upozornenie (aktuálny pohľad)</summary><div class="hint" style="margin-top:8px">'+
+        'Laktát po smrti stúpa, preto Traubov index môže <b>nadhodnotiť</b> antemortem glykémiu a <b>nemá sa používať izolovane</b> na diagnózu hyperglykémie/ketoacidózy. Vysoký index je podnetom doplniť β-hydroxybutyrát (najspoľahlivejší marker ketoacidózy) a HbA1c. Niektorí autori navrhujú variant glukóza + ½ laktát (zobrazený v detaile).</div></details>'+
+      '<div class="foot">Orientačná pomôcka. Sklovec je spoľahlivejší než CSF (menšia kontaminácia). Finálne posúdenie patrí pitevnému lekárovi.<br>Traub 1969; Dettmeyer R., Forensic Medicine 2014, s. 587; Palmiere & Mangin, Int J Legal Med 2012 (revízia Traubovho vzorca).</div></div>';
+
+    var GLU_F=18.016, LAC_F=9.008;
+    var TH={ vitreous:{hypo:160,hyper:410,name:'sklovec'}, csf:{hypo:80,hyper:362,name:'CSF'} };
+    function type(){ return root.querySelector('#t_type button.active').dataset.t; }
+
+    function calc(){
+      var gmm=parseFloat($id('t_glu').value), lmm=parseFloat($id('t_lac').value);
+      if(!isFinite(gmm)||!isFinite(lmm)){ alert('Vyplň glukózu aj laktát (mmol/l).'); return; }
+      var gmg=gmm*GLU_F, lmg=lmm*LAC_F, idx=gmg+lmg, half=gmg+lmg/2;
+      var th=TH[type()];
+      $id('t_res').style.display='block'; $id('t_exportCard').style.display='block';
+      $id('t_idx').innerHTML=fmtNum(idx,1)+' <small>mg/dl</small>';
+      $id('t_break').innerHTML='glukóza '+fmtNum(gmg,1)+' + laktát '+fmtNum(lmg,1)+' mg/dl';
+
+      var state,color,txt;
+      if(idx>th.hyper){ state='Hyperglykémia'; color='var(--bad)';
+        txt='Index nad prahom hyperglykémie pre '+th.name+' (> '+th.hyper+' mg/dl). Zváž diabetes/ketoacidózu — doplň β-hydroxybutyrát a HbA1c.'; }
+      else if(idx<th.hypo){ state='Možná hypoglykémia'; color='var(--warn)';
+        txt='Nízky index (pásmo hypoglykémie pre '+th.name+': '+(type()==='csf'?'50–80':'100–160')+' mg/dl). Hypoglykémia je posmrtne ťažko preukázateľná — posúď klinicky.'; }
+      else { state='Nediagnostické / normoglykémia'; color='var(--good)';
+        txt='Index medzi prahmi ('+th.hypo+'–'+th.hyper+' mg/dl pre '+th.name+') — nesvedčí pre vyhranenú dysglykémiu.'; }
+      var chip=$id('t_chip'); chip.textContent=state; chip.style.background=color; chip.style.color='#04101f';
+      $id('t_interp').innerHTML=txt;
+      $id('t_detail').innerHTML='Glukóza: '+fmtNum(gmm,2)+' × 18,016 = '+fmtNum(gmg,1)+' mg/dl<br>'+
+        'Laktát: '+fmtNum(lmm,2)+' × 9,008 = '+fmtNum(lmg,1)+' mg/dl<br>'+
+        '<b>Index = '+fmtNum(idx,1)+' mg/dl</b><br>'+
+        '<span class="muted">Variant glukóza + ½ laktát = '+fmtNum(half,1)+' mg/dl</span>';
+
+      var prot=$id('t_prot').value.trim(), meno=$id('t_meno').value.trim();
+      var L=['TRAUBEHO INDEX (glukóza + laktát) — '+th.name.toUpperCase()];
+      if(prot) L.push('Protokol č.: '+prot); if(meno) L.push('Zomrelý: '+meno);
+      L.push('Glukóza: '+fmtNum(gmm,2)+' mmol/l ('+fmtNum(gmg,1)+' mg/dl)',
+        'Laktát: '+fmtNum(lmm,2)+' mmol/l ('+fmtNum(lmg,1)+' mg/dl)',
+        'Traubeho index: '+fmtNum(idx,1)+' mg/dl','Záver: '+state,'',
+        'Pozn.: index sa neinterpretuje izolovane; pri podozrení na dysglykémiu doplniť β-hydroxybutyrát a HbA1c.');
+      $id('t_exportText').value=L.join('\n');
+    }
+    root.querySelectorAll('#t_type button').forEach(function(b){
+      b.addEventListener('click',function(){
+        root.querySelectorAll('#t_type button').forEach(function(x){x.classList.remove('active');});
+        b.classList.add('active'); if($id('t_exportText').value) calc();
+      });
+    });
+    $id('t_calc').addEventListener('click',calc);
+    ['t_prot','t_meno'].forEach(function(id){ $id(id).addEventListener('input',function(){ if($id('t_exportText').value) calc(); }); });
+    $id('t_copy').addEventListener('click',function(){ copyToClipboard($id('t_exportText').value,this,'Skopírované ✓','Kopírovať text'); });
+  }
+});
+
+/* =====================================================================
+   PLUGIN 6 — BSA + očakávaná hmotnosť srdca (Vanhaebost et al. 2014)
+   ===================================================================== */
+Toolkit.register({
+  id:'bsa_heart',
+  name:'BSA + hmotnosť srdca',
+  icon:'♥',
+  category:'Kardiopatológia',
+  short:'Telesný povrch a očak. hmotnosť srdca.',
+  long:'Body surface area (BSA) a očakávaná hmotnosť srdca podľa pohlavia (Vanhaebost 2014).',
+  mount:function(root){
+    root.innerHTML=''+
+    '<div class="card"><h2>Pohlavie</h2>'+
+      '<div class="seg" id="s_sex"><button data-sex="m" class="active">Muž</button>'+
+        '<button data-sex="z">Žena</button></div></div>'+
+    '<div class="card"><h2>Telesné miery</h2>'+
+      '<div class="row"><div class="field"><label>Hmotnosť (kg)</label>'+
+        '<input id="s_w" type="number" inputmode="decimal" step="0.5" placeholder="napr. 80"></div>'+
+        '<div class="field"><label>Telesná dĺžka (cm)</label>'+
+        '<input id="s_h" type="number" inputmode="decimal" step="0.5" placeholder="napr. 180"></div></div>'+
+      '<div class="field"><label>Nameraná hmotnosť srdca (g) — voliteľné</label>'+
+        '<input id="s_hw" type="number" inputmode="decimal" step="1" placeholder="na porovnanie s normou"></div>'+
+      '<button class="btn" id="s_calc">Vypočítať</button></div>'+
+    '<div class="card" id="s_res" style="display:none"><h2>Výsledok</h2>'+
+      '<div id="s_alerts"></div>'+
+      '<div class="result"><div class="lbl" style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.6px">BSA (Boyd)</div>'+
+        '<div class="big" id="s_bsa" style="font-size:36px">– <small>m²</small></div>'+
+        '<div class="ci" id="s_bsaalt"></div>'+
+        '<div style="margin-top:16px" class="lbl"><span style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.6px">Očakávaná hmotnosť srdca</span></div>'+
+        '<div class="big" id="s_phw" style="font-size:34px;color:var(--accent2)">– <small>g</small></div>'+
+        '<div class="window" id="s_range"></div>'+
+        '<div id="s_cmp" style="margin-top:12px"></div></div>'+
+      '<details><summary>Detail výpočtu</summary><div id="s_detail" class="hint" style="margin-top:8px"></div></details></div>'+
+    '<div class="card" id="s_exportCard" style="display:none"><h2>Export do zápisnice</h2>'+
+      '<div class="grid2"><div class="field"><label>Číslo protokolu</label><input id="s_prot" type="text" placeholder="napr. 680"></div>'+
+        '<div class="field"><label>Meno zomrelého</label><input id="s_meno" type="text" placeholder="meno priezvisko"></div></div>'+
+      '<textarea id="s_exportText" class="export-box" readonly></textarea>'+
+      '<button class="btn ghost small" id="s_copy" style="margin-top:10px">Kopírovať text</button></div>'+
+    '<div class="card"><h2>Metóda, vzorce a referencie</h2>'+
+      '<details open><summary>Vzorce</summary><div class="hint" style="margin-top:8px">'+
+        '<b>BSA</b> (použitý Boyd, ako v zdroji):<br>BSA = 0,0003207 · v[cm]^0,3 · m[g]^(0,7285 − 0,0188·log₁₀ m[g])<br>'+
+        'Alternatívne: Mosteller = √(v·m/3600); Du Bois = 0,007184·m^0,425·v^0,725<br><br>'+
+        '<b>Očakávaná hmotnosť srdca</b> (z BSA):<br>Muži = 171,1 · BSA + 27,57 g<br>Ženy = 171,1 · BSA − 6,91 g<br>'+
+        '95 % referenčné rozmedzie ± 85,26 g.</div></details>'+
+      '<details><summary>Interpretácia</summary><div class="hint" style="margin-top:8px">'+
+        'Nameraná hmotnosť nad horným limitom svedčí pre <b>kardiomegáliu</b> (hypertrofia, dilatácia — hypertenzná/ischemická choroba, kardiomyopatia, chlopňové chyby, pľúcna hypertenzia). Pod dolným limitom = atrofia/hypotrofia. Hmotnosť zahŕňa epikardiálny tuk.</div></details>'+
+      '<div class="foot">Referenčné hodnoty: dospelí belosi (n=288, Lausanne), BSA cca 1,26–2,49 m². Neplatí pre deti; pri putrefakcii a edémoch posudzuj opatrne.<br>Vanhaebost J., Faouzi M., Mangin P., Michaud K.: New reference tables and user-friendly Internet application for predicted heart weights. Int J Legal Med 2014;128(4):615–620. BSA: Boyd 1935.</div></div>';
+
+    function boyd(w,h){ var wg=w*1000; var e=0.7285-0.0188*(Math.log(wg)/Math.LN10); return 0.0003207*Math.pow(h,0.3)*Math.pow(wg,e); }
+    function mosteller(w,h){ return Math.sqrt(h*w/3600); }
+    function dubois(w,h){ return 0.007184*Math.pow(w,0.425)*Math.pow(h,0.725); }
+    function sex(){ return root.querySelector('#s_sex button.active').dataset.sex; }
+    function phw(s,bsa){ return s==='m'?171.1*bsa+27.57:171.1*bsa-6.91; }
+    var CI=85.26;
+
+    function calc(){
+      var w=parseFloat($id('s_w').value), h=parseFloat($id('s_h').value), hw=parseFloat($id('s_hw').value);
+      if(!isFinite(w)||!isFinite(h)||w<=0||h<=0){ alert('Vyplň hmotnosť a telesnú dĺžku.'); return; }
+      var s=sex(), bsa=boyd(w,h), exp=phw(s,bsa), lo=exp-CI, hi=exp+CI;
+      $id('s_res').style.display='block'; $id('s_exportCard').style.display='block';
+      $id('s_bsa').innerHTML=fmtNum(bsa,2)+' <small>m²</small>';
+      $id('s_bsaalt').textContent='Mosteller '+fmtNum(mosteller(w,h),2)+' · Du Bois '+fmtNum(dubois(w,h),2)+' m²';
+      $id('s_phw').innerHTML=fmtNum(exp,0)+' <small>g</small>';
+      $id('s_range').innerHTML='95 % rozmedzie: <b>'+fmtNum(lo,0)+' – '+fmtNum(hi,0)+' g</b> ('+(s==='m'?'muž':'žena')+')';
+
+      var al=$id('s_alerts'); al.innerHTML='';
+      function add(t,m){ var d=document.createElement('div'); d.className='alert '+t;
+        d.innerHTML='<span class="ic">'+(t==='bad'?'✕':t==='warn'?'!':'✓')+'</span><span>'+m+'</span>'; al.appendChild(d); }
+      if(bsa<1.26||bsa>2.49) add('warn','BSA '+fmtNum(bsa,2)+' m² mimo rozsahu referenčnej štúdie (1,26–2,49) — odhad extrapoluje.');
+
+      var cmp=$id('s_cmp');
+      if(isFinite(hw)){
+        var state,color,note;
+        if(hw>hi){ state='Zväčšené srdce (kardiomegália)'; color='var(--bad)'; note='nad horným limitom o '+fmtNum(hw-hi,0)+' g'; }
+        else if(hw<lo){ state='Pod normou (hypotrofia)'; color='var(--warn)'; note='pod dolným limitom o '+fmtNum(lo-hw,0)+' g'; }
+        else { state='V referenčnom rozmedzí'; color='var(--good)'; note='v norme'; }
+        var pct=(hw/exp*100);
+        cmp.innerHTML='<span class="chip" style="background:'+color+';color:#04101f">'+state+'</span>'+
+          '<div class="ci" style="margin-top:8px">Nameraná '+fmtNum(hw,0)+' g · '+note+' · '+fmtNum(pct,0)+' % očakávanej</div>';
+      } else cmp.innerHTML='<div class="hint">Pre porovnanie zadaj nameranú hmotnosť srdca.</div>';
+
+      $id('s_detail').innerHTML='BSA (Boyd) = '+fmtNum(bsa,3)+' m²<br>'+
+        'Očak. hmotnosť srdca = 171,1 × '+fmtNum(bsa,3)+(s==='m'?' + 27,57':' − 6,91')+' = <b>'+fmtNum(exp,1)+' g</b><br>'+
+        '95 % rozmedzie ± 85,26 g → '+fmtNum(lo,1)+' – '+fmtNum(hi,1)+' g';
+
+      var prot=$id('s_prot').value.trim(), meno=$id('s_meno').value.trim();
+      var L=['BSA A OČAKÁVANÁ HMOTNOSŤ SRDCA — '+(s==='m'?'MUŽ':'ŽENA')];
+      if(prot) L.push('Protokol č.: '+prot); if(meno) L.push('Zomrelý: '+meno);
+      L.push('Telesná hmotnosť: '+fmtNum(w,1)+' kg | dĺžka: '+fmtNum(h,1)+' cm',
+        'BSA (Boyd): '+fmtNum(bsa,2)+' m²',
+        'Očakávaná hmotnosť srdca: '+fmtNum(exp,0)+' g (95 % '+fmtNum(lo,0)+'–'+fmtNum(hi,0)+' g)');
+      if(isFinite(hw)) L.push('Nameraná hmotnosť srdca: '+fmtNum(hw,0)+' g — '+
+        (hw>hi?'kardiomegália':hw<lo?'pod normou':'v referenčnom rozmedzí'));
+      L.push('','Pozn.: referencia dospelí belosi (Vanhaebost 2014); hmotnosť vrátane epikardiálneho tuku.');
+      $id('s_exportText').value=L.join('\n');
+    }
+    root.querySelectorAll('#s_sex button').forEach(function(b){
+      b.addEventListener('click',function(){
+        root.querySelectorAll('#s_sex button').forEach(function(x){x.classList.remove('active');});
+        b.classList.add('active'); if($id('s_exportText').value) calc();
+      });
+    });
+    $id('s_calc').addEventListener('click',calc);
+    ['s_prot','s_meno'].forEach(function(id){ $id(id).addEventListener('input',function(){ if($id('s_exportText').value) calc(); }); });
+    $id('s_copy').addEventListener('click',function(){ copyToClipboard($id('s_exportText').value,this,'Skopírované ✓','Kopírovať text'); });
+  }
+});
+
+/* =====================================================================
+   PLUGIN — ETANOL: interpretácia (krv / moč / sklovec) + Widmark
+   ===================================================================== */
+Toolkit.register({
+  id:'ethanol',
+  name:'Etanol — interpretácia',
+  icon:'‰',
+  category:'Toxikológia',
+  short:'Krv/moč/sklovec, Widmark, štádiá.',
+  long:'Interpretácia etanolu vo vzorkách (krv, moč, sklovec), Widmark spätný prepočet a štádiá ovplyvnenia.',
+  mount:function(root){
+    root.innerHTML=''+
+    '<div class="card"><h2>Koncentrácie etanolu (g/kg ‰)</h2>'+
+      '<div class="row"><div class="field"><label>Krv (BAC)</label>'+
+        '<input id="e_b" type="number" inputmode="decimal" step="0.01" placeholder="napr. 1,37"></div>'+
+        '<div class="field"><label>Moč</label>'+
+        '<input id="e_u" type="number" inputmode="decimal" step="0.01" placeholder="voliteľné"></div>'+
+        '<div class="field"><label>Sklovec</label>'+
+        '<input id="e_v" type="number" inputmode="decimal" step="0.01" placeholder="voliteľné"></div></div></div>'+
+    '<div class="card"><h2>Widmark (voliteľné)</h2>'+
+      '<div class="seg" id="e_sex"><button data-sex="m" class="active">Muž</button><button data-sex="z">Žena</button></div>'+
+      '<div class="row"><div class="field"><label>Hmotnosť (kg)</label>'+
+        '<input id="e_w" type="number" inputmode="decimal" step="0.5" placeholder="napr. 80"></div>'+
+        '<div class="field"><label>Čas od požitia/skutku (h)</label>'+
+        '<input id="e_t" type="number" inputmode="decimal" step="0.5" placeholder="napr. 3"></div></div>'+
+      '<div class="hint">β (eliminácia) = 0,15 g/kg/h (rozsah 0,10–0,20). r: muž 0,68 · žena 0,55.</div></div>'+
+    '<button class="btn" id="e_calc">Vyhodnotiť</button>'+
+    '<div class="card" id="e_res" style="display:none;margin-top:14px"><h2>Výsledok</h2>'+
+      '<div id="e_stage"></div><div id="e_ratios"></div><div id="e_widmark"></div></div>'+
+    '<div class="card" id="e_exportCard" style="display:none"><h2>Export do zápisnice</h2>'+
+      '<div class="grid2"><div class="field"><label>Číslo protokolu</label><input id="e_prot" type="text" placeholder="napr. 680"></div>'+
+        '<div class="field"><label>Meno zomrelého</label><input id="e_meno" type="text" placeholder="meno priezvisko"></div></div>'+
+      '<textarea id="e_exportText" class="export-box" readonly></textarea>'+
+      '<button class="btn ghost small" id="e_copy" style="margin-top:10px">Kopírovať text</button></div>'+
+    '<div class="card"><h2>Výklad a referencie</h2>'+
+      '<details><summary>Štádiá ovplyvnenia (Dubowski)</summary><table class="ref">'+
+        '<tr><th>BAC (g/kg)</th><th>Štádium</th></tr>'+
+        '<tr><td>&lt; 0,5</td><td>Subklinické</td></tr><tr><td>0,3–1,2</td><td>Eufória / mierne</td></tr>'+
+        '<tr><td>0,9–2,0</td><td>Excitácia</td></tr><tr><td>1,8–3,0</td><td>Konfúzia</td></tr>'+
+        '<tr><td>2,5–4,0</td><td>Stupor</td></tr><tr><td>3,5–5,0</td><td>Kóma</td></tr>'+
+        '<tr><td>&gt; 4,5</td><td>Možný letálny rozsah</td></tr></table>'+
+        '<div class="hint">Pásma sa prekrývajú; tolerancia jednotlivca výrazne mení obraz.</div></details>'+
+      '<details><summary>Pomery vzoriek</summary><div class="hint" style="margin-top:8px">'+
+        '<b>Moč/krv (UAC/BAC):</b> &gt; 1,3 → postresorpčná (eliminačná) fáza; &lt; 1,3 → resorpčná (skorá) fáza.<br><br>'+
+        '<b>Krv/sklovec (B/V):</b> ≈ 1,29 skorá absorpcia; ≈ 0,89 postresorpčná. Odhad krvi zo sklovca: B = 1,29·V (skorá) až 0,89·V (neskôr); v rovnováhe sklovec/krv ≈ 1,1–1,2.</div></details>'+
+      '<details><summary>Posmrtná novotvorba</summary><div class="hint" style="margin-top:8px">'+
+        'Pri hnilobe môže etanol vznikať mikrobiálne v krvi (zvyčajne &lt; 0,7, niekedy až ~1,5 g/kg). <b>Sklovec a moč</b> sú menej náchylné — ich pozitivita podporuje požitie pred smrťou. Pre novotvorbu svedčí prítomnosť n-propanolu a vyšších alkoholov, neúmerne vysoká krv pri nízkom/nulovom močovom a sklovcovom etanole.</div></details>'+
+      '<div class="foot">Orientačná interpretácia. Hodnoty v g/kg (‰). Spätný prepočet je neistý (β aj r individuálne kolíšu). Finálne posúdenie patrí znalcovi.<br>Dubowski 1985; Kugelberg & Jones, Forensic Sci Int 2007; Jones (UAC/BAC, B/V pomery).</div></div>';
+
+    function sex(){ return root.querySelector('#e_sex button.active').dataset.sex; }
+    function stageOf(b){
+      if(b<0.5) return 'Subklinické';
+      if(b<1.2) return 'Eufória / mierne ovplyvnenie';
+      if(b<2.0) return 'Excitácia (porucha koordinácie a úsudku)';
+      if(b<3.0) return 'Konfúzia (dezorientácia, ataxia)';
+      if(b<4.0) return 'Stupor (apatia, zvracanie)';
+      if(b<5.0) return 'Kóma (riziko útlmu dýchania)';
+      return 'Možný letálny rozsah';
+    }
+    function alertHTML(t,m){ return '<div class="alert '+t+'"><span class="ic">'+(t==='bad'?'✕':t==='warn'?'!':'✓')+'</span><span>'+m+'</span></div>'; }
+
+    function calc(){
+      var b=parseFloat($id('e_b').value), u=parseFloat($id('e_u').value), v=parseFloat($id('e_v').value);
+      var w=parseFloat($id('e_w').value), t=parseFloat($id('e_t').value);
+      if(!isFinite(b)&&!isFinite(v)){ alert('Zadaj aspoň koncentráciu v krvi alebo v sklovci.'); return; }
+      $id('e_res').style.display='block'; $id('e_exportCard').style.display='block';
+      var ex=[];
+
+      // štádium
+      var sH='';
+      if(isFinite(b)){ var st=stageOf(b);
+        var col=b>=3.5?'bad':b>=1.8?'warn':'good';
+        sH='<div class="result" style="padding-bottom:6px"><div class="big" style="font-size:34px">'+fmtNum(b,2)+' <small>g/kg</small></div>'+
+           '<div style="margin-top:8px"><span class="chip" style="background:var(--'+(col==='good'?'good':col==='warn'?'warn':'bad')+');color:#04101f">'+st+'</span></div></div>';
+        ex.push('Krv (BAC): '+fmtNum(b,2)+' g/kg — '+st);
+      }
+      $id('e_stage').innerHTML=sH;
+
+      // pomery
+      var rH='';
+      if(isFinite(u)&&isFinite(b)&&b>0){ var ub=u/b;
+        rH+=alertHTML(ub>1.3?'ok':'warn','Moč/krv = '+fmtNum(ub,2)+' → '+(ub>1.3?'postresorpčná (eliminačná) fáza':'resorpčná (skorá) fáza alebo plató'));
+        ex.push('Moč/krv: '+fmtNum(ub,2)+(ub>1.3?' (eliminačná fáza)':' (resorpčná fáza)')); }
+      if(isFinite(v)&&isFinite(b)&&v>0){ var bv=b/v;
+        var ph=bv>1.1?'skorá absorpcia':bv<0.95?'postresorpčná fáza':'blízko rovnováhy';
+        rH+=alertHTML('ok','Krv/sklovec = '+fmtNum(bv,2)+' → '+ph);
+        ex.push('Krv/sklovec: '+fmtNum(bv,2)+' ('+ph+')'); }
+      if(isFinite(v)&&!isFinite(b)){
+        rH+=alertHTML('warn','Odhad krvi zo sklovca: '+fmtNum(0.89*v,2)+' – '+fmtNum(1.29*v,2)+' g/kg (podľa fázy).');
+        ex.push('Odhad BAC zo sklovca: '+fmtNum(0.89*v,2)+'–'+fmtNum(1.29*v,2)+' g/kg'); }
+      if(isFinite(v)) rH+=alertHTML('ok','Sklovec '+fmtNum(v,2)+' g/kg — menej náchylný na posmrtnú novotvorbu (podporuje požitie pred smrťou).');
+      $id('e_ratios').innerHTML=rH;
+
+      // Widmark
+      var wH='';
+      if(isFinite(b)&&isFinite(w)&&w>0){
+        var r=sex()==='m'?0.68:0.55, rLo=sex()==='m'?0.60:0.50, rHi=sex()==='m'?0.70:0.60;
+        var c0=b, c0lo=b, c0hi=b, tNote='';
+        if(isFinite(t)&&t>0){ c0=b+0.15*t; c0lo=b+0.10*t; c0hi=b+0.20*t; tNote=' k času pred '+fmtNum(t,1)+' h'; }
+        var A=c0*r*w, Alo=c0lo*rLo*w, Ahi=c0hi*rHi*w;
+        wH+='<div class="hint" style="margin-top:6px"><b>Widmark</b>'+(tNote?(' — spätný prepočet BAC'+tNote+': <b>'+fmtNum(c0,2)+' g/kg</b> ('+fmtNum(c0lo,2)+'–'+fmtNum(c0hi,2)+')'):'')+'</div>';
+        wH+=alertHTML('ok','Odhad požitého alkoholu: <b>'+fmtNum(A,0)+' g</b> ('+fmtNum(Alo,0)+'–'+fmtNum(Ahi,0)+' g) ≈ '+fmtNum(A/10,1)+' štandardných nápojov (10 g).');
+        ex.push((tNote?('Widmark BAC'+tNote+': '+fmtNum(c0,2)+' g/kg; '):'')+'odhad požitého alkoholu '+fmtNum(A,0)+' g ('+fmtNum(Alo,0)+'–'+fmtNum(Ahi,0)+' g)');
+      } else wH='<div class="hint">Pre Widmark doplň hmotnosť (a voliteľne čas).</div>';
+      $id('e_widmark').innerHTML=wH;
+
+      var prot=$id('e_prot').value.trim(), meno=$id('e_meno').value.trim();
+      var L=['ETANOL — INTERPRETÁCIA'];
+      if(prot) L.push('Protokol č.: '+prot); if(meno) L.push('Zomrelý: '+meno);
+      L=L.concat(ex); L.push('','Pozn.: orientačná interpretácia (g/kg); spätný prepočet neistý, posúdiť znalecky.');
+      $id('e_exportText').value=L.join('\n');
+    }
+    root.querySelectorAll('#e_sex button').forEach(function(b){ b.addEventListener('click',function(){
+      root.querySelectorAll('#e_sex button').forEach(function(x){x.classList.remove('active');}); b.classList.add('active'); if($id('e_exportText').value) calc(); }); });
+    $id('e_calc').addEventListener('click',calc);
+    ['e_prot','e_meno'].forEach(function(id){ $id(id).addEventListener('input',function(){ if($id('e_exportText').value) calc(); }); });
+    $id('e_copy').addEventListener('click',function(){ copyToClipboard($id('e_exportText').value,this,'Skopírované ✓','Kopírovať text'); });
+  }
+});
+
+/* =====================================================================
+   PLUGIN — PAL: referenčné koncentrácie liečiv a drog (krv)
+   ===================================================================== */
+Toolkit.register({
+  id:'pal',
+  name:'PAL — koncentrácie',
+  icon:'Rx',
+  category:'Toxikológia',
+  short:'Terap./toxické/letálne hladiny v krvi.',
+  long:'Referenčné krvné koncentrácie psychoaktívnych látok, liečiv a drog (terapeutická / toxická / letálna).',
+  mount:function(root){
+    // n=názov, c=kategória, u=jednotka, tl/th=terapeut. lo/hi, tx=toxická od, ft=letálna od (null=neurčená), mw=molárna hmotnosť g/mol, note
+    var D=[
+      // Drogy zneužívania
+      {n:'Amfetamín',c:'drogy',tl:0.02,th:0.1,tx:0.2,ft:0.5,mw:135.2,note:'tolerancia výrazne mení interpretáciu'},
+      {n:'Metamfetamín',c:'drogy',tl:0.01,th:0.05,tx:0.2,ft:0.5,mw:149.2,note:'tolerancia; sleduj amfetamín ako metabolit'},
+      {n:'MDMA (extáza)',c:'drogy',tl:0.1,th:0.35,tx:0.5,ft:1.0,mw:193.2,note:'hypertermia môže byť fatálna aj pri nižších hladinách'},
+      {n:'Kokaín',c:'drogy',tl:0.05,th:0.3,tx:0.5,ft:0.9,mw:303.4,note:'rýchly rozklad post mortem — hodnoť aj benzoylekgonín'},
+      {n:'Morfín',c:'drogy',tl:0.01,th:0.1,tx:0.2,ft:0.2,mw:285.3,note:'silná tolerancia; letálne hladiny sa široko prekrývajú'},
+      {n:'Metadón',c:'drogy',tl:0.05,th:0.5,tx:0.5,ft:1.0,mw:309.4,note:'tolerancia; úmrtia aj pri 0,4–1 mg/L bez tolerancie'},
+      {n:'Fentanyl',c:'drogy',u:'ng/mL',tl:1,th:3,tx:5,ft:7,mw:336.5,note:'úmrtia hlásené už od ~3 ng/mL bez tolerancie'},
+      {n:'THC (Δ9-THC)',c:'drogy',u:'ng/mL',tl:2,th:5,tx:null,ft:null,mw:314.5,note:'ovplyvnenie ~2–5 ng/mL; letálna koncentrácia nie je stanovená'},
+      {n:'Ketamín',c:'drogy',tl:0.1,th:1.0,tx:3,ft:7,mw:237.7,note:'anestézia 1–6 mg/L; rekreačné úmrtia od ~3 mg/L'},
+      {n:'GHB',c:'drogy',tl:null,th:null,tx:50,ft:100,mw:104.1,note:'endogénne/posmrtne do ~30–50 mg/L — interpretuj veľmi opatrne'},
+      // Sedatíva / benzodiazepíny
+      {n:'Diazepam (+nordiazepam)',c:'sedativa',tl:0.1,th:1.0,tx:1.5,ft:5,mw:284.7,note:'tolerancia; nebezpečné v kombinácii s opioidmi/alkoholom'},
+      {n:'Alprazolam',c:'sedativa',tl:0.005,th:0.05,tx:0.1,ft:0.3,mw:308.8,note:''},
+      {n:'Klonazepam',c:'sedativa',tl:0.01,th:0.08,tx:0.1,ft:0.2,mw:315.7,note:''},
+      {n:'Midazolam',c:'sedativa',tl:0.04,th:0.25,tx:0.5,ft:1.5,mw:325.8,note:''},
+      {n:'Zolpidem',c:'sedativa',tl:0.08,th:0.2,tx:0.5,ft:1.0,mw:307.4,note:''},
+      {n:'Fenobarbital',c:'sedativa',tl:10,th:40,tx:40,ft:80,mw:232.2,note:'tolerancia pri chronickom užívaní'},
+      // Antidepresíva / antipsychotiká
+      {n:'Amitriptylín (+nortriptylín)',c:'psycho',tl:0.05,th:0.2,tx:0.4,ft:1.0,mw:277.4,note:'kardiotoxicita, kŕče; súčet s metabolitom'},
+      {n:'Citalopram',c:'psycho',tl:0.05,th:0.11,tx:0.5,ft:1.0,mw:324.4,note:'predĺženie QT pri predávkovaní'},
+      {n:'Venlafaxín',c:'psycho',tl:0.1,th:0.5,tx:1.0,ft:6,mw:277.4,note:''},
+      {n:'Mirtazapín',c:'psycho',tl:0.02,th:0.08,tx:0.2,ft:0.5,mw:265.4,note:''},
+      {n:'Sertralín',c:'psycho',tl:0.05,th:0.25,tx:0.5,ft:1.5,mw:306.2,note:''},
+      {n:'Kvetiapín',c:'psycho',tl:0.1,th:0.5,tx:1.0,ft:2.0,mw:383.5,note:''},
+      {n:'Klozapín',c:'psycho',tl:0.1,th:0.6,tx:0.6,ft:1.3,mw:326.8,note:'agranulocytóza; myokarditída'},
+      {n:'Olanzapín',c:'psycho',tl:0.02,th:0.08,tx:0.1,ft:0.5,mw:312.4,note:''},
+      // Analgetiká / kardiologiká / bežné
+      {n:'Paracetamol',c:'ostatne',tl:10,th:20,tx:120,ft:300,mw:151.2,note:'akútne: Rumackov nomogram (>150 mg/L v 4. h)'},
+      {n:'Salicyláty (ASA)',c:'ostatne',tl:20,th:200,tx:300,ft:500,mw:138.1,note:'prepočet ako salicylát (MW 138,1)'},
+      {n:'Tramadol',c:'ostatne',tl:0.1,th:0.8,tx:1.0,ft:2.0,mw:263.4,note:'kŕče; serotonínový syndróm'},
+      {n:'Kodeín',c:'ostatne',tl:0.03,th:0.25,tx:0.5,ft:1.5,mw:299.4,note:''},
+      {n:'Oxykodón',c:'ostatne',tl:0.01,th:0.1,tx:0.2,ft:0.5,mw:315.4,note:'tolerancia'},
+      {n:'Digoxín',c:'ostatne',u:'ng/mL',tl:0.8,th:2.0,tx:2.5,ft:5,mw:780.9,note:'post mortem redistribúcia výrazná — periférna krv'},
+      {n:'Propranolol',c:'ostatne',tl:0.05,th:0.1,tx:0.5,ft:2.0,mw:259.3,note:''},
+      {n:'Metoprolol',c:'ostatne',tl:0.04,th:0.4,tx:1.0,ft:5,mw:267.4,note:''},
+      {n:'Oxid uhoľnatý (COHb)',c:'ostatne',u:'%',tl:0,th:10,tx:20,ft:50,note:'fajčiar do ~10 %; fatálne nižšie pri anémii/námahe/komorbidite'}
+    ];
+    // prepočet na molárne jednotky (mg/L → mmol/µmol/nmol/L)
+    function toMgL(x,d){ return (d.u==='ng/mL')? x*0.001 : x; } // ng/mL = µg/L = 0,001 mg/L
+    function molUnit(d){ if(!d.mw||d.u==='%') return null;
+      var ref=toMgL(d.tx!=null?d.tx:(d.th!=null?d.th:d.tl),d)/d.mw; // mmol/L
+      if(ref>=1) return {u:'mmol/L',f:1}; if(ref>=0.001) return {u:'µmol/L',f:1000}; return {u:'nmol/L',f:1e6}; }
+    function molVal(x,d,mu){ if(x==null||!mu) return null; return toMgL(x,d)/d.mw*mu.f; }
+    function molRange(d){ var mu=molUnit(d); if(!mu) return '';
+      var ter=(d.tl==null)?'—':fmtNum(molVal(d.tl,d,mu),2)+'–'+fmtNum(molVal(d.th,d,mu),2);
+      var tox=(d.tx==null)?'—':'≥ '+fmtNum(molVal(d.tx,d,mu),2);
+      var letr=(d.ft==null)?'—':'≥ '+fmtNum(molVal(d.ft,d,mu),2);
+      return 'ter '+ter+' · tox '+tox+' · let '+letr+' '+mu.u; }
+    var CATS={drogy:'Drogy',sedativa:'Sedatíva/BZD',psycho:'Antidepr./antipsych.',ostatne:'Analget./kardio/iné'};
+
+    root.innerHTML=''+
+    '<div class="card"><div class="alert warn"><span class="ic">!</span><span>Orientačné rozmedzia v <b>krvi</b> (mg/L, ak nie je uvedené inak). <b>Post mortem redistribúcia</b>, tolerancia, kombinované účinky a miesto odberu zásadne menia interpretáciu.</span></div></div>'+
+    '<div class="card"><h2>Klasifikátor</h2>'+
+      '<div class="field"><label>Látka</label><select id="p_sel"></select></div>'+
+      '<div class="field"><label>Nameraná koncentrácia (<span id="p_unit">mg/L</span>)</label>'+
+        '<input id="p_val" type="number" inputmode="decimal" step="0.01" placeholder="hodnota v krvi"></div>'+
+      '<button class="btn" id="p_clsBtn">Klasifikovať</button>'+
+      '<div id="p_clsOut" style="margin-top:10px"></div></div>'+
+    '<div class="card"><h2>Referenčná tabuľka</h2>'+
+      '<input id="p_search" type="text" placeholder="Hľadať látku…" style="margin-bottom:10px">'+
+      '<div id="p_chips" style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px"></div>'+
+      '<div id="p_list"></div></div>'+
+    '<div class="card"><h2>Referencie</h2><div class="foot" style="text-align:left">'+
+      'Hodnoty sú orientačné a kompilované z uznávaných zdrojov; rozsahy sa medzi prameňmi líšia.<br>'+
+      'Schulz M., Schmoldt A., Andresen-Streichert H., Iwersen-Bergmann S.: Revisited: Therapeutic and toxic blood concentrations of more than 1,100 drugs and other xenobiotics. Critical Care 2020;24:195.<br>'+
+      'TIAFT Reference Blood Level list; Baselt: Disposition of Toxic Drugs and Chemicals in Man.<br><br>'+
+      'Údaje sa neručia za správnosť; používať s odbornými znalosťami a v kontexte celého prípadu.</div></div>';
+
+    // select
+    var sel=$id('p_sel');
+    D.forEach(function(d,i){ var o=document.createElement('option'); o.value=i; o.textContent=d.n; sel.appendChild(o); });
+    function curUnit(){ return D[sel.value].u||'mg/L'; }
+    sel.addEventListener('change',function(){ $id('p_unit').textContent=curUnit(); $id('p_clsOut').innerHTML=''; });
+    $id('p_unit').textContent=curUnit();
+
+    function rng(d){ var u=d.u||'mg/L';
+      var ter=(d.tl==null)?'—':fmtNum(d.tl,d.tl<1?3:0)+'–'+fmtNum(d.th,d.th<1?2:0);
+      var tox=(d.tx==null)?'—':'≥ '+fmtNum(d.tx,d.tx<1?2:0);
+      var letr=(d.ft==null)?'—':'≥ '+fmtNum(d.ft,d.ft<1?2:0);
+      return {u:u,ter:ter,tox:tox,let:letr}; }
+
+    $id('p_clsBtn').addEventListener('click',function(){
+      var d=D[sel.value], val=parseFloat($id('p_val').value);
+      if(!isFinite(val)){ alert('Zadaj nameranú koncentráciu.'); return; }
+      var verdict,cls;
+      if(d.ft!=null && val>=d.ft){ verdict='Komatózno-letálne rozmedzie'; cls='bad'; }
+      else if(d.tx!=null && val>=d.tx){ verdict='Toxické rozmedzie'; cls='bad'; }
+      else if(d.tl!=null && val>=d.tl){ verdict='Terapeutické rozmedzie'; cls='ok'; }
+      else if(d.tl!=null){ verdict='Subterapeutické / nízke'; cls='warn'; }
+      else { verdict='Bez definovaného terapeutického pásma'; cls='warn'; }
+      var r=rng(d), mu=molUnit(d), mvLine='';
+      if(mu){ var mv=molVal(val,d,mu); mvLine='<br>= '+fmtNum(mv,mv<1?3:2)+' '+mu.u+' &nbsp;(referencie: '+molRange(d)+')'; }
+      $id('p_clsOut').innerHTML='<div class="alert '+cls+'"><span class="ic">'+(cls==='bad'?'✕':cls==='warn'?'!':'✓')+'</span><span><b>'+d.n+'</b>: '+fmtNum(val,val<1?3:0)+' '+r.u+' → <b>'+verdict+'</b>'+mvLine+'<br>'+
+        'ter '+r.ter+' · tox '+r.tox+' · let '+r.let+' '+r.u+(d.note?('<br><span class="muted">'+d.note+'</span>'):'')+'</span></div>';
+    });
+
+    // chips + list
+    var active='all';
+    function renderChips(){
+      var html='<span class="chip flt'+(active==='all'?' on':'')+'" data-c="all">Všetko</span>';
+      Object.keys(CATS).forEach(function(k){ html+='<span class="chip flt'+(active===k?' on':'')+'" data-c="'+k+'">'+CATS[k]+'</span>'; });
+      $id('p_chips').innerHTML=html;
+      root.querySelectorAll('#p_chips .flt').forEach(function(c){ c.addEventListener('click',function(){ active=c.dataset.c; renderChips(); renderList(); }); });
+    }
+    function renderList(){
+      var q=($id('p_search').value||'').toLowerCase();
+      var html='';
+      D.forEach(function(d){
+        if(active!=='all' && d.c!==active) return;
+        if(q && d.n.toLowerCase().indexOf(q)<0) return;
+        var r=rng(d);
+        html+='<div style="border:1px solid var(--line);border-radius:11px;padding:10px 12px;margin-bottom:8px;background:var(--card2)">'+
+          '<div style="font-weight:700;font-size:14px">'+d.n+' <span class="muted" style="font-weight:400;font-size:11px">'+CATS[d.c]+'</span></div>'+
+          '<div class="ci" style="margin-top:4px">ter <b>'+r.ter+'</b> · tox <b>'+r.tox+'</b> · let <b>'+r.let+'</b> '+r.u+'</div>'+
+          (molRange(d)?'<div class="hint" style="margin-top:2px">≈ '+molRange(d)+'</div>':'')+
+          (d.note?'<div class="hint" style="margin-top:3px">'+d.note+'</div>':'')+'</div>';
+      });
+      $id('p_list').innerHTML=html||'<div class="hint">Žiadna zhoda.</div>';
+    }
+    $id('p_search').addEventListener('input',renderList);
+    renderChips(); renderList();
+  }
+});
+
+/* =====================================================================
+   PLUGIN — FORENZNÁ ENTOMOLÓGIA: chronológia vývoja muchy + ilustrácie
+   ===================================================================== */
+Toolkit.register({
+  id:'entomo',
+  name:'Forenzná entomológia',
+  icon:'🪰',
+  category:'Entomológia',
+  short:'Vývoj muchy: vajíčko → dospelec.',
+  long:'Chronológia vývoja muchovitých (Calliphoridae) s ilustráciami a odhadom PMI.',
+  mount:function(root){
+    // SVG ilustrácie jednotlivých štádií
+    function maggot(k,col){ return ''+
+      '<g transform="translate(50,50) scale('+k+') translate(-50,-50)">'+
+      '<path d="M14 50 C20 39,50 40,70 43 C86 45,91 50,91 50 C91 50,86 55,70 57 C50 60,20 61,14 50 Z" fill="'+col+'" stroke="#c9b98c" stroke-width="1"/>'+
+      '<g stroke="#d6c79b" fill="none" stroke-width="1.1"><path d="M30 43 Q33 50 30 57"/><path d="M42 42 Q45 50 42 58"/><path d="M54 42 Q57 50 54 58"/><path d="M66 44 Q69 50 66 56"/></g>'+
+      '<path d="M14 50 q-3 -2 -5 -1 M14 50 q-3 2 -5 1" stroke="#7a6a3a" stroke-width="1.4" fill="none"/></g>'; }
+    var STAGES=[
+      {n:'Vajíčka',l:'ovum',t:'0 – ~1 deň',f:'Krémové, ~1–2 mm, kladené v zhlukoch do telesných otvorov a rán. Liahnutie za ~12–24 h.',
+       svg:'<svg viewBox="0 0 100 100"><g fill="#f5eed6" stroke="#cdbf94" stroke-width="1">'+
+         '<ellipse cx="42" cy="55" rx="3.8" ry="13" transform="rotate(-16 42 55)"/><ellipse cx="50" cy="52" rx="3.8" ry="13" transform="rotate(-5 50 52)"/>'+
+         '<ellipse cx="58" cy="55" rx="3.8" ry="13" transform="rotate(10 58 55)"/><ellipse cx="46" cy="63" rx="3.6" ry="12" transform="rotate(-12 46 63)"/>'+
+         '<ellipse cx="54" cy="63" rx="3.6" ry="12" transform="rotate(12 54 63)"/><ellipse cx="50" cy="45" rx="3.6" ry="12"/></g></svg>'},
+      {n:'Larva L1 (1. instar)',l:'larva I',t:'~1 deň',f:'Malá biela larva (~2–5 mm), bez zadných stigiem viditeľných, začína sa živiť.',
+       svg:'<svg viewBox="0 0 100 100">'+maggot(0.5,'#f3ead0')+'</svg>'},
+      {n:'Larva L2 (2. instar)',l:'larva II',t:'~1,5 – 2,5 dňa',f:'Stredne veľká larva (~5–10 mm) po prvom zvliekaní; intenzívne sa živí.',
+       svg:'<svg viewBox="0 0 100 100">'+maggot(0.72,'#f1e6c6')+'</svg>'},
+      {n:'Larva L3 žravá (3. instar)',l:'larva III',t:'~2,5 – 4 dni',f:'Najväčšia žravá larva (~10–17 mm), dve zadné stigmy; tvorí „larválne masy".',
+       svg:'<svg viewBox="0 0 100 100">'+maggot(0.98,'#eee0bd')+
+         '<g fill="#5a3517"><circle cx="84" cy="47" r="2"/><circle cx="84" cy="53" r="2"/></g></svg>'},
+      {n:'Migrujúca larva (postfeeding)',l:'larva migrans',t:'~4 – 8 dní',f:'Larva prestáva žrať, opúšťa telo a hľadá miesto na zakuklenie; tmavne.',
+       svg:'<svg viewBox="0 0 100 100"><g transform="rotate(-12 50 50)">'+maggot(0.92,'#d9c08a')+'</g>'+
+         '<path d="M12 78 q20 -6 40 -2 q18 4 34 -1" stroke="#33415f" stroke-dasharray="2 4" fill="none" stroke-width="1.4"/></svg>'},
+      {n:'Pupárium (kukla)',l:'pupa',t:'~8 – 18 dní',f:'Súdkovité, hnedé až čierne (~9 mm); vnútri prebieha metamorfóza. Najdlhšie štádium.',
+       svg:'<svg viewBox="0 0 100 100"><g><rect x="27" y="38" width="46" height="24" rx="12" fill="#7a4a24" stroke="#4f2f15" stroke-width="1.2"/>'+
+         '<g stroke="#5a3517" fill="none" stroke-width="1.1"><path d="M38 39 Q41 50 38 61"/><path d="M48 38 Q51 50 48 62"/><path d="M58 39 Q61 50 58 61"/></g></g></svg>'},
+      {n:'Dospelá mucha',l:'imago',t:'~18 – 24 dní',f:'Dospelec (bzučivka) s kovovo zelenkavým/modrým telom; po stuhnutí krídel odlieta a kladie ďalšie vajíčka.',
+       svg:'<svg viewBox="0 0 100 100">'+
+         '<g stroke="#16242e" stroke-width="1.6" fill="none" stroke-linecap="round"><path d="M40 56 L30 74"/><path d="M46 58 L44 78"/><path d="M52 58 L58 78"/><path d="M40 50 L26 40"/><path d="M48 52 L50 30"/><path d="M55 52 L66 34"/></g>'+
+         '<ellipse cx="60" cy="40" rx="24" ry="11" fill="rgba(214,232,255,.5)" stroke="#9fb0cf" stroke-width="1" transform="rotate(20 60 40)"/>'+
+         '<ellipse cx="60" cy="44" rx="22" ry="9" fill="rgba(214,232,255,.4)" stroke="#9fb0cf" stroke-width="1" transform="rotate(8 60 44)"/>'+
+         '<ellipse cx="60" cy="56" rx="22" ry="13" fill="#2a6fb0"/>'+
+         '<g stroke="#1c4e80" stroke-width="1.2"><path d="M52 46 L52 66"/><path d="M62 45 L62 67"/><path d="M72 48 L72 64"/></g>'+
+         '<ellipse cx="36" cy="53" rx="14" ry="11" fill="#2e7d4f"/>'+
+         '<circle cx="22" cy="51" r="8.5" fill="#16242e"/><path d="M19 46 a4 4 0 0 1 6 0" fill="#b3372b"/>'+
+         '<path d="M16 45 l-4 -4 M20 43 l-2 -5" stroke="#16242e" stroke-width="1.2"/></svg>'}
+    ];
+
+    // lightbox so zoomom
+    function openLB(svg,title,cap){
+      var ov=document.createElement('div'); ov.className='lightbox';
+      ov.innerHTML='<div class="lb-bar"><span>'+title+'</span><div><button class="lb-btn" data-z="out">−</button><button class="lb-btn" data-z="in">+</button><button class="lb-btn" data-z="x">✕</button></div></div>'+
+        '<div class="lb-stage"><div class="lb-inner">'+svg+'</div></div><div class="lb-cap">'+cap+'</div>';
+      document.body.appendChild(ov);
+      var scale=1, inner=ov.querySelector('.lb-inner');
+      ov.addEventListener('click',function(e){ var z=e.target.getAttribute('data-z');
+        if(z==='in') scale=Math.min(6,scale+0.5); else if(z==='out') scale=Math.max(1,scale-0.5);
+        else if(z==='x'||e.target===ov||e.target.classList.contains('lb-stage')){ document.body.removeChild(ov); return; }
+        inner.style.transform='scale('+scale+')'; });
+    }
+
+    var html=''+
+    '<div class="card"><h2>O metóde</h2><div class="hint">'+
+      'Muchovité (čeľaď Calliphoridae — bzučivky) kolonizujú telo v predvídateľnom slede. Vek najstaršieho vývojového štádia hmyzu udáva <b>minimálny PMI</b> (čas od kolonizácie, spravidla krátko po smrti). Vývoj je <b>silne závislý od teploty</b> — používa sa koncept akumulovaných stupňodní/stupňohodín (ADD/ADH).</div></div>'+
+    '<div class="card"><h2>Chronológia vývoja <span class="pill">~21 °C</span></h2>'+
+      '<div class="hint" style="margin-bottom:10px">Časy od nakladenia vajíčok pri referenčnej teplote ~21 °C. Klikni na obrázok pre zväčšenie.</div>'+
+      '<div id="ento_list"></div></div>'+
+    '<div class="card"><h2>Odhad PMI z teploty (ADD)</h2>'+
+      '<div class="field"><label>Najstaršie nájdené štádium</label><select id="ento_stage"></select></div>'+
+      '<div class="row"><div class="field"><label>Priemerná teplota (°C)</label><input id="ento_temp" type="number" inputmode="decimal" step="0.5" placeholder="napr. 21"></div>'+
+        '<div class="field"><label>Bazálna teplota T₀ (°C)</label><input id="ento_base" type="number" inputmode="decimal" step="0.5" value="10"></div></div>'+
+      '<button class="btn" id="ento_calc">Odhadnúť minimálny PMI</button>'+
+      '<div id="ento_out" style="margin-top:10px"></div></div>'+
+    '<div class="card"><h2>Výklad a referencie</h2>'+
+      '<details><summary>Metóda ADD/ADH</summary><div class="hint" style="margin-top:8px">'+
+        'PMI (dni) ≈ ADD_štádia / (T_priem − T₀), kde ADD je akumulovaný tepelný súčet potrebný na dosiahnutie štádia a T₀ je vývojový prah (~8–10 °C). '+
+        'Vždy použi <b>druhovo špecifické</b> publikované dáta a lokálne teploty (meteostanica korigovaná na miesto nálezu). Tu uvedené hodnoty sú orientačné pre bzučivky.</div></details>'+
+      '<details><summary>Dôležité upozornenia</summary><div class="hint" style="margin-top:8px">'+
+        'Závisí od druhu, teploty, prístupu hmyzu, prikrytia/pochovania, vody, larválneho tepla v masách, sezóny a geografie. Vyžaduje určenie druhu (entomológ). Udáva minimálny, nie absolútny PMI.</div></details>'+
+      '<div class="foot">Orientačná pomôcka — forenzno-entomologické posúdenie patrí špecialistovi.<br>Amendt et al., Int J Legal Med 2007 (best practice); Grassberger & Reiter (L. sericata isomegalen/ADH); Greenberg 1991; Byrd & Castner: Forensic Entomology.</div></div>';
+    root.innerHTML=html;
+
+    // render zoznam
+    var lst=$id('ento_list');
+    STAGES.forEach(function(s,i){
+      var card=document.createElement('div'); card.className='ento-card';
+      card.innerHTML='<div class="ento-img" data-i="'+i+'">'+s.svg+'</div>'+
+        '<div class="ento-meta"><h3>'+s.n+' <span class="muted" style="font-weight:400;font-size:11px;font-style:italic">'+s.l+'</span></h3>'+
+        '<div class="t">'+s.t+'</div><p>'+s.f+'</p></div>';
+      lst.appendChild(card);
+    });
+    root.querySelectorAll('.ento-img').forEach(function(im){ im.addEventListener('click',function(){
+      var s=STAGES[im.getAttribute('data-i')]; openLB(s.svg, s.n+' ('+s.l+')', s.t+' — '+s.f); }); });
+
+    // ADD odhad (orientačné kumulatívne ADD pri T0=10°C)
+    var ADD=[ {n:'Vajíčka (čerstvé)',v:8},{n:'Larva L1',v:25},{n:'Larva L2',v:55},{n:'Larva L3 žravá',v:95},
+      {n:'Migrujúca larva (postfeeding)',v:130},{n:'Pupárium',v:175},{n:'Dospelec (vyliahnutie)',v:250} ];
+    var sel=$id('ento_stage'); ADD.forEach(function(a,i){ var o=document.createElement('option'); o.value=i; o.textContent=a.n; sel.appendChild(o); });
+    sel.value=3;
+    $id('ento_calc').addEventListener('click',function(){
+      var temp=parseFloat($id('ento_temp').value), base=parseFloat($id('ento_base').value);
+      if(!isFinite(temp)){ alert('Zadaj priemernú teplotu.'); return; }
+      if(!isFinite(base)) base=10;
+      var eff=temp-base;
+      if(eff<=0){ $id('ento_out').innerHTML='<div class="alert bad"><span class="ic">✕</span><span>Teplota je pod vývojovým prahom (T₀) — vývoj prakticky neprebieha.</span></div>'; return; }
+      var a=ADD[sel.value], days=a.v/eff;
+      $id('ento_out').innerHTML='<div class="result" style="padding:6px 0"><div class="big" style="font-size:32px">'+fmtNum(days,1)+' <small>dní</small></div>'+
+        '<div class="ci">minimálny PMI pre „'+a.n+'" pri '+fmtNum(temp,1)+' °C (T₀ '+fmtNum(base,1)+' °C)</div></div>'+
+        '<div class="alert warn" style="margin-top:6px"><span class="ic">!</span><span>Orientačné (ADD ≈ '+a.v+' °·d pre bzučivky). Pre súdne účely použi druhovo špecifické dáta a entomológa.</span></div>';
+    });
+  }
+});
+
+/* =====================================================================
+   PLUGIN — ANTROPOLÓGIA: výška z dlhých kostí + vek (plod/perinatál)
+   ===================================================================== */
+Toolkit.register({
+  id:'anthro',
+  name:'Výška / vek z kostí',
+  icon:'🦴',
+  category:'Antropológia',
+  short:'Telesná výška a vek z dĺžok kostí.',
+  long:'Odhad telesnej výšky z dlhých kostí (Trotter & Gleser) a veku plodu z dĺžky diafýzy.',
+  mount:function(root){
+    root.innerHTML=''+
+    '<div class="seg" id="an_mode"><button data-m="stat" class="active">Výška (dospelí)</button>'+
+      '<button data-m="age">Vek (plod/perinatál)</button></div>'+
+    // ---- VÝŠKA ----
+    '<div id="an_stat">'+
+      '<div class="card"><h2>Pohlavie</h2>'+
+        '<div class="seg" id="an_sex"><button data-sex="m" class="active">Muž</button><button data-sex="z">Žena</button></div></div>'+
+      '<div class="card"><h2>Dĺžky dlhých kostí (cm)</h2>'+
+        '<div class="hint" style="margin-bottom:8px">Vyplň, ktoré sú k dispozícii (maximálna dĺžka kosti).</div>'+
+        '<div class="row"><div class="field"><label>Femur</label><input id="an_fem" type="number" inputmode="decimal" step="0.1" placeholder="cm"></div>'+
+          '<div class="field"><label>Tíbia</label><input id="an_tib" type="number" inputmode="decimal" step="0.1" placeholder="cm"></div>'+
+          '<div class="field"><label>Fibula</label><input id="an_fib" type="number" inputmode="decimal" step="0.1" placeholder="cm"></div></div>'+
+        '<div class="row"><div class="field"><label>Humerus</label><input id="an_hum" type="number" inputmode="decimal" step="0.1" placeholder="cm"></div>'+
+          '<div class="field"><label>Rádius</label><input id="an_rad" type="number" inputmode="decimal" step="0.1" placeholder="cm"></div>'+
+          '<div class="field"><label>Ulna</label><input id="an_uln" type="number" inputmode="decimal" step="0.1" placeholder="cm"></div></div>'+
+        '<div class="field"><label>Vek (rokov) — voliteľné, korekcia &gt; 30 r.</label><input id="an_age" type="number" inputmode="decimal" step="1" placeholder="napr. 55"></div>'+
+        '<button class="btn" id="an_calc">Vypočítať výšku</button></div>'+
+      '<div class="card" id="an_res" style="display:none"><h2>Výsledok</h2>'+
+        '<div class="result"><div class="lbl" style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.6px">Najlepší odhad</div>'+
+          '<div class="big" id="an_best">– <small>cm</small></div><div class="ci" id="an_bestnote"></div></div>'+
+        '<table class="ref" style="margin-top:12px"><tr><th>Kosť</th><th>Výška (cm)</th><th>± SE</th></tr><tbody id="an_rows"></tbody></table>'+
+        '<div class="hint" id="an_agecorr" style="margin-top:8px"></div></div>'+
+    '</div>'+
+    // ---- VEK ----
+    '<div id="an_age2" style="display:none">'+
+      '<div class="card"><h2>Vek plodu / perinatál</h2>'+
+        '<div class="field"><label>Dĺžka diafýzy femuru (mm)</label><input id="an_fl" type="number" inputmode="decimal" step="0.5" placeholder="napr. 60"></div>'+
+        '<button class="btn" id="an_agecalc">Odhadnúť vek</button>'+
+        '<div id="an_ageout" style="margin-top:12px"></div></div>'+
+      '<div class="card"><div class="alert warn"><span class="ic">!</span><span>U <b>dospelých sa vek z dĺžky kosti odhadnúť nedá</b>. Vek dospelého sa určuje z iných znakov: uzáver epifýz, facies symphysialis pubis, facies auricularis, sternálne konce rebier, lebečné švy a chrup.</span></div></div>'+
+    '</div>'+
+    // ---- export + referencie ----
+    '<div class="card" id="an_exportCard" style="display:none"><h2>Export do zápisnice</h2>'+
+      '<div class="grid2"><div class="field"><label>Číslo protokolu</label><input id="an_prot" type="text" placeholder="napr. 680"></div>'+
+        '<div class="field"><label>Meno zomrelého</label><input id="an_meno" type="text" placeholder="meno priezvisko"></div></div>'+
+      '<textarea id="an_exportText" class="export-box" readonly></textarea>'+
+      '<button class="btn ghost small" id="an_copy" style="margin-top:10px">Kopírovať text</button></div>'+
+    '<div class="card"><h2>Metóda a referencie</h2>'+
+      '<details><summary>Rovnice výšky (Trotter & Gleser)</summary><div class="hint" style="margin-top:8px">'+
+        'Výška [cm] = a · dĺžka[cm] + b (± SE). Beloši; vek &gt; 30 r.: − 0,06 · (vek − 30) cm.<br><br>'+
+        '<b>Muži:</b> femur 2,38·F+61,41 (±3,27); tíbia 2,52·T+78,62; fibula 2,68·Fi+71,78; humerus 3,08·H+70,45; rádius 3,78·R+79,01; ulna 3,70·U+74,05; femur+tíbia 1,30·(F+T)+63,29 (±2,99).<br><br>'+
+        '<b>Ženy:</b> femur 2,47·F+54,10 (±3,72); tíbia 2,90·T+61,53; fibula 2,93·Fi+59,61; humerus 3,36·H+57,97; rádius 4,74·R+54,93; ulna 4,27·U+57,76; femur+tíbia 1,39·(F+T)+53,20 (±3,55).</div></details>'+
+      '<details><summary>Vek plodu z femuru</summary><div class="hint" style="margin-top:8px">'+
+        'Gestačný vek [týž] ≈ 0,40 · dĺžka femuru[mm] + 7,9 (± ~2,5 týž). Hranica viability ~22–24 týž.<br>'+
+        'Pre dry-bone forenzné prípady porovnaj s tabuľkami Fazekas & Kósa (1978) a Scheuer et al. (1980); hodnoty sú populačne závislé.</div></details>'+
+      '<div class="foot">Orientačný odhad. Trotter-Gleser sú populačne špecifické (americkí beloši); pre iné populácie môže byť odchýlka. Sekulárny trend výšky nezohľadnený.<br>Trotter M., Gleser G.C. 1952, 1958; Trotter 1970; Hadlock 1982; Fazekas & Kósa 1978; Scheuer et al. 1980.</div></div>';
+
+    var EQ={
+      m:{fem:[2.38,61.41,3.27],tib:[2.52,78.62,3.37],fib:[2.68,71.78,3.29],hum:[3.08,70.45,4.05],rad:[3.78,79.01,4.32],uln:[3.70,74.05,4.32],ft:[1.30,63.29,2.99]},
+      z:{fem:[2.47,54.10,3.72],tib:[2.90,61.53,3.66],fib:[2.93,59.61,3.57],hum:[3.36,57.97,4.45],rad:[4.74,54.93,4.24],uln:[4.27,57.76,4.30],ft:[1.39,53.20,3.55]}
+    };
+    var NAMES={fem:'Femur',tib:'Tíbia',fib:'Fibula',hum:'Humerus',rad:'Rádius',uln:'Ulna',ft:'Femur+Tíbia'};
+    function sex(){ return root.querySelector('#an_sex button.active').dataset.sex; }
+
+    function calcStat(){
+      var s=sex(), E=EQ[s];
+      var v={fem:parseFloat($id('an_fem').value),tib:parseFloat($id('an_tib').value),fib:parseFloat($id('an_fib').value),
+             hum:parseFloat($id('an_hum').value),rad:parseFloat($id('an_rad').value),uln:parseFloat($id('an_uln').value)};
+      var age=parseFloat($id('an_age').value);
+      var corr=(isFinite(age)&&age>30)?0.06*(age-30):0;
+      var results=[];
+      ['fem','tib','fib','hum','rad','uln'].forEach(function(k){ if(isFinite(v[k])){ var e=E[k]; results.push({k:k,h:e[0]*v[k]+e[1]-corr,se:e[2]}); } });
+      if(isFinite(v.fem)&&isFinite(v.tib)){ var e=E.ft; results.push({k:'ft',h:e[0]*(v.fem+v.tib)+e[1]-corr,se:e[2]}); }
+      if(results.length===0){ alert('Zadaj aspoň jednu dĺžku kosti.'); return; }
+      results.sort(function(a,b){ return a.se-b.se; });
+      $id('an_res').style.display='block'; $id('an_exportCard').style.display='block';
+      var best=results[0];
+      $id('an_best').innerHTML=fmtNum(best.h,1)+' <small>cm</small>';
+      $id('an_bestnote').textContent='podľa '+NAMES[best.k]+' (± '+fmtNum(best.se,2)+' cm) · rozsah '+fmtNum(best.h-best.se,1)+'–'+fmtNum(best.h+best.se,1)+' cm';
+      var rowsHtml='', ex=['ODHAD TELESNEJ VÝŠKY — Trotter & Gleser ('+(s==='m'?'muž':'žena')+')'];
+      results.forEach(function(r){ rowsHtml+='<tr><td>'+NAMES[r.k]+'</td><td>'+fmtNum(r.h,1)+'</td><td>± '+fmtNum(r.se,2)+'</td></tr>';
+        ex.push(NAMES[r.k]+': '+fmtNum(r.h,1)+' cm (± '+fmtNum(r.se,2)+')'); });
+      $id('an_rows').innerHTML=rowsHtml;
+      $id('an_agecorr').textContent=corr>0?('Použitá veková korekcia − '+fmtNum(corr,2)+' cm (vek '+fmtNum(age,0)+' r.).'):'';
+      var prot=$id('an_prot').value.trim(), meno=$id('an_meno').value.trim();
+      var head=[]; if(prot) head.push('Protokol č.: '+prot); if(meno) head.push('Zomrelý: '+meno);
+      ex.splice.apply(ex,[1,0].concat(head));
+      ex.push('','Najlepší odhad: '+fmtNum(best.h,1)+' cm (± '+fmtNum(best.se,2)+', '+NAMES[best.k]+')'+(corr>0?('; veková korekcia −'+fmtNum(corr,2)+' cm'):''),
+        'Pozn.: Trotter-Gleser (beloši), orientačné.');
+      $id('an_exportText').value=ex.join('\n');
+    }
+    function calcAge(){
+      var fl=parseFloat($id('an_fl').value);
+      if(!isFinite(fl)){ alert('Zadaj dĺžku diafýzy femuru (mm).'); return; }
+      var ga=0.40*fl+7.9, lo=ga-2.5, hi=ga+2.5;
+      $id('an_exportCard').style.display='block';
+      var viab = ga>=24?'ok':ga>=22?'warn':'bad';
+      $id('an_ageout').innerHTML='<div class="result"><div class="big" style="font-size:34px">'+fmtNum(ga,1)+' <small>týž</small></div>'+
+        '<div class="ci">rozsah '+fmtNum(lo,1)+'–'+fmtNum(hi,1)+' týž (± ~2,5) · ≈ '+fmtNum(ga/4.345,1)+' luných mes.</div></div>'+
+        '<div class="alert '+viab+'" style="margin-top:6px"><span class="ic">'+(viab==='ok'?'✓':'!')+'</span><span>'+
+        (ga>=24?'Nad hranicou viability (~24 týž).':ga>=22?'Hranica viability (~22–24 týž).':'Pod hranicou viability (~22 týž).')+'</span></div>';
+      var prot=$id('an_prot').value.trim(), meno=$id('an_meno').value.trim();
+      var L=['ODHAD VEKU PLODU Z FEMURU']; if(prot) L.push('Protokol č.: '+prot); if(meno) L.push('Zomrelý: '+meno);
+      L.push('Dĺžka diafýzy femuru: '+fmtNum(fl,1)+' mm','Gestačný vek: '+fmtNum(ga,1)+' týž ('+fmtNum(lo,1)+'–'+fmtNum(hi,1)+')','',
+        'Pozn.: orientačné; porovnaj s Fazekas & Kósa / Scheuer; populačne závislé.');
+      $id('an_exportText').value=L.join('\n');
+    }
+
+    root.querySelectorAll('#an_mode button').forEach(function(b){ b.addEventListener('click',function(){
+      root.querySelectorAll('#an_mode button').forEach(function(x){x.classList.remove('active');}); b.classList.add('active');
+      var age=b.dataset.m==='age'; $id('an_stat').style.display=age?'none':'block'; $id('an_age2').style.display=age?'block':'none';
+      $id('an_exportText') && ($id('an_exportText').value=''); $id('an_exportCard').style.display='none'; $id('an_res').style.display='none'; $id('an_ageout').innerHTML=''; }); });
+    root.querySelectorAll('#an_sex button').forEach(function(b){ b.addEventListener('click',function(){
+      root.querySelectorAll('#an_sex button').forEach(function(x){x.classList.remove('active');}); b.classList.add('active'); if($id('an_res').style.display!=='none') calcStat(); }); });
+    $id('an_calc').addEventListener('click',calcStat);
+    $id('an_agecalc').addEventListener('click',calcAge);
+    ['an_prot','an_meno'].forEach(function(id){ $id(id).addEventListener('input',function(){ if($id('an_exportText').value){ if($id('an_age2').style.display!=='none') calcAge(); else calcStat(); } }); });
+    $id('an_copy').addEventListener('click',function(){ copyToClipboard($id('an_exportText').value,this,'Skopírované ✓','Kopírovať text'); });
+  }
+});
+
+/* =====================================================================
+   PLUGIN 7 — INFO / O autorovi a aplikácii
+   ===================================================================== */
+Toolkit.register({
+  id:'info',
+  name:'O aplikácii',
+  icon:'ⓘ',
+  category:'Info',
+  short:'Autor, účel, zdieľanie a súkromie.',
+  long:'Informácie o autorovi, účele aplikácie, podmienkach zdieľania a ochrane údajov.',
+  mount:function(root){
+    root.innerHTML=''+
+    '<div class="card"><h2>O autorovi</h2>'+
+      '<div style="display:flex;align-items:center;gap:14px">'+
+        '<div class="ico txt" style="width:54px;height:54px;border-radius:14px;background:var(--card2);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:800;color:var(--accent2)">JŠ</div>'+
+        '<div><div style="font-size:17px;font-weight:700">Ján Šikuta, MD, PhD.</div>'+
+        '<div class="hint" style="margin-top:2px">špecialista v odbore súdne lekárstvo</div>'+
+        '<a href="mailto:jansikuta@me.com" style="color:var(--accent);font-size:13px;text-decoration:none">jansikuta@me.com</a></div></div>'+
+      '<div class="hint" style="margin-top:12px">Aplikácia vznikla z každodennej pitevnej praxe — ako vreckový pomocník, ktorý dáva opakovane používané forenzné výpočty na jedno miesto a šetrí čas pri tvorbe pitevných a znaleckých protokolov.</div></div>'+
+    '<div class="card"><h2>O aplikácii</h2>'+
+      '<div class="hint"><b>Šikuta 4n6 — Forensic Hand Toolkit</b> je súbor odborných kalkulačiek pre súdne lekárstvo (odhad času smrti, biochémia sklovca, odhad veku, antropometria, kardiopatológia).<br><br>'+
+      '<b>Pre koho:</b> lekári a odborníci v súdnom lekárstve a patológii, znalci a v rámci výučby aj študenti medicíny.<br><br>'+
+      '<b>Charakter:</b> všetky výsledky sú <b>orientačné</b> a vychádzajú z publikovaných metód (citácie sú uvedené pri každom nástroji). Finálne posúdenie — vrátane času smrti, príčiny smrti a kauzality — vždy patrí pitevnému lekárovi.</div></div>'+
+    '<div class="card"><h2>Súkromie a údaje</h2>'+
+      '<div class="alert ok"><span class="ic">✓</span><span>Aplikácia beží <b>výhradne lokálne</b> v zariadení. Neodosiela žiadne údaje na internet a nič neukladá — zadané hodnoty (čísla protokolov, mená) zmiznú po zatvorení a nikam sa neprenášajú.</span></div>'+
+      '<div class="hint" style="margin-top:8px">Napriek tomu pri práci s údajmi zomrelých postupuj v súlade s platnými predpismi (ochrana osobných údajov, mlčanlivosť).</div></div>'+
+    '<div class="card"><h2>Zdieľanie a zodpovednosť</h2>'+
+      '<div class="hint">'+
+      '• Nástroj sa poskytuje „<b>ako je</b>" (as-is), bez záruky presnosti či vhodnosti na konkrétny účel. Autor neručí za rozhodnutia prijaté na základe výsledkov.<br><br>'+
+      '• Je určený <b>výhradne pre kvalifikovaných odborníkov</b> a na edukačné účely — <b>nie</b> pre laikov a <b>nie</b> ako certifikované zdravotnícke zariadenie.<br><br>'+
+      '• Pri ďalšom šírení <b>zachovaj uvedenie autora a zdrojov</b> a neupravuj appku tak, aby vznikol dojem oficiálneho, úradne schváleného alebo certifikovaného nástroja.<br><br>'+
+      '• Nepoužívaj na zavádzajúce, protiprávne ani iné než odborné účely.</div>'+
+      '<div class="foot" style="margin-top:12px">© 2026 Ján Šikuta. Všetky práva vyhradené. Verzia 1.0.</div></div>';
+  }
+});
+
+/* spustenie aplikácie */
+Toolkit.start();
+</script>
+
+<script>
+/* Plastické logo — náklon podľa gyroskopu (iOS vyžaduje povolenie pri 1. dotyku) */
+(function(){
+  var logo=document.getElementById('logo3d'),
+      bw=document.getElementById('brandWrap'),
+      sheen=document.getElementById('logoSheen'),
+      started=false, cx=0, cy=0, targRX=0, targRY=0, curRX=0, curRY=0, raf=null;
+  if(!logo) return;
+  function loop(){
+    curRX += (targRX-curRX)*0.18; curRY += (targRY-curRY)*0.18;
+    logo.style.transform='rotateX('+curRX.toFixed(2)+'deg) rotateY('+curRY.toFixed(2)+'deg)';
+    if(bw) bw.style.transform='translate('+(curRY*0.5).toFixed(2)+'px,'+(-curRX*0.35).toFixed(2)+'px)';
+    if(sheen) sheen.style.background='radial-gradient(circle at '+(50+curRY*2.4)+'% '+(30-curRX*2.4)+'%, rgba(255,255,255,.55), rgba(255,255,255,0) 62%)';
+    if(Math.abs(targRX-curRX)>0.05||Math.abs(targRY-curRY)>0.05){ raf=requestAnimationFrame(loop); } else { raf=null; }
+  }
+  function kick(){ if(!raf) raf=requestAnimationFrame(loop); }
+  function onTilt(ev){
+    var g=ev.gamma, b=ev.beta; if(g==null||b==null) return;
+    if(cx===0&&cy===0){ cx=g; cy=b; } // kalibrácia na východiskovú polohu
+    targRY=Math.max(-16,Math.min(16,(g-cx)/2.2));
+    targRX=Math.max(-13,Math.min(13,-(b-cy)/2.2));
+    kick();
+  }
+  function enable(){ if(started) return; started=true; cx=0; cy=0; window.addEventListener('deviceorientation',onTilt,true); }
+  function req(){ try{
+    if(typeof DeviceOrientationEvent!=='undefined' && typeof DeviceOrientationEvent.requestPermission==='function'){
+      DeviceOrientationEvent.requestPermission().then(function(s){ if(s==='granted') enable(); }).catch(function(){});
+    } else { enable(); }
+  }catch(e){} }
+  if(typeof DeviceOrientationEvent!=='undefined' && typeof DeviceOrientationEvent.requestPermission==='function'){
+    var h=function(){ document.removeEventListener('touchend',h); req(); };
+    document.addEventListener('touchend',h); // iOS: povolenie po prvom dotyku
+  } else { req(); } // Android / desktop
+})();
+</script>
+</body>
+</html>
