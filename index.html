@@ -1536,6 +1536,117 @@ Toolkit.register({
 });
 
 /* =====================================================================
+   PLUGIN — POSMRTNÉ ZMENY: odhad PMI pri obhliadke (kompozitná metóda)
+   ===================================================================== */
+Toolkit.register({
+  id:'pmi_scene',
+  name:'Posmrtné zmeny — PMI',
+  icon:'⏱',
+  category:'Tanatológia',
+  short:'Stuhnutosť, škvrny — odhad času smrti.',
+  long:'Odhad času smrti (PMI) z posmrtných zmien pri obhliadke na mieste — kompozitná metóda (Madea/Henssge).',
+  mount:function(root){
+    var Q=[
+      {id:'liv_dev',label:'Posmrtné škvrny — vývoj',opt:[
+        ['— nehodnotené —',null],['Začínajúce / ostrovčekovité',[0.25,3]],
+        ['Splývajúce do plôch',[1,6]],['Plne vyvinuté (maximálne)',[3,16]]]},
+      {id:'liv_press',label:'Škvrny — tlak prstom',opt:[
+        ['— nehodnotené —',null],['Úplne vytlačiteľné (miznú)',[0,6]],
+        ['Čiastočne vytlačiteľné (len bledne)',[1,24]],['Nevytlačiteľné (fixované)',[10,9999]]]},
+      {id:'liv_rep',label:'Škvrny — po preložení tela',opt:[
+        ['— nehodnotené —',null],['Úplne sa presúvajú',[0,6]],
+        ['Čiastočne sa presúvajú',[2,12]],['Nepresúvajú sa (fixované)',[10,9999]]]},
+      {id:'rig_stage',label:'Posmrtná stuhnutosť — štádium',opt:[
+        ['— nehodnotené —',null],['Neprítomná — telo ochabnuté, čerstvé',[0,7]],
+        ['Začínajúca (čeľusť, krk)',[1,7]],['Čiastočná (rozvíja sa)',[2,9]],
+        ['Úplná (vo všetkých kĺboch)',[6,36]],['Ustupujúca / rozprestiera sa',[24,60]],
+        ['Vymiznutá — telo opäť ochabnuté',[24,96]]]},
+      {id:'rig_reest',label:'Stuhnutosť — test prelomením kĺbu',opt:[
+        ['— nehodnotené —',null],['Po prelomení sa obnoví',[0,8]],
+        ['Po prelomení sa neobnoví',[8,9999]]]},
+      {id:'mech',label:'Idiomuskulárna odpoveď (úder do bicepsu)',opt:[
+        ['— nehodnotené —',null],['Silný vratný val (Zsakov fenomén)',[0,2.5]],
+        ['Slabý / lokálny pretrvávajúci val',[2,12]]]}
+    ];
+    var html='<div class="card"><h2>Obhliadka — pozorované znaky</h2>'+
+      '<div class="hint" style="margin-bottom:8px">Vyplň len znaky, ktoré si hodnotil. Appka spojí ich časové rozpätia do spoločného odhadu (prienik).</div>';
+    Q.forEach(function(q){
+      html+='<div class="field"><label>'+q.label+'</label><select id="ps_'+q.id+'">';
+      q.opt.forEach(function(o){ var v=o[1]?(o[1][0]+','+o[1][1]):''; html+='<option value="'+v+'">'+o[0]+'</option>'; });
+      html+='</select></div>';
+    });
+    html+='<button class="btn" id="ps_calc">Odhadnúť čas smrti</button></div>'+
+    '<div class="card" id="ps_res" style="display:none"><h2>Výsledok</h2><div id="ps_alerts"></div>'+
+      '<div class="result"><div class="lbl" style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.6px">Spoločný odhad PMI</div>'+
+      '<div class="big" id="ps_pmi" style="font-size:34px">–</div></div>'+
+      '<table class="ref" style="margin-top:12px"><tr><th>Znak</th><th>Rozpätie</th></tr><tbody id="ps_rows"></tbody></table></div>'+
+    '<div class="card" id="ps_exportCard" style="display:none"><h2>Export do zápisnice</h2>'+
+      '<div class="grid2"><div class="field"><label>Číslo protokolu</label><input id="ps_prot" type="text" placeholder="napr. 680"></div>'+
+        '<div class="field"><label>Meno zomrelého</label><input id="ps_meno" type="text" placeholder="meno priezvisko"></div></div>'+
+      '<textarea id="ps_exportText" class="export-box" readonly></textarea>'+
+      '<button class="btn ghost small" id="ps_copy" style="margin-top:10px">Kopírovať text</button></div>'+
+    '<div class="card"><h2>Metóda, výklad a referencie</h2>'+
+      '<details><summary>Ako to funguje</summary><div class="hint" style="margin-top:8px">'+
+        'Každý posmrtný znak (škvrny, stuhnutosť, dráždivosť svalu) má vlastné časové rozpätie. Skutočný čas smrti leží tam, kde sa rozpätia <b>prekrývajú</b> — appka vypočíta ich prienik. Čím viac znakov, tým užšie okno.</div></details>'+
+      '<details><summary>Orientačné rozpätia (Madea)</summary><table class="ref">'+
+        '<tr><th>Znak</th><th>Čas po smrti</th></tr>'+
+        '<tr><td>Škvrny — začínajú</td><td>0,25–3 h</td></tr>'+
+        '<tr><td>Škvrny — splývajú</td><td>1–6 h</td></tr>'+
+        '<tr><td>Škvrny — maximálne</td><td>3–16 h</td></tr>'+
+        '<tr><td>Škvrny — úplne vytlačiteľné</td><td>do ~6 h</td></tr>'+
+        '<tr><td>Škvrny — čiastočne vytlačiteľné</td><td>do ~24 h</td></tr>'+
+        '<tr><td>Škvrny — fixované (nepresúvajú sa)</td><td>&gt; ~10–12 h</td></tr>'+
+        '<tr><td>Stuhnutosť — začína</td><td>1–7 h (čeľusť 2–4 h)</td></tr>'+
+        '<tr><td>Stuhnutosť — úplná</td><td>~6–36 h</td></tr>'+
+        '<tr><td>Stuhnutosť — ustupuje/mizne</td><td>~24–96 h</td></tr>'+
+        '<tr><td>Re-tuhnutie po prelomení</td><td>áno &lt; ~8 h / nie &gt; ~8 h</td></tr></table></details>'+
+      '<details><summary>Supravitálne reakcie (pre školeného obhliadajúceho)</summary><div class="hint" style="margin-top:8px">'+
+        'Elektrická dráždivosť mimických svalov (m. orbicularis oculi) ~ do 5–7 h; mechanická (idiomuskulárna) odpoveď ~ do 1,5–2,5 h (silná) až ~12 h (slabá); farmakologická reakcia zreníc (instilácia mydriatík/miotík) ~ do 14–46 h.</div></details>'+
+      '<div class="foot">Rozpätia sú orientačné a výrazne závisia od teploty okolia, telesnej konštitúcie, príčiny smrti a prostredia (neplatia spoľahlivo pri požiari, vo vode, v chlade/teple, pri sepse). Najpresnejší jednotlivý odhad v skorom období dáva telesná teplota — pozri nástroj <b>Henssge</b>. Finálne posúdenie patrí pitvajúcemu lekárovi alebo expertovi.<br>Madea B. (ed.): Estimation of the Time Since Death, 3rd ed., CRC Press 2016; Henssge & Madea, Forensic Sci Int 2004;144:167–175; Henssge et al., Int J Legal Med 2000; Madea B., Forensic Sci Med Pathol 2016;12:451–485.</div></div>';
+    root.innerHTML=html;
+
+    function fmtR(lo,hi){
+      var s=(hi>=9999)?('> '+fmtNum(lo,1)+' h'):(fmtNum(lo,1)+'–'+fmtNum(hi,1)+' h');
+      if(lo>=24||(hi>=48&&hi<9999)){ s+=' (≈ '+fmtNum(lo/24,1)+(hi>=9999?'+':('–'+fmtNum(hi/24,1)))+' dní)'; }
+      return s;
+    }
+    function calc(){
+      var ranges=[],rows=[];
+      Q.forEach(function(q){ var el=$id('ps_'+q.id); if(!el.value) return;
+        var p=el.value.split(','),lo=parseFloat(p[0]),hi=parseFloat(p[1]);
+        ranges.push([lo,hi]); rows.push([q.label,el.options[el.selectedIndex].text,lo,hi]); });
+      if(ranges.length===0){ alert('Vyber aspoň jeden pozorovaný znak.'); return; }
+      var lo=0,hi=9999;
+      ranges.forEach(function(r){ if(r[0]>lo) lo=r[0]; if(r[1]<hi) hi=r[1]; });
+      $id('ps_res').style.display='block'; $id('ps_exportCard').style.display='block';
+      var al=$id('ps_alerts'); al.innerHTML='';
+      function add(t,m){ var d=document.createElement('div'); d.className='alert '+t; d.innerHTML='<span class="ic">'+(t==='bad'?'✕':t==='warn'?'!':'✓')+'</span><span>'+m+'</span>'; al.appendChild(d); }
+      var consistent=lo<=hi;
+      if(consistent){ $id('ps_pmi').innerHTML=fmtR(lo,hi); }
+      else { $id('ps_pmi').innerHTML='<span style="font-size:18px;color:var(--bad)">rozpor v znakoch</span>';
+        add('bad','Zvolené znaky si časovo odporujú (rozpätia sa neprekrývajú) — over hodnotenie alebo zváž neobvyklé podmienky (chlad, teplo, choroba).'); }
+      add('warn','Orientačný odhad. Rozpätia kolíšu podľa teploty okolia, konštitúcie, príčiny smrti a prostredia.');
+      add('ok','Pre presnejšie skoré obdobie doplň telesnú teplotu v nástroji Henssge.');
+      var rh='';
+      rows.forEach(function(r){ rh+='<tr><td>'+r[1]+'<br><span class="muted" style="font-size:10px">'+r[0]+'</span></td><td>'+fmtR(r[2],r[3])+'</td></tr>'; });
+      $id('ps_rows').innerHTML=rh;
+
+      var prot=$id('ps_prot').value.trim(),meno=$id('ps_meno').value.trim();
+      var L=['ODHAD PMI Z POSMRTNÝCH ZMIEN (obhliadka)'];
+      if(prot) L.push('Protokol č.: '+prot); if(meno) L.push('Zomrelý: '+meno);
+      L.push('');
+      rows.forEach(function(r){ L.push(r[0]+': '+r[1]+' ('+fmtR(r[2],r[3])+')'); });
+      L.push('', consistent?('Spoločný odhad PMI: '+fmtR(lo,hi)):'Spoločný odhad: znaky si odporujú — preveriť.',
+        'Pozn.: orientačné; závisí od teploty a podmienok. Finálne posúdenie patrí pitvajúcemu lekárovi alebo expertovi.');
+      $id('ps_exportText').value=L.join('\n');
+    }
+    $id('ps_calc').addEventListener('click',calc);
+    ['ps_prot','ps_meno'].forEach(function(id){ $id(id).addEventListener('input',function(){ if($id('ps_exportText').value) calc(); }); });
+    $id('ps_copy').addEventListener('click',function(){ copyToClipboard($id('ps_exportText').value,this,'Skopírované ✓','Kopírovať text'); });
+  }
+});
+
+/* =====================================================================
    PLUGIN 7 — INFO / O autorovi a aplikácii
    ===================================================================== */
 Toolkit.register({
@@ -1567,7 +1678,7 @@ Toolkit.register({
       '• Je určený <b>výhradne pre kvalifikovaných odborníkov</b> a na edukačné účely — <b>nie</b> pre laikov a <b>nie</b> ako certifikované zdravotnícke zariadenie.<br><br>'+
       '• Pri ďalšom šírení <b>zachovaj uvedenie autora a zdrojov</b> a neupravuj appku tak, aby vznikol dojem oficiálneho, úradne schváleného alebo certifikovaného nástroja.<br><br>'+
       '• Nepoužívaj na zavádzajúce, protiprávne ani iné než odborné účely.</div>'+
-      '<div class="foot" style="margin-top:12px">© 2026 Ján Šikuta. Všetky práva vyhradené. Verzia 1.04.</div></div>';
+      '<div class="foot" style="margin-top:12px">© 2026 Ján Šikuta. Všetky práva vyhradené. Verzia 1.05.</div></div>';
   }
 });
 
