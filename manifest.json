@@ -1,0 +1,5 @@
+{
+  "name": "4n6",
+  "version": "1.0.1",  // Zvyšuj pri každom deploye
+  "start_url": "/index.html?v=1.0.1"
+}
