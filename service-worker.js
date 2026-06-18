@@ -1,21 +1,23 @@
 const CACHE_NAME = '4n6-cache-v1';
+
+// Zoznam súborov, ktoré sa majú cacheovať
 const urlsToCache = [
-  '/',
-  '/index.html',
-  '/styles.css',
-  '/script.js',
-  '/manifest.json',
-  '/icons/icon-72x72.png',
-  '/icons/icon-96x96.png',
-  '/icons/icon-128x128.png',
-  '/icons/icon-144x144.png',
-  '/icons/icon-152x152.png',
-  '/icons/icon-192x192.png',
-  '/icons/icon-384x384.png',
-  '/icons/icon-512x512.png'
+  '/',                          // Domovská stránka
+  '/index.html',                // Hlavný HTML súbor
+  '/manifest.json',             // Manifest pre PWA
+  '/styles.css',                // CSS súbor (ak existuje)
+  '/script.js',                 // JavaScript súbor (ak existuje)
+  // Ikony z favicon.io
+  '/icons/android-chrome-192x192.png',
+  '/icons/android-chrome-512x512.png',
+  '/icons/apple-touch-icon.png',
+  '/icons/favicon-16x16.png',
+  '/icons/favicon-32x32.png',
+  '/icons/favicon-48x48.png',
+  '/icons/favicon-64x64.png'
 ];
 
-// Inštalácia Service Worker
+// Inštalácia Service Worker (ukladá súbory do cache)
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME)
@@ -25,25 +27,25 @@ self.addEventListener('install', event => {
   );
 });
 
-// Fetch event - načítanie z cache
+// Načítanie súborov z cache (ak sú dostupné)
 self.addEventListener('fetch', event => {
   event.respondWith(
     caches.match(event.request)
       .then(response => {
-        return response || fetch(event.request);
+        return response || fetch(event.request); // Ak nie je v cache, stiahni z internetu
       })
   );
 });
 
-// Aktualizácia Service Worker
+// Aktualizácia Service Worker (vymaže staré cache)
 self.addEventListener('activate', event => {
-  const cacheWhitelist = [CACHE_NAME];
+  const cacheWhitelist = [CACHE_NAME]; // Zoznam povolených cache
   event.waitUntil(
     caches.keys().then(cacheNames => {
       return Promise.all(
         cacheNames.map(cacheName => {
           if (cacheWhitelist.indexOf(cacheName) === -1) {
-            return caches.delete(cacheName);
+            return caches.delete(cacheName); // Vymaže staré cache
           }
         })
       );
