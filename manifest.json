@@ -1,11 +1,11 @@
 {
-  "name": "4n6",
+  "name": "Šikuta 4n6",
   "short_name": "4n6",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#000000",
-  "description": "Aplikácia 4n6",
+  "description": "4n6s tools",
   "icons": [
     {
       "src": "/icons/android-chrome-192x192.png",
