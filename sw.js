@@ -20,3 +20,20 @@ self.addEventListener('fetch',function(e){
     })
   );
 });
+self.addEventListener('install', (event) => {
+  self.skipWaiting(); // Preskoč čakanie a aktivuj novú verziu
+});
+
+self.addEventListener('activate', (event) => {
+  event.waitUntil(
+    caches.keys().then((cacheNames) => {
+      return Promise.all(
+        cacheNames.map((cache) => {
+          if (cache !== 'my-cache-v1') { // Nahraď s aktuálnym názvom cache
+            return caches.delete(cache);
+          }
+        })
+      );
+    })
+  );
+});
