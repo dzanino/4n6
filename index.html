@@ -436,7 +436,7 @@ Toolkit.register({
         '<tr><td>Stredná korekcia (f 0,7–1,4)</td><td>3,2</td></tr>'+
         '<tr><td>Silná korekcia (f &lt; 0,7 / &gt; 1,4)</td><td>4,5</td></tr>'+
         '<tr><td>Neskorá fáza — Q &lt; 0,2</td><td>7,0</td></tr></table>'+
-        '<div class="hint">Najmenší 95 % CI je ±2,8 h (Henssge). Finálne posúdenie patrí pitavjúcemu lekárovi alebo expertovi.</div></details>'+
+        '<div class="hint">Najmenší 95 % CI je ±2,8 h (Henssge). Finálne posúdenie patrí pitvajúcemu lekárovi alebo expertovi.</div></details>'+
       '<div class="foot">Platí pre včasné posmrtné obdobie pri približne konštantnom okolí; nezohľadňuje sálavé teplo, silný vietor, kolísanie teploty ani malé deti bez úpravy.<br>Henssge &amp; Madea, Forensic Sci Int 2004; Henssge 1992; Schweitzer &amp; Schwenke, BMC 2019.</div></div>';
 
     /* ---- logika ---- */
@@ -507,7 +507,7 @@ Toolkit.register({
           '95 % interval: '+fmtNum(Math.max(0,t-ci),1)+' – '+fmtNum(t+ci,1)+' h po smrti (±'+fmtNum(ci,1)+' h)',
           'Odhadovaný čas smrti: '+fmtClock(dE)+' až '+fmtClock(dL));
       } else L.push('PMI: nevypočítateľné pre zadané hodnoty.');
-      L.push('','Pozn.: orientačný odhad, finálne posúdenie patrí pitavjúcemu lekárovi alebo expertovi.');
+      L.push('','Pozn.: orientačný odhad, finálne posúdenie patrí pitvajúcemu lekárovi alebo expertovi.');
       $id('h_exportText').value=L.join('\n');
     }
 
@@ -782,7 +782,7 @@ Toolkit.register({
       '<details><summary>Faktory a CSF</summary><div class="hint" style="margin-top:8px">'+
         '<b>Ovplyvňujúce faktory:</b> dehydratácia/urémia (ochorenie obličiek), požitie alkoholu, dlhá agónia a telesná hmotnosť môžu zvýšiť rozptyl odhadu.<br><br>'+
         '<b>CSF (mozgovomiechový mok):</b> draslík v CSF tiež stúpa posmrtne, ale je <b>menej spoľahlivý</b> než sklovec (rýchlejšia kontaminácia a bakteriálny rozklad). Pre PMI sa preto uprednostňuje sklovec; samostatný CSF výpočet zámerne neuvádzam. Ak máš konkrétny CSF vzorec, viem ho doplniť.</div></details>'+
-      '<div class="foot">Orientačný odhad. Modely sa môžu líšiť aj o desiatky %; finálne posúdenie patrí pitavjúcemu lekárovi alebo expertovi.<br>Sturner & Gantner, Am J Clin Pathol 1964; Madea et al., Forensic Sci Int 1989; James et al., Am J Forensic Med Pathol 1997; Zilg et al., Forensic Sci Int 2015; Bévalot/CSF: Forensic Sci Int 2015 (porovnanie CSF vs sklovec).</div></div>';
+      '<div class="foot">Orientačný odhad. Modely sa môžu líšiť aj o desiatky %; finálne posúdenie patrí pitvajúcemu lekárovi alebo expertovi.<br>Sturner & Gantner, Am J Clin Pathol 1964; Madea et al., Forensic Sci Int 1989; James et al., Am J Forensic Med Pathol 1997; Zilg et al., Forensic Sci Int 2015; Bévalot/CSF: Forensic Sci Int 2015 (porovnanie CSF vs sklovec).</div></div>';
 
     function lin(a,b,K){ return a*K-b; }
     function zilg(K,age,temp){
@@ -882,7 +882,7 @@ Toolkit.register({
         '<div class="hint">Hodnoty medzi pásmami sú nediagnostické (normoglykémia/nešpecifické).</div></details>'+
       '<details><summary>Upozornenie (aktuálny pohľad)</summary><div class="hint" style="margin-top:8px">'+
         'Laktát po smrti stúpa, preto Traubov index môže <b>nadhodnotiť</b> antemortem glykémiu a <b>nemá sa používať izolovane</b> na diagnózu hyperglykémie/ketoacidózy. Vysoký index je podnetom doplniť β-hydroxybutyrát (najspoľahlivejší marker ketoacidózy) a HbA1c. Niektorí autori navrhujú variant glukóza + ½ laktát (zobrazený v detaile).</div></details>'+
-      '<div class="foot">Orientačná pomôcka. Sklovec je spoľahlivejší než CSF (menšia kontaminácia). Finálne posúdenie patrí pitavjúcemu lekárovi alebo expertovi.<br>Traub 1969; Dettmeyer R., Forensic Medicine 2014, s. 587; Palmiere & Mangin, Int J Legal Med 2012 (revízia Traubovho vzorca).</div></div>';
+      '<div class="foot">Orientačná pomôcka. Sklovec je spoľahlivejší než CSF (menšia kontaminácia). Finálne posúdenie patrí pitvajúcemu lekárovi alebo expertovi.<br>Traub 1969; Dettmeyer R., Forensic Medicine 2014, s. 587; Palmiere & Mangin, Int J Legal Med 2012 (revízia Traubovho vzorca).</div></div>';
 
     var GLU_F=18.016, LAC_F=9.008;
     var TH={ vitreous:{hypo:160,hyper:410,name:'sklovec'}, csf:{hypo:80,hyper:362,name:'CSF'} };
@@ -1555,7 +1555,7 @@ Toolkit.register({
     '<div class="card"><h2>O aplikácii</h2>'+
       '<div class="hint"><b>Šikuta 4n6 — Forensic Hand Toolkit</b> je súbor odborných kalkulačiek pre súdne lekárstvo (odhad času smrti, biochémia sklovca, odhad veku, antropometria, kardiopatológia).<br><br>'+
       '<b>Pre koho:</b> lekári a odborníci v súdnom lekárstve a patológii, znalci a v rámci výučby aj študenti medicíny.<br><br>'+
-      '<b>Charakter:</b> všetky výsledky sú <b>orientačné</b> a vychádzajú z publikovaných metód (citácie sú uvedené pri každom nástroji). Finálne posúdenie — vrátane času smrti, príčiny smrti a kauzality — vždy patrí pitavjúcemu lekárovi alebo expertovi.</div></div>'+
+      '<b>Charakter:</b> všetky výsledky sú <b>orientačné</b> a vychádzajú z publikovaných metód (citácie sú uvedené pri každom nástroji). Finálne posúdenie — vrátane času smrti, príčiny smrti a kauzality — vždy patrí pitvajúcemu lekárovi alebo expertovi.</div></div>'+
     '<div class="card"><h2>Súkromie a údaje</h2>'+
       '<div class="alert ok"><span class="ic">✓</span><span>Aplikácia beží <b>výhradne lokálne</b> v zariadení. Neodosiela žiadne údaje na internet a nič neukladá — zadané hodnoty (čísla protokolov, mená) zmiznú po zatvorení a nikam sa neprenášajú.</span></div>'+
       '<div class="hint" style="margin-top:8px">Napriek tomu pri práci s údajmi zomrelých postupuj v súlade s platnými predpismi (ochrana osobných údajov, mlčanlivosť).</div></div>'+
