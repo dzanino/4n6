@@ -28,6 +28,7 @@
     --appbar-bg:rgba(11,18,32,.86);
     --hero-bg:linear-gradient(180deg,rgba(20,32,58,.92),rgba(11,18,32,.86));
     --brand-shadow:0 1px 0 rgba(255,255,255,.20), 0 2px 3px rgba(0,0,0,.55), 0 3px 8px rgba(0,0,0,.35);
+    --brand-grad:linear-gradient(120deg,#8fe6ff 0%,#56b6ff 45%,#7ee0c0 100%); --brand-stroke:rgba(255,255,255,.18);
     --aw-bg:rgba(255,207,92,.12); --aw-bd:rgba(255,207,92,.35); --aw-fg:#ffe6a8;
     --ab-bg:rgba(255,122,122,.12); --ab-bd:rgba(255,122,122,.35); --ab-fg:#ffc2c2;
     --ao-bg:rgba(126,224,160,.10); --ao-bd:rgba(126,224,160,.30); --ao-fg:#bdf3d2;
@@ -42,6 +43,7 @@
     --appbar-bg:rgba(238,241,247,.90);
     --hero-bg:linear-gradient(180deg,rgba(223,232,246,.96),rgba(238,241,247,.85));
     --brand-shadow:0 1px 0 rgba(255,255,255,.7), 0 1px 2px rgba(20,40,80,.18);
+    --brand-grad:linear-gradient(120deg,#1f6fd6 0%,#1487b3 50%,#0c8f6c 100%); --brand-stroke:rgba(10,30,60,.10);
     --aw-bg:#fff5dd; --aw-bd:#f0d488; --aw-fg:#7a5600;
     --ab-bg:#fdeceb; --ab-bd:#f1b3ae; --ab-fg:#a32820;
     --ao-bg:#e6f6ed; --ao-bd:#a7dfc0; --ao-fg:#15694a;
@@ -71,9 +73,9 @@
   .appbar.hero .brand{font-size:25px;font-weight:900;letter-spacing:.5px;color:var(--brand-txt);
     text-shadow:var(--brand-shadow)}
   .appbar.hero .brand .accent{
-    background:linear-gradient(120deg,#8fe6ff 0%,#56b6ff 45%,#7ee0c0 100%);
+    background:var(--brand-grad);
     -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
-    -webkit-text-stroke:.3px rgba(255,255,255,.18);
+    -webkit-text-stroke:.3px var(--brand-stroke);
     filter:drop-shadow(0 0 6px rgba(86,182,255,.55));
     animation:brandGlow 3.6s ease-in-out infinite}
   .appbar.hero .sub{font-size:11px;letter-spacing:1.5px;color:#9fb0cf}
@@ -116,6 +118,8 @@
   .appbar .back.show{display:inline-flex}
   .appbar .back.show + .logo-mark{display:none}
   .appbar .spacer{flex:1}
+  .theme-btn{flex:0 0 auto;width:38px;height:38px;border-radius:11px;background:var(--card2);border:1px solid var(--line);color:var(--muted);font-size:17px;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1;transition:transform .08s,color .15s}
+  .theme-btn:active{transform:scale(.93)}
 
   /* Hub */
   .hub-intro{color:var(--muted);font-size:13px;margin:14px 2px 14px}
@@ -233,6 +237,7 @@
     <div class="sub">Forensic Hand Toolkit</div>
   </div></div>
   <div class="spacer"></div>
+  <button class="theme-btn" id="themeBtn" aria-label="Vzhľad">◐</button>
 </div>
 
 <div class="wrap">
@@ -291,12 +296,7 @@ var Toolkit = (function(){
     var mode = getPref('tk_sort','abc');
     var others = plugins.filter(function(p){ return p.id!=='info'; }); // Info ide samostatne na spodok
     var info = plugins.filter(function(p){ return p.id==='info'; })[0];
-    var theme = getPref('tk_theme','system');
-    var html = '<div class="sort-toggle"><span class="sort-lbl">Vzhľad</span>'+
-      '<div class="seg sort-seg"><button data-th="light" class="'+(theme==='light'?'active':'')+'">Svetlá</button>'+
-      '<button data-th="dark" class="'+(theme==='dark'?'active':'')+'">Tmavá</button>'+
-      '<button data-th="system" class="'+(theme==='system'?'active':'')+'">Systém</button></div></div>'+
-      '<div class="sort-toggle"><span class="sort-lbl">Zoradenie</span>'+
+    var html = '<div class="sort-toggle"><span class="sort-lbl">Zoradenie</span>'+
       '<div class="seg sort-seg"><button data-s="abc" class="'+(mode==='abc'?'active':'')+'">Abecedne</button>'+
       '<button data-s="cat" class="'+(mode==='cat'?'active':'')+'">Podľa kategórií</button></div></div>';
     if(mode==='abc'){
@@ -320,7 +320,6 @@ var Toolkit = (function(){
     var cat = document.getElementById('catalog');
     cat.innerHTML = html;
     cat.querySelectorAll('.sort-seg [data-s]').forEach(function(b){ b.addEventListener('click',function(){ setPref('tk_sort',b.dataset.s); renderHub(); }); });
-    cat.querySelectorAll('.sort-seg [data-th]').forEach(function(b){ b.addEventListener('click',function(){ setPref('tk_theme',b.dataset.th); applyTheme(); renderHub(); }); });
     cat.querySelectorAll('.tile, .info-wide').forEach(function(t){
       t.addEventListener('click',function(){
         var p = plugins.filter(function(x){return x.id===t.dataset.id;})[0];
@@ -362,7 +361,11 @@ var Toolkit = (function(){
   backBtn.addEventListener('click',function(){ location.hash=''; });
   window.addEventListener('hashchange',route);
 
-  function start(){ applyTheme(); renderHub(); route(); }
+  function start(){ applyTheme();
+    var tb=document.getElementById('themeBtn');
+    if(tb){ var ti=function(){ var p=getPref('tk_theme','system'); tb.textContent=(p==='light'?'☀':p==='dark'?'☾':'◐'); tb.setAttribute('title','Vzhľad: '+(p==='light'?'svetlý':p==='dark'?'tmavý':'systém')); };
+      tb.addEventListener('click',function(){ var o=['system','light','dark'],p=getPref('tk_theme','system'); setPref('tk_theme',o[(o.indexOf(p)+1)%3]); applyTheme(); ti(); }); ti(); }
+    renderHub(); route(); }
   return { register:register, start:start };
 })();
 
@@ -1563,6 +1566,7 @@ Toolkit.register({
 
 /* =====================================================================
    PLUGIN — POSMRTNÉ ZMENY: odhad PMI pri obhliadke (kompozitná metóda)
+   Voliteľne DVE pozorovania (nález + pitva) pre presnejšie okno.
    ===================================================================== */
 Toolkit.register({
   id:'pmi_scene',
@@ -1570,7 +1574,7 @@ Toolkit.register({
   icon:'⏱',
   category:'Tanatológia',
   short:'Stuhnutosť, škvrny — odhad času smrti.',
-  long:'Odhad času smrti (PMI) z posmrtných zmien pri obhliadke na mieste — kompozitná metóda (Madea/Henssge).',
+  long:'Odhad času smrti (PMI) z posmrtných zmien — voliteľne z dvoch pozorovaní (nález + pitva) pre užšie okno.',
   mount:function(root){
     var Q=[
       {id:'liv_dev',label:'Posmrtné škvrny — vývoj',opt:[
@@ -1594,78 +1598,115 @@ Toolkit.register({
         ['— nehodnotené —',null],['Silný vratný val (Zsakov fenomén)',[0,2.5]],
         ['Slabý / lokálny pretrvávajúci val',[2,12]]]}
     ];
-    var html='<div class="card"><h2>Obhliadka — pozorované znaky</h2>'+
-      '<div class="hint" style="margin-bottom:8px">Vyplň len znaky, ktoré si hodnotil. Appka spojí ich časové rozpätia do spoločného odhadu (prienik).</div>';
-    Q.forEach(function(q){
-      html+='<div class="field"><label>'+q.label+'</label><select id="ps_'+q.id+'">';
-      q.opt.forEach(function(o){ var v=o[1]?(o[1][0]+','+o[1][1]):''; html+='<option value="'+v+'">'+o[0]+'</option>'; });
-      html+='</select></div>';
-    });
-    html+='<button class="btn" id="ps_calc">Odhadnúť čas smrti</button></div>'+
-    '<div class="card" id="ps_res" style="display:none"><h2>Výsledok</h2><div id="ps_alerts"></div>'+
-      '<div class="result"><div class="lbl" style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.6px">Spoločný odhad PMI</div>'+
-      '<div class="big" id="ps_pmi" style="font-size:34px">–</div></div>'+
-      '<table class="ref" style="margin-top:12px"><tr><th>Znak</th><th>Rozpätie</th></tr><tbody id="ps_rows"></tbody></table></div>'+
-    '<div class="card" id="ps_exportCard" style="display:none"><h2>Export do zápisnice</h2>'+
-      '<div class="grid2"><div class="field"><label>Číslo protokolu</label><input id="ps_prot" type="text" placeholder="napr. 680"></div>'+
-        '<div class="field"><label>Meno zomrelého</label><input id="ps_meno" type="text" placeholder="meno priezvisko"></div></div>'+
-      '<textarea id="ps_exportText" class="export-box" readonly></textarea>'+
-      '<button class="btn ghost small" id="ps_copy" style="margin-top:10px">Kopírovať text</button></div>'+
-    '<div class="card"><h2>Metóda, výklad a referencie</h2>'+
-      '<details><summary>Ako to funguje</summary><div class="hint" style="margin-top:8px">'+
-        'Každý posmrtný znak (škvrny, stuhnutosť, dráždivosť svalu) má vlastné časové rozpätie. Skutočný čas smrti leží tam, kde sa rozpätia <b>prekrývajú</b> — appka vypočíta ich prienik. Čím viac znakov, tým užšie okno.</div></details>'+
-      '<details><summary>Orientačné rozpätia (Madea)</summary><table class="ref">'+
-        '<tr><th>Znak</th><th>Čas po smrti</th></tr>'+
-        '<tr><td>Škvrny — začínajú</td><td>0,25–3 h</td></tr>'+
-        '<tr><td>Škvrny — splývajú</td><td>1–6 h</td></tr>'+
-        '<tr><td>Škvrny — maximálne</td><td>3–16 h</td></tr>'+
-        '<tr><td>Škvrny — úplne vytlačiteľné</td><td>do ~6 h</td></tr>'+
-        '<tr><td>Škvrny — čiastočne vytlačiteľné</td><td>do ~24 h</td></tr>'+
-        '<tr><td>Škvrny — fixované (nepresúvajú sa)</td><td>&gt; ~10–12 h</td></tr>'+
-        '<tr><td>Stuhnutosť — začína</td><td>1–7 h (čeľusť 2–4 h)</td></tr>'+
-        '<tr><td>Stuhnutosť — úplná</td><td>~6–36 h</td></tr>'+
-        '<tr><td>Stuhnutosť — ustupuje/mizne</td><td>~24–96 h</td></tr>'+
-        '<tr><td>Re-tuhnutie po prelomení</td><td>áno &lt; ~8 h / nie &gt; ~8 h</td></tr></table></details>'+
-      '<details><summary>Supravitálne reakcie (pre školeného obhliadajúceho)</summary><div class="hint" style="margin-top:8px">'+
-        'Elektrická dráždivosť mimických svalov (m. orbicularis oculi) ~ do 5–7 h; mechanická (idiomuskulárna) odpoveď ~ do 1,5–2,5 h (silná) až ~12 h (slabá); farmakologická reakcia zreníc (instilácia mydriatík/miotík) ~ do 14–46 h.</div></details>'+
-      '<div class="foot">Rozpätia sú orientačné a výrazne závisia od teploty okolia, telesnej konštitúcie, príčiny smrti a prostredia (neplatia spoľahlivo pri požiari, vo vode, v chlade/teple, pri sepse). Najpresnejší jednotlivý odhad v skorom období dáva telesná teplota — pozri nástroj <b>Henssge</b>. Finálne posúdenie patrí pitvajúcemu lekárovi alebo expertovi.<br>Madea B. (ed.): Estimation of the Time Since Death, 3rd ed., CRC Press 2016; Henssge & Madea, Forensic Sci Int 2004;144:167–175; Henssge et al., Int J Legal Med 2000; Madea B., Forensic Sci Med Pathol 2016;12:451–485.</div></div>';
-    root.innerHTML=html;
+    function selHTML(pfx){ var s=''; Q.forEach(function(q){
+      s+='<div class="field"><label>'+q.label+'</label><select id="'+pfx+q.id+'">';
+      q.opt.forEach(function(o){ var v=o[1]?(o[1][0]+','+o[1][1]):''; s+='<option value="'+v+'">'+o[0]+'</option>'; });
+      s+='</select></div>'; }); return s; }
+    root.innerHTML=
+      '<div class="seg" id="ps_mode"><button data-m="one" class="active">Jedno pozorovanie</button><button data-m="two">Nález + pitva</button></div>'+
+      '<div class="card"><h2 id="ps_hA">Pozorované znaky</h2>'+
+        '<div class="field"><label>Čas pozorovania <span class="muted" id="ps_tAopt">(voliteľné — pre čas smrti)</span></label><input id="ps_tA" type="datetime-local"></div>'+
+        '<div class="hint" style="margin:2px 0 8px">Vyplň len znaky, ktoré si hodnotil.</div>'+ selHTML('psA_') +'</div>'+
+      '<div class="card" id="ps_cardB" style="display:none"><h2>Pri pitve</h2>'+
+        '<div class="field"><label>Čas pitvy</label><input id="ps_tB" type="datetime-local"></div>'+ selHTML('psB_') +'</div>'+
+      '<button class="btn" id="ps_calc">Odhadnúť čas smrti</button>'+
+      '<div class="card" id="ps_res" style="display:none;margin-top:14px"><h2>Výsledok</h2><div id="ps_alerts"></div>'+
+        '<div class="result"><div class="lbl" style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.6px">Odhad PMI</div>'+
+        '<div class="big" id="ps_pmi" style="font-size:32px">–</div><div class="ci" id="ps_clock"></div></div>'+
+        '<table class="ref" style="margin-top:12px"><tr><th>Znak</th><th>Rozpätie</th></tr><tbody id="ps_rows"></tbody></table></div>'+
+      '<div class="card" id="ps_exportCard" style="display:none"><h2>Export do zápisnice</h2>'+
+        '<div class="grid2"><div class="field"><label>Číslo protokolu</label><input id="ps_prot" type="text" placeholder="napr. 680"></div>'+
+          '<div class="field"><label>Meno zomrelého</label><input id="ps_meno" type="text" placeholder="meno priezvisko"></div></div>'+
+        '<textarea id="ps_exportText" class="export-box" readonly></textarea>'+
+        '<button class="btn ghost small" id="ps_copy" style="margin-top:10px">Kopírovať text</button></div>'+
+      '<div class="card"><h2>Metóda, výklad a referencie</h2>'+
+        '<details><summary>Ako to funguje</summary><div class="hint" style="margin-top:8px">'+
+          'Každý znak má vlastné časové rozpätie; skutočný čas smrti leží tam, kde sa rozpätia <b>prekrývajú</b> (prienik). '+
+          'Pri režime <b>Nález + pitva</b> sa z oboch pozorovaní (a ich časov) vypočítajú dve okná času smrti a ich prienik dáva <b>užší</b> odhad — progresia zmien medzi nálezom a pitvou spresní výsledok.</div></details>'+
+        '<details><summary>Orientačné rozpätia (Madea)</summary><table class="ref">'+
+          '<tr><th>Znak</th><th>Čas po smrti</th></tr>'+
+          '<tr><td>Škvrny — začínajú</td><td>0,25–3 h</td></tr><tr><td>Škvrny — splývajú</td><td>1–6 h</td></tr>'+
+          '<tr><td>Škvrny — maximálne</td><td>3–16 h</td></tr><tr><td>Škvrny — úplne vytlačiteľné</td><td>do ~6 h</td></tr>'+
+          '<tr><td>Škvrny — fixované</td><td>&gt; ~10–12 h</td></tr><tr><td>Stuhnutosť — začína</td><td>1–7 h</td></tr>'+
+          '<tr><td>Stuhnutosť — úplná</td><td>~6–36 h</td></tr><tr><td>Stuhnutosť — mizne</td><td>~24–96 h</td></tr>'+
+          '<tr><td>Re-tuhnutie po prelomení</td><td>áno &lt; ~8 h / nie &gt; ~8 h</td></tr></table></details>'+
+        '<details><summary>Supravitálne reakcie</summary><div class="hint" style="margin-top:8px">'+
+          'Elektrická dráždivosť mimických svalov ~ do 5–7 h; mechanická (idiomuskulárna) ~ do 1,5–2,5 h (silná) až ~12 h (slabá); farmakologická reakcia zreníc ~ do 14–46 h.</div></details>'+
+        '<div class="foot">Rozpätia sú orientačné a výrazne závisia od teploty okolia, konštitúcie, príčiny smrti a prostredia. Najpresnejší jednotlivý odhad v skorom období dáva telesná teplota — pozri nástroj <b>Henssge</b>. Finálne posúdenie patrí pitvajúcemu lekárovi alebo expertovi.<br>Madea B. (ed.): Estimation of the Time Since Death, 3rd ed., CRC Press 2016; Henssge & Madea, Forensic Sci Int 2004;144:167–175; Madea B., Forensic Sci Med Pathol 2016;12:451–485.</div></div>';
 
-    function fmtR(lo,hi){
-      var s=(hi>=9999)?('> '+fmtNum(lo,1)+' h'):(fmtNum(lo,1)+'–'+fmtNum(hi,1)+' h');
-      if(lo>=24||(hi>=48&&hi<9999)){ s+=' (≈ '+fmtNum(lo/24,1)+(hi>=9999?'+':('–'+fmtNum(hi/24,1)))+' dní)'; }
-      return s;
-    }
+    function nowL(){ var d=new Date(); d.setMinutes(d.getMinutes()-d.getTimezoneOffset()); return d.toISOString().slice(0,16); }
+    $id('ps_tA').value=nowL();
+    function mode(){ return root.querySelector('#ps_mode button.active').dataset.m; }
+    function fmtR(lo,hi){ var s=(hi>=9999)?('> '+fmtNum(lo,1)+' h'):(fmtNum(lo,1)+'–'+fmtNum(hi,1)+' h');
+      if(lo>=24||(hi>=48&&hi<9999)){ s+=' (≈ '+fmtNum(lo/24,1)+(hi>=9999?'+':('–'+fmtNum(hi/24,1)))+' dní)'; } return s; }
+    function rangeOf(pfx){ var rs=[],rows=[]; Q.forEach(function(q){ var el=$id(pfx+q.id); if(!el||!el.value) return;
+      var p=el.value.split(','),lo=parseFloat(p[0]),hi=parseFloat(p[1]); rs.push([lo,hi]); rows.push([q.label,el.options[el.selectedIndex].text,lo,hi]); });
+      if(!rs.length) return null; var lo=0,hi=9999; rs.forEach(function(r){ if(r[0]>lo)lo=r[0]; if(r[1]<hi)hi=r[1]; }); return {lo:lo,hi:hi,rows:rows,ok:lo<=hi}; }
+    function add(al,t,m){ var d=document.createElement('div'); d.className='alert '+t; d.innerHTML='<span class="ic">'+(t==='bad'?'✕':t==='warn'?'!':'✓')+'</span><span>'+m+'</span>'; al.appendChild(d); }
+    var HR=3600000;
+
     function calc(){
-      var ranges=[],rows=[];
-      Q.forEach(function(q){ var el=$id('ps_'+q.id); if(!el.value) return;
-        var p=el.value.split(','),lo=parseFloat(p[0]),hi=parseFloat(p[1]);
-        ranges.push([lo,hi]); rows.push([q.label,el.options[el.selectedIndex].text,lo,hi]); });
-      if(ranges.length===0){ alert('Vyber aspoň jeden pozorovaný znak.'); return; }
-      var lo=0,hi=9999;
-      ranges.forEach(function(r){ if(r[0]>lo) lo=r[0]; if(r[1]<hi) hi=r[1]; });
+      var al=$id('ps_alerts'); al.innerHTML=''; var rows=[],exLines=[];
+      var twoM=mode()==='two';
+      var rA=rangeOf('psA_'), rB=twoM?rangeOf('psB_'):null;
+      if(!rA && !rB){ alert('Vyber aspoň jeden pozorovaný znak.'); return; }
       $id('ps_res').style.display='block'; $id('ps_exportCard').style.display='block';
-      var al=$id('ps_alerts'); al.innerHTML='';
-      function add(t,m){ var d=document.createElement('div'); d.className='alert '+t; d.innerHTML='<span class="ic">'+(t==='bad'?'✕':t==='warn'?'!':'✓')+'</span><span>'+m+'</span>'; al.appendChild(d); }
-      var consistent=lo<=hi;
-      if(consistent){ $id('ps_pmi').innerHTML=fmtR(lo,hi); }
-      else { $id('ps_pmi').innerHTML='<span style="font-size:18px;color:var(--danger)">rozpor v znakoch</span>';
-        add('bad','Zvolené znaky si časovo odporujú (rozpätia sa neprekrývajú) — over hodnotenie alebo zváž neobvyklé podmienky (chlad, teplo, choroba).'); }
-      add('warn','Orientačný odhad. Rozpätia kolíšu podľa teploty okolia, konštitúcie, príčiny smrti a prostredia.');
-      add('ok','Pre presnejšie skoré obdobie doplň telesnú teplotu v nástroji Henssge.');
-      var rh='';
-      rows.forEach(function(r){ rh+='<tr><td>'+r[1]+'<br><span class="muted" style="font-size:10px">'+r[0]+'</span></td><td>'+fmtR(r[2],r[3])+'</td></tr>'; });
+      var tA=$id('ps_tA').value?new Date($id('ps_tA').value):null;
+      var tB=$id('ps_tB').value?new Date($id('ps_tB').value):null;
+      var headline='', clock='';
+
+      if(twoM && rA && rB && tA && tB){
+        var d1lo=tA.getTime()-rA.hi*HR, d1hi=tA.getTime()-rA.lo*HR;
+        var d2lo=tB.getTime()-rB.hi*HR, d2hi=tB.getTime()-rB.lo*HR;
+        var clo=Math.max(d1lo,d2lo), chi=Math.min(d1hi,d2hi);
+        if(clo<=chi){
+          var pmiLo=(tB.getTime()-chi)/HR, pmiHi=(tB.getTime()-clo)/HR;
+          headline=fmtR(Math.max(0,pmiLo),pmiHi)+' <small style="font-size:13px;color:var(--muted)">k pitve</small>';
+          clock='Čas smrti: '+fmtClock(new Date(clo))+' – '+fmtClock(new Date(chi));
+          add(al,'ok','Spojené z dvoch pozorovaní (nález + pitva) → užšie okno.');
+          exLines.push('Spoločné okno času smrti: '+fmtClock(new Date(clo))+' – '+fmtClock(new Date(chi)));
+        } else {
+          headline='<span style="font-size:18px;color:var(--danger)">okná sa neprekrývajú</span>';
+          add(al,'bad','Nález a pitva si časovo odporujú (okná sa neprekrývajú) — over hodnotenie, časy alebo neobvyklé podmienky (chlad/teplo).');
+        }
+        if(!rA.ok) add(al,'warn','Znaky pri náleze si navzájom odporujú.');
+        if(!rB.ok) add(al,'warn','Znaky pri pitve si navzájom odporujú.');
+        rows=rA.rows.map(function(r){return ['Nález · '+r[1],r[2],r[3]];}).concat(rB.rows.map(function(r){return ['Pitva · '+r[1],r[2],r[3]];}));
+      } else {
+        var r=rA||rB;
+        if(twoM && rA && rB && (!tA||!tB)){ add(al,'warn','Pre spojenie dvoch pozorovaní vyplň čas nálezu aj čas pitvy. Zatiaľ ukazujem pozorovanie pri náleze.'); r=rA; }
+        if(r.ok){ headline=fmtR(r.lo,r.hi);
+          var t=(r===rB)?tB:tA;
+          if(t){ var dlo=new Date(t.getTime()-r.hi*HR), dhi=new Date(t.getTime()-r.lo*HR);
+            clock='Čas smrti: '+fmtClock(dlo)+' – '+fmtClock(dhi); exLines.push('Okno času smrti: '+fmtClock(dlo)+' – '+fmtClock(dhi)); }
+        } else { headline='<span style="font-size:18px;color:var(--danger)">rozpor v znakoch</span>';
+          add(al,'bad','Zvolené znaky si časovo odporujú — over hodnotenie alebo podmienky.'); }
+        rows=r.rows.map(function(x){return [x[1],x[2],x[3]];});
+      }
+      add(al,'warn','Orientačný odhad. Rozpätia kolíšu podľa teploty okolia, konštitúcie, príčiny smrti a prostredia.');
+      add(al,'ok','Pre presnejšie skoré obdobie doplň telesnú teplotu v nástroji Henssge.');
+      $id('ps_pmi').innerHTML=headline; $id('ps_clock').textContent=clock;
+      var rh=''; rows.forEach(function(r){ rh+='<tr><td>'+r[0]+'</td><td>'+fmtR(r[1],r[2])+'</td></tr>'; });
       $id('ps_rows').innerHTML=rh;
 
       var prot=$id('ps_prot').value.trim(),meno=$id('ps_meno').value.trim();
-      var L=['ODHAD PMI Z POSMRTNÝCH ZMIEN (obhliadka)'];
+      var L=['ODHAD PMI Z POSMRTNÝCH ZMIEN'+(twoM?' (nález + pitva)':'')];
       if(prot) L.push('Protokol č.: '+prot); if(meno) L.push('Zomrelý: '+meno);
+      if(tA) L.push('Čas nálezu/obhliadky: '+fmtClock(tA)); if(twoM&&tB) L.push('Čas pitvy: '+fmtClock(tB));
       L.push('');
-      rows.forEach(function(r){ L.push(r[0]+': '+r[1]+' ('+fmtR(r[2],r[3])+')'); });
-      L.push('', consistent?('Spoločný odhad PMI: '+fmtR(lo,hi)):'Spoločný odhad: znaky si odporujú — preveriť.',
-        'Pozn.: orientačné; závisí od teploty a podmienok. Finálne posúdenie patrí pitvajúcemu lekárovi alebo expertovi.');
+      rows.forEach(function(r){ L.push(r[0]+': '+fmtR(r[1],r[2])); });
+      L.push(''); L=L.concat(exLines);
+      L.push('Pozn.: orientačné; závisí od teploty a podmienok. Finálne posúdenie patrí pitvajúcemu lekárovi alebo expertovi.');
       $id('ps_exportText').value=L.join('\n');
     }
+
+    root.querySelectorAll('#ps_mode button').forEach(function(b){ b.addEventListener('click',function(){
+      root.querySelectorAll('#ps_mode button').forEach(function(x){x.classList.remove('active');}); b.classList.add('active');
+      var two=b.dataset.m==='two'; $id('ps_cardB').style.display=two?'block':'none';
+      $id('ps_hA').textContent=two?'Pri náleze':'Pozorované znaky';
+      $id('ps_tAopt').style.display=two?'none':'inline';
+      if(two && !$id('ps_tB').value) $id('ps_tB').value=nowL();
+      if($id('ps_exportText').value) calc(); }); });
     $id('ps_calc').addEventListener('click',calc);
     ['ps_prot','ps_meno'].forEach(function(id){ $id(id).addEventListener('input',function(){ if($id('ps_exportText').value) calc(); }); });
     $id('ps_copy').addEventListener('click',function(){ copyToClipboard($id('ps_exportText').value,this,'Skopírované ✓','Kopírovať text'); });
@@ -1698,13 +1739,13 @@ Toolkit.register({
     '<div class="card"><h2>Súkromie a údaje</h2>'+
       '<div class="alert ok"><span class="ic">✓</span><span>Aplikácia beží <b>výhradne lokálne</b> v zariadení. Neodosiela žiadne údaje na internet a nič neukladá — zadané hodnoty (čísla protokolov, mená) zmiznú po zatvorení a nikam sa neprenášajú.</span></div>'+
       '<div class="hint" style="margin-top:8px">Napriek tomu pri práci s údajmi zomrelých postupuj v súlade s platnými predpismi (ochrana osobných údajov, mlčanlivosť).</div></div>'+
-    '<div class="card"><h2>Zdieľanie a zodpovednosť</h2>'+
+    '<div class="card"><h2>Poďakovanie a venovanie</h2>'+'<div class="hint" style="line-height:1.6">Venované kolegom, ktorí pri pitevnom stole pristupujú k smrti s pokorou a k pravde s presnosťou.<br><br>'+'A s láskou mojej rodine — za každú hodinu, ktorú mi práca vzala. Čas smrti vieme odhadnúť na hodiny; čas strávený s blízkymi sa nedá ani presne zmerať, ani vrátiť — práve preto je najvzácnejší.</div>'+'<div class="foot" style="margin-top:10px">„Mŕtvym dávame odpovede, živým čas — nezabudni ho darovať tým, na ktorých záleží."</div></div>'+'<div class="card"><h2>Zdieľanie a zodpovednosť</h2>'+
       '<div class="hint">'+
       '• Nástroj sa poskytuje „<b>ako je</b>" (as-is), bez záruky presnosti či vhodnosti na konkrétny účel. Autor neručí za rozhodnutia prijaté na základe výsledkov.<br><br>'+
       '• Je určený <b>výhradne pre kvalifikovaných odborníkov</b> a na edukačné účely — <b>nie</b> pre laikov a <b>nie</b> ako certifikované zdravotnícke zariadenie.<br><br>'+
       '• Pri ďalšom šírení <b>zachovaj uvedenie autora a zdrojov</b> a neupravuj appku tak, aby vznikol dojem oficiálneho, úradne schváleného alebo certifikovaného nástroja.<br><br>'+
       '• Nepoužívaj na zavádzajúce, protiprávne ani iné než odborné účely.</div>'+
-      '<div class="foot" style="margin-top:12px">© 2026 Ján Šikuta. Všetky práva vyhradené. Verzia 1.06.</div></div>';
+      '<div class="foot" style="margin-top:12px">© 2026 Ján Šikuta. Všetky práva vyhradené. Verzia 1.07.</div></div>';
   }
 });
 
