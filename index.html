@@ -597,7 +597,7 @@ Toolkit.register({
         '<tr><td>16,0–16,9</td><td>Stredná podvýživa</td></tr>'+
         '<tr><td>17,0–18,4</td><td>Mierna podvýživa</td></tr>'+
         '<tr><td>18,5–24,9</td><td>Primeraná výživa</td></tr>'+
-        '<tr><td>25,0–29,9</td><td>Nadhmotnosť</td></tr>'+
+        '<tr><td>25,0–29,9</td><td>Nadváha</td></tr>'+
         '<tr><td>30,0–34,9</td><td>Obezita I. stupňa</td></tr>'+
         '<tr><td>35,0–39,9</td><td>Obezita II. stupňa</td></tr>'+
         '<tr><td>≥ 40,0</td><td>Obezita III. stupňa (morbídna)</td></tr></table></details>'+
@@ -608,7 +608,7 @@ Toolkit.register({
       if(bmi<17) return {k:'Stredná podvýživa',w:'znížený stav výživy (stredná podvýživa)',c:'var(--warn)'};
       if(bmi<18.5) return {k:'Mierna podvýživa',w:'mierne znížený stav výživy',c:'var(--warn)'};
       if(bmi<25) return {k:'Primeraná výživa',w:'primeraný stav výživy',c:'var(--good)'};
-      if(bmi<30) return {k:'Nadhmotnosť',w:'zvýšený stav výživy (nadhmotnosť)',c:'var(--warn)'};
+      if(bmi<30) return {k:'Nadváha',w:'zvýšený stav výživy (nadhmotnosť)',c:'var(--warn)'};
       if(bmi<35) return {k:'Obezita I. stupňa',w:'obézny habitus (obezita I. st.)',c:'var(--warn)'};
       if(bmi<40) return {k:'Obezita II. stupňa',w:'obézny habitus (obezita II. st.)',c:'var(--bad)'};
       return {k:'Obezita III. stupňa',w:'morbídne obézny habitus (obezita III. st.)',c:'var(--bad)'};
@@ -1005,7 +1005,7 @@ Toolkit.register({
       var cmp=$id('s_cmp');
       if(isFinite(hw)){
         var state,color,note;
-        if(hw>hi){ state='Zväčšené srdce (kardiomegália)'; color='var(--bad)'; note='nad horným limitom o '+fmtNum(hw-hi,0)+' g'; }
+        if(hw>hi){ state='Zväčšené srdce (kardiomegália, hypertrofia)'; color='var(--bad)'; note='nad horným limitom o '+fmtNum(hw-hi,0)+' g'; }
         else if(hw<lo){ state='Pod normou (hypotrofia)'; color='var(--warn)'; note='pod dolným limitom o '+fmtNum(lo-hw,0)+' g'; }
         else { state='V referenčnom rozmedzí'; color='var(--good)'; note='v norme'; }
         var pct=(hw/exp*100);
@@ -1240,7 +1240,7 @@ Toolkit.register({
       'Hodnoty sú orientačné a kompilované z uznávaných zdrojov; rozsahy sa medzi prameňmi líšia.<br>'+
       'Schulz M., Schmoldt A., Andresen-Streichert H., Iwersen-Bergmann S.: Revisited: Therapeutic and toxic blood concentrations of more than 1,100 drugs and other xenobiotics. Critical Care 2020;24:195.<br>'+
       'TIAFT Reference Blood Level list; Baselt: Disposition of Toxic Drugs and Chemicals in Man.<br><br>'+
-      'Údaje sa neručia za správnosť; používať s odbornými znalosťami a v kontexte celého prípadu.</div></div>';
+      'Údaje nie sú zaručené ako správne; používať s odbornými znalosťami a v kontexte celého prípadu.</div></div>';
 
     // select
     var sel=$id('p_sel');
@@ -1306,7 +1306,7 @@ Toolkit.register({
   name:'Forenzná entomológia',
   icon:'🪰',
   category:'Entomológia',
-  short:'Vývoj muchy: vajíčko → dospelec.',
+  short:'Vývoj muchy: vajíčko → dospelec (imago).',
   long:'Chronológia vývoja muchovitých (Calliphoridae) s ilustráciami a odhadom PMI.',
   mount:function(root){
     // SVG ilustrácie jednotlivých štádií
