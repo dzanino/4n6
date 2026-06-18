@@ -197,6 +197,14 @@
   .lb-cap{padding:10px 16px calc(env(safe-area-inset-bottom) + 14px);color:var(--muted);font-size:12px;text-align:center}
 </style>
 </head>
+  <script>
+  // Vynúti refresh, ak je stránka načítaná z cache
+  window.onload = function() {
+    if (performance.navigation.type === 1) { // 1 = reload
+      window.location.reload(true);
+    }
+  };
+</script>
 <body>
 
 <div class="appbar hero">
