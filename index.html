@@ -468,7 +468,7 @@ Toolkit.register({
         '<tr><td>Silná korekcia (f &lt; 0,7 / &gt; 1,4)</td><td>4,5</td></tr>'+
         '<tr><td>Neskorá fáza — Q &lt; 0,2</td><td>7,0</td></tr></table>'+
         '<div class="hint">Najmenší 95 % CI je ±2,8 h (Henssge). Finálne posúdenie patrí pitvajúcemu lekárovi alebo expertovi.</div></details>'+
-      '<div class="foot">Platí pre včasné posmrtné obdobie pri približne konštantnom okolí; nezohľadňuje sálavé teplo, silný vietor, kolísanie teploty ani malé deti bez úpravy.<br>Henssge &amp; Madea, Forensic Sci Int 2004; Henssge 1992; Schweitzer &amp; Schwenke, BMC 2019.</div></div>';
+      '<details><summary>Teplota mozgu / ucha (orientačne)</summary><div class="hint" style="margin-top:8px">'+'Teplota tympanickej membrány ≈ teplota mozgu (hypotalamu); chladne rýchlejšie než rektálna a je menej ovplyvnená hmotnosťou a oblečením. '+'Existuje <b>Henssgeho „brain“ nomogram</b> a <b>Baccinova ušná (tympanická) metóda</b> (platí pri okolitej teplote ~16–23 °C, bez tepelného plató), s presnosťou porovnateľnou s rektálnym nomogramom. '+'Presné koeficienty Baccinovho vzorca tu zámerne neuvádzam ako kalkulačku (vyžadujú overenie z originálu) — pri meraní ušnej teploty postupuj podľa publikovaného nomogramu.</div></details>'+      '<div class="foot">Platí pre včasné posmrtné obdobie pri približne konštantnom okolí; nezohľadňuje sálavé teplo, silný vietor, kolísanie teploty ani malé deti bez úpravy.<br>Henssge &amp; Madea, Forensic Sci Int 2004; Henssge 1992; Schweitzer &amp; Schwenke, BMC 2019.<br>Teplota mozgu/ucha: Baccino et al., Forensic Sci Int 1996; Cordeiro et al. 2019 (infračervená tympanická termometria).</div></div>';
 
     /* ---- logika ---- */
     var COVER_DRY=[{v:1.0,t:"Nahé telo / 1 tenká vrstva"},{v:1.1,t:"1–2 tenké vrstvy odevu"},
@@ -775,7 +775,7 @@ Toolkit.register({
     root.innerHTML=''+
     '<div class="card"><h2>Vstupné údaje</h2>'+
       '<div class="field"><label>Draslík K⁺ v sklovci (mmol/l)</label>'+
-        '<input id="k_k" type="number" inputmode="decimal" step="0.1" placeholder="napr. 11,0"></div>'+
+        '<input id="k_k" type="number" inputmode="decimal" step="0.1" placeholder="napr. 11,0"></div>'+'<div class="field"><label>Hypoxantín v sklovci (µmol/l) — voliteľné</label>'+'<input id="k_hx" type="number" inputmode="decimal" step="1" placeholder="voliteľné"></div>'+
       '<div class="row"><div class="field"><label>Vek (rokov)</label>'+
         '<input id="k_age" type="number" inputmode="decimal" step="1" placeholder="napr. 34"></div>'+
         '<div class="field"><label>Teplota okolia (°C)</label>'+
@@ -791,7 +791,7 @@ Toolkit.register({
         '<tr><td>Zilg 2015 (vek+tepl.)</td><td id="k_z_h">–</td><td id="k_z_d">–</td></tr>'+
         '<tr><td>Sturner 1964</td><td id="k_s_h">–</td><td id="k_s_d">–</td></tr>'+
         '<tr><td>Madea 1989</td><td id="k_m_h">–</td><td id="k_m_d">–</td></tr>'+
-        '<tr><td>James 1997</td><td id="k_j_h">–</td><td id="k_j_d">–</td></tr></table>'+
+        '<tr><td>James 1997</td><td id="k_j_h">–</td><td id="k_j_d">–</td></tr>'+'<tr><td>Hypoxantín (Hx)</td><td id="k_hx_h">–</td><td id="k_hx_d">–</td></tr></table>'+
       '<div class="hint" id="k_note" style="margin-top:8px"></div></div>'+
     '<div class="card" id="k_exportCard" style="display:none"><h2>Export do zápisnice</h2>'+
       '<div class="grid2"><div class="field"><label>Číslo protokolu</label><input id="k_prot" type="text" placeholder="napr. 680"></div>'+
@@ -810,10 +810,10 @@ Toolkit.register({
         'PMI(dni) = ln((M − C₀)/(M − K)) / |mₐ·vek + m_T·tepl. + b|<br>'+
         'M = 34,44; C₀ = 4,4; mₐ = −0,001122; m_T = 0,009857; b = 0,135<br><br>'+
         'Validované na 462 prípadoch (PMI 2 h – 17 dní); vek vysvetlil ~16 %, teplota ~5 % variability.</div></details>'+
-      '<details><summary>Faktory a CSF</summary><div class="hint" style="margin-top:8px">'+
+      '<details><summary>Hypoxantín v sklovci</summary><div class="hint" style="margin-top:8px">'+'Hypoxantín (Hx) sa po smrti v sklovci hromadí; orientačný odhad: <b>PMI(h) ≈ 0,183 · [Hx] + 0,599</b> (Hx v µmol/l). '+'Korelácia je len stredná (R² ≈ 0,53) a závisí od teploty — najspoľahlivejšie v kombinácii s K⁺.</div></details>'+'<details><summary>Faktory a CSF</summary><div class="hint" style="margin-top:8px">'+
         '<b>Ovplyvňujúce faktory:</b> dehydratácia/urémia (ochorenie obličiek), požitie alkoholu, dlhá agónia a telesná hmotnosť môžu zvýšiť rozptyl odhadu.<br><br>'+
         '<b>CSF (mozgovomiechový mok):</b> draslík v CSF tiež stúpa posmrtne, ale je <b>menej spoľahlivý</b> než sklovec (rýchlejšia kontaminácia a bakteriálny rozklad). Pre PMI sa preto uprednostňuje sklovec; samostatný CSF výpočet zámerne neuvádzam. Ak máš konkrétny CSF vzorec, viem ho doplniť.</div></details>'+
-      '<div class="foot">Orientačný odhad. Modely sa môžu líšiť aj o desiatky %; finálne posúdenie patrí pitvajúcemu lekárovi alebo expertovi.<br>Sturner & Gantner, Am J Clin Pathol 1964; Madea et al., Forensic Sci Int 1989; James et al., Am J Forensic Med Pathol 1997; Zilg et al., Forensic Sci Int 2015; Bévalot/CSF: Forensic Sci Int 2015 (porovnanie CSF vs sklovec).</div></div>';
+      '<div class="foot">Orientačný odhad. Modely sa môžu líšiť aj o desiatky %; finálne posúdenie patrí pitvajúcemu lekárovi alebo expertovi.<br>Sturner & Gantner, Am J Clin Pathol 1964; Madea et al., Forensic Sci Int 1989; James et al., Am J Forensic Med Pathol 1997; Zilg et al., Forensic Sci Int 2015; Bévalot/CSF: Forensic Sci Int 2015.<br>Hypoxantín: HPLC štúdie v sklovci (Forensic Sci Int); kombinované modely Hx + K⁺ + teplota — Muñoz Barús et al.</div></div>';
 
     function lin(a,b,K){ return a*K-b; }
     function zilg(K,age,temp){
@@ -833,8 +833,9 @@ Toolkit.register({
       var zd = hasZ ? zilg(K,age,temp) : null;
       var zh = (zd===null)?null:zd*24;
       var sh=lin(7.14,39.1,K), mh=lin(5.26,30.9,K), jh=lin(4.32,18.35,K);
+      var Hx=parseFloat($id('k_hx').value); var hxh=isFinite(Hx)?(0.183*Hx+0.599):null;
       $id('k_res').style.display='block'; $id('k_exportCard').style.display='block';
-      cell('k_z',zh); cell('k_s',sh); cell('k_m',mh); cell('k_j',jh);
+      cell('k_z',zh); cell('k_s',sh); cell('k_m',mh); cell('k_j',jh); cell('k_hx',hxh);
       $id('k_zilg').innerHTML=(zh===null)?'–':fmtNum(zh,1)+' <small>h</small>';
       $id('k_zilgd').textContent=(zh===null)?(hasZ?'Mimo rozsahu modelu (K mimo 4,4–34,4 mmol/l)':'Doplň vek a teplotu pre model Zilg'):fmtNum(zd,2)+' dní';
 
@@ -859,6 +860,7 @@ Toolkit.register({
         'Madea 1989: '+fmtNum(mh,1)+' h ('+fmtNum(mh/24,2)+' dní)',
         'James 1997: '+fmtNum(jh,1)+' h ('+fmtNum(jh/24,2)+' dní)','',
         'Pozn.: orientačný odhad, posúdiť v kontexte nálezu a faktorov (obličky, alkohol, agónia).');
+      if(hxh!==null) L.splice(L.length-2,0,'Hypoxantín (Hx): '+fmtNum(hxh,1)+' h ('+fmtNum(hxh/24,2)+' dní)');
       $id('k_exportText').value=L.join('\n');
     }
     $id('k_calc').addEventListener('click',calc);
@@ -1577,20 +1579,20 @@ Toolkit.register({
   long:'Odhad času smrti (PMI) z posmrtných zmien — voliteľne z dvoch pozorovaní (nález + pitva) pre užšie okno.',
   mount:function(root){
     var Q=[
-      {id:'liv_dev',label:'Posmrtné škvrny — vývoj',opt:[
-        ['— nehodnotené —',null],['Začínajúce / ostrovčekovité',[0.25,3]],
-        ['Splývajúce do plôch',[1,6]],['Plne vyvinuté (maximálne)',[3,16]]]},
-      {id:'liv_press',label:'Škvrny — tlak prstom',opt:[
-        ['— nehodnotené —',null],['Úplne vytlačiteľné (miznú)',[0,6]],
-        ['Čiastočne vytlačiteľné (len bledne)',[1,24]],['Nevytlačiteľné (fixované)',[10,9999]]]},
-      {id:'liv_rep',label:'Škvrny — po preložení tela',opt:[
+      {id:'liv_dev',label:'Posmrtné škvrny — vzhľad',opt:[
+        ['— nehodnotené —',null],['Ostrovčekovité',[0.25,3]],
+        ['Začínajú splývať',[1,6]],['Difúzne splývajú',[3,16]]]},
+      {id:'liv_press',label:'Posmrtné škvrny — vytlačiteľnosť',opt:[
+        ['— nehodnotené —',null],['Ľahko (úplne miznú)',[0,6]],
+        ['Ťažšie',[3,14]],['Veľmi ťažko',[10,24]],['Nevytlačiteľné',[20,9999]]]},
+      {id:'liv_rep',label:'Škvrny — po preložení tela (doplnkové)',opt:[
         ['— nehodnotené —',null],['Úplne sa presúvajú',[0,6]],
         ['Čiastočne sa presúvajú',[2,12]],['Nepresúvajú sa (fixované)',[10,9999]]]},
-      {id:'rig_stage',label:'Posmrtná stuhnutosť — štádium',opt:[
+      {id:'rig_stage',label:'Posmrtná stuhnutosť — rozsah (zostupne)',opt:[
         ['— nehodnotené —',null],['Neprítomná — telo ochabnuté, čerstvé',[0,7]],
-        ['Začínajúca (čeľusť, krk)',[1,7]],['Čiastočná (rozvíja sa)',[2,9]],
-        ['Úplná (vo všetkých kĺboch)',[6,36]],['Ustupujúca / rozprestiera sa',[24,60]],
-        ['Vymiznutá — telo opäť ochabnuté',[24,96]]]},
+        ['Len tvár a šija',[1,7]],['+ horné končatiny (HK)',[2,12]],
+        ['Úplná — vrátane dolných končatín (DK)',[6,36]],['Ustupuje (uvoľňuje sa)',[24,60]],
+        ['Vymizla — telo opäť ochabnuté',[24,96]]]},
       {id:'rig_reest',label:'Stuhnutosť — test prelomením kĺbu',opt:[
         ['— nehodnotené —',null],['Po prelomení sa obnoví',[0,8]],
         ['Po prelomení sa neobnoví',[8,9999]]]},
@@ -1632,7 +1634,7 @@ Toolkit.register({
           '<tr><td>Re-tuhnutie po prelomení</td><td>áno &lt; ~8 h / nie &gt; ~8 h</td></tr></table></details>'+
         '<details><summary>Supravitálne reakcie</summary><div class="hint" style="margin-top:8px">'+
           'Elektrická dráždivosť mimických svalov ~ do 5–7 h; mechanická (idiomuskulárna) ~ do 1,5–2,5 h (silná) až ~12 h (slabá); farmakologická reakcia zreníc ~ do 14–46 h.</div></details>'+
-        '<div class="foot">Rozpätia sú orientačné a výrazne závisia od teploty okolia, konštitúcie, príčiny smrti a prostredia. Najpresnejší jednotlivý odhad v skorom období dáva telesná teplota — pozri nástroj <b>Henssge</b>. Finálne posúdenie patrí pitvajúcemu lekárovi alebo expertovi.<br>Madea B. (ed.): Estimation of the Time Since Death, 3rd ed., CRC Press 2016; Henssge & Madea, Forensic Sci Int 2004;144:167–175; Madea B., Forensic Sci Med Pathol 2016;12:451–485.</div></div>';
+        '<div class="foot">Kategórie škvŕn a stuhnutosti sú zladené s terénnym formulárom ePrehliadky (ÚDZS). Rozpätia sú orientačné a výrazne závisia od teploty okolia, konštitúcie, príčiny smrti a prostredia. Najpresnejší jednotlivý odhad v skorom období dáva telesná teplota — pozri nástroj <b>Henssge</b>. Finálne posúdenie patrí pitvajúcemu lekárovi alebo expertovi.<br>Madea B. (ed.): Estimation of the Time Since Death, 3rd ed., CRC Press 2016; Henssge & Madea, Forensic Sci Int 2004;144:167–175; Madea B., Forensic Sci Med Pathol 2016;12:451–485.</div></div>';
 
     function nowL(){ var d=new Date(); d.setMinutes(d.getMinutes()-d.getTimezoneOffset()); return d.toISOString().slice(0,16); }
     $id('ps_tA').value=nowL();
@@ -1745,7 +1747,7 @@ Toolkit.register({
       '• Je určený <b>výhradne pre kvalifikovaných odborníkov</b> a na edukačné účely — <b>nie</b> pre laikov a <b>nie</b> ako certifikované zdravotnícke zariadenie.<br><br>'+
       '• Pri ďalšom šírení <b>zachovaj uvedenie autora a zdrojov</b> a neupravuj appku tak, aby vznikol dojem oficiálneho, úradne schváleného alebo certifikovaného nástroja.<br><br>'+
       '• Nepoužívaj na zavádzajúce, protiprávne ani iné než odborné účely.</div>'+
-      '<div class="foot" style="margin-top:12px">© 2026 Ján Šikuta. Všetky práva vyhradené. Verzia 1.07.</div></div>';
+      '<div class="foot" style="margin-top:12px">© 2026 Ján Šikuta. Všetky práva vyhradené. Verzia 1.08.</div></div>';
   }
 });
 
