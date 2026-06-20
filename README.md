@@ -5,10 +5,10 @@
 -->
 
 <h1 align="center">Ján Šikuta, MD, PhD</h1>
-<p align="center">Forensic examiner · builder of practical, offline-first tools for forensic medicine</p>
+<p align="center">Forensic pathologist · builder of practical, offline-first tools for forensic medicine</p>
 
 <p align="center">
-  <a href="https://dzanino.github.io/4n6/">🧰 Live app: Šikuta 4n6</a> &nbsp;·&nbsp;
+  <a href="https://dzanino.github.io/4n6/">🧰 Live app: 4n6 Šikuta Tools</a> &nbsp;·&nbsp;
   <a href="mailto:jansikuta@me.com">📫 jansikuta@me.com</a>
 </p>
 
@@ -21,7 +21,7 @@ for the same calculations again and again — so I started building small, relia
 in one place. I care about clean design, evidence-based methods, and software that simply works, offline,
 when and where it's needed.
 
-### 🧰 Featured project — Šikuta 4n6 · *Forensic Hand Toolkit*
+### 🧰 Featured project — 4n6 Šikuta Tools · *Forensic Hand Toolkit*
 
 A pocket web app (single-file, installable to the home screen) with a growing set of forensic-medicine
 calculators. Runs **entirely on the device** — nothing is uploaded or stored.
@@ -41,6 +41,7 @@ What's inside:
 ### 🧪 Principles
 
 - **Offline-first & private** — works without internet; no data leaves the device
+- **Light / dark / system theme** — comfortable contrast in any lighting; fingerprint-themed UI
 - **Evidence-based** — every method is cited from peer-reviewed sources
 - **Orientational by design** — a decision-support aid; final judgment always rests with the examining physician
 

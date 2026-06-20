@@ -10,13 +10,13 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Šikuta 4n6">
+<meta name="apple-mobile-web-app-title" content="4n6 Šikuta">
 <meta name="theme-color" content="#0b1220">
 <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
 <link rel="icon" href="icons/favicon.ico" sizes="any">
-<title>Šikuta 4n6 — Forensic Hand Toolkit</title>
+<title>4n6 Šikuta Tools</title>
 <script>(function(){try{var t=localStorage.getItem('tk_theme')||'system';var e=(t==='system')?((window.matchMedia&&matchMedia('(prefers-color-scheme: light)').matches)?'light':'dark'):t;document.documentElement.setAttribute('data-theme',e);}catch(_){document.documentElement.setAttribute('data-theme','dark');}})();</script>
 <style>
   :root{
@@ -231,10 +231,10 @@
 
 <div class="appbar hero">
   <button class="back" id="backBtn">‹ Späť</button>
-  <div class="brand3d" id="brand3d"><div class="logo3d" id="logo3d"><svg class="logo-mark" id="logoMark" viewBox="0 0 40 40" width="34" height="34" aria-hidden="true"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#56b6ff"/><stop offset="1" stop-color="#7ee0c0"/></linearGradient></defs><rect x="1.5" y="1.5" width="37" height="37" rx="11" fill="#141d2e" stroke="#28344f"/><g fill="none" stroke="url(#lg)" stroke-width="1.5" stroke-linecap="round"><ellipse cx="20" cy="18.5" rx="12.4" ry="13.8" stroke-dasharray="34 7" stroke-dashoffset="5"/><ellipse cx="20" cy="18.5" rx="9.2" ry="10.5" stroke-dasharray="26 6" stroke-dashoffset="14"/><ellipse cx="20" cy="18.5" rx="6" ry="7.1" stroke-dasharray="19 6" stroke-dashoffset="3"/><path d="M22.6 17.6a3 3.3 0 1 1 -3.1 -3.1"/><path d="M27.8 26.2l4 3M28.8 23.6l4.1 1.9"/></g></svg><span class="sheen" id="logoSheen"></span></div>
+  <div class="brand3d" id="brand3d"><div class="logo3d" id="logo3d"><svg class="logo-mark" id="logoMark" viewBox="0 0 40 40" width="34" height="34" aria-hidden="true"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5bb8ff"/><stop offset="1" stop-color="#8fe3c8"/></linearGradient></defs><rect x="1.5" y="1.5" width="37" height="37" rx="11" fill="#141d2e" stroke="#28344f"/><g fill="none" stroke="url(#lg)" stroke-width="1.15" stroke-linecap="round"><ellipse cx="20" cy="18.5" rx="13" ry="14.6" stroke-dasharray="40 7" stroke-dashoffset="6"/><ellipse cx="20" cy="18.5" rx="10.3" ry="11.7" stroke-dasharray="32 6" stroke-dashoffset="18"/><ellipse cx="20" cy="18.5" rx="7.6" ry="8.8" stroke-dasharray="24 6" stroke-dashoffset="4"/><ellipse cx="20" cy="18.5" rx="4.9" ry="5.9" stroke-dasharray="17 6" stroke-dashoffset="10"/><path d="M22 17.4a2.6 3 0 1 1 -2.7 -2.7"/></g></svg><span class="sheen" id="logoSheen"></span></div>
   <div id="brandWrap">
-    <div class="brand">Šikuta <span class="accent">4n6</span></div>
-    <div class="sub">Forensic Hand Toolkit</div>
+    <div class="brand"><span class="accent">4n6</span> Šikuta Tools</div>
+    <div class="sub">Forenzné nástroje</div>
   </div></div>
   <div class="spacer"></div>
   <button class="theme-btn" id="themeBtn" aria-label="Vzhľad">◐</button>
@@ -347,8 +347,8 @@ var Toolkit = (function(){
     hub.style.display='block';
     backBtn.classList.remove('show');
     document.querySelector('.appbar').classList.add('hero');
-    document.querySelector('#brandWrap .brand').innerHTML = 'Šikuta <span class="accent">4n6</span>';
-    document.querySelector('#brandWrap .sub').textContent = 'Forensic Hand Toolkit';
+    document.querySelector('#brandWrap .brand').innerHTML = '<span class="accent">4n6</span> Šikuta Tools';
+    document.querySelector('#brandWrap .sub').textContent = 'Forenzné nástroje';
     window.scrollTo(0,0);
   }
 
@@ -1099,7 +1099,7 @@ Toolkit.register({
         '<div class="field"><label>Čas od požitia/skutku (h)</label>'+
         '<input id="e_t" type="number" inputmode="decimal" step="0.5" placeholder="napr. 3"></div></div>'+
       '<div class="hint">β (eliminácia) = 0,15 g/kg/h (rozsah 0,10–0,20). r: muž 0,68 · žena 0,55.</div></div>'+
-    '<button class="btn" id="e_calc">Vyhodnotiť</button>'+
+    '<div class="card"><h2>Klasifikácia opitosti (Straka 2011)</h2>'+'<div class="field"><label>Navyknutosť na alkohol</label>'+'<div class="seg" id="e_habit"><button data-h="nez" class="active">Nezvyknutý piť</button><button data-h="nav">Navyknutý piť</button></div></div>'+'<div class="field"><label>Fáza <span class="muted">(auto z moču; inak vyber)</span></label>'+'<div class="seg" id="e_phase"><button data-p="resorp" class="active">Resorpčná</button><button data-p="elim">Eliminačná</button></div></div></div>'+'<div class="card"><h2>Alkoholemická krivka (≥2 merania)</h2>'+'<div class="hint" style="margin-bottom:8px">Zadaj aspoň dve merania (čas v h + krv; moč voliteľne). Appka preloží eliminačnú priamku, vypočíta rýchlosť eliminácie β a spätne extrapoluje.</div>'+'<div class="row"><div class="field"><label>Čas 1 (h)</label><input id="ak_t1" type="number" inputmode="decimal" step="0.1" value="0"></div>'+'<div class="field"><label>Krv (g/kg)</label><input id="ak_b1" type="number" inputmode="decimal" step="0.01"></div>'+'<div class="field"><label>Moč</label><input id="ak_u1" type="number" inputmode="decimal" step="0.01"></div></div>'+'<div class="row"><div class="field"><label>Čas 2 (h)</label><input id="ak_t2" type="number" inputmode="decimal" step="0.1" value="1"></div>'+'<div class="field"><label>Krv (g/kg)</label><input id="ak_b2" type="number" inputmode="decimal" step="0.01"></div>'+'<div class="field"><label>Moč</label><input id="ak_u2" type="number" inputmode="decimal" step="0.01"></div></div>'+'<div class="row"><div class="field"><label>Čas 3 (h)</label><input id="ak_t3" type="number" inputmode="decimal" step="0.1" placeholder="voliteľné"></div>'+'<div class="field"><label>Krv (g/kg)</label><input id="ak_b3" type="number" inputmode="decimal" step="0.01"></div>'+'<div class="field"><label>Moč</label><input id="ak_u3" type="number" inputmode="decimal" step="0.01"></div></div>'+'<button class="btn" id="ak_calc">Vykresliť krivku</button>'+'<div id="ak_out" style="margin-top:12px"></div>'+'<div class="foot" style="text-align:left">β (eliminačná rýchlosť) sa odhadne ako sklon priamky cez merania v krvi; bežne 0,10–0,20 g/kg/h. Widmark (eliminačná kinetika); Straka J.: Súdnolekárska alkohológia, 2011.</div></div>'+'<button class="btn" id="e_calc">Vyhodnotiť</button>'+
     '<div class="card" id="e_res" style="display:none;margin-top:14px"><h2>Výsledok</h2>'+
       '<div id="e_stage"></div><div id="e_ratios"></div><div id="e_widmark"></div></div>'+
     '<div class="card" id="e_exportCard" style="display:none"><h2>Export do zápisnice</h2>'+
@@ -1108,30 +1108,58 @@ Toolkit.register({
       '<textarea id="e_exportText" class="export-box" readonly></textarea>'+
       '<button class="btn ghost small" id="e_copy" style="margin-top:10px">Kopírovať text</button></div>'+
     '<div class="card"><h2>Výklad a referencie</h2>'+
-      '<details><summary>Štádiá ovplyvnenia (Dubowski)</summary><table class="ref">'+
-        '<tr><th>BAC (g/kg)</th><th>Štádium</th></tr>'+
-        '<tr><td>&lt; 0,5</td><td>Subklinické</td></tr><tr><td>0,3–1,2</td><td>Eufória / mierne</td></tr>'+
-        '<tr><td>0,9–2,0</td><td>Excitácia</td></tr><tr><td>1,8–3,0</td><td>Konfúzia</td></tr>'+
-        '<tr><td>2,5–4,0</td><td>Stupor</td></tr><tr><td>3,5–5,0</td><td>Kóma</td></tr>'+
-        '<tr><td>&gt; 4,5</td><td>Možný letálny rozsah</td></tr></table>'+
-        '<div class="hint">Pásma sa prekrývajú; tolerancia jednotlivca výrazne mení obraz.</div></details>'+
+      '<details open><summary>Stupne opitosti — Hirt (Straka 2011)</summary><table class="ref">'+
+        '<tr><th>g/kg</th><th>Hodnotenie</th></tr>'+
+        '<tr><td>≤ 0,20</td><td>Analyticky nepreukázateľné</td></tr>'+
+        '<tr><td>0,21–0,30</td><td>Pre cestnú premávku nevýznamné</td></tr>'+
+        '<tr><td>0,31–0,49</td><td>Požil alkohol, prakticky neovplyvnený</td></tr>'+
+        '<tr><td>0,50–0,99</td><td>Podnapitosť (≥0,80 vodič nespôsobilý)</td></tr>'+
+        '<tr><td>1,00–1,49</td><td>Ľahký stupeň opitosti</td></tr>'+
+        '<tr><td>1,50–1,99</td><td>Stredne ťažký stupeň</td></tr>'+
+        '<tr><td>2,00–2,99</td><td>Ťažký stupeň</td></tr>'+
+        '<tr><td>3,00–3,99</td><td>Otrava alkoholom</td></tr>'+
+        '<tr><td>≥ 4,00</td><td>Smrteľná otrava</td></tr></table></details>'+
+      '<details><summary>Stupne podľa Pitru (fáza × navyknutosť)</summary><table class="ref">'+
+        '<tr><th>g/kg</th><th>Resorpčná · nezvyknutý</th><th>Eliminačná · navyknutý</th></tr>'+
+        '<tr><td>do 0,5</td><td>Vždy podnapitosť</td><td>Žiadne prejavy</td></tr>'+
+        '<tr><td>0,5–1,0</td><td>Ľahký stupeň</td><td>Niekedy podnapitosť</td></tr>'+
+        '<tr><td>1,0–1,5</td><td>Stredný stupeň</td><td>Vždy podnapitosť</td></tr>'+
+        '<tr><td>1,5–2,5</td><td>Ťažký stupeň</td><td>Ľahký stupeň</td></tr>'+
+        '<tr><td>2,5–3,5</td><td>Otrava s bezvedomím</td><td>Stredný stupeň</td></tr>'+
+        '<tr><td>3,5–4,5</td><td>Bezvedomie až smrť</td><td>Ťažký stupeň</td></tr>'+
+        '<tr><td>nad 4,5</td><td>Smrteľná otrava</td><td>Smrteľná otrava</td></tr></table>'+
+        '<div class="hint">Pitrova tabuľka má 4 stĺpce (resorpčná/eliminačná × nezvyknutý/navyknutý piť); appka vyberie správny podľa fázy a navyknutosti. Tu sú pre prehľad krajné stĺpce.</div></details>'+
       '<details><summary>Pomery vzoriek</summary><div class="hint" style="margin-top:8px">'+
         '<b>Moč/krv (UAC/BAC):</b> &gt; 1,3 → postresorpčná (eliminačná) fáza; &lt; 1,3 → resorpčná (skorá) fáza.<br><br>'+
         '<b>Krv/sklovec (B/V):</b> ≈ 1,29 skorá absorpcia; ≈ 0,89 postresorpčná. Odhad krvi zo sklovca: B = 1,29·V (skorá) až 0,89·V (neskôr); v rovnováhe sklovec/krv ≈ 1,1–1,2.</div></details>'+
       '<details><summary>Posmrtná novotvorba</summary><div class="hint" style="margin-top:8px">'+
         'Pri hnilobe môže etanol vznikať mikrobiálne v krvi (zvyčajne &lt; 0,7, niekedy až ~1,5 g/kg). <b>Sklovec a moč</b> sú menej náchylné — ich pozitivita podporuje požitie pred smrťou. Pre novotvorbu svedčí prítomnosť n-propanolu a vyšších alkoholov, neúmerne vysoká krv pri nízkom/nulovom močovom a sklovcovom etanole.</div></details>'+
-      '<div class="foot">Orientačná interpretácia. Hodnoty v g/kg (‰). Spätný prepočet je neistý (β aj r individuálne kolíšu). Finálne posúdenie patrí znalcovi.<br>Dubowski 1985; Kugelberg & Jones, Forensic Sci Int 2007; Jones (UAC/BAC, B/V pomery).</div></div>';
+      '<div class="foot">Orientačná interpretácia. Hodnoty v g/kg (‰). Spätný prepočet je neistý (β aj r individuálne kolíšu). Finálne posúdenie patrí znalcovi.<br>Straka J.: Súdnolekárska alkohológia, 2011 (klasifikácia podľa Pitru a Hirta, s. 97); Kugelberg & Jones, Forensic Sci Int 2007 (UAC/BAC, B/V).</div></div>';
 
     function sex(){ return root.querySelector('#e_sex button.active').dataset.sex; }
-    function stageOf(b){
-      if(b<0.5) return 'Subklinické';
-      if(b<1.2) return 'Eufória / mierne ovplyvnenie';
-      if(b<2.0) return 'Excitácia (porucha koordinácie a úsudku)';
-      if(b<3.0) return 'Konfúzia (dezorientácia, ataxia)';
-      if(b<4.0) return 'Stupor (apatia, zvracanie)';
-      if(b<5.0) return 'Kóma (riziko útlmu dýchania)';
-      return 'Možný letálny rozsah';
+    function hirt(b){
+      if(b<=0.20) return 'Analyticky nepreukázateľné (≤0,20 g/kg)';
+      if(b<=0.30) return 'Pre cestnú premávku nevýznamné (0,21–0,30)';
+      if(b<0.50) return 'Požil alkohol, prakticky neovplyvnený (0,31–0,49)';
+      if(b<1.00) return 'Podnapitosť (0,50–0,99)'+(b>=0.80?' — vodič nespôsobilý (≥0,80)':'');
+      if(b<1.50) return 'Ľahký stupeň opitosti (1,00–1,49)';
+      if(b<2.00) return 'Stredne ťažký stupeň opitosti (1,50–1,99)';
+      if(b<3.00) return 'Ťažký stupeň opitosti (2,00–2,99)';
+      if(b<4.00) return 'Otrava alkoholom (3,00–3,99)';
+      return 'Smrteľná otrava alkoholom (≥4,00)';
     }
+    var PITRA=[
+      ['Vždy podnapitosť','Niekedy podnapitosť','Niekedy podnapitosť','Žiadne prejavy'],
+      ['Ľahký stupeň','Podnapitosť','Podnapitosť','Niekedy podnapitosť'],
+      ['Stredný stupeň','Ľahký stupeň','Ľahký stupeň','Vždy podnapitosť'],
+      ['Ťažký stupeň','Stredný stupeň','Stredný stupeň','Ľahký stupeň'],
+      ['Otrava s bezvedomím','Ťažký stupeň','Ťažký stupeň','Stredný stupeň'],
+      ['Bezvedomie až smrť','Otrava až s bezvedomím','Bezvedomie až smrť','Ťažký stupeň'],
+      ['Smrteľná otrava','Smrteľná otrava','Smrteľná otrava','Smrteľná otrava']];
+    function pitra(b,phase,habit){ var bd=[0.5,1.0,1.5,2.5,3.5,4.5],i=6; for(var k=0;k<bd.length;k++){ if(b<bd[k]){i=k;break;} }
+      var col=(phase==='elim'?2:0)+(habit==='nav'?1:0); return PITRA[i][col]; }
+    function habitSel(){ return root.querySelector('#e_habit button.active').dataset.h; }
+    function phaseSel(){ return root.querySelector('#e_phase button.active').dataset.p; }
     function alertHTML(t,m){ return '<div class="alert '+t+'"><span class="ic">'+(t==='bad'?'✕':t==='warn'?'!':'✓')+'</span><span>'+m+'</span></div>'; }
 
     function calc(){
@@ -1141,13 +1169,17 @@ Toolkit.register({
       $id('e_res').style.display='block'; $id('e_exportCard').style.display='block';
       var ex=[];
 
-      // štádium
+      // klasifikácia opitosti (Straka 2011: Hirt + Pitra)
       var sH='';
-      if(isFinite(b)){ var st=stageOf(b);
+      if(isFinite(b)){
+        var phase = (isFinite(u)&&b>0) ? (u/b>1.3?'elim':'resorp') : phaseSel();
+        root.querySelectorAll('#e_phase button').forEach(function(x){ x.classList.toggle('active',x.dataset.p===phase); });
+        var habit=habitSel(), hr=hirt(b), pt=pitra(b,phase,habit);
         var col=b>=3.5?'bad':b>=1.8?'warn':'good';
         sH='<div class="result" style="padding-bottom:6px"><div class="big" style="font-size:34px">'+fmtNum(b,2)+' <small>g/kg</small></div>'+
-           '<div style="margin-top:8px"><span class="chip" style="background:var(--'+(col==='good'?'good':col==='warn'?'warn':'bad')+');color:#04101f">'+st+'</span></div></div>';
-        ex.push('Krv (BAC): '+fmtNum(b,2)+' g/kg — '+st);
+           '<div style="margin-top:8px"><span class="chip" style="background:var(--'+col+');color:#04101f">'+hr+'</span></div>'+
+           '<div class="ci" style="margin-top:8px">Pitra ('+(phase==='elim'?'eliminačná':'resorpčná')+' fáza, '+(habit==='nav'?'navyknutý':'nezvyknutý')+' piť): <b>'+pt+'</b></div></div>';
+        ex.push('Krv (BAC): '+fmtNum(b,2)+' g/kg','Hirt: '+hr,'Pitra ('+(phase==='elim'?'elim.':'resorp.')+' fáza, '+(habit==='nav'?'navyknutý':'nezvyknutý')+'): '+pt);
       }
       $id('e_stage').innerHTML=sH;
 
@@ -1190,6 +1222,38 @@ Toolkit.register({
     $id('e_calc').addEventListener('click',calc);
     ['e_prot','e_meno'].forEach(function(id){ $id(id).addEventListener('input',function(){ if($id('e_exportText').value) calc(); }); });
     $id('e_copy').addEventListener('click',function(){ copyToClipboard($id('e_exportText').value,this,'Skopírované ✓','Kopírovať text'); });
+    root.querySelectorAll('#e_habit button, #e_phase button').forEach(function(b){ b.addEventListener('click',function(){
+      b.parentNode.querySelectorAll('button').forEach(function(x){x.classList.remove('active');}); b.classList.add('active');
+      if($id('e_exportText').value) calc(); }); });
+    function gv(id){ var x=parseFloat($id(id).value); return isFinite(x)?x:null; }
+    function fitLine(pts){ var n=pts.length,sx=0,sy=0,sxy=0,sxx=0; pts.forEach(function(p){sx+=p[0];sy+=p[1];sxy+=p[0]*p[1];sxx+=p[0]*p[0];}); var d=(n*sxx-sx*sx); if(d===0) return null; var m=(n*sxy-sx*sy)/d; return {m:m,c:(sy-m*sx)/n}; }
+    function akChart(){
+      var blood=[],urine=[];
+      [1,2,3].forEach(function(i){ var t=gv('ak_t'+i),b=gv('ak_b'+i),u=gv('ak_u'+i);
+        if(t!==null&&b!==null) blood.push([t,b]); if(t!==null&&u!==null) urine.push([t,u]); });
+      if(blood.length<2){ alert('Zadaj aspoň dve merania v krvi (čas + koncentrácia).'); return; }
+      var f=fitLine(blood), beta=f?-f.m:null, c0=f?f.c:null;
+      var all=blood.concat(urine);
+      var tmin=Math.min.apply(null,all.map(function(p){return p[0];}));
+      var tmax=Math.max.apply(null,all.map(function(p){return p[0];})); if(tmax<=tmin) tmax=tmin+1;
+      var vmax=Math.max.apply(null,all.map(function(p){return p[1];}))*1.15||1;
+      var W=320,H=200,L=36,Bm=26,Rm=10,Tm=10;
+      function X(t){ return L+(t-tmin)/(tmax-tmin)*(W-L-Rm); }
+      function Y(v){ return Tm+(1-v/vmax)*(H-Tm-Bm); }
+      var s='<svg viewBox="0 0 '+W+' '+H+'" style="width:100%;height:auto;background:var(--card2);border:1px solid var(--line);border-radius:10px">';
+      var yt=[0,vmax/2,vmax]; yt.forEach(function(v){ s+='<line x1="'+L+'" y1="'+Y(v)+'" x2="'+(W-Rm)+'" y2="'+Y(v)+'" stroke="var(--line)" stroke-width="0.5"/>'+
+        '<text x="'+(L-4)+'" y="'+(Y(v)+3)+'" font-size="8" fill="var(--muted)" text-anchor="end">'+v.toFixed(1)+'</text>'; });
+      [tmin,(tmin+tmax)/2,tmax].forEach(function(t){ s+='<text x="'+X(t)+'" y="'+(H-Bm+12)+'" font-size="8" fill="var(--muted)" text-anchor="middle">'+t.toFixed(1)+' h</text>'; });
+      if(f){ var x1=tmin,x2=tmax,y1=f.m*x1+f.c,y2=f.m*x2+f.c;
+        s+='<line x1="'+X(x1)+'" y1="'+Y(Math.max(0,Math.min(vmax,y1)))+'" x2="'+X(x2)+'" y2="'+Y(Math.max(0,Math.min(vmax,y2)))+'" stroke="var(--accent)" stroke-width="2"/>'; }
+      blood.forEach(function(p){ s+='<circle cx="'+X(p[0])+'" cy="'+Y(p[1])+'" r="3.6" fill="var(--accent)"/>'; });
+      urine.forEach(function(p){ s+='<circle cx="'+X(p[0])+'" cy="'+Y(p[1])+'" r="3.6" fill="none" stroke="var(--accent2)" stroke-width="1.7"/>'; });
+      s+='</svg>';
+      var info='<div class="ci" style="margin-top:6px">● krv · ○ moč · '+
+        (beta!==null?('β ≈ <b>'+fmtNum(beta,3)+' g/kg/h</b>'+(beta<0.05||beta>0.30?' (mimo bežného rozsahu 0,10–0,20!)':'')+' · extrapolovaná koncentrácia v čase 0 h: <b>'+fmtNum(Math.max(0,c0),2)+' g/kg</b>'):'')+'</div>';
+      $id('ak_out').innerHTML=s+info;
+    }
+    $id('ak_calc').addEventListener('click',akChart);
   }
 });
 
@@ -1397,7 +1461,7 @@ Toolkit.register({
       'Muchovité (čeľaď Calliphoridae — bzučivky) kolonizujú telo v predvídateľnom slede. Vek najstaršieho vývojového štádia hmyzu udáva <b>minimálny PMI</b> (čas od kolonizácie, spravidla krátko po smrti). Vývoj je <b>silne závislý od teploty</b> — používa sa koncept akumulovaných stupňodní/stupňohodín (ADD/ADH).</div></div>'+
     '<div class="card"><h2>Chronológia vývoja <span class="pill">~21 °C</span></h2>'+
       '<div class="hint" style="margin-bottom:10px">Časy od nakladenia vajíčok pri referenčnej teplote ~21 °C. Klikni na obrázok pre zväčšenie.</div>'+
-      '<div id="ento_list"></div></div>'+
+      '<div id="ento_list"></div></div>'+'<div class="card"><h2>Identifikácia dospelých múch</h2>'+'<div class="hint" style="margin-bottom:8px">Schematické ilustrácie kľúčových znakov (nie fotografie — kvôli autorským právam). Klikni pre zväčšenie. Presné určenie druhu patrí entomológovi.</div>'+'<div id="ento_fly"></div>'+'<details><summary>Určovací kľúč (zjednodušený)</summary><div class="hint" style="margin-top:8px">'+'1. Telo kovovo lesklé → <b>Calliphoridae</b> (bzučivky): zelené = <i>Lucilia</i>, modré = <i>Calliphora</i>.<br>'+'2. Hruď sivá s 3 čiernymi pruhmi, bruško šachovnicovité, oči červené → <b>Sarcophagidae</b> (<i>Sarcophaga</i>).<br>'+'3. Matne sivočierna, hruď so 4 pruhmi, menšia (~6–7 mm) → <b>Muscidae</b> (<i>Musca domestica</i>).</div></details></div>'+
     '<div class="card"><h2>Odhad PMI z teploty (ADD)</h2>'+
       '<div class="field"><label>Najstaršie nájdené štádium</label><select id="ento_stage"></select></div>'+
       '<div class="row"><div class="field"><label>Priemerná teplota (°C)</label><input id="ento_temp" type="number" inputmode="decimal" step="0.5" placeholder="napr. 21"></div>'+
@@ -1424,6 +1488,32 @@ Toolkit.register({
     });
     root.querySelectorAll('.ento-img').forEach(function(im){ im.addEventListener('click',function(){
       var s=STAGES[im.getAttribute('data-i')]; openLB(s.svg, s.n+' ('+s.l+')', s.t+' — '+s.f); }); });
+
+    function flyTop(th,ab,eye,thN,abStyle){
+      var s='<svg viewBox="0 0 80 96">';
+      s+='<ellipse cx="24" cy="48" rx="23" ry="10" fill="rgba(222,234,250,.4)" stroke="#9fb0cf" stroke-width="0.5" transform="rotate(-26 24 48)"/>';
+      s+='<ellipse cx="56" cy="48" rx="23" ry="10" fill="rgba(222,234,250,.4)" stroke="#9fb0cf" stroke-width="0.5" transform="rotate(26 56 48)"/>';
+      s+='<g stroke="#161d29" stroke-width="1.3" stroke-linecap="round"><path d="M33 46 L16 58"/><path d="M33 52 L18 70"/><path d="M33 58 L23 78"/><path d="M47 46 L64 58"/><path d="M47 52 L62 70"/><path d="M47 58 L57 78"/></g>';
+      s+='<ellipse cx="40" cy="64" rx="14" ry="21" fill="'+ab+'"/>';
+      if(abStyle==='checker'){ s+='<g fill="rgba(255,255,255,.20)"><rect x="33" y="49" width="7" height="6"/><rect x="40" y="56" width="7" height="6"/><rect x="33" y="63" width="7" height="6"/><rect x="40" y="70" width="7" height="6"/></g>'; }
+      else if(abStyle==='band'){ s+='<g stroke="rgba(0,0,0,.22)" stroke-width="2" fill="none"><path d="M27 57 H53"/><path d="M27 67 H53"/></g>'; }
+      s+='<ellipse cx="40" cy="40" rx="13" ry="15" fill="'+th+'"/>';
+      if(thN){ var x0=40-(thN-1)*2.4, g='<g stroke="rgba(0,0,0,.45)" stroke-width="1.2">'; for(var i=0;i<thN;i++){ g+='<path d="M'+(x0+i*4.8)+' 28 V52"/>'; } s+=g+'</g>'; }
+      s+='<ellipse cx="40" cy="22" rx="11" ry="8.5" fill="#1a1a1a"/>';
+      s+='<path d="M31 18 a6 7 0 0 1 8 -2 l0 8 a6 7 0 0 1 -8 -2 Z" fill="'+eye+'" opacity="0.9"/><path d="M49 18 a6 7 0 0 0 -8 -2 l0 8 a6 7 0 0 0 8 -2 Z" fill="'+eye+'" opacity="0.9"/>';
+      return s+'</svg>';
+    }
+    var SPECIES=[
+      {n:'Bzučivka zelená',l:'Lucilia sericata',f:'Kovovo lesklá zelená hruď aj bruško, ~8–10 mm. Skorý kolonizátor — vajíčka do otvorov a rán krátko po smrti.',svg:flyTop('#2e8b57','#39a06a','#b23b2e',0,'plain')},
+      {n:'Bzučivka modrá (mäsiarka)',l:'Calliphora vicina / vomitoria',f:'Tmavá hruď, kovovo modré bruško, robustná ~10–12 mm. Skorý kolonizátor, aktívna aj pri nižších teplotách.',svg:flyTop('#2b3a55','#2a4f8f','#7a2f26',0,'plain')},
+      {n:'Mäsiarka sivá',l:'Sarcophaga spp.',f:'Sivá hruď s 3 čiernymi pozdĺžnymi pruhmi, šachovnicovité bruško, výrazné červené oči. Kladie larvy (larvipária).',svg:flyTop('#8a8f98','#9aa0a8','#c0392b',3,'checker')},
+      {n:'Mucha domáca',l:'Musca domestica',f:'Matne sivočierna, hruď so 4 tmavými pruhmi, menšia ~6–7 mm. Synantropná, na tele skôr v neskorších fázach / v zástavbe.',svg:flyTop('#6b7078','#8a7a5a','#8a3b2e',4,'band')}
+    ];
+    var fl=$id('ento_fly');
+    SPECIES.forEach(function(s,i){ var c=document.createElement('div'); c.className='ento-card';
+      c.innerHTML='<div class="ento-img" data-fi="'+i+'">'+s.svg+'</div><div class="ento-meta"><h3>'+s.n+' <span class="muted" style="font-weight:400;font-size:11px;font-style:italic">'+s.l+'</span></h3><p>'+s.f+'</p></div>';
+      fl.appendChild(c); });
+    root.querySelectorAll('[data-fi]').forEach(function(im){ im.addEventListener('click',function(){ var s=SPECIES[im.getAttribute('data-fi')]; openLB(s.svg, s.n+' ('+s.l+')', s.f); }); });
 
     // ADD odhad (orientačné kumulatívne ADD pri T0=10°C)
     var ADD=[ {n:'Vajíčka (čerstvé)',v:8},{n:'Larva L1',v:25},{n:'Larva L2',v:55},{n:'Larva L3 žravá',v:95},
@@ -1567,8 +1657,9 @@ Toolkit.register({
 });
 
 /* =====================================================================
-   PLUGIN — POSMRTNÉ ZMENY: odhad PMI pri obhliadke (kompozitná metóda)
-   Voliteľne DVE pozorovania (nález + pitva) pre presnejšie okno.
+   PLUGIN — POSMRTNÉ ZMENY: odhad PMI (kompozitná metóda)
+   Dve pozorovania (nález + pitva) + Pokročilé hodnotenie stuhnutosti
+   po svalových skupinách podľa formulára ePrehliadky (ÚDZS).
    ===================================================================== */
 Toolkit.register({
   id:'pmi_scene',
@@ -1576,36 +1667,55 @@ Toolkit.register({
   icon:'⏱',
   category:'Tanatológia',
   short:'Stuhnutosť, škvrny — odhad času smrti.',
-  long:'Odhad času smrti (PMI) z posmrtných zmien — voliteľne z dvoch pozorovaní (nález + pitva) pre užšie okno.',
+  long:'Odhad času smrti (PMI) z posmrtných zmien — voliteľne dve pozorovania a pokročilé hodnotenie stuhnutosti po svaloch.',
   mount:function(root){
-    var Q=[
+    var LIV=[
       {id:'liv_dev',label:'Posmrtné škvrny — vzhľad',opt:[
-        ['— nehodnotené —',null],['Ostrovčekovité',[0.25,3]],
-        ['Začínajú splývať',[1,6]],['Difúzne splývajú',[3,16]]]},
+        ['— nehodnotené —',null],['Ostrovčekovité',[0.25,3]],['Začínajú splývať',[1,6]],['Difúzne splývajú',[3,16]]]},
       {id:'liv_press',label:'Posmrtné škvrny — vytlačiteľnosť',opt:[
-        ['— nehodnotené —',null],['Ľahko (úplne miznú)',[0,6]],
-        ['Ťažšie',[3,14]],['Veľmi ťažko',[10,24]],['Nevytlačiteľné',[20,9999]]]},
+        ['— nehodnotené —',null],['Ľahko (úplne miznú)',[0,6]],['Ťažšie',[3,14]],['Veľmi ťažko',[10,24]],['Nevytlačiteľné',[20,9999]]]},
       {id:'liv_rep',label:'Škvrny — po preložení tela (doplnkové)',opt:[
-        ['— nehodnotené —',null],['Úplne sa presúvajú',[0,6]],
-        ['Čiastočne sa presúvajú',[2,12]],['Nepresúvajú sa (fixované)',[10,9999]]]},
-      {id:'rig_stage',label:'Posmrtná stuhnutosť — rozsah (zostupne)',opt:[
-        ['— nehodnotené —',null],['Neprítomná — telo ochabnuté, čerstvé',[0,7]],
-        ['Len tvár a šija',[1,7]],['+ horné končatiny (HK)',[2,12]],
-        ['Úplná — vrátane dolných končatín (DK)',[6,36]],['Ustupuje (uvoľňuje sa)',[24,60]],
-        ['Vymizla — telo opäť ochabnuté',[24,96]]]},
-      {id:'rig_reest',label:'Stuhnutosť — test prelomením kĺbu',opt:[
-        ['— nehodnotené —',null],['Po prelomení sa obnoví',[0,8]],
-        ['Po prelomení sa neobnoví',[8,9999]]]},
-      {id:'mech',label:'Idiomuskulárna odpoveď (úder do bicepsu)',opt:[
-        ['— nehodnotené —',null],['Silný vratný val (Zsakov fenomén)',[0,2.5]],
-        ['Slabý / lokálny pretrvávajúci val',[2,12]]]}
+        ['— nehodnotené —',null],['Úplne sa presúvajú',[0,6]],['Čiastočne sa presúvajú',[2,12]],['Nepresúvajú sa (fixované)',[10,9999]]]}
     ];
-    function selHTML(pfx){ var s=''; Q.forEach(function(q){
-      s+='<div class="field"><label>'+q.label+'</label><select id="'+pfx+q.id+'">';
-      q.opt.forEach(function(o){ var v=o[1]?(o[1][0]+','+o[1][1]):''; s+='<option value="'+v+'">'+o[0]+'</option>'; });
-      s+='</select></div>'; }); return s; }
+    var RIGB={id:'rig_stage',label:'Posmrtná stuhnutosť — rozsah (zostupne)',opt:[
+      ['— nehodnotené —',null],['Neprítomná — telo ochabnuté, čerstvé',[0,7]],['Len tvár a šija',[1,7]],
+      ['+ horné končatiny (HK)',[2,12]],['Úplná — vrátane dolných končatín (DK)',[6,36]],
+      ['Ustupuje (uvoľňuje sa)',[24,60]],['Vymizla — telo opäť ochabnuté',[24,96]]]};
+    var EXTRA=[
+      {id:'rig_reest',label:'Stuhnutosť — test prelomením kĺbu',opt:[
+        ['— nehodnotené —',null],['Po prelomení sa obnoví',[0,8]],['Po prelomení sa neobnoví',[8,9999]]]},
+      {id:'mech',label:'Idiomuskulárna odpoveď (úder do bicepsu)',opt:[
+        ['— nehodnotené —',null],['Silný vratný val (Zsakov fenomén)',[0,2.5]],['Slabý / lokálny pretrvávajúci val',[2,12]]]}
+    ];
+    var GROUPS=[['tvar','svalstvo tváre'],['sija','svalstvo šije'],['hk','svalstvo HK'],['dk','svalstvo DK']];
+    var DEG=[['— nehodnotené —',''],['neprítomná','0'],['slabo vyvinutá','1'],['stredne vyvinutá','2'],['silno vyvinutá','3']];
+
+    function selOf(id,label,opt){ var s='<div class="field"><label>'+label+'</label><select id="'+id+'">';
+      opt.forEach(function(o){ var v=o[1]?(o[1][0]+','+o[1][1]):''; s+='<option value="'+v+'">'+o[0]+'</option>'; }); return s+'</select></div>'; }
+    function degSel(id,label){ var s='<div class="field"><label>Stuhnutosť — '+label+'</label><select id="'+id+'">';
+      DEG.forEach(function(o){ s+='<option value="'+o[1]+'">'+o[0]+'</option>'; }); return s+'</select></div>'; }
+    function selHTML(pfx){
+      var s=''; LIV.forEach(function(q){ s+=selOf(pfx+q.id,q.label,q.opt); });
+      s+='<div class="'+pfx+'rigB">'+selOf(pfx+RIGB.id,RIGB.label,RIGB.opt)+'</div>';
+      s+='<div class="'+pfx+'rigA" style="display:none"><div class="hint" style="margin:2px 0 6px">Stuhnutosť po svalových skupinách (podľa ePrehliadky):</div>';
+      GROUPS.forEach(function(g){ s+=degSel(pfx+'rg_'+g[0],g[1]); }); s+='</div>';
+      EXTRA.forEach(function(q){ s+=selOf(pfx+q.id,q.label,q.opt); });
+      return s;
+    }
+    function deriveRigor(d){ // d=[tvar,sija,hk,dk] (null|0..3)
+      var v=d.filter(function(x){return x!==null;}); if(!v.length) return null;
+      if(v.every(function(x){return x===0;})) return [0,7];
+      var tvar=d[0]||0,sija=d[1]||0,hk=d[2]||0,dk=d[3]||0;
+      if((tvar===0&&(hk>0||dk>0))||(tvar<dk&&dk>=2)){ // ustupovanie (tvár odznieva prvá)
+        if(tvar===0&&sija===0&&(hk>0||dk>0)) return [30,96]; return [24,60]; }
+      if(tvar>=3&&sija>=3&&hk>=3&&dk>=3) return [6,36]; // úplná / plató
+      if(dk>0) return [5,20]; if(hk>0) return [3,12]; if(sija>0) return [2,8]; return [1,7];
+    }
+    function adv(){ return root.querySelector('#ps_adv button.active').dataset.a==='on'; }
+
     root.innerHTML=
       '<div class="seg" id="ps_mode"><button data-m="one" class="active">Jedno pozorovanie</button><button data-m="two">Nález + pitva</button></div>'+
+      '<div class="seg" id="ps_adv" style="margin-top:-4px"><button data-a="off" class="active">Stuhnutosť: základná</button><button data-a="on">Pokročilá (po svaloch)</button></div>'+
       '<div class="card"><h2 id="ps_hA">Pozorované znaky</h2>'+
         '<div class="field"><label>Čas pozorovania <span class="muted" id="ps_tAopt">(voliteľné — pre čas smrti)</span></label><input id="ps_tA" type="datetime-local"></div>'+
         '<div class="hint" style="margin:2px 0 8px">Vyplň len znaky, ktoré si hodnotil.</div>'+ selHTML('psA_') +'</div>'+
@@ -1623,26 +1733,34 @@ Toolkit.register({
         '<button class="btn ghost small" id="ps_copy" style="margin-top:10px">Kopírovať text</button></div>'+
       '<div class="card"><h2>Metóda, výklad a referencie</h2>'+
         '<details><summary>Ako to funguje</summary><div class="hint" style="margin-top:8px">'+
-          'Každý znak má vlastné časové rozpätie; skutočný čas smrti leží tam, kde sa rozpätia <b>prekrývajú</b> (prienik). '+
-          'Pri režime <b>Nález + pitva</b> sa z oboch pozorovaní (a ich časov) vypočítajú dve okná času smrti a ich prienik dáva <b>užší</b> odhad — progresia zmien medzi nálezom a pitvou spresní výsledok.</div></details>'+
+          'Každý znak má časové rozpätie; čas smrti leží v ich <b>prieniku</b>. Režim <b>Nález + pitva</b> spojí dve pozorovania (a ich časy) do užšieho okna. '+
+          '<b>Pokročilá stuhnutosť</b> hodnotí 4 svalové skupiny (tvár, šija, HK, DK) ako vo formulári ePrehliadky a podľa <b>zostupného pravidla (Nysten)</b> odvodí rozpätie: rozvoj zhora nadol (tvár→DK), odznievanie tiež zhora.</div></details>'+
         '<details><summary>Orientačné rozpätia (Madea)</summary><table class="ref">'+
           '<tr><th>Znak</th><th>Čas po smrti</th></tr>'+
-          '<tr><td>Škvrny — začínajú</td><td>0,25–3 h</td></tr><tr><td>Škvrny — splývajú</td><td>1–6 h</td></tr>'+
-          '<tr><td>Škvrny — maximálne</td><td>3–16 h</td></tr><tr><td>Škvrny — úplne vytlačiteľné</td><td>do ~6 h</td></tr>'+
-          '<tr><td>Škvrny — fixované</td><td>&gt; ~10–12 h</td></tr><tr><td>Stuhnutosť — začína</td><td>1–7 h</td></tr>'+
-          '<tr><td>Stuhnutosť — úplná</td><td>~6–36 h</td></tr><tr><td>Stuhnutosť — mizne</td><td>~24–96 h</td></tr>'+
-          '<tr><td>Re-tuhnutie po prelomení</td><td>áno &lt; ~8 h / nie &gt; ~8 h</td></tr></table></details>'+
+          '<tr><td>Škvrny — začínajú/ostrovčekovité</td><td>0,25–3 h</td></tr><tr><td>Škvrny — splývajú</td><td>1–6 h</td></tr>'+
+          '<tr><td>Škvrny — difúzne/maximálne</td><td>3–16 h</td></tr><tr><td>Škvrny — ľahko vytlačiteľné</td><td>do ~6 h</td></tr>'+
+          '<tr><td>Škvrny — veľmi ťažko</td><td>~10–24 h</td></tr><tr><td>Škvrny — nevytlačiteľné</td><td>&gt; ~20 h</td></tr>'+
+          '<tr><td>Stuhnutosť — len tvár/šija</td><td>1–7 h</td></tr><tr><td>Stuhnutosť — úplná (vrát. DK)</td><td>~6–36 h</td></tr>'+
+          '<tr><td>Stuhnutosť — ustupuje/mizne</td><td>~24–96 h</td></tr></table>'+
+          '<div class="hint">Kategórie sú zladené s formulárom ePrehliadky (ÚDZS).</div></details>'+
         '<details><summary>Supravitálne reakcie</summary><div class="hint" style="margin-top:8px">'+
           'Elektrická dráždivosť mimických svalov ~ do 5–7 h; mechanická (idiomuskulárna) ~ do 1,5–2,5 h (silná) až ~12 h (slabá); farmakologická reakcia zreníc ~ do 14–46 h.</div></details>'+
-        '<div class="foot">Kategórie škvŕn a stuhnutosti sú zladené s terénnym formulárom ePrehliadky (ÚDZS). Rozpätia sú orientačné a výrazne závisia od teploty okolia, konštitúcie, príčiny smrti a prostredia. Najpresnejší jednotlivý odhad v skorom období dáva telesná teplota — pozri nástroj <b>Henssge</b>. Finálne posúdenie patrí pitvajúcemu lekárovi alebo expertovi.<br>Madea B. (ed.): Estimation of the Time Since Death, 3rd ed., CRC Press 2016; Henssge & Madea, Forensic Sci Int 2004;144:167–175; Madea B., Forensic Sci Med Pathol 2016;12:451–485.</div></div>';
+        '<div class="foot">Rozpätia sú orientačné a závisia od teploty okolia, konštitúcie, príčiny smrti a prostredia. Najpresnejší jednotlivý odhad v skorom období dáva telesná teplota — pozri nástroj <b>Henssge</b>. Finálne posúdenie patrí pitvajúcemu lekárovi alebo expertovi.<br>Madea B. (ed.): Estimation of the Time Since Death, 3rd ed., CRC Press 2016; Henssge & Madea, Forensic Sci Int 2004;144:167–175; Madea B., Forensic Sci Med Pathol 2016;12:451–485.</div></div>';
 
     function nowL(){ var d=new Date(); d.setMinutes(d.getMinutes()-d.getTimezoneOffset()); return d.toISOString().slice(0,16); }
     $id('ps_tA').value=nowL();
     function mode(){ return root.querySelector('#ps_mode button.active').dataset.m; }
     function fmtR(lo,hi){ var s=(hi>=9999)?('> '+fmtNum(lo,1)+' h'):(fmtNum(lo,1)+'–'+fmtNum(hi,1)+' h');
       if(lo>=24||(hi>=48&&hi<9999)){ s+=' (≈ '+fmtNum(lo/24,1)+(hi>=9999?'+':('–'+fmtNum(hi/24,1)))+' dní)'; } return s; }
-    function rangeOf(pfx){ var rs=[],rows=[]; Q.forEach(function(q){ var el=$id(pfx+q.id); if(!el||!el.value) return;
-      var p=el.value.split(','),lo=parseFloat(p[0]),hi=parseFloat(p[1]); rs.push([lo,hi]); rows.push([q.label,el.options[el.selectedIndex].text,lo,hi]); });
+    function rangeOf(pfx){ var rs=[],rows=[];
+      LIV.concat(EXTRA).forEach(function(q){ var el=$id(pfx+q.id); if(!el||!el.value) return;
+        var p=el.value.split(','),lo=parseFloat(p[0]),hi=parseFloat(p[1]); rs.push([lo,hi]); rows.push([q.label,el.options[el.selectedIndex].text,lo,hi]); });
+      if(adv()){
+        var g=GROUPS.map(function(x){ var el=$id(pfx+'rg_'+x[0]); return (el&&el.value!=='')?parseInt(el.value,10):null; });
+        var rr=deriveRigor(g);
+        if(rr){ rs.push(rr); var lbls=GROUPS.map(function(x,i){return g[i]===null?null:(x[1]+'='+DEG[g[i]+1][0]);}).filter(function(z){return z;}).join(', ');
+          rows.push(['Stuhnutosť (po svaloch)', lbls||'—', rr[0], rr[1]]); }
+      } else { var el=$id(pfx+RIGB.id); if(el&&el.value){ var p2=el.value.split(','); rs.push([parseFloat(p2[0]),parseFloat(p2[1])]); rows.push([RIGB.label,el.options[el.selectedIndex].text,parseFloat(p2[0]),parseFloat(p2[1])]); } }
       if(!rs.length) return null; var lo=0,hi=9999; rs.forEach(function(r){ if(r[0]>lo)lo=r[0]; if(r[1]<hi)hi=r[1]; }); return {lo:lo,hi:hi,rows:rows,ok:lo<=hi}; }
     function add(al,t,m){ var d=document.createElement('div'); d.className='alert '+t; d.innerHTML='<span class="ic">'+(t==='bad'?'✕':t==='warn'?'!':'✓')+'</span><span>'+m+'</span>'; al.appendChild(d); }
     var HR=3600000;
@@ -1656,31 +1774,25 @@ Toolkit.register({
       var tA=$id('ps_tA').value?new Date($id('ps_tA').value):null;
       var tB=$id('ps_tB').value?new Date($id('ps_tB').value):null;
       var headline='', clock='';
-
       if(twoM && rA && rB && tA && tB){
-        var d1lo=tA.getTime()-rA.hi*HR, d1hi=tA.getTime()-rA.lo*HR;
-        var d2lo=tB.getTime()-rB.hi*HR, d2hi=tB.getTime()-rB.lo*HR;
-        var clo=Math.max(d1lo,d2lo), chi=Math.min(d1hi,d2hi);
-        if(clo<=chi){
-          var pmiLo=(tB.getTime()-chi)/HR, pmiHi=(tB.getTime()-clo)/HR;
+        var d1lo=tA.getTime()-rA.hi*HR,d1hi=tA.getTime()-rA.lo*HR;
+        var d2lo=tB.getTime()-rB.hi*HR,d2hi=tB.getTime()-rB.lo*HR;
+        var clo=Math.max(d1lo,d2lo),chi=Math.min(d1hi,d2hi);
+        if(clo<=chi){ var pmiLo=(tB.getTime()-chi)/HR,pmiHi=(tB.getTime()-clo)/HR;
           headline=fmtR(Math.max(0,pmiLo),pmiHi)+' <small style="font-size:13px;color:var(--muted)">k pitve</small>';
           clock='Čas smrti: '+fmtClock(new Date(clo))+' – '+fmtClock(new Date(chi));
           add(al,'ok','Spojené z dvoch pozorovaní (nález + pitva) → užšie okno.');
           exLines.push('Spoločné okno času smrti: '+fmtClock(new Date(clo))+' – '+fmtClock(new Date(chi)));
-        } else {
-          headline='<span style="font-size:18px;color:var(--danger)">okná sa neprekrývajú</span>';
-          add(al,'bad','Nález a pitva si časovo odporujú (okná sa neprekrývajú) — over hodnotenie, časy alebo neobvyklé podmienky (chlad/teplo).');
-        }
+        } else { headline='<span style="font-size:18px;color:var(--danger)">okná sa neprekrývajú</span>';
+          add(al,'bad','Nález a pitva si časovo odporujú — over hodnotenie, časy alebo neobvyklé podmienky.'); }
         if(!rA.ok) add(al,'warn','Znaky pri náleze si navzájom odporujú.');
         if(!rB.ok) add(al,'warn','Znaky pri pitve si navzájom odporujú.');
         rows=rA.rows.map(function(r){return ['Nález · '+r[1],r[2],r[3]];}).concat(rB.rows.map(function(r){return ['Pitva · '+r[1],r[2],r[3]];}));
       } else {
         var r=rA||rB;
-        if(twoM && rA && rB && (!tA||!tB)){ add(al,'warn','Pre spojenie dvoch pozorovaní vyplň čas nálezu aj čas pitvy. Zatiaľ ukazujem pozorovanie pri náleze.'); r=rA; }
-        if(r.ok){ headline=fmtR(r.lo,r.hi);
-          var t=(r===rB)?tB:tA;
-          if(t){ var dlo=new Date(t.getTime()-r.hi*HR), dhi=new Date(t.getTime()-r.lo*HR);
-            clock='Čas smrti: '+fmtClock(dlo)+' – '+fmtClock(dhi); exLines.push('Okno času smrti: '+fmtClock(dlo)+' – '+fmtClock(dhi)); }
+        if(twoM && rA && rB && (!tA||!tB)){ add(al,'warn','Pre spojenie vyplň čas nálezu aj čas pitvy. Zatiaľ ukazujem nález.'); r=rA; }
+        if(r.ok){ headline=fmtR(r.lo,r.hi); var t=(r===rB)?tB:tA;
+          if(t){ var dlo=new Date(t.getTime()-r.hi*HR),dhi=new Date(t.getTime()-r.lo*HR); clock='Čas smrti: '+fmtClock(dlo)+' – '+fmtClock(dhi); exLines.push('Okno času smrti: '+fmtClock(dlo)+' – '+fmtClock(dhi)); }
         } else { headline='<span style="font-size:18px;color:var(--danger)">rozpor v znakoch</span>';
           add(al,'bad','Zvolené znaky si časovo odporujú — over hodnotenie alebo podmienky.'); }
         rows=r.rows.map(function(x){return [x[1],x[2],x[3]];});
@@ -1690,28 +1802,103 @@ Toolkit.register({
       $id('ps_pmi').innerHTML=headline; $id('ps_clock').textContent=clock;
       var rh=''; rows.forEach(function(r){ rh+='<tr><td>'+r[0]+'</td><td>'+fmtR(r[1],r[2])+'</td></tr>'; });
       $id('ps_rows').innerHTML=rh;
-
       var prot=$id('ps_prot').value.trim(),meno=$id('ps_meno').value.trim();
-      var L=['ODHAD PMI Z POSMRTNÝCH ZMIEN'+(twoM?' (nález + pitva)':'')];
+      var L=['ODHAD PMI Z POSMRTNÝCH ZMIEN'+(twoM?' (nález + pitva)':'')+(adv()?' [stuhnutosť po svaloch]':'')];
       if(prot) L.push('Protokol č.: '+prot); if(meno) L.push('Zomrelý: '+meno);
       if(tA) L.push('Čas nálezu/obhliadky: '+fmtClock(tA)); if(twoM&&tB) L.push('Čas pitvy: '+fmtClock(tB));
-      L.push('');
-      rows.forEach(function(r){ L.push(r[0]+': '+fmtR(r[1],r[2])); });
+      L.push(''); rows.forEach(function(r){ L.push(r[0]+': '+fmtR(r[1],r[2])); });
       L.push(''); L=L.concat(exLines);
       L.push('Pozn.: orientačné; závisí od teploty a podmienok. Finálne posúdenie patrí pitvajúcemu lekárovi alebo expertovi.');
       $id('ps_exportText').value=L.join('\n');
     }
-
     root.querySelectorAll('#ps_mode button').forEach(function(b){ b.addEventListener('click',function(){
       root.querySelectorAll('#ps_mode button').forEach(function(x){x.classList.remove('active');}); b.classList.add('active');
       var two=b.dataset.m==='two'; $id('ps_cardB').style.display=two?'block':'none';
-      $id('ps_hA').textContent=two?'Pri náleze':'Pozorované znaky';
-      $id('ps_tAopt').style.display=two?'none':'inline';
+      $id('ps_hA').textContent=two?'Pri náleze':'Pozorované znaky'; $id('ps_tAopt').style.display=two?'none':'inline';
       if(two && !$id('ps_tB').value) $id('ps_tB').value=nowL();
+      if($id('ps_exportText').value) calc(); }); });
+    root.querySelectorAll('#ps_adv button').forEach(function(b){ b.addEventListener('click',function(){
+      root.querySelectorAll('#ps_adv button').forEach(function(x){x.classList.remove('active');}); b.classList.add('active');
+      var on=b.dataset.a==='on';
+      root.querySelectorAll('.psA_rigA, .psB_rigA').forEach(function(e){ e.style.display=on?'block':'none'; });
+      root.querySelectorAll('.psA_rigB, .psB_rigB').forEach(function(e){ e.style.display=on?'none':'block'; });
       if($id('ps_exportText').value) calc(); }); });
     $id('ps_calc').addEventListener('click',calc);
     ['ps_prot','ps_meno'].forEach(function(id){ $id(id).addEventListener('input',function(){ if($id('ps_exportText').value) calc(); }); });
     $id('ps_copy').addEventListener('click',function(){ copyToClipboard($id('ps_exportText').value,this,'Skopírované ✓','Kopírovať text'); });
+  }
+});
+
+/* =====================================================================
+   PLUGIN — POHLAVIE A VEK KOSTRY (dospelý jedinec, deti)
+   ===================================================================== */
+Toolkit.register({
+  id:'osteo_sexage',
+  name:'Pohlavie a vek kostry',
+  icon:'⚥',
+  category:'Antropológia',
+  short:'Určenie pohlavia a veku skeletu.',
+  long:'Kritériá určenia pohlavia (panva, lebka) a veku (Suchey-Brooks a i.) dospelého skeletu.',
+  mount:function(root){
+    var SEX=[
+      {id:'pelv_notch',w:2,label:'Panva — incisura ischiadica major',o:['úzka, hlboká → muž','široká, plytká → žena']},
+      {id:'pelv_angle',w:2,label:'Panva — uhol podlonia (subpubický)',o:['ostrý &lt; 90° → muž','tupý &gt; 90° → žena']},
+      {id:'pelv_phenice',w:2,label:'Panva — Pheniceho znaky (oblúk, konkavita, ramus)',o:['neprítomné → muž','prítomné → žena']},
+      {id:'pelv_presulc',w:2,label:'Panva — sulcus preauricularis',o:['neprítomný → muž','prítomný → žena']},
+      {id:'skull_glab',w:1,label:'Lebka — glabella / nadočnicové oblúky',o:['výrazné → muž','hladké → žena']},
+      {id:'skull_mast',w:1,label:'Lebka — processus mastoideus',o:['veľký → muž','malý → žena']},
+      {id:'skull_nuch',w:1,label:'Lebka — crista nuchae',o:['výrazná → muž','hladká → žena']},
+      {id:'skull_ment',w:1,label:'Lebka — mentum (brada)',o:['hranaté/výrazné → muž','oblé/drobné → žena']}
+    ];
+    var SB={ m:[[18.5,2.1],[23.4,3.6],[28.7,6.5],[35.2,9.4],[45.6,10.4],[61.2,12.2]],
+             z:[[19.4,2.6],[25.0,4.9],[30.7,8.1],[38.2,10.9],[48.1,14.6],[60.0,12.4]] };
+
+    var sh='<div class="card"><h2>Pohlavie — znaky (panva váži viac)</h2>'+
+      '<div class="hint" style="margin-bottom:8px">Pri každom znaku vyber, na ktorú stranu sa kloní. Panva je najspoľahlivejšia (~95 %).</div>';
+    SEX.forEach(function(f){ sh+='<div class="field"><label>'+f.label+'</label><select id="sx_'+f.id+'">'+
+      '<option value="">— nehodnotené —</option><option value="m">'+f.o[0]+'</option><option value="z">'+f.o[1]+'</option></select></div>'; });
+    sh+='<button class="btn" id="sx_calc">Vyhodnotiť pohlavie</button><div id="sx_out" style="margin-top:10px"></div></div>';
+
+    var ah='<div class="card"><h2>Vek — Suchey-Brooks (symfýza lonová)</h2>'+
+      '<div class="seg" id="ag_sex"><button data-s="m" class="active">Muž</button><button data-s="z">Žena</button></div>'+
+      '<div class="field"><label>Fáza facies symphysialis (I–VI)</label><select id="ag_ph">'+
+        '<option value="0">I — hrebeňovitá, výrazné valy</option><option value="1">II — valy ustupujú</option>'+
+        '<option value="2">III — plôška sa vyrovnáva</option><option value="3">IV — oválna plôška, ohraničenie</option>'+
+        '<option value="4">V — ohraničenie s perami, začína erózia</option><option value="5">VI — erózia, nepravidelný okraj</option></select></div>'+
+      '<button class="btn" id="ag_calc">Odhadnúť vek</button><div id="ag_out" style="margin-top:10px"></div></div>';
+
+    var refs='<div class="card"><h2>Ďalšie metódy a referencie</h2>'+
+      '<details><summary>Ďalšie metódy veku (dospelí)</summary><div class="hint" style="margin-top:8px">'+
+        'Facies auricularis ossis ilii (Lovejoy; Buckberry-Chamberlain); sternálne konce rebier (Işcan — pohlavne špecificky); obliterácia lebečných švov (Meindl-Lovejoy — najmenej spoľahlivá); zubná abrázia. Najlepšia presnosť kombináciou viacerých indikátorov.</div></details>'+
+      '<details><summary>Deti / subadultní</summary><div class="hint" style="margin-top:8px">'+
+        'Vek dieťaťa najpresnejšie z <b>vývoja chrupu</b> (Moorrees; London Atlas — AlQahtani 2010) a z <b>osifikácie/uzáveru epifýz</b>. Dĺžka diafýz dlhých kostí — najmä perinatálne (pozri nástroj „Výška / vek z kostí").</div></details>'+
+      '<details><summary>Pohlavie — presnosť</summary><div class="hint" style="margin-top:8px">'+
+        'Panva ~95 %, lebka ~85–90 %, kombinácia panva+lebka ~98 %. Pred pubertou je odhad pohlavia z kostí neistý. Metrické metódy (priemer hlavy femuru, rozmery) dopĺňajú morfologické.</div></details>'+
+      '<div class="foot">Orientačná pomôcka. Brooks S., Suchey J.M. (1990) — symfýza; Phenice (1969); Buikstra & Ubelaker (1994); Walker (2008) — lebka; Lovejoy a kol. (1985); Işcan a kol. (1984/85); AlQahtani a kol. (2010) — London Atlas. Finálne posúdenie patrí antropológovi/expertovi.</div></div>';
+
+    root.innerHTML=sh+ah+refs;
+
+    $id('sx_calc').addEventListener('click',function(){
+      var pm=0,pz=0,sm=0,sz=0,any=false;
+      SEX.forEach(function(f){ var v=$id('sx_'+f.id).value; if(!v) return; any=true;
+        if(f.w>=2){ if(v==='m') pm+=f.w; else pz+=f.w; } else { if(v==='m') sm+=f.w; else sz+=f.w; } });
+      if(!any){ alert('Vyber aspoň jeden znak.'); return; }
+      var tm=pm+sm, tz=pz+sz, tot=tm+tz, pct=tot?Math.round(100*Math.max(tm,tz)/tot):0;
+      var lean = tm>tz?'Mužské pohlavie':tz>tm?'Ženské pohlavie':'Neurčité (vyrovnané znaky)';
+      var col = (tm===tz)?'warn':(pct>=80?'good':'warn');
+      $id('sx_out').innerHTML='<div class="alert '+col+'"><span class="ic">'+(col==='good'?'✓':'!')+'</span><span><b>'+lean+'</b>'+
+        (tm!==tz?(' — zhoda ~'+pct+'%'):'')+'<br>Panva '+pm+':'+pz+' (váha 2) · Lebka '+sm+':'+sz+' (váha 1). '+
+        'Panva má prednosť pred lebkou pri rozpore.</span></div>';
+    });
+    function agsex(){ return root.querySelector('#ag_sex button.active').dataset.s; }
+    root.querySelectorAll('#ag_sex button').forEach(function(b){ b.addEventListener('click',function(){
+      root.querySelectorAll('#ag_sex button').forEach(function(x){x.classList.remove('active');}); b.classList.add('active');
+      if($id('ag_out').innerHTML) $id('ag_calc').click(); }); });
+    $id('ag_calc').addEventListener('click',function(){
+      var ph=parseInt($id('ag_ph').value,10), d=SB[agsex()][ph], lo=Math.max(14,d[0]-2*d[1]), hi=d[0]+2*d[1];
+      $id('ag_out').innerHTML='<div class="result" style="padding:4px 0"><div class="big" style="font-size:30px">'+fmtNum(d[0],1)+' <small>r.</small></div>'+
+        '<div class="ci">95 % rozsah '+fmtNum(lo,0)+'–'+fmtNum(hi,0)+' r. (fáza '+['I','II','III','IV','V','VI'][ph]+', '+(agsex()==='m'?'muž':'žena')+') · priemer ± 2 SD (Suchey-Brooks)</div></div>';
+    });
   }
 });
 
@@ -1735,19 +1922,26 @@ Toolkit.register({
         '<a href="mailto:jansikuta@me.com" style="color:var(--accent);font-size:13px;text-decoration:none">jansikuta@me.com</a></div></div>'+
       '<div class="hint" style="margin-top:12px">Aplikácia vznikla z každodennej pitevnej praxe — ako vreckový pomocník, ktorý dáva opakovane používané forenzné výpočty na jedno miesto a šetrí čas pri tvorbe pitevných protokolov a znaleckých posudkov.</div></div>'+
     '<div class="card"><h2>O aplikácii</h2>'+
-      '<div class="hint"><b>Šikuta 4n6 — Forensic Hand Toolkit</b> je súbor odborných kalkulačiek pre súdne lekárstvo (odhad času smrti, biochémia sklovca, odhad veku, antropometria, kardiopatológia).<br><br>'+
+      '<div class="hint"><b>4n6 Šikuta Tools</b> je súbor odborných kalkulačiek pre súdne lekárstvo (čas smrti a posmrtné zmeny, biochémia sklovca, toxikológia a alkohol, forenzná entomológia, antropológia a identifikácia, kardiopatológia).<br><br>'+
       '<b>Pre koho:</b> lekári a odborníci v súdnom lekárstve a patológii, prehliadajúci lekári, znalci a v rámci výučby aj študenti medicíny.<br><br>'+
       '<b>Charakter:</b> všetky výsledky sú <b>orientačné</b> a vychádzajú z publikovaných metód (citácie sú uvedené pri každom nástroji). Finálne posúdenie — vrátane času smrti, príčiny smrti a kauzality — vždy patrí pitvajúcemu lekárovi alebo expertovi.</div></div>'+
     '<div class="card"><h2>Súkromie a údaje</h2>'+
       '<div class="alert ok"><span class="ic">✓</span><span>Aplikácia beží <b>výhradne lokálne</b> v zariadení. Neodosiela žiadne údaje na internet a nič neukladá — zadané hodnoty (čísla protokolov, mená) zmiznú po zatvorení a nikam sa neprenášajú.</span></div>'+
       '<div class="hint" style="margin-top:8px">Napriek tomu pri práci s údajmi zomrelých postupuj v súlade s platnými predpismi (ochrana osobných údajov, mlčanlivosť).</div></div>'+
-    '<div class="card"><h2>Poďakovanie a venovanie</h2>'+'<div class="hint" style="line-height:1.6">Venované kolegom, ktorí pri mŕtvom tele na prehliadke, pri pitevnom stole stoja s pokorou voči smrti, vážnosťou a presnosťou voči pravde a úctou k tým, ktorí zostali.<br><br>'+'A s láskou mojej rodine — za každú hodinu, ktorú mi práca vzala. Čas smrti vieme odhadnúť na hodiny; čas strávený s blízkymi sa nedá ani presne zmerať, ani vrátiť — práve preto je tak vzácny.</div>'+'<div class="foot" style="margin-top:10px">„Mŕtvym vraciame pravdu, pozostalým a blízkym pokoj a istotu, a nám pripomienku, že čas darovaný blízkym sa nevracia ako nález, ale ako život."</div></div>'+'<div class="card"><h2>Zdieľanie a zodpovednosť</h2>'+
+    '<div class="card"><h2>Poďakovanie a venovanie</h2>'+'<div class="hint" style="line-height:1.6">Venované kolegom, ktorí pri mŕtvom tele na prehliadke, pri pitevnom stole stoja s pokorou voči smrti, vážnosťou a presnosťou voči pravde a úctou k tým, ktorí zostali.<br><br>'+'A s láskou mojej rodine — za každú hodinu, ktorú mi práca vzala. Čas smrti vieme odhadnúť na hodiny; čas strávený s blízkymi sa nedá ani presne zmerať, ani vrátiť — práve preto je tak vzácny.</div>'+'<div class="foot" style="margin-top:10px">„Mŕtvym vraciame pravdu, pozostalým a blízkym pokoj a istotu, a nám pripomienku, že čas darovaný blízkym sa nevracia ako nález, ale ako život."</div></div>'+'<div class="card"><h2>Spätná väzba</h2>'+'<div class="hint" style="margin-bottom:8px">Nápad, chyba či návrh metódy? Otvorí sa tvoj e-mailový klient s predvyplnenou správou priamo autorovi (predmet „[4n6 Feedback]", aby správa neskončila v spame a dala sa filtrovať).</div>'+'<textarea id="fb_txt" class="export-box" style="min-height:90px" placeholder="Tvoja spätná väzba…"></textarea>'+'<button class="btn" id="fb_send" style="margin-top:10px">Odoslať e-mailom</button>'+'<div class="hint" id="fb_note" style="margin-top:8px"></div></div>'+'<div class="card"><h2>Zdieľanie a zodpovednosť</h2>'+
       '<div class="hint">'+
       '• Nástroj sa poskytuje „<b>ako je</b>" (as-is), bez záruky presnosti či vhodnosti na konkrétny účel. Autor neručí za rozhodnutia prijaté na základe výsledkov.<br><br>'+
       '• Je určený <b>výhradne pre kvalifikovaných odborníkov</b> a na edukačné účely — <b>nie</b> pre laikov a <b>nie</b> ako certifikované zdravotnícke zariadenie.<br><br>'+
       '• Pri ďalšom šírení <b>zachovaj uvedenie autora a zdrojov</b> a neupravuj appku tak, aby vznikol dojem oficiálneho, úradne schváleného alebo certifikovaného nástroja.<br><br>'+
       '• Nepoužívaj na zavádzajúce, protiprávne ani iné než odborné účely.</div>'+
-      '<div class="foot" style="margin-top:12px">© 2026 Ján Šikuta. Všetky práva vyhradené. Verzia 1.08.</div></div>';
+      '<div class="foot" style="margin-top:12px">© 2026 Ján Šikuta. Všetky práva vyhradené. Verzia 1.12.</div></div>';
+    var fb=$id('fb_send'); if(fb){ fb.addEventListener('click',function(){
+      var t=($id('fb_txt').value||'').trim();
+      var subj='[4n6 Feedback] 4n6 Šikuta Tools v1.12';
+      var body=(t?t+'\n\n':'')+'— odoslané z 4n6 Šikuta Tools · '+navigator.userAgent;
+      window.location.href='mailto:jansikuta@me.com?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(body);
+      $id('fb_note').textContent='Otvára sa e-mailový klient…';
+    }); }
   }
 });
 
@@ -1784,10 +1978,8 @@ Toolkit.start();
       DeviceOrientationEvent.requestPermission().then(function(s){ if(s==='granted') enable(); }).catch(function(){});
     } else { enable(); }
   }catch(e){} }
-  if(typeof DeviceOrientationEvent!=='undefined' && typeof DeviceOrientationEvent.requestPermission==='function'){
-    var h=function(){ document.removeEventListener('touchend',h); req(); };
-    document.addEventListener('touchend',h); // iOS: povolenie po prvom dotyku
-  } else { req(); } // Android / desktop
+  // Bez upozornenia: na iOS nevyžadujeme povolenie k pohybu; efekt beží tam, kde povolenie netreba (Android/desktop)
+  try{ if(!(typeof DeviceOrientationEvent!=='undefined' && typeof DeviceOrientationEvent.requestPermission==='function')) req(); }catch(_){ }
 })();
 </script>
 </body>
