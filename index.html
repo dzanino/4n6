@@ -1081,8 +1081,8 @@ Toolkit.register({
   name:'Etanol — interpretácia',
   icon:'‰',
   category:'Toxikológia',
-  short:'Krv/moč/sklovec, Widmark, štádiá.',
-  long:'Interpretácia etanolu vo vzorkách (krv, moč, sklovec), Widmark spätný prepočet a štádiá ovplyvnenia.',
+  short:'Krv/moč/sklovec, pomery, štádiá.',
+  long:'Interpretácia etanolu vo vzorkách (krv, moč, sklovec), pomery a štádiá ovplyvnenia (Straka).',
   mount:function(root){
     root.innerHTML=''+
     '<div class="card"><h2>Koncentrácie etanolu (g/kg ‰)</h2>'+
@@ -1092,16 +1092,9 @@ Toolkit.register({
         '<input id="e_u" type="number" inputmode="decimal" step="0.01" placeholder="voliteľné"></div>'+
         '<div class="field"><label>Sklovec</label>'+
         '<input id="e_v" type="number" inputmode="decimal" step="0.01" placeholder="voliteľné"></div></div></div>'+
-    '<div class="card"><h2>Widmark (voliteľné)</h2>'+
-      '<div class="seg" id="e_sex"><button data-sex="m" class="active">Muž</button><button data-sex="z">Žena</button></div>'+
-      '<div class="row"><div class="field"><label>Hmotnosť (kg)</label>'+
-        '<input id="e_w" type="number" inputmode="decimal" step="0.5" placeholder="napr. 80"></div>'+
-        '<div class="field"><label>Čas od požitia/skutku (h)</label>'+
-        '<input id="e_t" type="number" inputmode="decimal" step="0.5" placeholder="napr. 3"></div></div>'+
-      '<div class="hint">β (eliminácia) = 0,15 g/kg/h (rozsah 0,10–0,20). r: muž 0,68 · žena 0,55.</div></div>'+
-    '<div class="card"><h2>Klasifikácia opitosti (Straka 2011)</h2>'+'<div class="field"><label>Navyknutosť na alkohol</label>'+'<div class="seg" id="e_habit"><button data-h="nez" class="active">Nezvyknutý piť</button><button data-h="nav">Navyknutý piť</button></div></div>'+'<div class="field"><label>Fáza <span class="muted">(auto z moču; inak vyber)</span></label>'+'<div class="seg" id="e_phase"><button data-p="resorp" class="active">Resorpčná</button><button data-p="elim">Eliminačná</button></div></div></div>'+'<div class="card"><h2>Alkoholemická krivka (≥2 merania)</h2>'+'<div class="hint" style="margin-bottom:8px">Zadaj aspoň dve merania (čas v h + krv; moč voliteľne). Appka preloží eliminačnú priamku, vypočíta rýchlosť eliminácie β a spätne extrapoluje.</div>'+'<div class="row"><div class="field"><label>Čas 1 (h)</label><input id="ak_t1" type="number" inputmode="decimal" step="0.1" value="0"></div>'+'<div class="field"><label>Krv (g/kg)</label><input id="ak_b1" type="number" inputmode="decimal" step="0.01"></div>'+'<div class="field"><label>Moč</label><input id="ak_u1" type="number" inputmode="decimal" step="0.01"></div></div>'+'<div class="row"><div class="field"><label>Čas 2 (h)</label><input id="ak_t2" type="number" inputmode="decimal" step="0.1" value="1"></div>'+'<div class="field"><label>Krv (g/kg)</label><input id="ak_b2" type="number" inputmode="decimal" step="0.01"></div>'+'<div class="field"><label>Moč</label><input id="ak_u2" type="number" inputmode="decimal" step="0.01"></div></div>'+'<div class="row"><div class="field"><label>Čas 3 (h)</label><input id="ak_t3" type="number" inputmode="decimal" step="0.1" placeholder="voliteľné"></div>'+'<div class="field"><label>Krv (g/kg)</label><input id="ak_b3" type="number" inputmode="decimal" step="0.01"></div>'+'<div class="field"><label>Moč</label><input id="ak_u3" type="number" inputmode="decimal" step="0.01"></div></div>'+'<button class="btn" id="ak_calc">Vykresliť krivku</button>'+'<div id="ak_out" style="margin-top:12px"></div>'+'<div class="foot" style="text-align:left">β (eliminačná rýchlosť) sa odhadne ako sklon priamky cez merania v krvi; bežne 0,10–0,20 g/kg/h. Widmark (eliminačná kinetika); Straka J.: Súdnolekárska alkohológia, 2011.</div></div>'+'<button class="btn" id="e_calc">Vyhodnotiť</button>'+
+    '<div class="card"><h2>Klasifikácia opitosti (Straka 2011)</h2>'+'<div class="field"><label>Navyknutosť na alkohol</label>'+'<div class="seg" id="e_habit"><button data-h="nez" class="active">Nezvyknutý piť</button><button data-h="nav">Navyknutý piť</button></div></div>'+'<div class="field"><label>Fáza <span class="muted">(auto z moču; inak vyber)</span></label>'+'<div class="seg" id="e_phase"><button data-p="resorp" class="active">Resorpčná</button><button data-p="elim">Eliminačná</button></div></div></div>'+'<button class="btn" id="e_calc">Vyhodnotiť</button>'+
     '<div class="card" id="e_res" style="display:none;margin-top:14px"><h2>Výsledok</h2>'+
-      '<div id="e_stage"></div><div id="e_ratios"></div><div id="e_widmark"></div></div>'+
+      '<div id="e_stage"></div><div id="e_ratios"></div></div>'+
     '<div class="card" id="e_exportCard" style="display:none"><h2>Export do zápisnice</h2>'+
       '<div class="grid2"><div class="field"><label>Číslo protokolu</label><input id="e_prot" type="text" placeholder="napr. 680"></div>'+
         '<div class="field"><label>Meno zomrelého</label><input id="e_meno" type="text" placeholder="meno priezvisko"></div></div>'+
@@ -1164,7 +1157,6 @@ Toolkit.register({
 
     function calc(){
       var b=parseFloat($id('e_b').value), u=parseFloat($id('e_u').value), v=parseFloat($id('e_v').value);
-      var w=parseFloat($id('e_w').value), t=parseFloat($id('e_t').value);
       if(!isFinite(b)&&!isFinite(v)){ alert('Zadaj aspoň koncentráciu v krvi alebo v sklovci.'); return; }
       $id('e_res').style.display='block'; $id('e_exportCard').style.display='block';
       var ex=[];
@@ -1198,62 +1190,18 @@ Toolkit.register({
       if(isFinite(v)) rH+=alertHTML('ok','Sklovec '+fmtNum(v,2)+' g/kg — menej náchylný na posmrtnú novotvorbu (podporuje požitie pred smrťou).');
       $id('e_ratios').innerHTML=rH;
 
-      // Widmark
-      var wH='';
-      if(isFinite(b)&&isFinite(w)&&w>0){
-        var r=sex()==='m'?0.68:0.55, rLo=sex()==='m'?0.60:0.50, rHi=sex()==='m'?0.70:0.60;
-        var c0=b, c0lo=b, c0hi=b, tNote='';
-        if(isFinite(t)&&t>0){ c0=b+0.15*t; c0lo=b+0.10*t; c0hi=b+0.20*t; tNote=' k času pred '+fmtNum(t,1)+' h'; }
-        var A=c0*r*w, Alo=c0lo*rLo*w, Ahi=c0hi*rHi*w;
-        wH+='<div class="hint" style="margin-top:6px"><b>Widmark</b>'+(tNote?(' — spätný prepočet BAC'+tNote+': <b>'+fmtNum(c0,2)+' g/kg</b> ('+fmtNum(c0lo,2)+'–'+fmtNum(c0hi,2)+')'):'')+'</div>';
-        wH+=alertHTML('ok','Odhad požitého alkoholu: <b>'+fmtNum(A,0)+' g</b> ('+fmtNum(Alo,0)+'–'+fmtNum(Ahi,0)+' g) ≈ '+fmtNum(A/10,1)+' štandardných nápojov (10 g).');
-        ex.push((tNote?('Widmark BAC'+tNote+': '+fmtNum(c0,2)+' g/kg; '):'')+'odhad požitého alkoholu '+fmtNum(A,0)+' g ('+fmtNum(Alo,0)+'–'+fmtNum(Ahi,0)+' g)');
-      } else wH='<div class="hint">Pre Widmark doplň hmotnosť (a voliteľne čas).</div>';
-      $id('e_widmark').innerHTML=wH;
-
       var prot=$id('e_prot').value.trim(), meno=$id('e_meno').value.trim();
       var L=['ETANOL — INTERPRETÁCIA'];
       if(prot) L.push('Protokol č.: '+prot); if(meno) L.push('Zomrelý: '+meno);
       L=L.concat(ex); L.push('','Pozn.: orientačná interpretácia (g/kg); spätný prepočet neistý, posúdiť znalecky.');
       $id('e_exportText').value=L.join('\n');
     }
-    root.querySelectorAll('#e_sex button').forEach(function(b){ b.addEventListener('click',function(){
-      root.querySelectorAll('#e_sex button').forEach(function(x){x.classList.remove('active');}); b.classList.add('active'); if($id('e_exportText').value) calc(); }); });
     $id('e_calc').addEventListener('click',calc);
     ['e_prot','e_meno'].forEach(function(id){ $id(id).addEventListener('input',function(){ if($id('e_exportText').value) calc(); }); });
     $id('e_copy').addEventListener('click',function(){ copyToClipboard($id('e_exportText').value,this,'Skopírované ✓','Kopírovať text'); });
     root.querySelectorAll('#e_habit button, #e_phase button').forEach(function(b){ b.addEventListener('click',function(){
       b.parentNode.querySelectorAll('button').forEach(function(x){x.classList.remove('active');}); b.classList.add('active');
       if($id('e_exportText').value) calc(); }); });
-    function gv(id){ var x=parseFloat($id(id).value); return isFinite(x)?x:null; }
-    function fitLine(pts){ var n=pts.length,sx=0,sy=0,sxy=0,sxx=0; pts.forEach(function(p){sx+=p[0];sy+=p[1];sxy+=p[0]*p[1];sxx+=p[0]*p[0];}); var d=(n*sxx-sx*sx); if(d===0) return null; var m=(n*sxy-sx*sy)/d; return {m:m,c:(sy-m*sx)/n}; }
-    function akChart(){
-      var blood=[],urine=[];
-      [1,2,3].forEach(function(i){ var t=gv('ak_t'+i),b=gv('ak_b'+i),u=gv('ak_u'+i);
-        if(t!==null&&b!==null) blood.push([t,b]); if(t!==null&&u!==null) urine.push([t,u]); });
-      if(blood.length<2){ alert('Zadaj aspoň dve merania v krvi (čas + koncentrácia).'); return; }
-      var f=fitLine(blood), beta=f?-f.m:null, c0=f?f.c:null;
-      var all=blood.concat(urine);
-      var tmin=Math.min.apply(null,all.map(function(p){return p[0];}));
-      var tmax=Math.max.apply(null,all.map(function(p){return p[0];})); if(tmax<=tmin) tmax=tmin+1;
-      var vmax=Math.max.apply(null,all.map(function(p){return p[1];}))*1.15||1;
-      var W=320,H=200,L=36,Bm=26,Rm=10,Tm=10;
-      function X(t){ return L+(t-tmin)/(tmax-tmin)*(W-L-Rm); }
-      function Y(v){ return Tm+(1-v/vmax)*(H-Tm-Bm); }
-      var s='<svg viewBox="0 0 '+W+' '+H+'" style="width:100%;height:auto;background:var(--card2);border:1px solid var(--line);border-radius:10px">';
-      var yt=[0,vmax/2,vmax]; yt.forEach(function(v){ s+='<line x1="'+L+'" y1="'+Y(v)+'" x2="'+(W-Rm)+'" y2="'+Y(v)+'" stroke="var(--line)" stroke-width="0.5"/>'+
-        '<text x="'+(L-4)+'" y="'+(Y(v)+3)+'" font-size="8" fill="var(--muted)" text-anchor="end">'+v.toFixed(1)+'</text>'; });
-      [tmin,(tmin+tmax)/2,tmax].forEach(function(t){ s+='<text x="'+X(t)+'" y="'+(H-Bm+12)+'" font-size="8" fill="var(--muted)" text-anchor="middle">'+t.toFixed(1)+' h</text>'; });
-      if(f){ var x1=tmin,x2=tmax,y1=f.m*x1+f.c,y2=f.m*x2+f.c;
-        s+='<line x1="'+X(x1)+'" y1="'+Y(Math.max(0,Math.min(vmax,y1)))+'" x2="'+X(x2)+'" y2="'+Y(Math.max(0,Math.min(vmax,y2)))+'" stroke="var(--accent)" stroke-width="2"/>'; }
-      blood.forEach(function(p){ s+='<circle cx="'+X(p[0])+'" cy="'+Y(p[1])+'" r="3.6" fill="var(--accent)"/>'; });
-      urine.forEach(function(p){ s+='<circle cx="'+X(p[0])+'" cy="'+Y(p[1])+'" r="3.6" fill="none" stroke="var(--accent2)" stroke-width="1.7"/>'; });
-      s+='</svg>';
-      var info='<div class="ci" style="margin-top:6px">● krv · ○ moč · '+
-        (beta!==null?('β ≈ <b>'+fmtNum(beta,3)+' g/kg/h</b>'+(beta<0.05||beta>0.30?' (mimo bežného rozsahu 0,10–0,20!)':'')+' · extrapolovaná koncentrácia v čase 0 h: <b>'+fmtNum(Math.max(0,c0),2)+' g/kg</b>'):'')+'</div>';
-      $id('ak_out').innerHTML=s+info;
-    }
-    $id('ak_calc').addEventListener('click',akChart);
   }
 });
 
@@ -1899,6 +1847,174 @@ Toolkit.register({
       $id('ag_out').innerHTML='<div class="result" style="padding:4px 0"><div class="big" style="font-size:30px">'+fmtNum(d[0],1)+' <small>r.</small></div>'+
         '<div class="ci">95 % rozsah '+fmtNum(lo,0)+'–'+fmtNum(hi,0)+' r. (fáza '+['I','II','III','IV','V','VI'][ph]+', '+(agsex()==='m'?'muž':'žena')+') · priemer ± 2 SD (Suchey-Brooks)</div></div>';
     });
+  }
+});
+
+/* =====================================================================
+   PLUGIN — ETANOL: PREPOČTY (experimentálne)
+   Alkoholemická krivka + Widmark / spätný / bilančný prepočet s neistotou
+   ===================================================================== */
+Toolkit.register({
+  id:'ethanol_calc',
+  name:'Etanol — prepočty',
+  icon:'∫',
+  category:'Toxikológia',
+  short:'Krivka, Widmark, spätný a bilančný prepočet.',
+  long:'EXPERIMENTÁLNE — alkoholemická krivka z meraní v čase a forenzné prepočty (Widmark, spätný, bilančný) s neistotou.',
+  mount:function(root){
+    var rows=[], rc=0;
+    root.innerHTML=
+      '<div class="card"><div class="alert warn"><span class="ic">!</span><span><b>Experimentálne.</b> Prepočty sú orientačné, s neistotou (rozsah β a r). Finálne posúdenie patrí znalcovi. Po doladení sa verzia povýši na 1.21.</span></div></div>'+
+      '<div class="card"><h2>Osoba a konštanty</h2>'+
+        '<div class="seg" id="ec_sex"><button data-s="m" class="active">Muž</button><button data-s="z">Žena</button></div>'+
+        '<div class="row"><div class="field"><label>Hmotnosť (kg)</label><input id="ec_w" type="number" inputmode="decimal" step="0.5" placeholder="napr. 80"></div>'+
+          '<div class="field"><label>β eliminácia (g/kg/h)</label><input id="ec_beta" type="number" inputmode="decimal" step="0.01" value="0.15"></div></div>'+
+        '<div class="hint">r (Widmark): muž 0,7 · žena 0,6. β: bežne 0,10–0,20 (priemer 0,15). Pri ≥2 meraniach sa β určí aj individuálne zo sklonu krivky.</div></div>'+
+      '<div class="card"><h2>Merania v čase (alkoholemická krivka)</h2>'+
+        '<div class="hint" style="margin-bottom:8px">Zadaj čas odberu (HH:MM) a koncentráciu v krvi (g/kg); moč voliteľne. Prvé meranie je referenčné (t=0), ďalšie sú v čase od neho.</div>'+
+        '<div id="ec_rows"></div>'+
+        '<button class="btn ghost small" id="ec_add" style="margin-bottom:10px">+ Pridať čas</button>'+
+        '<button class="btn" id="ec_draw">Vykresliť krivku a prepočítať</button>'+
+        '<div id="ec_curve" style="margin-top:12px"></div></div>'+
+      '<div class="card"><h2>Spätný (retrográdny) prepočet</h2>'+
+        '<div class="field"><label>Čas skutku/udalosti (HH:MM)</label><input id="ec_inc" type="time"></div>'+
+        '<button class="btn" id="ec_back">Prepočítať k času skutku</button>'+
+        '<div id="ec_backout" style="margin-top:10px"></div>'+
+        '<div class="hint" style="margin-top:6px">Platí v eliminačnej (postresorpčnej) fáze. Pri ≥2 meraniach použije individuálnu β z krivky, inak rozsah 0,10–0,20.</div></div>'+
+      '<div class="card"><h2>Widmark / bilančný prepočet</h2>'+
+        '<div class="hint" style="margin-bottom:6px">Z požitého množstva (dopredný Widmark) a z nameranej hladiny (bilančný — koľko muselo byť požité).</div>'+
+        '<div class="row"><div class="field"><label>Nápoj 1 — objem (ml)</label><input id="ec_v1" type="number" inputmode="decimal" step="10" placeholder="napr. 500"></div>'+
+          '<div class="field"><label>obj. %</label><input id="ec_p1" type="number" inputmode="decimal" step="0.5" placeholder="napr. 5"></div></div>'+
+        '<div class="row"><div class="field"><label>Nápoj 2 — objem (ml)</label><input id="ec_v2" type="number" inputmode="decimal" step="10" placeholder="voliteľné"></div>'+
+          '<div class="field"><label>obj. %</label><input id="ec_p2" type="number" inputmode="decimal" step="0.5"></div></div>'+
+        '<div class="row"><div class="field"><label>Resorpčný deficit (%)</label><input id="ec_def" type="number" inputmode="decimal" step="1" value="10"></div>'+
+          '<div class="field"><label>Čas od začiatku pitia (h)</label><input id="ec_dt" type="number" inputmode="decimal" step="0.5" placeholder="napr. 3"></div></div>'+
+        '<button class="btn" id="ec_wid">Vypočítať</button>'+
+        '<div id="ec_widout" style="margin-top:10px"></div></div>'+
+      '<div class="card" id="ec_exportCard" style="display:none"><h2>Export do zápisnice</h2>'+
+        '<div class="grid2"><div class="field"><label>Číslo protokolu</label><input id="ec_prot" type="text" placeholder="napr. 680"></div>'+
+          '<div class="field"><label>Meno</label><input id="ec_meno" type="text" placeholder="meno priezvisko"></div></div>'+
+        '<textarea id="ec_exp" class="export-box" readonly></textarea>'+
+        '<button class="btn ghost small" id="ec_copy" style="margin-top:10px">Kopírovať text</button></div>'+
+      '<div class="card"><h2>Metóda a referencie</h2>'+
+        '<details><summary>Vzorce</summary><div class="hint" style="margin-top:8px">'+
+          'A [g] = Σ objem[ml]·obj%·0,789/100 (etanol 0,789 g/ml).<br>'+
+          'BAC [g/kg] = A/(m·r) − β·t (Widmark). r: muž 0,7 · žena 0,6.<br>'+
+          'Spätný prepočet: c₀ = c_nameraná + β·Δt.<br>'+
+          'Bilančný: A = m·r·(c + β·t) — koľko etanolu muselo byť požité k nameranej hladine.<br>'+
+          'Pri ≥2 meraniach individuálna β = −sklon priamky cez body.</div></details>'+
+        '<details><summary>Neistota</summary><div class="hint" style="margin-top:8px">'+
+          'Výsledky sa uvádzajú ako rozsah z β 0,10–0,20 (a r). Pre záver „v prospech" sa volí krajná hodnota podľa kontextu. Spätný prepočet je spoľahlivý do ~10 h (potom orientačný).</div></details>'+
+        '<div class="foot">Orientačné, experimentálne. Widmark E.M.P. (1932); Straka J.: Súdnolekárska alkohológia, 2011; rámcovo Bauer M. (forenzná alkohológia — konkrétne koeficienty over v origináli). Finálne posúdenie patrí znalcovi.</div></div>';
+
+    function sex(){ return root.querySelector('#ec_sex button.active').dataset.s; }
+    function rval(){ return sex()==='m'?0.7:0.6; }
+    function beta(){ var b=parseFloat($id('ec_beta').value); return isFinite(b)?b:0.15; }
+    function hm(s){ if(!s) return null; var p=s.split(':'); if(p.length<2) return null; return parseInt(p[0],10)*60+parseInt(p[1],10); }
+
+    function addRow(t,c){ rc++; rows.push({id:rc}); renderRows(); if(t){ $id('ec_t'+rc).value=t; } if(c!=null){ $id('ec_b'+rc).value=c; } }
+    function renderRows(){
+      var html=''; rows.forEach(function(r){ html+='<div class="row" data-r="'+r.id+'">'+
+        '<div class="field"><label>Čas (HH:MM)</label><input id="ec_t'+r.id+'" type="time"></div>'+
+        '<div class="field"><label>Krv (g/kg)</label><input id="ec_b'+r.id+'" type="number" inputmode="decimal" step="0.01"></div>'+
+        '<div class="field"><label>Moč</label><input id="ec_u'+r.id+'" type="number" inputmode="decimal" step="0.01"></div>'+
+        (rows.length>2?'<div class="field" style="flex:0 0 auto;display:flex;align-items:flex-end"><button class="btn ghost small ec_del" data-d="'+r.id+'" style="padding:11px 12px">✕</button></div>':'')+
+        '</div>'; });
+      $id('ec_rows').innerHTML=html;
+      root.querySelectorAll('.ec_del').forEach(function(b){ b.addEventListener('click',function(){
+        var id=parseInt(b.dataset.d,10); rows=rows.filter(function(x){return x.id!==id;}); renderRows(); }); });
+    }
+    function getMeas(){
+      var blood=[],urine=[],first=null;
+      rows.forEach(function(r){ var tm=hm($id('ec_t'+r.id).value); if(tm==null) return;
+        if(first==null) first=tm; });
+      // ak prvý riadok nemá čas, vezmi najmenší
+      var tms=rows.map(function(r){return hm($id('ec_t'+r.id).value);}).filter(function(x){return x!=null;});
+      if(!tms.length) return {blood:[],urine:[],first:null};
+      first=Math.min.apply(null,tms);
+      rows.forEach(function(r){ var tm=hm($id('ec_t'+r.id).value); if(tm==null) return;
+        var t=(tm-first)/60, b=parseFloat($id('ec_b'+r.id).value), u=parseFloat($id('ec_u'+r.id).value);
+        if(isFinite(b)) blood.push([t,b]); if(isFinite(u)) urine.push([t,u]); });
+      return {blood:blood,urine:urine,first:first};
+    }
+    function fitLine(p){ var n=p.length,sx=0,sy=0,sxy=0,sxx=0; p.forEach(function(q){sx+=q[0];sy+=q[1];sxy+=q[0]*q[1];sxx+=q[0]*q[0];}); var d=n*sxx-sx*sx; if(d===0) return null; var m=(n*sxy-sx*sy)/d; return {m:m,c:(sy-m*sx)/n}; }
+    function fmtClock2(first,th){ var mins=Math.round(first+th*60); mins=((mins%1440)+1440)%1440; return (''+Math.floor(mins/60)).padStart(2,'0')+':'+(''+(mins%60)).padStart(2,'0'); }
+
+    function drawCurve(){
+      var M=getMeas();
+      if(M.blood.length<2){ alert('Zadaj aspoň dve merania v krvi (čas + koncentrácia).'); return null; }
+      var f=fitLine(M.blood), bInd=f?-f.m:null;
+      var all=M.blood.concat(M.urine);
+      var tmin=Math.min.apply(null,all.map(function(p){return p[0];}));
+      var tmax=Math.max.apply(null,all.map(function(p){return p[0];})); if(tmax<=tmin) tmax=tmin+1;
+      var vmax=Math.max.apply(null,all.map(function(p){return p[1];}))*1.15||1;
+      var W=320,H=200,L=38,Bm=28,Rm=10,Tm=10;
+      function X(t){ return L+(t-tmin)/(tmax-tmin)*(W-L-Rm); }
+      function Y(v){ return Tm+(1-v/vmax)*(H-Tm-Bm); }
+      var s='<svg viewBox="0 0 '+W+' '+H+'" style="width:100%;height:auto;background:var(--card2);border:1px solid var(--line);border-radius:10px">';
+      [0,vmax/2,vmax].forEach(function(v){ s+='<line x1="'+L+'" y1="'+Y(v)+'" x2="'+(W-Rm)+'" y2="'+Y(v)+'" stroke="var(--line)" stroke-width="0.5"/><text x="'+(L-4)+'" y="'+(Y(v)+3)+'" font-size="8" fill="var(--muted)" text-anchor="end">'+v.toFixed(1)+'</text>'; });
+      [tmin,(tmin+tmax)/2,tmax].forEach(function(t){ s+='<text x="'+X(t)+'" y="'+(H-Bm+12)+'" font-size="8" fill="var(--muted)" text-anchor="middle">'+fmtClock2(M.first,t)+'</text>'; });
+      if(f){ var y1=f.m*tmin+f.c,y2=f.m*tmax+f.c; s+='<line x1="'+X(tmin)+'" y1="'+Y(Math.max(0,Math.min(vmax,y1)))+'" x2="'+X(tmax)+'" y2="'+Y(Math.max(0,Math.min(vmax,y2)))+'" stroke="var(--accent)" stroke-width="2"/>'; }
+      M.blood.forEach(function(p){ s+='<circle cx="'+X(p[0])+'" cy="'+Y(p[1])+'" r="3.6" fill="var(--accent)"/>'; });
+      M.urine.forEach(function(p){ s+='<circle cx="'+X(p[0])+'" cy="'+Y(p[1])+'" r="3.6" fill="none" stroke="var(--accent2)" stroke-width="1.7"/>'; });
+      s+='</svg>';
+      $id('ec_curve').innerHTML=s+'<div class="ci" style="margin-top:6px">● krv · ○ moč · individuálna β ≈ <b>'+(bInd!==null?fmtNum(bInd,3):'–')+' g/kg/h</b>'+(bInd!==null&&(bInd<0.05||bInd>0.30)?' (mimo bežného rozsahu!)':'')+'</div>';
+      return {M:M,f:f,bInd:bInd};
+    }
+
+    function backCalc(){
+      var inc=hm($id('ec_inc').value); if(inc==null){ alert('Zadaj čas skutku (HH:MM).'); return; }
+      var M=getMeas(); if(!M.blood.length){ alert('Zadaj aspoň jedno meranie v krvi s časom.'); return; }
+      var tInc=(inc-M.first)/60; // h od prvého merania (záporné = pred ním)
+      var f=M.blood.length>=2?fitLine(M.blood):null;
+      var out='';
+      if(f){ var cInd=f.m*tInc+f.c;
+        out+='<div class="alert ok"><span class="ic">✓</span><span>Z krivky (individuálna β '+fmtNum(-f.m,3)+'): BAC k času skutku <b>'+fmtNum(Math.max(0,cInd),2)+' g/kg</b> ('+fmtClock2(M.first,tInc)+').</span></div>'; }
+      // rozsah z β 0,10–0,20 aplikovaný od prvého merania
+      var c1=M.blood[0][1], dt=(M.blood[0][0]-tInc); // h spätne od 1. merania po skutok
+      if(dt>0){ var lo=c1+0.10*dt, hi=c1+0.20*dt, mid=c1+0.15*dt;
+        out+='<div class="alert warn"><span class="ic">!</span><span>Rozsah (β 0,10–0,20): <b>'+fmtNum(lo,2)+' – '+fmtNum(hi,2)+' g/kg</b> (priemer '+fmtNum(mid,2)+'). Pre záver „v prospech" sa volí krajná hodnota podľa kontextu.</span></div>';
+      } else { out+='<div class="hint">Čas skutku je po prvom meraní — spätný prepočet sa robí dozadu pred odber; skontroluj časy.</div>'; }
+      $id('ec_backout').innerHTML=out;
+      buildExport('spätný', out.replace(/<[^>]+>/g,' '));
+    }
+
+    function ethGrams(){ var a=0; [['ec_v1','ec_p1'],['ec_v2','ec_p2']].forEach(function(p){ var v=parseFloat($id(p[0]).value),pc=parseFloat($id(p[1]).value); if(isFinite(v)&&isFinite(pc)) a+=v*pc/100*0.789; }); return a; }
+    function widCalc(){
+      var w=parseFloat($id('ec_w').value); if(!isFinite(w)){ alert('Zadaj hmotnosť.'); return; }
+      var r=rval(), b=beta(), A=ethGrams(), def=parseFloat($id('ec_def').value); if(!isFinite(def)) def=0;
+      var Aeff=A*(1-def/100), t=parseFloat($id('ec_dt').value);
+      var out='';
+      if(A>0){ var cmax=Aeff/(w*r), ct=isFinite(t)?(cmax-b*t):null;
+        out+='<div class="alert ok"><span class="ic">✓</span><span><b>Widmark (z požitia):</b> čistý etanol '+fmtNum(A,0)+' g (po deficite '+fmtNum(Aeff,0)+' g). Max. teoretická BAC '+fmtNum(cmax,2)+' g/kg'+(ct!==null?(' · v čase +'+fmtNum(t,1)+' h ≈ '+fmtNum(Math.max(0,ct),2)+' g/kg'):'')+'.</span></div>'; }
+      // bilančný: z 1. nameranej hladiny a času od pitia
+      var M=getMeas();
+      if(M.blood.length && isFinite(t)){ var c=M.blood[0][1];
+        var Alo=w*r*(c+0.10*t), Ahi=w*r*(c+0.20*t), Amid=w*r*(c+0.15*t);
+        out+='<div class="alert warn"><span class="ic">!</span><span><b>Bilančný (z nameranej '+fmtNum(c,2)+' g/kg, '+fmtNum(t,1)+' h od pitia):</b> požité ≈ <b>'+fmtNum(Amid,0)+' g</b> čistého etanolu (rozsah '+fmtNum(Alo,0)+'–'+fmtNum(Ahi,0)+' g podľa β).</span></div>'; }
+      if(!out) out='<div class="hint">Zadaj nápoje (objem + %) a/alebo meranie a čas od pitia.</div>';
+      $id('ec_widout').innerHTML=out;
+      buildExport('Widmark/bilančný', out.replace(/<[^>]+>/g,' '));
+    }
+
+    function buildExport(meth,txt){
+      $id('ec_exportCard').style.display='block';
+      var prot=$id('ec_prot').value.trim(),meno=$id('ec_meno').value.trim();
+      var L=['ETANOL — PREPOČTY ('+meth+') [experimentálne]'];
+      if(prot) L.push('Protokol č.: '+prot); if(meno) L.push('Zomrelý/osoba: '+meno);
+      L.push('Pohlavie: '+(sex()==='m'?'muž':'žena')+' · r='+rval()+' · β='+fmtNum(beta(),2),'',txt.replace(/\s+/g,' ').trim(),'',
+        'Pozn.: orientačné, s neistotou (β 0,10–0,20). Finálne posúdenie patrí znalcovi.');
+      $id('ec_exp').value=L.join('\n');
+    }
+
+    root.querySelectorAll('#ec_sex button').forEach(function(b){ b.addEventListener('click',function(){
+      root.querySelectorAll('#ec_sex button').forEach(function(x){x.classList.remove('active');}); b.classList.add('active'); }); });
+    $id('ec_add').addEventListener('click',function(){ if(rows.length<10) addRow(); });
+    $id('ec_draw').addEventListener('click',drawCurve);
+    $id('ec_back').addEventListener('click',backCalc);
+    $id('ec_wid').addEventListener('click',widCalc);
+    $id('ec_copy').addEventListener('click',function(){ copyToClipboard($id('ec_exp').value,this,'Skopírované ✓','Kopírovať text'); });
+    addRow(); addRow(); // dve východiskové merania
   }
 });
 
