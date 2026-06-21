@@ -1864,7 +1864,7 @@ Toolkit.register({
   mount:function(root){
     var rows=[], rc=0;
     root.innerHTML=
-      '<div class="card"><div class="alert warn"><span class="ic">!</span><span><b>Experimentálne.</b> Prepočty sú orientačné, s neistotou (rozsah β a r). Finálne posúdenie patrí znalcovi.</span></div></div>'+
+      '<div class="card"><div class="alert warn"><span class="ic">!</span><span><b>Experimentálne.</b> Prepočty sú orientačné, s neistotou (rozsah β a r). Finálne posúdenie patrí znalcovi. Po doladení sa verzia povýši na 1.21.</span></div></div>'+
       '<div class="card"><h2>Osoba a konštanty</h2>'+
         '<div class="seg" id="ec_sex"><button data-s="m" class="active">Muž</button><button data-s="z">Žena</button></div>'+
         '<div class="row"><div class="field"><label>Hmotnosť (kg)</label><input id="ec_w" type="number" inputmode="decimal" step="0.5" placeholder="napr. 80"></div>'+
@@ -1935,6 +1935,7 @@ Toolkit.register({
       rows.forEach(function(r){ var tm=hm($id('ec_t'+r.id).value); if(tm==null) return;
         var t=(tm-first)/60, b=parseFloat($id('ec_b'+r.id).value), u=parseFloat($id('ec_u'+r.id).value);
         if(isFinite(b)) blood.push([t,b]); if(isFinite(u)) urine.push([t,u]); });
+      blood.sort(function(x,y){return x[0]-y[0];}); urine.sort(function(x,y){return x[0]-y[0];});
       return {blood:blood,urine:urine,first:first};
     }
     function fitLine(p){ var n=p.length,sx=0,sy=0,sxy=0,sxx=0; p.forEach(function(q){sx+=q[0];sy+=q[1];sxy+=q[0]*q[1];sxx+=q[0]*q[0];}); var d=n*sxx-sx*sx; if(d===0) return null; var m=(n*sxy-sx*sy)/d; return {m:m,c:(sy-m*sx)/n}; }
@@ -2053,7 +2054,7 @@ Toolkit.register({
       '<div class="foot" style="margin-top:12px">© 2026 Ján Šikuta. Všetky práva vyhradené. Verzia 1.13.</div></div>';
     var fb=$id('fb_send'); if(fb){ fb.addEventListener('click',function(){
       var t=($id('fb_txt').value||'').trim();
-      var subj='[4n6 Feedback] 4n6 Šikuta Tools v1.12';
+      var subj='[4n6 Feedback] 4n6 Šikuta Tools v1.13';
       var body=(t?t+'\n\n':'')+'— odoslané z 4n6 Šikuta Tools · '+navigator.userAgent;
       window.location.href='mailto:jansikuta@me.com?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(body);
       $id('fb_note').textContent='Otvára sa e-mailový klient…';
