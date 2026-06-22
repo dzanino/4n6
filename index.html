@@ -1562,13 +1562,13 @@ Toolkit.register({
       '<button class="btn ghost small" id="an_copy" style="margin-top:10px">Kopírovať text</button></div>'+
     '<div class="card"><h2>Metóda a referencie</h2>'+
       '<details><summary>Rovnice výšky (Trotter & Gleser)</summary><div class="hint" style="margin-top:8px">'+
-        'Výška [cm] = a · dĺžka[cm] + b (± SE). Beloši; vek &gt; 30 r.: − 0,06 · (vek − 30) cm.<br><br>'+
+        'Výška [cm] = a · dĺžka[cm] + b (± SE). Belosi; vek &gt; 30 r.: − 0,06 · (vek − 30) cm.<br><br>'+
         '<b>Muži:</b> femur 2,38·F+61,41 (±3,27); tíbia 2,52·T+78,62; fibula 2,68·Fi+71,78; humerus 3,08·H+70,45; rádius 3,78·R+79,01; ulna 3,70·U+74,05; femur+tíbia 1,30·(F+T)+63,29 (±2,99).<br><br>'+
         '<b>Ženy:</b> femur 2,47·F+54,10 (±3,72); tíbia 2,90·T+61,53; fibula 2,93·Fi+59,61; humerus 3,36·H+57,97; rádius 4,74·R+54,93; ulna 4,27·U+57,76; femur+tíbia 1,39·(F+T)+53,20 (±3,55).</div></details>'+
       '<details><summary>Vek plodu z femuru</summary><div class="hint" style="margin-top:8px">'+
         'Gestačný vek [týž] ≈ 0,40 · dĺžka femuru[mm] + 7,9 (± ~2,5 týž). Hranica viability ~22–24 týž.<br>'+
         'Pre dry-bone forenzné prípady porovnaj s tabuľkami Fazekas & Kósa (1978) a Scheuer et al. (1980); hodnoty sú populačne závislé.</div></details>'+
-      '<div class="foot">Orientačný odhad. Trotter-Gleser sú populačne špecifické (americkí beloši); pre iné populácie môže byť odchýlka. Sekulárny trend výšky nezohľadnený.<br>Trotter M., Gleser G.C. 1952, 1958; Trotter 1970; Hadlock 1982; Fazekas & Kósa 1978; Scheuer et al. 1980.</div></div>';
+      '<div class="foot">Orientačný odhad. Trotter-Gleser sú populačne špecifické (americkí belosi); pre iné populácie môže byť odchýlka. Sekulárny trend výšky nezohľadnený.<br>Trotter M., Gleser G.C. 1952, 1958; Trotter 1970; Hadlock 1982; Fazekas & Kósa 1978; Scheuer et al. 1980.</div></div>';
 
     var EQ={
       m:{fem:[2.38,61.41,3.27],tib:[2.52,78.62,3.37],fib:[2.68,71.78,3.29],hum:[3.08,70.45,4.05],rad:[3.78,79.01,4.32],uln:[3.70,74.05,4.32],ft:[1.30,63.29,2.99]},
@@ -1601,7 +1601,7 @@ Toolkit.register({
       var head=[]; if(prot) head.push('Protokol č.: '+prot); if(meno) head.push('Zomrelý: '+meno);
       ex.splice.apply(ex,[1,0].concat(head));
       ex.push('','Najlepší odhad: '+fmtNum(best.h,1)+' cm (± '+fmtNum(best.se,2)+', '+NAMES[best.k]+')'+(corr>0?('; veková korekcia −'+fmtNum(corr,2)+' cm'):''),
-        'Pozn.: Trotter-Gleser (beloši), orientačné.');
+        'Pozn.: Trotter-Gleser (belosi), orientačné.');
       $id('an_exportText').value=ex.join('\n');
     }
     function calcAge(){
