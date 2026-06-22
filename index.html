@@ -127,19 +127,23 @@
     margin:18px 4px 10px;font-weight:700;display:flex;align-items:center;gap:8px}
   .cat-count{font-size:10px;font-weight:700;color:var(--accent);background:var(--card2);
     border:1px solid var(--line);border-radius:20px;padding:1px 8px;letter-spacing:0}
-  .tile .ico.txt{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:17px;font-weight:800}
+  .tile .ico.txt{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:20px;font-weight:800}
   .tiles{display:grid;grid-template-columns:1fr 1fr;gap:12px}
   .tile{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:15px;
     cursor:pointer;box-shadow:var(--shadow);transition:transform .08s,border-color .15s;
     display:flex;flex-direction:column;min-height:128px;position:relative;overflow:hidden}
   .tile:active{transform:scale(.98)}
   .tile.soon{opacity:.55}
-  .tile .ico{width:42px;height:42px;border-radius:12px;background:var(--card2);border:1px solid var(--line);
-    display:flex;align-items:center;justify-content:center;font-size:24px;font-family:Georgia,serif;color:var(--accent);margin-bottom:12px}
+  .tile .ico{width:54px;height:54px;border-radius:15px;background:var(--card2);border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;font-size:28px;font-family:Georgia,serif;color:var(--accent);margin-bottom:12px}
   .tile h3{margin:0 0 4px;font-size:15.5px;font-weight:700}
   .tile p{margin:0;font-size:12px;color:var(--muted);line-height:1.4}
   .tile .badge{position:absolute;top:12px;right:12px;font-size:9.5px;text-transform:uppercase;
     letter-spacing:.5px;color:var(--muted);background:var(--card2);border:1px solid var(--line);padding:2px 7px;border-radius:20px}
+  .sort-select{flex:0 0 auto;width:auto;min-width:150px;padding:8px 32px 8px 12px;font-size:13px;border-radius:11px}
+  .tile .reorder{position:absolute;top:10px;right:10px;display:flex;flex-direction:column;gap:4px;z-index:2}
+  .tile .rbtn{width:26px;height:22px;border-radius:7px;background:var(--card2);border:1px solid var(--line);color:var(--muted);font-size:11px;line-height:1;cursor:pointer;padding:0}
+  .tile .rbtn:active{transform:scale(.9)}
 
   /* Plugin host */
   #host{display:none}
@@ -280,55 +284,65 @@ var Toolkit = (function(){
   function getPref(k,d){ try{ var v=localStorage.getItem(k); return v==null?d:v; }catch(e){ return d; } }
   function setPref(k,v){ try{ localStorage.setItem(k,v); }catch(e){} }
   function byName(a,b){ return a.name.localeCompare(b.name,'sk'); }
+  var CATEGORY_COLOR={'Tanatológia':'#56b6ff','Entomológia':'#9ad36a','Biochémia':'#7ee0a0','Kardiopatológia':'#ff7a7a','Identifikácia':'#b48cff','Antropológia':'#7ee0c0','Antropometria':'#5cc8ff','Toxikológia':'#ff9f5c','Info':'#9fb0cf','Nástroje':'#9fb0cf'};
+  function catColor(c){ return CATEGORY_COLOR[c]||'#56b6ff'; }
+  function useGet(){ try{ return JSON.parse(getPref('tk_use','{}'))||{}; }catch(_){ return {}; } }
+  function useBump(id){ var u=useGet(); u[id]=(u[id]||0)+1; setPref('tk_use',JSON.stringify(u)); }
+  function orderGet(){ try{ return JSON.parse(getPref('tk_order','[]'))||[]; }catch(_){ return []; } }
+  function orderSet(a){ setPref('tk_order',JSON.stringify(a)); }
   function effTheme(p){ return (p==='system') ? ((window.matchMedia&&matchMedia('(prefers-color-scheme: light)').matches)?'light':'dark') : p; }
   function applyTheme(){ var p=getPref('tk_theme','system'), e=effTheme(p);
     document.documentElement.setAttribute('data-theme',e);
     var m=document.querySelector('meta[name="theme-color"]'); if(m) m.setAttribute('content', e==='light'?'#eef1f7':'#0b1220'); }
   try{ if(window.matchMedia){ matchMedia('(prefers-color-scheme: light)').addEventListener('change',function(){ if(getPref('tk_theme','system')==='system') applyTheme(); }); } }catch(_){ }
-  function tileHTML(p){
-    var soon = p.soon ? ' soon' : '';
+  function tileHTML(p, reorder){
+    var soon = p.soon ? ' soon' : '', c = catColor(p.category);
+    var ico='background:linear-gradient(135deg,'+c+'33,'+c+'14);color:'+c+';border-color:'+c+'55';
     return '<div class="tile'+soon+'" data-id="'+p.id+'">'+
       (p.soon?'<span class="badge">čoskoro</span>':'')+
-      '<div class="ico'+(((p.icon||'').length>1)?' txt':'')+'">'+(p.icon||'•')+'</div>'+
+      (reorder?'<div class="reorder"><button class="rbtn" data-mv="up" data-id="'+p.id+'">▲</button><button class="rbtn" data-mv="down" data-id="'+p.id+'">▼</button></div>':'')+
+      '<div class="ico'+(((p.icon||'').length>1)?' txt':'')+'" style="'+ico+'">'+(p.icon||'•')+'</div>'+
       '<h3>'+p.name+'</h3><p>'+(p.short||'')+'</p></div>';
   }
   function renderHub(){
     var mode = getPref('tk_sort','abc');
-    var others = plugins.filter(function(p){ return p.id!=='info'; }); // Info ide samostatne na spodok
+    var others = plugins.filter(function(p){ return p.id!=='info'; });
     var info = plugins.filter(function(p){ return p.id==='info'; })[0];
     var html = '<div class="sort-toggle"><span class="sort-lbl">Zoradenie</span>'+
-      '<div class="seg sort-seg"><button data-s="abc" class="'+(mode==='abc'?'active':'')+'">Abecedne</button>'+
-      '<button data-s="cat" class="'+(mode==='cat'?'active':'')+'">Podľa kategórií</button></div></div>';
-    if(mode==='abc'){
-      html += '<div class="tiles">'+others.slice().sort(byName).map(tileHTML).join('')+'</div>';
-    } else {
-      var cats = {};
+      '<select id="sortSel" class="sort-select">'+
+      '<option value="abc">Abecedne</option><option value="cat">Podľa kategórií</option>'+
+      '<option value="use">Najčastejšie</option><option value="custom">Vlastné poradie</option></select></div>';
+    if(mode==='cat'){
+      var cats={};
       others.forEach(function(p){ var c=p.category||'Nástroje'; (cats[c]=cats[c]||[]).push(p); });
-      var ordered = Object.keys(cats).sort(function(a,b){
-        var ia=CATEGORY_ORDER.indexOf(a), ib=CATEGORY_ORDER.indexOf(b);
-        if(ia<0) ia=99; if(ib<0) ib=99; return ia-ib || a.localeCompare(b,'sk');
-      });
-      ordered.forEach(function(cat){
-        html += '<div class="cat-title">'+cat+' <span class="cat-count">'+cats[cat].length+'</span></div>'+
-          '<div class="tiles">'+cats[cat].slice().sort(byName).map(tileHTML).join('')+'</div>';
-      });
+      var ordered=Object.keys(cats).sort(function(a,b){ var ia=CATEGORY_ORDER.indexOf(a),ib=CATEGORY_ORDER.indexOf(b); if(ia<0)ia=99; if(ib<0)ib=99; return ia-ib||a.localeCompare(b,'sk'); });
+      ordered.forEach(function(c){ html+='<div class="cat-title">'+c+' <span class="cat-count">'+cats[c].length+'</span></div>'+
+        '<div class="tiles">'+cats[c].slice().sort(byName).map(function(p){return tileHTML(p,false);}).join('')+'</div>'; });
+    } else {
+      var list;
+      if(mode==='use'){ var u=useGet(); list=others.slice().sort(function(a,b){ return (u[b.id]||0)-(u[a.id]||0) || byName(a,b); }); }
+      else if(mode==='custom'){ var ord=orderGet(); list=others.slice().sort(function(a,b){ var ia=ord.indexOf(a.id),ib=ord.indexOf(b.id); if(ia<0)ia=999; if(ib<0)ib=999; return ia-ib||byName(a,b); });
+        html+='<div class="hint" style="margin:0 2px 8px">Poradie meníš šípkami ▲▼ na dlaždiciach.</div>'; }
+      else { list=others.slice().sort(byName); }
+      html+='<div class="tiles">'+list.map(function(p){ return tileHTML(p, mode==='custom'); }).join('')+'</div>';
     }
-    if(info){ html += '<div class="info-wide" data-id="info">'+
-      '<div class="iw-logo">JŠ</div>'+
+    if(info){ html += '<div class="info-wide" data-id="info"><div class="iw-logo">JŠ</div>'+
       '<div class="iw-text"><h3>'+info.name+'</h3><p>Autor · účel · súkromie · podmienky zdieľania</p></div>'+
       '<div class="iw-arrow">›</div></div>'; }
-    var cat = document.getElementById('catalog');
-    cat.innerHTML = html;
-    cat.querySelectorAll('.sort-seg [data-s]').forEach(function(b){ b.addEventListener('click',function(){ setPref('tk_sort',b.dataset.s); renderHub(); }); });
-    cat.querySelectorAll('.tile, .info-wide').forEach(function(t){
-      t.addEventListener('click',function(){
-        var p = plugins.filter(function(x){return x.id===t.dataset.id;})[0];
-        if(p && !p.soon) location.hash = p.id;
-      });
-    });
+    var catEl=document.getElementById('catalog'); catEl.innerHTML=html;
+    var sel=document.getElementById('sortSel'); if(sel){ sel.value=mode; sel.addEventListener('change',function(){ setPref('tk_sort',sel.value); renderHub(); }); }
+    catEl.querySelectorAll('.rbtn').forEach(function(b){ b.addEventListener('click',function(e){ e.stopPropagation();
+      var ord=orderGet(); if(!ord.length) ord=others.slice().sort(byName).map(function(p){return p.id;});
+      others.forEach(function(p){ if(ord.indexOf(p.id)<0) ord.push(p.id); });
+      ord=ord.filter(function(x){ return others.some(function(p){return p.id===x;}); });
+      var i=ord.indexOf(b.dataset.id); if(i<0) return; var j=b.dataset.mv==='up'?i-1:i+1; if(j<0||j>=ord.length) return;
+      var t=ord[i]; ord[i]=ord[j]; ord[j]=t; orderSet(ord); renderHub(); }); });
+    catEl.querySelectorAll('.tile, .info-wide').forEach(function(t){ t.addEventListener('click',function(){
+      var p=plugins.filter(function(x){return x.id===t.dataset.id;})[0]; if(p&&!p.soon) location.hash=p.id; }); });
   }
 
   function openPlugin(p){
+    try{ useBump(p.id); }catch(_){ }
     hub.style.display='none';
     host.style.display='block';
     backBtn.classList.add('show');
@@ -1091,10 +1105,10 @@ Toolkit.register({
         '<div class="field"><label>Moč</label>'+
         '<input id="e_u" type="number" inputmode="decimal" step="0.01" placeholder="voliteľné"></div>'+
         '<div class="field"><label>Sklovec</label>'+
-        '<input id="e_v" type="number" inputmode="decimal" step="0.01" placeholder="voliteľné"></div></div></div>'+
+        '<input id="e_v" type="number" inputmode="decimal" step="0.01" placeholder="voliteľné"></div></div></div>'+'<div class="card"><h2>Acetón a izopropanol (voliteľné)</h2>'+'<div class="row"><div class="field"><label>Acetón (mg/l)</label><input id="e_ac" type="number" inputmode="decimal" step="1" placeholder="napr. 90"></div>'+'<div class="field"><label>Izopropanol (mg/l)</label><input id="e_ipa" type="number" inputmode="decimal" step="1" placeholder="voliteľné"></div></div>'+'<div class="hint">Detegujú sa v tej istej headspace-GC analýze ako etanol; slúžia na posúdenie ketoacidózy a otravy izopropanolom.</div></div>'+
     '<div class="card"><h2>Klasifikácia opitosti (Straka 2011)</h2>'+'<div class="field"><label>Navyknutosť na alkohol</label>'+'<div class="seg" id="e_habit"><button data-h="nez" class="active">Nezvyknutý piť</button><button data-h="nav">Navyknutý piť</button></div></div>'+'<div class="field"><label>Fáza <span class="muted">(auto z moču; inak vyber)</span></label>'+'<div class="seg" id="e_phase"><button data-p="resorp" class="active">Resorpčná</button><button data-p="elim">Eliminačná</button></div></div></div>'+'<button class="btn" id="e_calc">Vyhodnotiť</button>'+
     '<div class="card" id="e_res" style="display:none;margin-top:14px"><h2>Výsledok</h2>'+
-      '<div id="e_stage"></div><div id="e_ratios"></div></div>'+
+      '<div id="e_stage"></div><div id="e_ratios"></div><div id="e_aceto"></div></div>'+
     '<div class="card" id="e_exportCard" style="display:none"><h2>Export do zápisnice</h2>'+
       '<div class="grid2"><div class="field"><label>Číslo protokolu</label><input id="e_prot" type="text" placeholder="napr. 680"></div>'+
         '<div class="field"><label>Meno zomrelého</label><input id="e_meno" type="text" placeholder="meno priezvisko"></div></div>'+
@@ -1126,8 +1140,8 @@ Toolkit.register({
         '<b>Moč/krv (UAC/BAC):</b> &gt; 1,3 → postresorpčná (eliminačná) fáza; &lt; 1,3 → resorpčná (skorá) fáza.<br><br>'+
         '<b>Krv/sklovec (B/V):</b> ≈ 1,29 skorá absorpcia; ≈ 0,89 postresorpčná. Odhad krvi zo sklovca: B = 1,29·V (skorá) až 0,89·V (neskôr); v rovnováhe sklovec/krv ≈ 1,1–1,2.</div></details>'+
       '<details><summary>Posmrtná novotvorba</summary><div class="hint" style="margin-top:8px">'+
-        'Pri hnilobe môže etanol vznikať mikrobiálne v krvi (zvyčajne &lt; 0,7, niekedy až ~1,5 g/kg). <b>Sklovec a moč</b> sú menej náchylné — ich pozitivita podporuje požitie pred smrťou. Pre novotvorbu svedčí prítomnosť n-propanolu a vyšších alkoholov, neúmerne vysoká krv pri nízkom/nulovom močovom a sklovcovom etanole.</div></details>'+
-      '<div class="foot">Orientačná interpretácia. Hodnoty v g/kg (‰). Spätný prepočet je neistý (β aj r individuálne kolíšu). Finálne posúdenie patrí znalcovi.<br>Straka J.: Súdnolekárska alkohológia, 2011 (klasifikácia podľa Pitru a Hirta, s. 97); Kugelberg & Jones, Forensic Sci Int 2007 (UAC/BAC, B/V).</div></div>';
+        'Pri hnilobe môže etanol vznikať mikrobiálne v krvi (zvyčajne &lt; 0,7, niekedy až ~1,5 g/kg). <b>Sklovec a moč</b> sú menej náchylné — ich pozitivita podporuje požitie pred smrťou. Pre novotvorbu svedčí prítomnosť n-propanolu a vyšších alkoholov, neúmerne vysoká krv pri nízkom/nulovom močovom a sklovcovom etanole.</div></details>'+'<details><summary>Acetón / izopropanol (ketoacidóza)</summary><table class="ref">'+'<tr><th>Acetón v krvi</th><th>Interpretácia</th></tr>'+'<tr><td>&lt; 50 mg/l</td><td>nízky / nešpecifický</td></tr>'+'<tr><td>50–90 mg/l</td><td>zvýšený — ketóza (hladovanie, vracanie, alkohol)</td></tr>'+'<tr><td>≥ 90 mg/l (~1,5 mmol/l)</td><td>významná ketoacidóza (DKA/AKA)</td></tr></table>'+'<div class="hint">β-hydroxybutyrát (BHB) je spoľahlivejší marker (&gt;250 mg/l významný). Izopropanol: pri ketoacidóze býva mierne zvýšený (redukcia acetónu → izopropanol), pri otrave izopropanolom je vysoký a prevažuje nad acetónom.</div></details>'+
+      '<div class="foot">Orientačná interpretácia. Hodnoty v g/kg (‰). Spätný prepočet je neistý (β aj r individuálne kolíšu). Finálne posúdenie patrí znalcovi.<br>Straka J.: Súdnolekárska alkohológia, 2011 (klasifikácia podľa Pitru a Hirta, s. 97); Kugelberg & Jones, Forensic Sci Int 2007 (UAC/BAC, B/V).<br>Acetón/ketoacidóza: Elliott a kol., Forensic Sci Int 2020; Petersen a kol., J Forensic Sci 2012 (izopropanol pri ketoacidóze); BHB ako preferovaný marker.</div></div>';
 
     function sex(){ return root.querySelector('#e_sex button.active').dataset.sex; }
     function hirt(b){
@@ -1157,7 +1171,8 @@ Toolkit.register({
 
     function calc(){
       var b=parseFloat($id('e_b').value), u=parseFloat($id('e_u').value), v=parseFloat($id('e_v').value);
-      if(!isFinite(b)&&!isFinite(v)){ alert('Zadaj aspoň koncentráciu v krvi alebo v sklovci.'); return; }
+      var ac=parseFloat($id('e_ac').value), ipa=parseFloat($id('e_ipa').value);
+      if(!isFinite(b)&&!isFinite(v)&&!isFinite(ac)&&!isFinite(ipa)){ alert('Zadaj aspoň jednu koncentráciu.'); return; }
       $id('e_res').style.display='block'; $id('e_exportCard').style.display='block';
       var ex=[];
 
@@ -1189,6 +1204,21 @@ Toolkit.register({
         ex.push('Odhad BAC zo sklovca: '+fmtNum(0.89*v,2)+'–'+fmtNum(1.29*v,2)+' g/kg'); }
       if(isFinite(v)) rH+=alertHTML('ok','Sklovec '+fmtNum(v,2)+' g/kg — menej náchylný na posmrtnú novotvorbu (podporuje požitie pred smrťou).');
       $id('e_ratios').innerHTML=rH;
+
+      // acetón / izopropanol (ketoacidóza, otrava izopropanolom)
+      var aH='';
+      if(isFinite(ac)){
+        if(ac<50){ aH+=alertHTML('ok','Acetón '+fmtNum(ac,0)+' mg/l — nízky/nešpecifický (mierna ketóza pri hladovaní môže dať mierne hodnoty).'); ex.push('Acetón: '+fmtNum(ac,0)+' mg/l (nízky)'); }
+        else if(ac<90){ aH+=alertHTML('warn','Acetón '+fmtNum(ac,0)+' mg/l — zvýšený; zváž ketózu (hladovanie, vracanie, alkohol). Potvrď β-hydroxybutyrátom (BHB) a glukózou v sklovci.'); ex.push('Acetón: '+fmtNum(ac,0)+' mg/l (zvýšený)'); }
+        else { aH+=alertHTML('bad','Acetón '+fmtNum(ac,0)+' mg/l (≥90 ≈ 1,5 mmol/l) — svedčí pre významnú ketoacidózu (diabetická/alkoholová). Potvrď BHB (>250 mg/l významný) a glukózou v sklovci/Traube.'); ex.push('Acetón: '+fmtNum(ac,0)+' mg/l (ketoacidóza)'); }
+      }
+      if(isFinite(ipa)){
+        if(ipa<5){ aH+=alertHTML('ok','Izopropanol '+fmtNum(ipa,0)+' mg/l — nevýznamný.'); }
+        else if(ipa>=400 && (!isFinite(ac)||ac<ipa)){ aH+=alertHTML('bad','Izopropanol '+fmtNum(ipa,0)+' mg/l vysoký (izopropanol > acetón) — zváž otravu izopropanolom (metabolizuje sa na acetón).'); ex.push('Izopropanol: '+fmtNum(ipa,0)+' mg/l (zváž otravu)'); }
+        else { aH+=alertHTML('warn','Izopropanol '+fmtNum(ipa,0)+' mg/l — pri zvýšenom acetóne (acetón > izopropanol) skôr endogénny pôvod (redukcia acetónu na izopropanol pri ketoacidóze) než otrava.'); ex.push('Izopropanol: '+fmtNum(ipa,0)+' mg/l (skôr endogénny)'); }
+      }
+      if(isFinite(ac)&&ac>=50&&(!isFinite(b)||b<0.5)) aH+=alertHTML('warn','Zvýšený acetón pri nízkom/nulovom etanole — zváž alkoholovú ketoacidózu (AKA) u chronického alkoholika alebo diabetickú ketoacidózu (DKA).');
+      $id('e_aceto').innerHTML=aH;
 
       var prot=$id('e_prot').value.trim(), meno=$id('e_meno').value.trim();
       var L=['ETANOL — INTERPRETÁCIA'];
@@ -1532,13 +1562,13 @@ Toolkit.register({
       '<button class="btn ghost small" id="an_copy" style="margin-top:10px">Kopírovať text</button></div>'+
     '<div class="card"><h2>Metóda a referencie</h2>'+
       '<details><summary>Rovnice výšky (Trotter & Gleser)</summary><div class="hint" style="margin-top:8px">'+
-        'Výška [cm] = a · dĺžka[cm] + b (± SE). Belosi; vek &gt; 30 r.: − 0,06 · (vek − 30) cm.<br><br>'+
+        'Výška [cm] = a · dĺžka[cm] + b (± SE). Beloši; vek &gt; 30 r.: − 0,06 · (vek − 30) cm.<br><br>'+
         '<b>Muži:</b> femur 2,38·F+61,41 (±3,27); tíbia 2,52·T+78,62; fibula 2,68·Fi+71,78; humerus 3,08·H+70,45; rádius 3,78·R+79,01; ulna 3,70·U+74,05; femur+tíbia 1,30·(F+T)+63,29 (±2,99).<br><br>'+
         '<b>Ženy:</b> femur 2,47·F+54,10 (±3,72); tíbia 2,90·T+61,53; fibula 2,93·Fi+59,61; humerus 3,36·H+57,97; rádius 4,74·R+54,93; ulna 4,27·U+57,76; femur+tíbia 1,39·(F+T)+53,20 (±3,55).</div></details>'+
       '<details><summary>Vek plodu z femuru</summary><div class="hint" style="margin-top:8px">'+
         'Gestačný vek [týž] ≈ 0,40 · dĺžka femuru[mm] + 7,9 (± ~2,5 týž). Hranica viability ~22–24 týž.<br>'+
         'Pre dry-bone forenzné prípady porovnaj s tabuľkami Fazekas & Kósa (1978) a Scheuer et al. (1980); hodnoty sú populačne závislé.</div></details>'+
-      '<div class="foot">Orientačný odhad. Trotter-Gleser sú populačne špecifické (americkí belosi); pre iné populácie môže byť odchýlka. Sekulárny trend výšky nezohľadnený.<br>Trotter M., Gleser G.C. 1952, 1958; Trotter 1970; Hadlock 1982; Fazekas & Kósa 1978; Scheuer et al. 1980.</div></div>';
+      '<div class="foot">Orientačný odhad. Trotter-Gleser sú populačne špecifické (americkí beloši); pre iné populácie môže byť odchýlka. Sekulárny trend výšky nezohľadnený.<br>Trotter M., Gleser G.C. 1952, 1958; Trotter 1970; Hadlock 1982; Fazekas & Kósa 1978; Scheuer et al. 1980.</div></div>';
 
     var EQ={
       m:{fem:[2.38,61.41,3.27],tib:[2.52,78.62,3.37],fib:[2.68,71.78,3.29],hum:[3.08,70.45,4.05],rad:[3.78,79.01,4.32],uln:[3.70,74.05,4.32],ft:[1.30,63.29,2.99]},
@@ -1571,7 +1601,7 @@ Toolkit.register({
       var head=[]; if(prot) head.push('Protokol č.: '+prot); if(meno) head.push('Zomrelý: '+meno);
       ex.splice.apply(ex,[1,0].concat(head));
       ex.push('','Najlepší odhad: '+fmtNum(best.h,1)+' cm (± '+fmtNum(best.se,2)+', '+NAMES[best.k]+')'+(corr>0?('; veková korekcia −'+fmtNum(corr,2)+' cm'):''),
-        'Pozn.: Trotter-Gleser (belosi), orientačné.');
+        'Pozn.: Trotter-Gleser (beloši), orientačné.');
       $id('an_exportText').value=ex.join('\n');
     }
     function calcAge(){
@@ -2051,10 +2081,10 @@ Toolkit.register({
       '• Je určený <b>výhradne pre kvalifikovaných odborníkov</b> a na edukačné účely — <b>nie</b> pre laikov a <b>nie</b> ako certifikované zdravotnícke zariadenie.<br><br>'+
       '• Pri ďalšom šírení <b>zachovaj uvedenie autora a zdrojov</b> a neupravuj appku tak, aby vznikol dojem oficiálneho, úradne schváleného alebo certifikovaného nástroja.<br><br>'+
       '• Nepoužívaj na zavádzajúce, protiprávne ani iné než odborné účely.</div>'+
-      '<div class="foot" style="margin-top:12px">© 2026 Ján Šikuta. Všetky práva vyhradené. Verzia 1.13.</div></div>';
+      '<div class="foot" style="margin-top:12px">© 2026 Ján Šikuta. Všetky práva vyhradené. Verzia 1.15.</div></div>';
     var fb=$id('fb_send'); if(fb){ fb.addEventListener('click',function(){
       var t=($id('fb_txt').value||'').trim();
-      var subj='[4n6 Feedback] 4n6 Šikuta Tools v1.13';
+      var subj='[4n6 Feedback] 4n6 Šikuta Tools v1.15';
       var body=(t?t+'\n\n':'')+'— odoslané z 4n6 Šikuta Tools · '+navigator.userAgent;
       window.location.href='mailto:jansikuta@me.com?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(body);
       $id('fb_note').textContent='Otvára sa e-mailový klient…';
