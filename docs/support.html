@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Support — 4n6 Šikuta Tools</title>
+<style>
+  :root{--bg:#0b1220;--card:#141d2e;--line:#28344f;--txt:#e8eefc;--muted:#9fb0cf;--accent:#5bb8ff;--accent2:#8fe3c8}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--bg);color:var(--txt);line-height:1.6;-webkit-text-size-adjust:100%}
+  .wrap{max-width:780px;margin:0 auto;padding:28px 20px 64px}
+  header{display:flex;align-items:center;gap:14px;margin-bottom:8px}
+  .logo{width:46px;height:46px;border-radius:12px;background:var(--card);border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--accent2)}
+  h1{font-size:24px;margin:18px 0 4px}
+  h2{font-size:17px;margin:22px 0 6px;color:#fff}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .muted{color:var(--muted)}
+  .toggle{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;margin:16px 0}
+  .toggle button{background:transparent;color:var(--muted);border:0;padding:8px 16px;font-size:13px;cursor:pointer}
+  .toggle button.on{background:var(--card);color:#fff}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 20px;margin-top:14px}
+  .btn{display:inline-block;background:linear-gradient(120deg,var(--accent),var(--accent2));color:#04101f;
+    font-weight:700;padding:11px 18px;border-radius:12px;margin-top:10px}
+  details{border-top:1px solid var(--line);padding:10px 0}
+  details summary{cursor:pointer;font-weight:600}
+  details p{margin:8px 0 2px;color:var(--muted)}
+  .foot{margin-top:32px;color:var(--muted);font-size:13px;border-top:1px solid var(--line);padding-top:16px}
+  [data-lang]{display:none}
+  body.en [data-lang="en"]{display:block}
+  body.sk [data-lang="sk"]{display:block}
+</style>
+</head>
+<body class="en">
+<div class="wrap">
+  <header>
+    <div class="logo">JŠ</div>
+    <div>
+      <div style="font-weight:800;font-size:18px"><span style="color:var(--accent)">4n6</span> Šikuta Tools</div>
+      <div class="muted" style="font-size:13px">Support · Podpora</div>
+    </div>
+  </header>
+
+  <div class="toggle" role="group" aria-label="Language">
+    <button id="btn-en" class="on" onclick="setLang('en')">English</button>
+    <button id="btn-sk" onclick="setLang('sk')">Slovensky</button>
+  </div>
+
+  <!-- ENGLISH -->
+  <div data-lang="en">
+    <h1>Support</h1>
+    <p class="muted">For <strong>4n6 Šikuta Tools Pro</strong> and <strong>4n6 Šikuta Tools Lite</strong> (iPhone &amp; iPad).</p>
+
+    <div class="card">
+      <h2>Contact</h2>
+      <p>Questions, bug reports or suggestions for new methods are welcome.</p>
+      <p>Email: <a href="mailto:jansikuta@me.com?subject=%5B4n6%20Support%5D">jansikuta@me.com</a></p>
+      <a class="btn" href="mailto:jansikuta@me.com?subject=%5B4n6%20Support%5D">Email support</a>
+      <p class="muted" style="margin-top:10px">Please include your device model, iOS version and app version (shown under “About” in the app).</p>
+    </div>
+
+    <h2>Frequently asked questions</h2>
+    <details><summary>Do the apps work offline?</summary>
+      <p>Yes. Everything runs locally on the device. No internet connection is required and no data is sent anywhere.</p></details>
+    <details><summary>Which languages are supported?</summary>
+      <p>English and Slovak. Switch any time with the language button in the header. Latin/medical terminology is kept in Latin in both languages.</p></details>
+    <details><summary>How do I export a result into my report?</summary>
+      <p>Most tools have an “Export to report” box with a Copy button. Tap it and paste the text into your protocol.</p></details>
+    <details><summary>What is the difference between Lite and Pro?</summary>
+      <p>Lite is free and includes four tools (BMI/nutrition, BSA + heart weight, unit converter, age from aortic girth). Pro unlocks all tools, including time of death (Henssge, postmortem changes), vitreous biochemistry, toxicology and alcohol, entomology and anthropology.</p></details>
+    <details><summary>Is my data private?</summary>
+      <p>Yes. The apps collect nothing and store nothing off-device. See the <a href="privacy.html">Privacy Policy</a>.</p></details>
+    <details><summary>Are the results definitive?</summary>
+      <p>No. All results are orientational and based on published methods (cited in each tool). The apps are not medical devices. The final assessment always belongs to the examining physician or expert.</p></details>
+
+    <h2>Requirements</h2>
+    <p class="muted">iPhone and iPad, iOS 14 or later.</p>
+  </div>
+
+  <!-- SLOVAK -->
+  <div data-lang="sk">
+    <h1>Podpora</h1>
+    <p class="muted">Pre <strong>4n6 Šikuta Tools Pro</strong> a <strong>4n6 Šikuta Tools Lite</strong> (iPhone a iPad).</p>
+
+    <div class="card">
+      <h2>Kontakt</h2>
+      <p>Otázky, hlásenia chýb či návrhy nových metód sú vítané.</p>
+      <p>E-mail: <a href="mailto:jansikuta@me.com?subject=%5B4n6%20Support%5D">jansikuta@me.com</a></p>
+      <a class="btn" href="mailto:jansikuta@me.com?subject=%5B4n6%20Support%5D">Napísať podporu</a>
+      <p class="muted" style="margin-top:10px">Uveď prosím model zariadenia, verziu iOS a verziu aplikácie (nájdeš ju v sekcii „O aplikácii“).</p>
+    </div>
+
+    <h2>Často kladené otázky</h2>
+    <details><summary>Fungujú aplikácie offline?</summary>
+      <p>Áno. Všetko beží lokálne v zariadení. Nevyžadujú internet a nič neodosielajú.</p></details>
+    <details><summary>Aké jazyky sú podporované?</summary>
+      <p>Angličtina a slovenčina. Prepneš ich kedykoľvek tlačidlom jazyka v hlavičke. Latinsko-odborná terminológia ostáva v latinčine v oboch jazykoch.</p></details>
+    <details><summary>Ako vyexportujem výsledok do zápisnice?</summary>
+      <p>Väčšina nástrojov má pole „Export do zápisnice“ s tlačidlom Kopírovať. Ťukni naň a text vlož do svojho protokolu.</p></details>
+    <details><summary>Aký je rozdiel medzi Lite a Pro?</summary>
+      <p>Lite je zadarmo a obsahuje štyri nástroje (BMI/výživa, BSA + hmotnosť srdca, konverzia jednotiek, vek z obvodov aorty). Pro odomkne všetky nástroje vrátane času smrti (Henssge, posmrtné zmeny), biochémie sklovca, toxikológie a alkoholu, entomológie a antropológie.</p></details>
+    <details><summary>Sú moje údaje v bezpečí?</summary>
+      <p>Áno. Aplikácie nič nezbierajú ani neukladajú mimo zariadenia. Pozri <a href="privacy.html">Zásady ochrany údajov</a>.</p></details>
+    <details><summary>Sú výsledky definitívne?</summary>
+      <p>Nie. Všetky výsledky sú orientačné a vychádzajú z publikovaných metód (citácie sú pri každom nástroji). Aplikácie nie sú zdravotnícke pomôcky. Finálne posúdenie vždy patrí pitvajúcemu lekárovi alebo expertovi.</p></details>
+
+    <h2>Požiadavky</h2>
+    <p class="muted">iPhone a iPad, iOS 14 alebo novší.</p>
+  </div>
+
+  <div class="foot">
+    © 2026 Ján Šikuta · <a href="privacy.html">Privacy Policy / Zásady ochrany údajov</a>
+  </div>
+</div>
+<script>
+  function setLang(l){
+    document.body.className=l;
+    document.getElementById('btn-en').classList.toggle('on',l==='en');
+    document.getElementById('btn-sk').classList.toggle('on',l==='sk');
+    document.documentElement.lang=l;
+    try{localStorage.setItem('pp_lang',l)}catch(e){}
+  }
+  try{var s=localStorage.getItem('pp_lang'); if(s) setLang(s);}catch(e){}
+</script>
+</body>
+</html>
