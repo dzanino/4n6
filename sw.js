@@ -1,7 +1,7 @@
 /* Šikuta 4n6 — service worker v1.21
    HTML: network-first (online = vždy najnovšie, offline = z cache).
    Ostatné: cache-first. */
-var C='sikuta4n6-v121a';
+var C='sikuta4n6-v121c';
 var ASSETS=['./','./index.html','./manifest.json',
   './icons/apple-touch-icon.png','./icons/android-chrome-192x192.png',
   './icons/android-chrome-512x512.png','./icons/favicon-32x32.png','./icons/favicon-16x16.png'];

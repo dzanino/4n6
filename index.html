@@ -289,9 +289,9 @@ var Toolkit = (function(){
   function catColor(c){ return CATEGORY_COLOR[c]||'#56b6ff'; }
   var I18N={
     ui:{ sk:{sub:'Forenzné nástroje',intro:'Vreckové forenzné nástroje pre súdne lekárstvo. Vyber nástroj klikom na dlaždicu.',sort:'Zoradenie',abc:'Abecedne',cat:'Podľa kategórií',use:'Najčastejšie',custom:'Vlastné poradie',rehint:'Poradie meníš šípkami ▲▼ na dlaždiciach.',back:'‹ Späť',infosub:'Autor · účel · súkromie · podmienky zdieľania',exp:''},
-         en:{sub:'Forensic Tools',intro:'Pocket forensic tools for forensic medicine. Tap a tile to open.',sort:'Sort',abc:'Alphabetical',cat:'By category',use:'Most used',custom:'Custom order',rehint:'Reorder with ▲▼ on tiles.',back:'‹ Back',infosub:'Author · purpose · privacy · sharing',exp:'English UI is experimental — the interiors of the tools are some (few) still in Slovak.'} },
+         en:{sub:'Forensic Tools',intro:'Pocket forensic tools for forensic medicine. Tap a tile to open.',sort:'Sort',abc:'Alphabetical',cat:'By category',use:'Most used',custom:'Custom order',rehint:'Reorder with ▲▼ on tiles.',back:'‹ Back',infosub:'Author · purpose · privacy · sharing',exp:''} },
     cat:{'Tanatológia':'Thanatology','Entomológia':'Entomology','Biochémia':'Biochemistry','Kardiopatológia':'Cardiac pathology','Identifikácia':'Identification','Antropológia':'Anthropology','Antropometria':'Anthropometry','Toxikológia':'Toxicology','Info':'Info','Nástroje':'Tools'},
-    tiles:{henssge:['Henssge — time of death','PMI from rectal temperature.'],bmi:['BMI / nutrition','BMI and nutritional status.'],aorta:['Age from aortic girth','Age from 3 aortic circumferences (M/F).'],vitreous_k:['Vitreous K⁺ — PMI','Time since death from vitreous potassium.'],traube:['Traub index','Glucose + lactate — antemortem glycaemia.'],bsa_heart:['BSA + heart weight','Body surface area & expected heart weight.'],ethanol:['Ethanol — interpretation','Blood/urine/vitreous, ratios, stages.'],pal:['PAL — concentrations','Therapeutic/toxic/lethal blood levels.'],entomo:['Forensic entomology','Fly development: egg → adult (imago).'],anthro:['Stature / age from bones','Stature and age from bone lengths.'],pmi_scene:['Postmortem changes — PMI','Rigor, lividity — time of death.'],osteo_sexage:['Skeletal sex & age','Sex & age estimation of the skeleton.'],ethanol_calc:['Ethanol — calculations','Curve, Widmark, back- & balance calc.'],info:['About','Author · purpose · privacy · sharing']}
+    tiles:{henssge:['Henssge — time of death','PMI from rectal temperature.'],bmi:['BMI / nutrition','BMI and nutritional status.'],aorta:['Age from aortic girth','Age from 3 aortic circumferences (M/F).'],vitreous_k:['Vitreous K⁺ — PMI','Time since death from vitreous potassium.'],traube:['Traube index','Glucose + lactate — antemortem glycaemia.'],bsa_heart:['BSA + heart weight','Body surface area & expected heart weight.'],ethanol:['Ethanol — interpretation','Blood/urine/vitreous, ratios, stages.'],pal:['PAL — concentrations','Therapeutic/toxic/lethal blood levels.'],entomo:['Forensic entomology','Fly development: egg → adult (imago).'],anthro:['Stature / age from bones','Stature and age from bone lengths.'],pmi_scene:['Postmortem changes — PMI','Rigor, lividity — time of death.'],osteo_sexage:['Skeletal sex & age','Sex & age estimation of the skeleton.'],ethanol_calc:['Ethanol — calculations','Curve, Widmark, back- & balance calc.'],conv:['Unit converter','mg/dL ↔ mmol/L and more.'],info:['About','Author · purpose · privacy · sharing']}
   };
   function lang(){ return getPref('tk_lang','sk'); }
   function ui(k){ var L=I18N.ui[lang()]||I18N.ui.sk; return (k in L)?L[k]:(I18N.ui.sk[k]||k); }
@@ -320,7 +320,7 @@ var Toolkit = (function(){
     var mode = getPref('tk_sort','abc');
     var others = plugins.filter(function(p){ return p.id!=='info'; });
     var info = plugins.filter(function(p){ return p.id==='info'; })[0];
-    var html = (lang()==='en'?'<div class="alert warn" style="margin:6px 2px 12px"><span class="ic">!</span><span>'+ui('exp')+'</span></div>':'')+
+    var html = (ui('exp')?'<div class="alert warn" style="margin:6px 2px 12px"><span class="ic">!</span><span>'+ui('exp')+'</span></div>':'')+
       '<div class="sort-toggle"><span class="sort-lbl">'+ui('sort')+'</span>'+
       '<select id="sortSel" class="sort-select">'+
       '<option value="abc">'+ui('abc')+'</option><option value="cat">'+ui('cat')+'</option>'+
@@ -354,8 +354,10 @@ var Toolkit = (function(){
       var p=plugins.filter(function(x){return x.id===t.dataset.id;})[0]; if(p&&!p.soon) location.hash=p.id; }); });
   }
 
-  function openPlugin(p){
-    try{ useBump(p.id); }catch(_){ }
+  var current=null;
+  function openPlugin(p,keep){
+    current=p;
+    if(!keep){ try{ useBump(p.id); }catch(_){ } }
     hub.style.display='none';
     host.style.display='block';
     backBtn.classList.add('show');
@@ -371,6 +373,7 @@ var Toolkit = (function(){
   }
 
   function showHub(){
+    current=null;
     host.style.display='none'; host.innerHTML='';
     hub.style.display='block';
     backBtn.classList.remove('show');
@@ -397,6 +400,7 @@ var Toolkit = (function(){
     var sub=document.querySelector('#brandWrap .sub'); if(sub && hub.style.display!=='none') sub.textContent=ui('sub');
     var lb=document.getElementById('langBtn'); if(lb) lb.textContent=(lang()==='en'?'EN':'SK');
     renderHub();
+    if(current && host.style.display!=='none'){ openPlugin(current,true); }
   }
   function start(){ applyTheme();
     var lb=document.getElementById('langBtn');
@@ -412,7 +416,7 @@ var Toolkit = (function(){
 function __lang(){ try{ return localStorage.getItem('tk_lang')||'sk'; }catch(e){ return 'sk'; } }
 function tx(sk,en){ return __lang()==='en'?en:sk; }
 function $id(id){ return document.getElementById(id); }
-function fmtNum(x,d){ return Number(x).toFixed(d===undefined?1:d).replace('.',','); }
+function fmtNum(x,d){ var s=Number(x).toFixed(d===undefined?1:d); return __lang()==='en'?s:s.replace('.',','); }
 function pad(n){ return (n<10?'0':'')+n; }
 function fmtClock(dt){ return pad(dt.getDate())+'.'+pad(dt.getMonth()+1)+'.'+dt.getFullYear()+' '+pad(dt.getHours())+':'+pad(dt.getMinutes()); }
 function copyToClipboard(text, btn, okLabel, normLabel){
@@ -1323,8 +1327,9 @@ Toolkit.register({
     '<div class="card"><div class="alert warn"><span class="ic">!</span><span>'+tx('Orientačné rozmedzia v <b>krvi</b> (mg/L, ak nie je uvedené inak). <b>Post mortem redistribúcia</b>, tolerancia, kombinované účinky a miesto odberu zásadne menia interpretáciu.','Orientational ranges in <b>blood</b> (mg/L unless stated otherwise). <b>Postmortem redistribution</b>, tolerance, combined effects and sampling site fundamentally change interpretation.')+'</span></div></div>'+
     '<div class="card"><h2>'+tx('Klasifikátor','Classifier')+'</h2>'+
       '<div class="field"><label>'+tx('Látka','Substance')+'</label><select id="p_sel"></select></div>'+
-      '<div class="field"><label>'+tx('Nameraná koncentrácia (','Measured concentration (')+'<span id="p_unit">mg/L</span>)</label>'+
-        '<input id="p_val" type="number" inputmode="decimal" step="0.01" placeholder="'+tx('hodnota v krvi','value in blood')+'"></div>'+
+      '<div class="row"><div class="field" style="flex:2"><label>'+tx('Nameraná hodnota','Measured value')+'</label>'+
+        '<input id="p_val" type="number" inputmode="decimal" step="0.0001" placeholder="'+tx('len číslo','number only')+'"></div>'+
+        '<div class="field" style="flex:1"><label>'+tx('Jednotka','Unit')+'</label><select id="p_unit_sel"></select></div></div>'+
       '<button class="btn" id="p_clsBtn">'+tx('Klasifikovať','Classify')+'</button>'+
       '<div id="p_clsOut" style="margin-top:10px"></div></div>'+
     '<div class="card"><h2>'+tx('Referenčná tabuľka','Reference table')+'</h2>'+
@@ -1339,9 +1344,14 @@ Toolkit.register({
 
     var sel=$id('p_sel');
     D.forEach(function(d,i){ var o=document.createElement('option'); o.value=i; o.textContent=d.n; sel.appendChild(o); });
-    function curUnit(){ return D[sel.value].u||'mg/L'; }
-    sel.addEventListener('change',function(){ $id('p_unit').textContent=curUnit(); $id('p_clsOut').innerHTML=''; });
-    $id('p_unit').textContent=curUnit();
+    function unitsFor(d){ if(d.u==='%') return [['%',1]];
+      var Lu=[['mg/L',1],['mg/dl',10],['µg/mL',1],['ng/mL',0.001],['µg/L',0.001]];
+      if(d.mw) Lu=Lu.concat([['mmol/L',d.mw],['µmol/L',d.mw/1000],['nmol/L',d.mw/1e6]]);
+      return Lu; }
+    function fillUnits(){ var d=D[sel.value], us=unitsFor(d), def=(d.u==='ng/mL')?'ng/mL':(d.u==='%'?'%':'mg/L');
+      $id('p_unit_sel').innerHTML=us.map(function(u){ return '<option value="'+u[0]+'"'+(u[0]===def?' selected':'')+'>'+u[0]+'</option>'; }).join(''); }
+    sel.addEventListener('change',function(){ fillUnits(); $id('p_clsOut').innerHTML=''; });
+    fillUnits();
 
     function rng(d){ var u=d.u||'mg/L';
       var ter=(d.tl==null)?'—':fmtNum(d.tl,d.tl<1?3:0)+'–'+fmtNum(d.th,d.th<1?2:0);
@@ -1350,18 +1360,29 @@ Toolkit.register({
       return {u:u,ter:ter,tox:tox,let:letr}; }
 
     $id('p_clsBtn').addEventListener('click',function(){
-      var d=D[sel.value], val=parseFloat($id('p_val').value);
-      if(!isFinite(val)){ alert(tx('Zadaj nameranú koncentráciu.','Enter the measured concentration.')); return; }
+      var d=D[sel.value], raw=parseFloat($id('p_val').value);
+      if(!isFinite(raw)){ alert(tx('Zadaj nameranú hodnotu.','Enter the measured value.')); return; }
+      var usel=$id('p_unit_sel').value, isPct=(d.u==='%'), fac=1;
+      unitsFor(d).forEach(function(u){ if(u[0]===usel) fac=u[1]; });
+      var valMgL = isPct ? raw : raw*fac;
+      function thr(x){ if(x==null) return null; if(isPct) return x; return (d.u==='ng/mL')? x*0.001 : x; }
+      var Ft=thr(d.ft),Tx=thr(d.tx),Tl=thr(d.tl);
       var verdict,cls;
-      if(d.ft!=null && val>=d.ft){ verdict=tx('Komatózno-letálne rozmedzie','Comatose-lethal range'); cls='bad'; }
-      else if(d.tx!=null && val>=d.tx){ verdict=tx('Toxické rozmedzie','Toxic range'); cls='bad'; }
-      else if(d.tl!=null && val>=d.tl){ verdict=tx('Terapeutické rozmedzie','Therapeutic range'); cls='ok'; }
-      else if(d.tl!=null){ verdict=tx('Subterapeutické / nízke','Subtherapeutic / low'); cls='warn'; }
+      if(Ft!=null && valMgL>=Ft){ verdict=tx('Komatózno-letálne rozmedzie','Comatose-lethal range'); cls='bad'; }
+      else if(Tx!=null && valMgL>=Tx){ verdict=tx('Toxické rozmedzie','Toxic range'); cls='bad'; }
+      else if(Tl!=null && valMgL>=Tl){ verdict=tx('Terapeutické rozmedzie','Therapeutic range'); cls='ok'; }
+      else if(Tl!=null){ verdict=tx('Subterapeutické / nízke','Subtherapeutic / low'); cls='warn'; }
       else { verdict=tx('Bez definovaného terapeutického pásma','No defined therapeutic band'); cls='warn'; }
-      var r=rng(d), mu=molUnit(d), mvLine='';
-      if(mu){ var mv=molVal(val,d,mu); mvLine='<br>= '+fmtNum(mv,mv<1?3:2)+' '+mu.u+' &nbsp;('+tx('referencie: ','references: ')+molRange(d)+')'; }
-      $id('p_clsOut').innerHTML='<div class="alert '+cls+'"><span class="ic">'+(cls==='bad'?'✕':cls==='warn'?'!':'✓')+'</span><span><b>'+d.n+'</b>: '+fmtNum(val,val<1?3:0)+' '+r.u+' → <b>'+verdict+'</b>'+mvLine+'<br>'+
-        tx('ter ','ther ')+r.ter+' · '+tx('tox ','tox ')+r.tox+' · '+tx('let ','leth ')+r.let+' '+r.u+(d.note?('<br><span class="muted">'+d.note+'</span>'):'')+'</span></div>';
+      var nativeU=d.u||'mg/L', valNative = isPct ? raw : (d.u==='ng/mL' ? valMgL*1000 : valMgL);
+      var r=rng(d), mu=molUnit(d), parts=[];
+      if(!isPct){
+        if(usel!==nativeU) parts.push(fmtNum(valNative,valNative<1?3:2)+' '+nativeU);
+        if(mu){ var mv=molVal(valNative,d,mu); parts.push(fmtNum(mv,mv<1?3:2)+' '+mu.u); }
+      }
+      var eqLine = parts.length ? ('<br>= '+parts.join(' = ')) : '';
+      var refMol = mu ? (' &nbsp;('+tx('ref: ','ref: ')+molRange(d)+')') : '';
+      $id('p_clsOut').innerHTML='<div class="alert '+cls+'"><span class="ic">'+(cls==='bad'?'✕':cls==='warn'?'!':'✓')+'</span><span><b>'+d.n+'</b>: '+fmtNum(raw,raw<1?3:2)+' '+usel+' → <b>'+verdict+'</b>'+eqLine+'<br>'+
+        tx('ter ','ther ')+r.ter+' · '+tx('tox ','tox ')+r.tox+' · '+tx('let ','leth ')+r.let+' '+r.u+refMol+(d.note?('<br><span class="muted">'+d.note+'</span>'):'')+'</span></div>';
     });
 
     var active='all';
@@ -2065,6 +2086,72 @@ Toolkit.register({
 /* =====================================================================
    PLUGIN 7 — INFO / O autorovi a aplikácii
    ===================================================================== */
+Toolkit.register({
+  id:'conv',
+  name:'Konverzia jednotiek',
+  icon:'⇄',
+  category:'Nástroje',
+  short:'mg/dl ↔ mmol/l a ďalšie.',
+  long:'Konverzia koncentrácií medzi hmotnostnými a molárnymi jednotkami (mg/dl, mmol/l, µmol/l, ng/ml…) pre bežné analyty.',
+  mount:function(root){
+    var A=[
+      {n:tx('Glukóza','Glucose'),mw:180.16},
+      {n:'Cholesterol',mw:386.65},
+      {n:tx('Triacylglyceroly','Triglycerides'),mw:885.4},
+      {n:'Urea',mw:60.06},
+      {n:tx('Kreatinín','Creatinine'),mw:113.12},
+      {n:tx('Bilirubín','Bilirubin'),mw:584.66},
+      {n:tx('Kyselina močová','Uric acid'),mw:168.11},
+      {n:tx('Vápnik','Calcium'),mw:40.08},
+      {n:tx('Laktát','Lactate'),mw:90.08},
+      {n:tx('Etanol','Ethanol'),mw:46.07,etoh:true},
+      {n:'β-hydroxybutyrát / β-hydroxybutyrate',mw:104.10},
+      {n:tx('Vlastná molárna hmotnosť','Custom molar mass'),mw:null,custom:true}
+    ];
+    root.innerHTML=''+
+    '<div class="card"><h2>'+tx('Analyt','Analyte')+'</h2>'+
+      '<div class="field"><label>'+tx('Látka','Substance')+'</label><select id="cv_a"></select></div>'+
+      '<div class="field" id="cv_mwWrap" style="display:none"><label>'+tx('Molárna hmotnosť (g/mol)','Molar mass (g/mol)')+'</label><input id="cv_mw" type="number" inputmode="decimal" step="0.01" placeholder="'+tx('napr. 180,16','e.g. 180.16')+'"></div></div>'+
+    '<div class="card"><h2>'+tx('Hodnota','Value')+'</h2>'+
+      '<div class="row"><div class="field" style="flex:2"><label>'+tx('Nameraná hodnota','Measured value')+'</label><input id="cv_v" type="number" inputmode="decimal" step="0.0001" placeholder="'+tx('len číslo','number only')+'"></div>'+
+        '<div class="field" style="flex:1"><label>'+tx('Z jednotky','From unit')+'</label><select id="cv_u"></select></div></div>'+
+      '<button class="btn" id="cv_go">'+tx('Konvertovať','Convert')+'</button>'+
+      '<div id="cv_out" style="margin-top:10px"></div></div>'+
+    '<div class="card"><h2>'+tx('Poznámky a referencie','Notes and references')+'</h2>'+
+      '<details><summary>'+tx('Vzorec a faktory','Formula and factors')+'</summary><div class="hint" style="margin-top:8px">'+
+        tx('Prepočet: mmol/l = (mg/dl × 10) / MW; mg/dl = mmol/l × MW / 10. Bázou je mg/l.','Conversion: mmol/L = (mg/dL × 10) / MW; mg/dL = mmol/L × MW / 10. Base unit is mg/L.')+'<br><br>'+
+        tx('Vybrané MW (g/mol): glukóza 180,16; cholesterol 386,65; triacylglyceroly 885,4; urea 60,06; kreatinín 113,12; bilirubín 584,66; kyselina močová 168,11; vápnik 40,08; laktát 90,08; etanol 46,07; β-hydroxybutyrát 104,10.','Selected MW (g/mol): glucose 180.16; cholesterol 386.65; triglycerides 885.4; urea 60.06; creatinine 113.12; bilirubin 584.66; uric acid 168.11; calcium 40.08; lactate 90.08; ethanol 46.07; β-hydroxybutyrate 104.10.')+'<br><br>'+
+        tx('Etanol: g/kg (‰) ≈ g/l ÷ 1,055 (hustota krvi); 1 g/kg ≈ 21,7 mmol/l ≈ 100 mg/dl ÷ 1,055.','Ethanol: g/kg (‰) ≈ g/L ÷ 1.055 (blood density); 1 g/kg ≈ 21.7 mmol/L ≈ 100 mg/dL ÷ 1.055.')+'</div></details>'+
+      '<div class="foot">'+tx('Orientačná pomôcka. Pri urey pozor na rozdiel urea vs. dusík močoviny (BUN: ÷ 2,14).','Orientational aid. For urea note the difference between urea and blood urea nitrogen (BUN: ÷ 2.14).')+'</div></div>';
+
+    var asel=$id('cv_a'); A.forEach(function(a,i){ var o=document.createElement('option'); o.value=i; o.textContent=a.n; asel.appendChild(o); });
+    function curA(){ return A[asel.value]; }
+    function curMW(a){ if(a.custom){ var m=parseFloat($id('cv_mw').value); return (isFinite(m)&&m>0)?m:null; } return a.mw; }
+    function units(a){ var mw=curMW(a);
+      var U=[['mg/dl',10],['mg/L',1],['g/L',1000],['µg/mL',1],['ng/mL',0.001],['µg/L',0.001]];
+      if(mw) U=U.concat([['mmol/L',mw],['µmol/L',mw/1000],['nmol/L',mw/1e6]]);
+      if(a.etoh) U.push(['g/kg (‰)',1055]);
+      return U; }
+    function fillU(){ var a=curA(), U=units(a), def=a.etoh?'g/kg (‰)':'mg/dl';
+      $id('cv_u').innerHTML=U.map(function(u){ return '<option value="'+u[0]+'"'+(u[0]===def?' selected':'')+'>'+u[0]+'</option>'; }).join(''); }
+    function fa(v){ var av=Math.abs(v), d=av===0?0:av<0.01?4:av<1?3:av<100?2:1; return fmtNum(v,d); }
+    function conv(){
+      var a=curA(), raw=parseFloat($id('cv_v').value);
+      if(!isFinite(raw)){ alert(tx('Zadaj hodnotu.','Enter a value.')); return; }
+      if(a.custom && !curMW(a)){ alert(tx('Zadaj molárnu hmotnosť.','Enter the molar mass.')); return; }
+      var U=units(a), fac=1; U.forEach(function(u){ if(u[0]===$id('cv_u').value) fac=u[1]; });
+      var mgL=raw*fac;
+      var rows=U.map(function(u){ var sel=(u[0]===$id('cv_u').value); return '<tr'+(sel?' style="background:var(--card2)"':'')+'><td>'+(sel?'<b>'+u[0]+'</b>':u[0])+'</td><td>'+(sel?'<b>'+fa(mgL/u[1])+'</b>':fa(mgL/u[1]))+'</td></tr>'; }).join('');
+      $id('cv_out').innerHTML='<table class="ref"><tr><th>'+tx('Jednotka','Unit')+'</th><th>'+tx('Hodnota','Value')+'</th></tr>'+rows+'</table>';
+    }
+    asel.addEventListener('change',function(){ var a=curA(); $id('cv_mwWrap').style.display=a.custom?'block':'none'; fillU(); $id('cv_out').innerHTML=''; });
+    $id('cv_mw').addEventListener('input',function(){ if(curA().custom) fillU(); });
+    $id('cv_u').addEventListener('change',function(){ if($id('cv_v').value!=='') conv(); });
+    $id('cv_go').addEventListener('click',conv);
+    fillU();
+  }
+});
+
 Toolkit.register({
   id:'info',
   name:'O aplikácii',
