@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Forensika — forensic sciences · apps</title>
-<meta name="description" content="Forensika — forensic medicine and toxicology. Apps and tools for forensic practice: 4n6 Tools, Colorime3ka and littlEye AI.">
+<meta name="description" content="Forensika — forensic medicine and toxicology. Apps and tools for forensic practice: 4n6 Šikuta Tools, Colorime3ka and littlEye AI.">
 <meta property="og:title" content="Forensika — forensic sciences · apps">
-<meta property="og:description" content="Apps and tools for forensic practice: 4n6 Tools, Colorime3ka and littlEye AI.">
+<meta property="og:description" content="Apps and tools for forensic practice: 4n6 Šikuta Tools, Colorime3ka and littlEye AI.">
 <style>
   :root{
     --ink:#274863; --ink-2:#22415C; --ink-3:#132A3D;
@@ -72,6 +72,25 @@
   .grid{display:grid;grid-template-columns:1fr;gap:24px;}
   @media(min-width:820px){.grid{grid-template-columns:1fr 1fr;}}
 
+  /* Field / disciplines */
+  section.field{padding:66px 0 10px;}
+  .intro{max-width:760px;margin:0 auto 40px;text-align:center;}
+  .intro p{color:#4d647a;font-size:clamp(16px,2.3vw,18.5px);line-height:1.65;}
+  .intro p + p{margin-top:14px;}
+  .disc{display:grid;grid-template-columns:1fr;gap:16px;}
+  @media(min-width:640px){.disc{grid-template-columns:1fr 1fr;}}
+  @media(min-width:980px){.disc{grid-template-columns:repeat(3,1fr);}}
+  .d{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;transition:.2s;}
+  .d:hover{border-color:#bcd3e9;box-shadow:0 14px 30px rgba(19,42,61,.08);transform:translateY(-2px);}
+  .d .ico{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;margin-bottom:13px;
+    background:linear-gradient(150deg,#eaf4fb,#e6f7f4);}
+  .d .ico svg{width:21px;height:21px;fill:none;stroke:#3f7fae;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;}
+  .d h3{font-size:16px;font-weight:700;color:var(--ink);margin-bottom:7px;}
+  .d p{color:#5d7186;font-size:14.5px;line-height:1.55;}
+  .closing{margin-top:26px;text-align:center;color:#4d647a;font-size:16px;max-width:66ch;
+    margin-left:auto;margin-right:auto;}
+  .closing b{color:var(--ink);}
+
   .card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:30px;
     display:flex;flex-direction:column;transition:.22s;box-shadow:0 1px 2px rgba(19,42,61,.03);}
   .card:hover{transform:translateY(-3px);box-shadow:0 22px 44px rgba(19,42,61,.10);border-color:#cddcec;}
@@ -114,6 +133,42 @@
   .foot{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;color:#6b7f93;font-size:14px;}
   .foot a{font-weight:600;color:var(--ink);}
   .foot a:hover{color:var(--blue);}
+  .nav a.cta.lang{padding:9px 14px;}
+  .nav .navwrap{display:flex;align-items:center;gap:10px;}
+
+  /* ---------- Mobile ---------- */
+  @media (max-width:760px){
+    .wrap{padding:0 18px;}
+    .nav{height:58px;gap:10px;}
+    .brand{font-size:17px;gap:9px;}
+    .brand .mark{width:32px;height:32px;}
+    .nav a.cta{font-size:13px;padding:7px 12px;}
+    .nav a.cta.lang{padding:7px 11px;}
+    .hero{padding:52px 0 62px;}
+    .hero .logo{width:92px;height:92px;margin-bottom:20px;}
+    .kicker{font-size:11px;letter-spacing:2.6px;margin-bottom:16px;}
+    .hero .btns{gap:10px;}
+    .btn-primary,.btn-ghost{padding:12px 20px;font-size:14.5px;}
+    section.field{padding:48px 0 6px;}
+    section.apps{padding:48px 0 28px;}
+    .sec-head{margin-bottom:30px;}
+    .intro{margin-bottom:28px;}
+    .card{padding:22px;border-radius:18px;}
+    .d{padding:18px;}
+    .mission{padding:14px 0 54px;}
+    .mission .box{padding:34px 22px;border-radius:20px;}
+    .mission .box .words{letter-spacing:2.6px;font-size:12px;}
+    .store{padding:9px 13px;}
+    .store .lbl span{font-size:13px;}
+    .foot{flex-direction:column;text-align:center;gap:10px;}
+    footer{padding:30px 0;}
+  }
+  /* On narrow screens keep only the language switch — sections are reachable by scrolling */
+  @media (max-width:560px){
+    .nav .navlink{display:none;}
+  }
+  /* Long links must not overflow the screen */
+  a,p,li,div{overflow-wrap:anywhere;}
 </style>
 </head>
 <body>
@@ -154,9 +209,10 @@
 <header>
   <div class="wrap nav">
     <a class="brand" href="#top"><svg class="mark"><use href="#forensika-icon"/></svg><span><b>Forens</b><span class="accent">ika</span></span></a>
-    <div style="display:flex;align-items:center;gap:10px;">
-      <a class="cta" href="#apps">Apps</a>
-      <a class="cta" href="/" style="padding:9px 14px;">SK</a>
+    <div class="navwrap">
+      <a class="cta navlink" href="#field">The field</a>
+      <a class="cta navlink" href="#apps">Apps</a>
+      <a class="cta lang" href="/">SK</a>
     </div>
   </div>
 </header>
@@ -176,6 +232,62 @@
   </section>
   <div class="wave"></div>
 
+  <section class="field" id="field">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="tag">The field</div>
+        <h2>What forensic science is</h2>
+      </div>
+
+      <div class="intro">
+        <p>Forensic science is the bridge between law and the natural sciences. Where an investigation would otherwise rest on assumption, it brings measurement, method and verifiable evidence — in criminal cases, traffic collisions, and in establishing the cause of death.</p>
+        <p>It is not one discipline but several working together. Each looks at a case from a different angle and answers a different question.</p>
+      </div>
+
+      <div class="disc">
+
+        <div class="d">
+          <div class="ico"><svg viewBox="0 0 24 24"><path d="M9 3h6"/><path d="M10 3v6l-5 9a2 2 0 0 0 1.7 3h10.6a2 2 0 0 0 1.7-3l-5-9V3"/><path d="M7.5 15h9"/></svg></div>
+          <h3>Forensic medicine &amp; toxicology</h3>
+          <p>Establishes the cause and mechanism of death, assesses injuries and how they arose, and detects drugs, medication or poisons in the body.</p>
+        </div>
+
+        <div class="d">
+          <div class="ico"><svg viewBox="0 0 24 24"><path d="M7 3c0 6 10 6 10 12"/><path d="M17 3c0 6-10 6-10 12"/><path d="M8.5 7h7M8.5 17h7"/><path d="M7 21h10"/></svg></div>
+          <h3>Forensic genetics &amp; biology</h3>
+          <p>Uses blood, hair, saliva and other biological traces to establish identity and link a specific person to a scene.</p>
+        </div>
+
+        <div class="d">
+          <div class="ico"><svg viewBox="0 0 24 24"><path d="M18 10a6 6 0 0 0-12 0v4"/><path d="M15 10a3 3 0 0 0-6 0v8"/><path d="M12 10v9"/><path d="M18 13v4"/></svg></div>
+          <h3>Fingerprint analysis</h3>
+          <p>Compares finger and palm prints — one of the oldest identification methods, and still among the most reliable.</p>
+        </div>
+
+        <div class="d">
+          <div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="2.5"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg></div>
+          <h3>Ballistics</h3>
+          <p>Examines firearms, ammunition and gunshot residue — making it possible to determine direction, distance and sequence of fire.</p>
+        </div>
+
+        <div class="d">
+          <div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M8 9.5l2 2-2 2M13 13.5h3"/></svg></div>
+          <h3>Digital forensics</h3>
+          <p>Recovers and preserves data from computers, phones and storage media — including traces someone tried to erase.</p>
+        </div>
+
+        <div class="d">
+          <div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="2.4"/><ellipse cx="12" cy="12" rx="10" ry="4.4"/><ellipse cx="12" cy="12" rx="10" ry="4.4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4.4" transform="rotate(120 12 12)"/></svg></div>
+          <h3>Forensic chemistry &amp; physics</h3>
+          <p>Identifies unknown substances, paints, glass, fibres and microtraces — often the very evidence that connects the unconnected.</p>
+        </div>
+
+      </div>
+
+      <p class="closing">None of these disciplines stands alone. Their real strength shows when their findings meet over a single case — <b>which is why it matters to share knowledge, align methods and connect the field across institutions.</b></p>
+    </div>
+  </section>
+
   <section class="apps" id="apps">
     <div class="wrap">
       <div class="sec-head">
@@ -186,12 +298,12 @@
 
       <div class="grid">
 
-        <!-- 4n6 Tools -->
+        <!-- 4n6 Šikuta Tools -->
         <div class="card wide">
           <div class="top">
             <div class="icon" style="background:linear-gradient(160deg,#2A4E70,#132A3D);color:#7fd6cb;">4n6</div>
             <div>
-              <h3>4n6 Tools</h3>
+              <h3>4n6 Šikuta Tools</h3>
               <div class="sub">Pocket forensic calculators</div>
             </div>
           </div>
@@ -276,11 +388,15 @@
             <span class="pill">Comenius University</span>
           </div>
           <div class="tier">
-            <div class="tier-name">Web / project</div>
+            <div class="tier-name">iPhone · iPad · Mac <span class="price paid">App Store</span></div>
             <div class="stores">
+              <a class="store" href="https://apps.apple.com/app/id6799417580" target="_blank" rel="noopener">
+                <svg viewBox="0 0 384 512" fill="currentColor"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
+                <span class="lbl"><small>Download on the</small><span>App Store</span></span>
+              </a>
               <a class="store web" href="https://dzanino.github.io/littlEyeAI/index.html" target="_blank" rel="noopener">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.8 3.8 9S14.5 18.4 12 21C9.5 18.4 8.2 15.2 8.2 12S9.5 5.6 12 3z"/></svg>
-                <span class="lbl"><small>Visit</small><span>littlEye AI</span></span>
+                <span class="lbl"><small>About the project</small><span>littlEye AI</span></span>
               </a>
             </div>
           </div>
