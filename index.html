@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>4n6 Tools Pro — Ochrana súkromia a podpora / Privacy and Support</title>
+<meta name="description" content="Zásady ochrany osobných údajov a podpora pre aplikáciu 4n6 Tools Pro. Privacy policy and support for the 4n6 Tools Pro app.">
+
+<!-- Jedna samostatná stránka, žiadne externé zdroje: neposiela sa nič ani
+     odtiaľto. Do App Store Connect sa dá ako Privacy Policy URL aj Support
+     URL tá istá adresa s kotvou #privacy / #support. -->
+<style>
+  :root {
+    --bg: #eef1f7; --surface: #fff; --fg: #0f172a; --muted: #64748b;
+    --line: #e2e8f0; --accent: #2563eb; --warn-bg: #fef6e7; --warn-fg: #7c4a03;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0b1220; --surface: #131c2e; --fg: #e8edf6; --muted: #93a3bd;
+      --line: #24314b; --accent: #6ea8ff; --warn-bg: #2c2312; --warn-fg: #f0c27a;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--fg);
+    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    padding: 24px 16px 64px;
+  }
+  main { max-width: 760px; margin: 0 auto; }
+  header.top { text-align: center; margin-bottom: 28px; }
+  .brand { font-size: 28px; font-weight: 800; letter-spacing: -.02em; }
+  .brand span { color: var(--accent); }
+  .sub { color: var(--muted); font-size: 14px; margin-top: 4px; }
+  .langbar { display: flex; gap: 8px; justify-content: center; margin: 18px 0 0; }
+  .langbar a {
+    text-decoration: none; color: var(--fg); border: 1px solid var(--line);
+    background: var(--surface); padding: 6px 14px; border-radius: 999px; font-size: 14px;
+  }
+  section.card {
+    background: var(--surface); border: 1px solid var(--line);
+    border-radius: 16px; padding: 22px 20px; margin-bottom: 18px;
+  }
+  h2 { font-size: 20px; margin: 0 0 6px; }
+  h3 { font-size: 15px; margin: 22px 0 6px; text-transform: uppercase;
+       letter-spacing: .06em; color: var(--muted); }
+  p { margin: 0 0 12px; }
+  ul { margin: 0 0 12px; padding-left: 22px; }
+  li { margin-bottom: 6px; }
+  a { color: var(--accent); }
+  .note {
+    background: var(--warn-bg); color: var(--warn-fg); border-radius: 12px;
+    padding: 14px 16px; font-size: 15px; margin: 0 0 12px;
+  }
+  .updated { color: var(--muted); font-size: 14px; }
+  hr.sep { border: 0; border-top: 1px solid var(--line); margin: 34px 0; }
+  footer { text-align: center; color: var(--muted); font-size: 13px; margin-top: 30px; }
+</style>
+</head>
+<body>
+<main>
+
+<header class="top">
+  <div class="brand"><span>4n6</span> Tools Pro</div>
+  <div class="sub">Ochrana súkromia a podpora · Privacy and Support</div>
+  <nav class="langbar">
+    <a href="#privacy">Súkromie</a>
+    <a href="#support">Podpora</a>
+    <a href="#privacy-en">Privacy</a>
+    <a href="#support-en">Support</a>
+  </nav>
+</header>
+
+<!-- ======================== SLOVENSKY ======================== -->
+
+<section class="card" id="privacy">
+  <h2>Zásady ochrany osobných údajov</h2>
+  <p class="updated">Platné od 4. septembra 2026 · aplikácia 4n6 Tools Pro (iOS, iPadOS)</p>
+
+  <h3>Stručne</h3>
+  <p><strong>Aplikácia nezbiera, neodosiela ani nezdieľa žiadne osobné údaje.</strong>
+  Všetko beží výhradne v zariadení. Aplikácia nemá žiadne sieťové volania, nepoužíva
+  analytiku ani reklamné knižnice, nevyžaduje registráciu ani prihlásenie a nepoužíva
+  sledovanie naprieč aplikáciami (App Tracking Transparency sa neuplatňuje).</p>
+
+  <h3>Aké údaje zadávaš a kde zostávajú</h3>
+  <ul>
+    <li><strong>Namerané hodnoty a údaje prípadu</strong> (číslo protokolu, dátum, meno
+    zomrelého, meno vyšetrujúceho) sa ukladajú <em>len do úložiska aplikácie
+    v zariadení</em>. Neopúšťajú ho.</li>
+    <li><strong>Fotografie</strong> (fotogrametria, mikroskopia, kolorimetria,
+    imunohistochémia) sa spracúvajú <em>v pamäti</em> počas výpočtu. Aplikácia ich
+    nikam neukladá a nikam neodosiela.</li>
+    <li><strong>Meranie LiDAR-om</strong> prebieha natívne v zariadení; výsledkom je
+    číslo, ktoré sa vráti do výpočtu. Žiadny sken sa neuchováva.</li>
+    <li><strong>Nastavenia</strong> (jazyk, vzhľad, veľkosť písma, ikona) sa ukladajú
+    v zariadení.</li>
+  </ul>
+
+  <h3>Povolenia a prečo</h3>
+  <ul>
+    <li><strong>Fotoaparát</strong> — nasnímanie fotografie na meranie. Snímka sa
+    spracuje lokálne.</li>
+    <li><strong>Fotky</strong> — načítanie existujúcej fotografie na meranie alebo
+    hodnotenie. Aplikácia si knižnicu neprehliada a nič z nej neodosiela.</li>
+  </ul>
+  <p>Obe povolenia sú voliteľné. Bez nich fungujú všetky ostatné nástroje.</p>
+
+  <h3>Zdieľanie výsledkov</h3>
+  <p>Zápisnicu odosielaš <strong>ty sám</strong> tlačidlom <em>Odoslať</em> cez systémové
+  zdieľanie (e-mail, Poznámky, AirDrop…). Vtedy údaje opustia zariadenie <em>na tvoj
+  pokyn a do cieľa, ktorý zvolíš</em>. Autor aplikácie k nim nemá prístup.</p>
+
+  <h3>Deti</h3>
+  <p>Aplikácia je odborný nástroj pre zdravotníckych pracovníkov a študentov medicíny;
+  nie je určená deťom a nezbiera údaje o nich.</p>
+
+  <h3>Zmeny zásad</h3>
+  <p>Prípadné zmeny sa zverejnia na tejto stránke spolu s novým dátumom platnosti.</p>
+
+  <h3>Kontakt</h3>
+  <p>MUDr. Ján Šikuta, PhD. — <a href="mailto:jansikuta@me.com">jansikuta@me.com</a></p>
+</section>
+
+<section class="card" id="support">
+  <h2>Podpora</h2>
+  <p>Otázky, hlásenia chýb aj návrhy posielaj e-mailom na
+  <a href="mailto:jansikuta@me.com?subject=4n6%20Tools%20Pro">jansikuta@me.com</a>.
+  Odpovedám zvyčajne do niekoľkých pracovných dní.</p>
+
+  <h3>Pri hlásení chyby pomôže</h3>
+  <ul>
+    <li>ktorý <strong>nástroj</strong> (napr. Henssge, Posmrtné zmeny — PMI),</li>
+    <li><strong>zadané hodnoty</strong> a <strong>očakávaný výsledok</strong>,</li>
+    <li>verzia aplikácie (nájdeš ju dole v <em>Nastaveniach</em>) a model zariadenia.</li>
+  </ul>
+
+  <h3>Časté otázky</h3>
+  <p><strong>Potrebuje aplikácia internet?</strong> Nie. Všetky výpočty prebiehajú
+  v zariadení a fungujú aj v režime v lietadle.</p>
+  <p><strong>Prečo je výsledok uvedený ako rozpätie?</strong> Publikované metódy majú
+  rozptyl. Jediné číslo bez rozpätia by v znaleckej praxi bolo zavádzajúce.</p>
+  <p><strong>Prídem o zadané údaje pri prepnutí jazyka?</strong> Nie. Zadanie aj výsledky
+  ostávajú a zápisnica sa prepočíta do zvoleného jazyka.</p>
+
+  <div class="note">
+    Aplikácia je odborná pomôcka. Hodnoty sú orientačné a vychádzajú z publikovaných
+    metód — finálne posúdenie patrí kvalifikovanému lekárovi alebo znalcovi.
+    Aplikácia nie je zdravotníckou pomôckou a neurčuje diagnózu.
+  </div>
+</section>
+
+<hr class="sep">
+
+<!-- ======================== ENGLISH ======================== -->
+
+<section class="card" id="privacy-en" lang="en">
+  <h2>Privacy Policy</h2>
+  <p class="updated">Effective 4 September 2026 · 4n6 Tools Pro app (iOS, iPadOS)</p>
+
+  <h3>In short</h3>
+  <p><strong>The app collects, transmits and shares no personal data.</strong> Everything
+  runs entirely on the device. The app makes no network requests, uses no analytics or
+  advertising libraries, requires no account or sign-in, and does not track you across
+  apps or websites (App Tracking Transparency does not apply).</p>
+
+  <h3>What you enter and where it stays</h3>
+  <ul>
+    <li><strong>Measured values and case details</strong> (protocol number, date, name of
+    the deceased, examiner) are stored <em>only in the app's storage on your device</em>.
+    They never leave it.</li>
+    <li><strong>Photographs</strong> (photogrammetry, microscopy, colorimetry,
+    immunohistochemistry) are processed <em>in memory</em> during the calculation. The app
+    does not store them anywhere and does not upload them.</li>
+    <li><strong>LiDAR measurement</strong> runs natively on the device; the result is a
+    number returned to the calculation. No scan is retained.</li>
+    <li><strong>Settings</strong> (language, appearance, type size, app icon) are stored
+    on the device.</li>
+  </ul>
+
+  <h3>Permissions and why</h3>
+  <ul>
+    <li><strong>Camera</strong> — to take a photograph for measurement. The image is
+    processed locally.</li>
+    <li><strong>Photos</strong> — to load an existing photograph for measurement or
+    assessment. The app does not browse your library and uploads nothing from it.</li>
+  </ul>
+  <p>Both permissions are optional; every other tool works without them.</p>
+
+  <h3>Sharing results</h3>
+  <p>You send the report <strong>yourself</strong> with the <em>Send</em> button through the
+  system share sheet (e-mail, Notes, AirDrop…). Only then does data leave the device —
+  <em>at your instruction and to a destination you choose</em>. The developer has no
+  access to it.</p>
+
+  <h3>Children</h3>
+  <p>The app is a professional tool for healthcare practitioners and medical students. It
+  is not directed to children and collects no data about them.</p>
+
+  <h3>Changes</h3>
+  <p>Any changes will be published on this page together with a new effective date.</p>
+
+  <h3>Contact</h3>
+  <p>Ján Šikuta, MD, PhD. — <a href="mailto:jansikuta@me.com">jansikuta@me.com</a></p>
+</section>
+
+<section class="card" id="support-en" lang="en">
+  <h2>Support</h2>
+  <p>For questions, bug reports and suggestions, write to
+  <a href="mailto:jansikuta@me.com?subject=4n6%20Tools%20Pro">jansikuta@me.com</a>.
+  I usually reply within a few working days.</p>
+
+  <h3>When reporting a bug, please include</h3>
+  <ul>
+    <li>which <strong>tool</strong> (e.g. Henssge, Post-mortem changes — PMI),</li>
+    <li>the <strong>values you entered</strong> and the <strong>expected result</strong>,</li>
+    <li>the app version (shown at the bottom of <em>Settings</em>) and your device model.</li>
+  </ul>
+
+  <h3>Frequently asked</h3>
+  <p><strong>Does the app need an internet connection?</strong> No. All calculations run on
+  the device and work in aeroplane mode.</p>
+  <p><strong>Why is the result given as a range?</strong> Published methods carry a spread.
+  A single number without a range would be misleading in expert practice.</p>
+  <p><strong>Do I lose my input when switching languages?</strong> No. Input and results are
+  kept, and the report is recalculated into the chosen language.</p>
+
+  <div class="note">
+    The app is a professional aid. Values are orientational and based on published
+    methods — the final assessment belongs to a qualified physician or expert. The app is
+    not a medical device and does not provide a diagnosis.
+  </div>
+</section>
+
+<footer>
+  © 2026 Ján Šikuta · <a href="https://forensika.eu">forensika.eu</a>
+</footer>
+
+</main>
+</body>
+</html>
