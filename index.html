@@ -1,252 +1,275 @@
 <!DOCTYPE html>
 <html lang="sk">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>4n6 Tools — Ochrana súkromia a podpora / Privacy and Support</title>
-<meta name="description" content="Zásady ochrany osobných údajov a podpora pre aplikácie 4n6 Tools Pro a 4n6 Tools Lite. Privacy policy and support for the 4n6 Tools Pro and 4n6 Tools Lite apps.">
-
-<!-- Jedna samostatná stránka, žiadne externé zdroje: neposiela sa nič ani
-     odtiaľto. Do App Store Connect sa dá ako Privacy Policy URL aj Support
-     URL tá istá adresa s kotvou #privacy / #support. -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>4n6 Tools — forenzné kalkulačky pre súdne lekárstvo</title>
+<meta name="description" content="4n6 Tools Pro a Lite — 27 nástrojov súdneho lekárstva vo vrecku: čas smrti, toxikológia, identifikácia, DVI, antropológia. Počíta, interpretuje a cituje. Celé v zariadení, bez internetu.">
+<meta property="og:title" content="4n6 Tools — forenzné kalkulačky pre súdne lekárstvo">
+<meta property="og:description" content="27 nástrojov súdneho lekárstva vo vrecku. Počíta, interpretuje a cituje. Celé v zariadení, bez internetu.">
+<link rel="icon" href="icon-512.png" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <style>
-  :root {
-    --bg: #eef1f7; --surface: #fff; --fg: #0f172a; --muted: #64748b;
-    --line: #e2e8f0; --accent: #2563eb; --warn-bg: #fef6e7; --warn-fg: #7c4a03;
+  :root{
+    --ink:#0f1a2b;
+    --muted:#56657a;
+    --navy:#1d3757;
+    --navy-2:#0c1626;
+    --cyan:#57c4ea;
+    --teal:#46cfa2;
+    --sky:#a8e4ff;
+    --paper:#eef2f7;
+    --paper-2:#e3eaf3;
+    --card:#ffffff;
+    --line:#d9e2ec;
   }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg: #0b1220; --surface: #131c2e; --fg: #e8edf6; --muted: #93a3bd;
-      --line: #24314b; --accent: #6ea8ff; --warn-bg: #2c2312; --warn-fg: #f0c27a;
-    }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Helvetica Neue',Arial,sans-serif;
+    color:var(--ink);
+    background:var(--paper);
+    -webkit-font-smoothing:antialiased;
+    line-height:1.55;
   }
-  * { box-sizing: border-box; }
-  body {
-    margin: 0; background: var(--bg); color: var(--fg);
-    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    padding: 24px 16px 64px;
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:840px;margin:0 auto;padding:0 24px;}
+
+  /* Hero */
+  .hero{
+    position:relative;overflow:hidden;text-align:center;color:#fff;
+    background:
+      radial-gradient(760px 420px at 50% -10%, rgba(87,196,234,.35), transparent 62%),
+      linear-gradient(160deg,#1d3757,#0c1626);
+    padding:64px 0 80px;
   }
-  main { max-width: 760px; margin: 0 auto; }
-  header.top { text-align: center; margin-bottom: 28px; }
-  .brand { font-size: 28px; font-weight: 800; letter-spacing: -.02em; }
-  .brand span { color: var(--accent); }
-  .sub { color: var(--muted); font-size: 14px; margin-top: 4px; }
-  .langbar { display: flex; gap: 8px; justify-content: center; margin: 18px 0 0; }
-  .langbar a {
-    text-decoration: none; color: var(--fg); border: 1px solid var(--line);
-    background: var(--surface); padding: 6px 14px; border-radius: 999px; font-size: 14px;
-  }
-  section.card {
-    background: var(--surface); border: 1px solid var(--line);
-    border-radius: 16px; padding: 22px 20px; margin-bottom: 18px;
-  }
-  h2 { font-size: 20px; margin: 0 0 6px; }
-  h3 { font-size: 15px; margin: 22px 0 6px; text-transform: uppercase;
-       letter-spacing: .06em; color: var(--muted); }
-  p { margin: 0 0 12px; }
-  ul { margin: 0 0 12px; padding-left: 22px; }
-  li { margin-bottom: 6px; }
-  a { color: var(--accent); }
-  .note {
-    background: var(--warn-bg); color: var(--warn-fg); border-radius: 12px;
-    padding: 14px 16px; font-size: 15px; margin: 0 0 12px;
-  }
-  .updated { color: var(--muted); font-size: 14px; }
-  hr.sep { border: 0; border-top: 1px solid var(--line); margin: 34px 0; }
-  footer { text-align: center; color: var(--muted); font-size: 13px; margin-top: 30px; }
+  .hero .icon{width:96px;height:96px;border-radius:22%;display:block;margin:0 auto 20px;
+    box-shadow:0 14px 34px rgba(0,0,0,.45);}
+  .hero h1{font-size:clamp(38px,7vw,58px);font-weight:700;letter-spacing:.4px;line-height:1.05;margin-bottom:6px;}
+  .hero h1 .n{background:linear-gradient(90deg,var(--sky),var(--cyan) 55%,var(--teal));
+    -webkit-background-clip:text;background-clip:text;color:transparent;}
+  .hero .kicker{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:#9fd6ee;font-weight:600;margin-bottom:18px;}
+  .hero p.lede{font-size:clamp(16px,2.5vw,19px);color:#d6e4f2;max-width:56ch;margin:0 auto 30px;}
+  .hero b{color:#fff;}
+  .hero .btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:15px;
+    padding:12px 24px;border-radius:999px;transition:.2s;}
+  .btn-primary{color:#0c1626;background:#fff;box-shadow:0 10px 26px rgba(0,0,0,.25);}
+  .btn-primary:hover{transform:translateY(-1px);background:var(--sky);}
+  .btn-ghost{color:#e6f2fb;border:1px solid rgba(255,255,255,.35);}
+  .btn-ghost:hover{background:rgba(255,255,255,.10);border-color:rgba(255,255,255,.6);}
+  .rule{height:6px;background:linear-gradient(90deg,var(--sky),var(--cyan),var(--teal),var(--navy));}
+
+  /* Sections */
+  main{padding:58px 0 20px;}
+  section{margin-bottom:34px;}
+  h2{font-size:clamp(21px,3.2vw,26px);font-weight:700;color:var(--navy);margin-bottom:14px;
+     display:flex;align-items:center;gap:10px;}
+  h2::before{content:"";width:5px;height:22px;border-radius:3px;flex:0 0 auto;
+     background:linear-gradient(180deg,var(--cyan),var(--teal));}
+  h3{font-size:15px;font-weight:700;color:var(--navy);margin:18px 0 8px;letter-spacing:.3px;}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px 28px;
+     box-shadow:0 1px 3px rgba(12,22,38,.05);}
+  .card > h3:first-child{margin-top:0;}
+  p{color:var(--muted);font-size:15.5px;}
+  p + p{margin-top:12px;}
+  strong,b{color:var(--ink);font-weight:700;}
+
+  ul.feat{list-style:none;}
+  ul.feat li{position:relative;padding-left:28px;margin-bottom:9px;color:var(--muted);font-size:15.5px;}
+  ul.feat li:last-child{margin-bottom:0;}
+  ul.feat li::before{content:"";position:absolute;left:6px;top:9px;width:8px;height:8px;border-radius:50%;
+     background:linear-gradient(135deg,var(--cyan),var(--teal));}
+
+  /* Tiers */
+  .tiers{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;}
+  .tier{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px 24px;
+     box-shadow:0 1px 3px rgba(12,22,38,.05);}
+  .tier .name{display:flex;align-items:center;gap:10px;font-size:19px;font-weight:700;color:var(--navy);margin-bottom:6px;}
+  .price{font-size:12px;font-weight:700;padding:3px 10px;border-radius:999px;letter-spacing:.3px;}
+  .price.free{background:#e2f7ee;color:#1c7a4c;}
+  .price.paid{background:#e4f1fb;color:#1f5f8b;}
+  .tier p{font-size:14.5px;margin-bottom:14px;}
+  .stores{display:flex;flex-wrap:wrap;gap:8px;}
+  .store{display:inline-flex;align-items:center;gap:9px;padding:9px 14px 9px 11px;border-radius:12px;
+     background:var(--navy-2);color:#fff;font-size:13px;line-height:1.1;transition:.18s;}
+  .store:hover{background:var(--navy);transform:translateY(-1px);}
+  .store svg{width:20px;height:20px;flex:0 0 auto;}
+  .store .lbl{display:flex;flex-direction:column;}
+  .store .lbl small{font-size:10px;opacity:.75;}
+  .store .lbl span{font-weight:700;font-size:14px;}
+
+  /* Download links */
+  ul.docs{list-style:none;display:grid;gap:10px;}
+  ul.docs a{display:flex;align-items:center;gap:12px;padding:13px 16px;border-radius:12px;
+     background:var(--paper);border:1px solid var(--line);color:var(--navy);
+     font-weight:600;font-size:14.5px;transition:.18s;}
+  ul.docs a:hover{background:#fff;border-color:var(--cyan);transform:translateX(2px);}
+  ul.docs svg{width:18px;height:18px;flex:0 0 auto;stroke:var(--cyan);}
+  a.inline{color:#1f7fb0;font-weight:600;text-decoration:underline;text-underline-offset:2px;}
+  a.inline:hover{color:var(--navy);}
+
+  .note{background:linear-gradient(160deg,#f3f7fb,#e9f0f7);border:1px solid var(--line);}
+
+  /* Footer */
+  footer{margin-top:44px;padding:38px 0 44px;background:#fff;border-top:1px solid var(--line);text-align:center;}
+  .brand{font-size:26px;font-weight:700;letter-spacing:.3px;margin-bottom:8px;}
+  .brand .g{background:linear-gradient(90deg,#4FCBBB,#66B0E8 55%,#8E86EC);
+     -webkit-background-clip:text;background-clip:text;color:transparent;}
+  .words{font-size:11px;letter-spacing:3.5px;font-weight:600;color:var(--muted);text-transform:uppercase;margin-bottom:14px;}
+  footer .site{display:inline-block;color:#1f7fb0;font-weight:600;font-size:14px;margin-bottom:16px;}
+  footer .site:hover{text-decoration:underline;}
+  footer .copy{font-size:13.5px;color:var(--muted);}
+  footer .copy a{color:#1f7fb0;font-weight:600;}
+  footer .copy a:hover{text-decoration:underline;}
 </style>
 </head>
 <body>
-<main>
 
-<header class="top">
-  <div class="brand"><span>4n6</span> Tools Pro</div>
-  <div class="sub">Ochrana súkromia a podpora · Privacy and Support</div>
-  <nav class="langbar">
-    <a href="#privacy">Súkromie</a>
-    <a href="#support">Podpora</a>
-    <a href="#privacy-en">Privacy</a>
-    <a href="#support-en">Support</a>
-  </nav>
+<header class="hero">
+  <div class="wrap">
+    <img class="icon" src="icon-512.png" alt="4n6 Tools Pro" width="96" height="96">
+    <div class="kicker">Pro · Lite · iOS · Android</div>
+    <h1><span class="n">4n6</span> Tools</h1>
+    <p class="lede">Forenzné kalkulačky pre súdne lekárstvo — <b>27 nástrojov</b> vo vrecku: čas smrti, toxikológia, identifikácia, DVI, antropológia. Počíta, interpretuje a cituje. Celé v zariadení, bez internetu.</p>
+    <div class="btns">
+      <a class="btn btn-primary" href="#stiahnut">Stiahnuť</a>
+      <a class="btn btn-ghost" href="4n6-Tools-Pro-navod.pdf">Návod (PDF)</a>
+      <a class="btn btn-ghost" href="privacy.html">Ochrana súkromia</a>
+      <a class="btn btn-ghost" href="support.html">Podpora</a>
+    </div>
+  </div>
 </header>
+<div class="rule"></div>
 
-<!-- ======================== SLOVENSKY ======================== -->
+<main>
+  <div class="wrap">
 
-<section class="card" id="privacy">
-  <h2>Zásady ochrany osobných údajov</h2>
-  <p class="updated">Platné od 10. septembra 2026 · aplikácie 4n6 Tools Pro a 4n6 Tools Lite (Android, iOS, iPadOS)</p>
+    <section>
+      <h2>Čo aplikácia robí</h2>
+      <div class="card">
+        <p>Súbor odborných kalkulačiek a referenčných tabuliek pre súdne lekárstvo — k pitevnému stolu, na miesto činu aj k písaniu protokolov a znaleckých posudkov. Vznikol z každodennej praxe súdneho lekára.</p>
+        <h3>Čas smrti a tanatológia</h3>
+        <ul class="feat">
+          <li><b>Henssgeho nomogram</b> — PMI z rektálnej teploty (Marshall–Hoare), asistent korekčného faktora, 95 % intervaly, priamy dátum a čas smrti</li>
+          <li><b>Posmrtné zmeny</b> — škvrny, stuhnutosť po svalových skupinách, zákal rohovky, Casperovo pravidlo; grafická časová os s prienikom okien</li>
+          <li><b>Draslík v sklovci</b> — štyri publikované metódy a hypoxantín ako nezávislá kontrola</li>
+          <li><b>Forenzná entomológia</b> — vývojové štádiá s ilustráciami, metóda ADD, tepelný súčet s korekciou mikroklímy</li>
+        </ul>
+        <h3>Toxikológia</h3>
+        <ul class="feat">
+          <li><b>Etanol</b> — interpretácia, Widmark, spätný prepočet k času skutku, alkoholemická krivka s pásmom neistoty, čas vytriezvenia, prepočet na dych</li>
+          <li><b>PAL</b> — referenčné koncentrácie 53 látok v pásmach terapeutické – toxické – letálne, s citáciou pri každom hesle</li>
+          <li><b>CO-Hb</b> — interpretácia karboxyhemoglobínu a posúdenie vitality pri požiari; <b>Traubov index</b></li>
+        </ul>
+        <h3>Trauma, kardiopatológia, identifikácia</h3>
+        <ul class="feat">
+          <li><b>Popáleniny</b> — TBSA podľa Lunda a Browdera, Bauxov index a jeho revízia</li>
+          <li><b>BSA a očakávaná hmotnosť srdca</b>; odhad veku z obvodov aorty; BMI a stav výživy</li>
+          <li><b>DVI</b> — štruktúra podľa INTERPOL DVI Guide, primárne a sekundárne identifikátory, kategórie stotožnenia</li>
+          <li><b>Odontológia</b> — odontogram, porovnanie AM/PM, šesť metód odhadu veku; <b>krvné skupiny a stopy</b> — dedičnosť AB0/Rh, uhol dopadu kvapky</li>
+          <li><b>Antropológia</b> — výška z dlhých kostí, pohlavie a vek kostry, vek plodu z femuru, objemový odhad hmotnosti</li>
+        </ul>
+        <h3>Mikroskopia a obrazová analýza</h3>
+        <ul class="feat">
+          <li>Počítanie buniek a štruktúr s poloautomatickou detekciou; <b>IHC dezmín</b> — kvantifikácia CPA</li>
+          <li><b>Colorime3ka</b> — objektívne pomenovanie farby s kalibráciou sivou kartou; <b>Fotograme3ka</b> — dĺžky, uhly a plochy z fotografie, na iPhonoch s LiDARom natívne meranie</li>
+        </ul>
+        <h3>Navrhnuté pre znaleckú prax</h3>
+        <ul class="feat">
+          <li>Každý výsledok má rozptyl alebo výhradu; nemožný vstup vráti vysvetlenie, nie číslo. Citácie zdrojov pri každej metóde</li>
+          <li><b>Prípad a zápisnica</b> — údaje sa zadajú raz, nástroje odovzdajú výsledky do spoločnej zápisnice so zdieľaním; záloha prípadov do jedného súboru</li>
+          <li>Slovenčina a angličtina vrátane prepočtu výsledkov; nastaviteľná veľkosť písma; svetlý, tmavý a systémový vzhľad</li>
+        </ul>
+      </div>
+    </section>
 
-  <h3>Stručne</h3>
-  <p><strong>Aplikácia nezbiera, neodosiela ani nezdieľa žiadne osobné údaje.</strong>
-  Všetko beží výhradne v zariadení. Aplikácia nemá žiadne sieťové volania, nepoužíva
-  analytiku ani reklamné knižnice, nevyžaduje registráciu ani prihlásenie a nepoužíva
-  sledovanie naprieč aplikáciami (App Tracking Transparency sa neuplatňuje).</p>
+    <section id="stiahnut">
+      <h2>Lite a Pro</h2>
+      <div class="tiers">
+        <div class="tier">
+          <div class="name">4n6 Tools Lite <span class="price free">Zdarma</span></div>
+          <p>Šesť plne funkčných nástrojov na vyskúšanie: Henssge, draslík v sklovci, BMI a výživa, BSA a hmotnosť srdca, vek z obvodov aorty, prevodník jednotiek.</p>
+          <div class="stores">
+            <a class="store" href="https://apps.apple.com/app/id6783425913" target="_blank" rel="noopener">
+              <svg viewBox="0 0 384 512" fill="currentColor"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
+              <span class="lbl"><small>Stiahnuť na</small><span>App Store</span></span>
+            </a>
+            <a class="store" href="https://play.google.com/store/apps/details?id=com.sikuta.n6toolslite" target="_blank" rel="noopener">
+              <svg viewBox="0 0 512 512"><path fill="#00d3ff" d="M47 30C40 34 36 42 36 53v406c0 11 4 19 11 23l236-229z"/><path fill="#00f076" d="M47 30c5-3 12-3 20 1l301 173-72 70z"/><path fill="#ffce00" d="M368 204l72 41c19 11 19 33 0 44l-72 41-73-83z"/><path fill="#ff3a44" d="M47 482c5 3 12 3 20-1l301-173-72-70z"/></svg>
+              <span class="lbl"><small>K dispozícii na</small><span>Google Play</span></span>
+            </a>
+          </div>
+        </div>
+        <div class="tier">
+          <div class="name">4n6 Tools Pro <span class="price paid">Plná verzia</span></div>
+          <p>Všetkých 27 nástrojov, prípad a zápisnica, záloha prípadov. Jednorazový nákup bez predplatného — každý nákup podporuje ďalší vývoj.</p>
+          <div class="stores">
+            <a class="store" href="https://apps.apple.com/app/id6785259219" target="_blank" rel="noopener">
+              <svg viewBox="0 0 384 512" fill="currentColor"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
+              <span class="lbl"><small>Stiahnuť na</small><span>App Store</span></span>
+            </a>
+            <a class="store" href="https://play.google.com/store/apps/details?id=sk.sikuta.forn4n6.pro" target="_blank" rel="noopener">
+              <svg viewBox="0 0 512 512"><path fill="#00d3ff" d="M47 30C40 34 36 42 36 53v406c0 11 4 19 11 23l236-229z"/><path fill="#00f076" d="M47 30c5-3 12-3 20 1l301 173-72 70z"/><path fill="#ffce00" d="M368 204l72 41c19 11 19 33 0 44l-72 41-73-83z"/><path fill="#ff3a44" d="M47 482c5 3 12 3 20-1l301-173-72-70z"/></svg>
+              <span class="lbl"><small>K dispozícii na</small><span>Google Play</span></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <h3>Aké údaje zadávaš a kde zostávajú</h3>
-  <ul>
-    <li><strong>Namerané hodnoty a údaje prípadu</strong> (číslo protokolu, dátum, meno
-    zomrelého, meno vyšetrujúceho) sa ukladajú <em>len do úložiska aplikácie
-    v zariadení</em>. Neopúšťajú ho.</li>
-    <li><strong>Fotografie</strong> (fotogrametria, mikroskopia, kolorimetria,
-    imunohistochémia) sa spracúvajú <em>v pamäti</em> počas výpočtu. Aplikácia ich
-    nikam neukladá a nikam neodosiela.</li>
-    <li><strong>Meranie LiDAR-om</strong> prebieha natívne v zariadení; výsledkom je
-    číslo, ktoré sa vráti do výpočtu. Žiadny sken sa neuchováva.</li>
-    <li><strong>Nastavenia</strong> (jazyk, vzhľad, veľkosť písma, ikona) sa ukladajú
-    v zariadení.</li>
-  </ul>
+    <section>
+      <h2>Návody na stiahnutie</h2>
+      <div class="card">
+        <p style="margin-bottom:16px;">Stručný návod k 4n6 Tools Pro — ovládanie, prípad a zápisnica, prehľad všetkých 27 nástrojov, nastavenia a zásady interpretácie. Slovenská aj anglická časť v jednom súbore.</p>
+        <ul class="docs">
+          <li><a href="4n6-Tools-Pro-navod.pdf">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg>
+            <b>4n6 Tools Pro 5.2 — stručný návod / quick guide</b> — 6 strán (PDF, slovensky a anglicky) ›</a></li>
+        </ul>
+        <p style="margin-top:14px;font-size:14px;">Návod zodpovedá verzii 5.2 pre iPhone a iPad. Aplikácia pre Android má rovnakú sadu nástrojov; vydanie zodpovedajúce tomuto návodu je zatiaľ v kontrole Google Play.</p>
+      </div>
+    </section>
 
-  <h3>Povolenia a prečo</h3>
-  <ul>
-    <li><strong>Fotoaparát</strong> — nasnímanie fotografie na meranie. Snímka sa
-    spracuje lokálne.</li>
-    <li><strong>Fotky</strong> — načítanie existujúcej fotografie na meranie alebo
-    hodnotenie. Aplikácia si knižnicu neprehliada a nič z nej neodosiela.</li>
-  </ul>
-  <p>Obe povolenia sú voliteľné. Bez nich fungujú všetky ostatné nástroje.</p>
+    <section id="privacy">
+      <h2>Súkromie na prvom mieste</h2>
+      <div class="card">
+        <p>Aplikácia nezbiera, neodosiela ani nezdieľa žiadne osobné údaje. Nemá sieťové volania, analytiku ani reklamné knižnice, nevyžaduje registráciu. Fotografie sa spracúvajú v pamäti a nikam sa neukladajú; zápisnicu odosielate výhradne vy tlačidlom Odoslať. <a class="inline" href="privacy.html">Zásady ochrany súkromia ›</a></p>
+      </div>
+    </section>
 
-  <h3>Zdieľanie výsledkov</h3>
-  <p>Zápisnicu odosielaš <strong>ty sám</strong> tlačidlom <em>Odoslať</em> cez systémové
-  zdieľanie (e-mail, Poznámky, AirDrop…). Vtedy údaje opustia zariadenie <em>na tvoj
-  pokyn a do cieľa, ktorý zvolíš</em>. Autor aplikácie k nim nemá prístup.</p>
+    <section id="support">
+      <h2>Podpora</h2>
+      <div class="card">
+        <p>Otázky, hlásenia chýb aj návrhy nových metód sú vítané: <a class="inline" href="mailto:forensika.eu@icloud.com?subject=4n6%20Tools">forensika.eu@icloud.com</a>. Časté otázky, požiadavky na zariadenie a postup pri hlásení chyby nájdete na stránke <a class="inline" href="support.html">Podpora ›</a></p>
+      </div>
+    </section>
 
-  <h3>Deti</h3>
-  <p>Aplikácia je odborný nástroj pre zdravotníckych pracovníkov a študentov medicíny;
-  nie je určená deťom a nezbiera údaje o nich.</p>
+    <section>
+      <h2>O projekte</h2>
+      <div class="card">
+        <p>4n6 Tools sú najstarším členom rodiny nástrojov <b>Forensika</b> pre súdne lekárstvo. Zo skúseností s nimi vyrástli samostatné aplikácie <a class="inline" href="https://dzanino.github.io/colorime3ka/">Colorime3ka</a> (forenzné hodnotenie farby), <a class="inline" href="https://dzanino.github.io/littlEyeAI/">littlEye AI</a> (histológia a AI v zariadení) a <a class="inline" href="https://dzanino.github.io/aPrehliadky/">aPrehliadky</a> (3D dokumentácia obhliadky s LiDARom). Rovnaká zásada všade: všetko v zariadení, nič v cloude.</p>
+      </div>
+    </section>
 
-  <h3>Zmeny zásad</h3>
-  <p>Prípadné zmeny sa zverejnia na tejto stránke spolu s novým dátumom platnosti.</p>
+    <section>
+      <h2>Vymedzenie</h2>
+      <div class="card note">
+        <p>Aplikácia je odborná pomôcka pre kvalifikovaných lekárov a znalcov. Všetky hodnoty sú orientačné a vychádzajú z publikovaných metód — uvádzajte vždy interval, nie stredovú hodnotu. Nie je zdravotníckou pomôckou a neurčuje diagnózu; finálne posúdenie patrí pitvajúcemu lekárovi alebo expertovi.</p>
+      </div>
+    </section>
 
-  <h3>Kontakt</h3>
-  <p>MUDr. Ján Šikuta, PhD. — <a href="mailto:forensika.eu@icloud.com">forensika.eu@icloud.com</a></p>
-</section>
-
-<section class="card" id="support">
-  <h2>Podpora</h2>
-  <p>Otázky, hlásenia chýb aj návrhy posielaj e-mailom na
-  <a href="mailto:forensika.eu@icloud.com?subject=4n6%20Tools">forensika.eu@icloud.com</a>.
-  Odpovedám zvyčajne do niekoľkých pracovných dní.</p>
-
-  <h3>Stručný návod</h3>
-  <p>Prehľad všetkých 27 nástrojov 4n6 Tools Pro na šiestich stranách, slovensky aj
-  anglicky: <a href="4n6-Tools-Pro-navod.pdf">4n6-Tools-Pro-navod.pdf</a> (PDF, 200&nbsp;kB).
-  Aplikácia pre Android je rovnaká sada nástrojov; verzia s týmto návodom je zatiaľ
-  v kontrole Google Play.</p>
-
-  <h3>Pri hlásení chyby pomôže</h3>
-  <ul>
-    <li>ktorý <strong>nástroj</strong> (napr. Henssge, Posmrtné zmeny — PMI),</li>
-    <li><strong>zadané hodnoty</strong> a <strong>očakávaný výsledok</strong>,</li>
-    <li>verzia aplikácie (nájdeš ju dole v <em>Nastaveniach</em>) a model zariadenia.</li>
-  </ul>
-
-  <h3>Časté otázky</h3>
-  <p><strong>Potrebuje aplikácia internet?</strong> Nie. Všetky výpočty prebiehajú
-  v zariadení a fungujú aj v režime v lietadle.</p>
-  <p><strong>Prečo je výsledok uvedený ako rozpätie?</strong> Publikované metódy majú
-  rozptyl. Jediné číslo bez rozpätia by v znaleckej praxi bolo zavádzajúce.</p>
-  <p><strong>Prídem o zadané údaje pri prepnutí jazyka?</strong> Nie. Zadanie aj výsledky
-  ostávajú a zápisnica sa prepočíta do zvoleného jazyka.</p>
-
-  <div class="note">
-    Aplikácia je odborná pomôcka. Hodnoty sú orientačné a vychádzajú z publikovaných
-    metód — finálne posúdenie patrí kvalifikovanému lekárovi alebo znalcovi.
-    Aplikácia nie je zdravotníckou pomôckou a neurčuje diagnózu.
   </div>
-</section>
-
-<hr class="sep">
-
-<!-- ======================== ENGLISH ======================== -->
-
-<section class="card" id="privacy-en" lang="en">
-  <h2>Privacy Policy</h2>
-  <p class="updated">Effective 10 September 2026 · 4n6 Tools Pro and 4n6 Tools Lite apps (Android, iOS, iPadOS)</p>
-
-  <h3>In short</h3>
-  <p><strong>The app collects, transmits and shares no personal data.</strong> Everything
-  runs entirely on the device. The app makes no network requests, uses no analytics or
-  advertising libraries, requires no account or sign-in, and does not track you across
-  apps or websites (App Tracking Transparency does not apply).</p>
-
-  <h3>What you enter and where it stays</h3>
-  <ul>
-    <li><strong>Measured values and case details</strong> (protocol number, date, name of
-    the deceased, examiner) are stored <em>only in the app's storage on your device</em>.
-    They never leave it.</li>
-    <li><strong>Photographs</strong> (photogrammetry, microscopy, colorimetry,
-    immunohistochemistry) are processed <em>in memory</em> during the calculation. The app
-    does not store them anywhere and does not upload them.</li>
-    <li><strong>LiDAR measurement</strong> runs natively on the device; the result is a
-    number returned to the calculation. No scan is retained.</li>
-    <li><strong>Settings</strong> (language, appearance, type size, app icon) are stored
-    on the device.</li>
-  </ul>
-
-  <h3>Permissions and why</h3>
-  <ul>
-    <li><strong>Camera</strong> — to take a photograph for measurement. The image is
-    processed locally.</li>
-    <li><strong>Photos</strong> — to load an existing photograph for measurement or
-    assessment. The app does not browse your library and uploads nothing from it.</li>
-  </ul>
-  <p>Both permissions are optional; every other tool works without them.</p>
-
-  <h3>Sharing results</h3>
-  <p>You send the report <strong>yourself</strong> with the <em>Send</em> button through the
-  system share sheet (e-mail, Notes, AirDrop…). Only then does data leave the device —
-  <em>at your instruction and to a destination you choose</em>. The developer has no
-  access to it.</p>
-
-  <h3>Children</h3>
-  <p>The app is a professional tool for healthcare practitioners and medical students. It
-  is not directed to children and collects no data about them.</p>
-
-  <h3>Changes</h3>
-  <p>Any changes will be published on this page together with a new effective date.</p>
-
-  <h3>Contact</h3>
-  <p>Ján Šikuta, MD, PhD. — <a href="mailto:forensika.eu@icloud.com">forensika.eu@icloud.com</a></p>
-</section>
-
-<section class="card" id="support-en" lang="en">
-  <h2>Support</h2>
-  <p>For questions, bug reports and suggestions, write to
-  <a href="mailto:forensika.eu@icloud.com?subject=4n6%20Tools">forensika.eu@icloud.com</a>.
-  I usually reply within a few working days.</p>
-
-  <h3>Quick guide</h3>
-  <p>An overview of all 27 tools in 4n6 Tools Pro on six pages, in Slovak and English:
-  <a href="4n6-Tools-Pro-navod.pdf">4n6-Tools-Pro-navod.pdf</a> (PDF, 200&nbsp;kB).
-  The Android app has the same toolset; the release matching this guide is currently
-  in Google Play review.</p>
-
-  <h3>When reporting a bug, please include</h3>
-  <ul>
-    <li>which <strong>tool</strong> (e.g. Henssge, Post-mortem changes — PMI),</li>
-    <li>the <strong>values you entered</strong> and the <strong>expected result</strong>,</li>
-    <li>the app version (shown at the bottom of <em>Settings</em>) and your device model.</li>
-  </ul>
-
-  <h3>Frequently asked</h3>
-  <p><strong>Does the app need an internet connection?</strong> No. All calculations run on
-  the device and work in aeroplane mode.</p>
-  <p><strong>Why is the result given as a range?</strong> Published methods carry a spread.
-  A single number without a range would be misleading in expert practice.</p>
-  <p><strong>Do I lose my input when switching languages?</strong> No. Input and results are
-  kept, and the report is recalculated into the chosen language.</p>
-
-  <div class="note">
-    The app is a professional aid. Values are orientational and based on published
-    methods — the final assessment belongs to a qualified physician or expert. The app is
-    not a medical device and does not provide a diagnosis.
-  </div>
-</section>
+</main>
 
 <footer>
-  © 2026 Ján Šikuta · <a href="https://forensika.eu">forensika.eu</a>
+  <div class="wrap">
+    <div class="brand">Forens<span class="g">ika</span></div>
+    <div class="words">Objasňujeme · Spájame · Posúvame</div>
+    <a class="site" href="https://forensika.eu/">forensika.eu ›</a>
+    <div class="copy">© 2026 MUDr. Ján Šikuta, PhD. · <a href="mailto:forensika.eu@icloud.com">forensika.eu@icloud.com</a></div>
+  </div>
 </footer>
 
-</main>
 </body>
 </html>
