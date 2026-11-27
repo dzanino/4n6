@@ -1,0 +1,222 @@
+/* forensika.eu - glam.css
+   Spoločný vzhľad pre všetky stránky (SK, EN, DE). Načítava sa po vnútornom <style>,
+   takže prepisuje pôvodné farby a tvary. Pôvodné štýly v stránkach ostávajú ako záloha. */
+
+:root{
+  --bg:#060b14; --bg-2:#0a1220; --bg-3:#0e1828;
+  --ink:#eef3fa; --ink-2:#d9e3ef; --ink-3:#ffffff;
+  --muted:#9dafc3; --soft:#7f93a9;
+  --paper:#060b14; --paper-2:rgba(255,255,255,.05);
+  --card:rgba(255,255,255,.035); --line:rgba(255,255,255,.09); --line-2:rgba(255,255,255,.16);
+  --teal:#4FCBBB; --blue:#66B0E8; --violet:#8E86EC; --lila:#C79BE2; --gold:#E8D3A6;
+  --grad:linear-gradient(100deg,#5fe0cf 0%,#6fb8f0 38%,#9c93f5 70%,#d6a8ee 100%);
+  --serif:"Iowan Old Style","New York",ui-serif,"Palatino Linotype",Palatino,Georgia,serif;
+  --sans:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Inter,"Helvetica Neue",Arial,sans-serif;
+  color-scheme:dark;
+}
+
+html{background:var(--bg);}
+body{
+  font-family:var(--sans);
+  color:var(--ink-2);
+  background:
+    radial-gradient(1100px 700px at 12% -8%, rgba(95,224,207,.10), transparent 60%),
+    radial-gradient(900px 650px at 92% 6%, rgba(156,147,245,.12), transparent 62%),
+    radial-gradient(1200px 900px at 50% 120%, rgba(102,176,232,.08), transparent 60%),
+    var(--bg);
+  background-attachment:fixed;
+  letter-spacing:.005em;
+}
+/* jemné zrno pre hĺbku */
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.05;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+header,main,section,footer,.wave{position:relative;z-index:1;}
+::selection{background:rgba(156,147,245,.45);color:#fff;}
+
+/* ---------- Hlavička ---------- */
+header{
+  background:rgba(6,11,20,.62)!important;
+  backdrop-filter:saturate(170%) blur(18px);-webkit-backdrop-filter:saturate(170%) blur(18px);
+  border-bottom:1px solid var(--line)!important;
+}
+.brand,.brand b{color:#fff!important;}
+.brand b{font-weight:600;}
+.brand .accent,.hero h1 .accent,h1 .accent,footer .accent{background:var(--grad)!important;-webkit-background-clip:text!important;background-clip:text!important;color:transparent!important;}
+.nav a.cta{
+  background:rgba(255,255,255,.04)!important;color:var(--ink-2)!important;
+  border:1px solid var(--line)!important;font-weight:500;letter-spacing:.01em;
+}
+.nav a.cta:hover{background:rgba(255,255,255,.09)!important;border-color:var(--line-2)!important;color:#fff!important;}
+.nav a.cta.lang,.langs a{font-weight:600;}
+.langs{display:inline-flex;align-items:center;gap:2px;padding:3px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.04);}
+.langs a{font-size:12.5px;letter-spacing:.08em;padding:6px 10px;border-radius:999px;color:var(--muted);transition:.2s;}
+.langs a:hover{color:#fff;}
+.langs a.on{color:#0b1626;background:var(--grad);}
+
+/* ---------- Hero (úvodná stránka) ---------- */
+main > .hero, section.hero{background:none!important;}
+.hero{overflow:visible;}
+body > main#top > .hero, main#top > section.hero{
+  padding:110px 0 120px!important;
+  background:
+    radial-gradient(600px 340px at 50% 18%, rgba(111,184,240,.22), transparent 70%),
+    radial-gradient(520px 300px at 30% 70%, rgba(95,224,207,.12), transparent 70%),
+    radial-gradient(520px 300px at 72% 72%, rgba(214,168,238,.13), transparent 70%)!important;
+}
+main#top > .hero::after{
+  content:"";position:absolute;left:50%;top:0;width:min(1100px,96vw);height:100%;transform:translateX(-50%);
+  background:conic-gradient(from 210deg at 50% 40%, rgba(95,224,207,.0), rgba(95,224,207,.10), rgba(156,147,245,.12), rgba(214,168,238,.08), rgba(95,224,207,.0));
+  filter:blur(60px);opacity:.9;pointer-events:none;z-index:-1;animation:aurora 18s ease-in-out infinite alternate;
+}
+@keyframes aurora{0%{transform:translateX(-50%) rotate(0deg) scale(1);}100%{transform:translateX(-50%) rotate(14deg) scale(1.08);}}
+@media (prefers-reduced-motion:reduce){main#top > .hero::after{animation:none;}}
+
+.hero .logo{width:128px!important;height:128px!important;border-radius:28%;
+  box-shadow:0 0 0 1px rgba(255,255,255,.10),0 30px 70px rgba(0,0,0,.55),0 0 90px rgba(111,184,240,.25)!important;}
+.hero h1{
+  font-family:var(--serif)!important;font-weight:600!important;letter-spacing:-.01em!important;
+  font-size:clamp(46px,9vw,104px)!important;line-height:.98!important;color:#fff!important;
+  text-shadow:0 10px 50px rgba(111,184,240,.18);
+}
+.kicker{color:var(--gold)!important;letter-spacing:.38em!important;font-weight:600!important;font-size:12px!important;}
+.hero p.lede,.hero .lede{color:#c7d4e3!important;font-weight:300;}
+main#top .hero p.lede{font-size:clamp(18px,2.4vw,22px)!important;max-width:44ch!important;}
+
+/* Tlačidlá */
+.btn-primary{
+  background:var(--grad)!important;color:#0a1524!important;font-weight:700!important;
+  box-shadow:0 12px 34px rgba(111,184,240,.30),inset 0 1px 0 rgba(255,255,255,.45)!important;border:0;
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 18px 44px rgba(156,147,245,.38),inset 0 1px 0 rgba(255,255,255,.5)!important;}
+.btn-ghost{
+  color:#eaf2fb!important;background:rgba(255,255,255,.04)!important;
+  border:1px solid var(--line-2)!important;backdrop-filter:blur(8px);
+}
+.btn-ghost:hover{background:rgba(255,255,255,.10)!important;border-color:rgba(255,255,255,.32)!important;}
+
+/* farebný pás pod hero nahradí jemná svetelná linka */
+.wave{height:1px!important;background:linear-gradient(90deg,transparent,rgba(111,184,240,.6),rgba(214,168,238,.6),transparent)!important;
+  box-shadow:0 0 24px rgba(156,147,245,.55);}
+
+/* ---------- Nadpisy sekcií ---------- */
+.sec-head .tag{color:var(--gold)!important;letter-spacing:.32em!important;font-weight:600!important;}
+.sec-head h2,section h2,.mission .box h2{
+  font-family:var(--serif)!important;font-weight:600!important;color:#fff!important;letter-spacing:-.005em;
+}
+.sec-head h2{font-size:clamp(32px,5vw,52px)!important;line-height:1.08;}
+.sec-head p,.intro p,.closing{color:var(--muted)!important;}
+.closing b,.intro b{color:#fff!important;}
+
+/* ---------- Karty ---------- */
+.d,.card,details,table.specs,.note{
+  background:linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.02))!important;
+  border:1px solid var(--line)!important;
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  box-shadow:0 1px 0 rgba(255,255,255,.04) inset,0 20px 50px rgba(0,0,0,.25)!important;
+}
+.card{border-radius:26px!important;position:relative;overflow:hidden;}
+.card::before{content:"";position:absolute;inset:0 0 auto 0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.28),transparent);}
+.card:hover,.d:hover{border-color:rgba(156,147,245,.35)!important;
+  box-shadow:0 1px 0 rgba(255,255,255,.06) inset,0 26px 60px rgba(0,0,0,.35),0 0 0 1px rgba(156,147,245,.12),0 0 60px rgba(111,184,240,.10)!important;}
+.d .ico{background:linear-gradient(150deg,rgba(95,224,207,.16),rgba(156,147,245,.16))!important;border:1px solid var(--line);}
+.d .ico svg{stroke:#a9d6ff!important;}
+.d h3,.card h3,h3,details summary{color:#fff!important;}
+.card h3{font-family:var(--serif);font-weight:600!important;font-size:26px!important;}
+.card h3 a{color:#fff!important;}
+.card .sub{color:var(--gold)!important;letter-spacing:.06em!important;font-weight:500!important;}
+.d p,.card p.desc,p,ul.check li,table.specs td:first-child{color:var(--muted)!important;}
+.card p.desc b,p b,li b{color:#fff!important;}
+.card p.desc[style],p[style*="6b7f93"]{color:var(--soft)!important;}
+.card .icon img,.appicon{box-shadow:0 0 0 1px rgba(255,255,255,.12),0 14px 34px rgba(0,0,0,.5)!important;}
+
+.pill{background:rgba(255,255,255,.04)!important;border:1px solid var(--line-2)!important;color:#d5e1ee!important;font-weight:500!important;}
+.tier{border-top:1px solid var(--line)!important;}
+.tier-name{color:#fff!important;}
+.price.free{color:#0b2a24!important;background:linear-gradient(90deg,#7ef0dc,#5fd3c2)!important;}
+.price.paid{color:#1a1430!important;background:linear-gradient(90deg,#e9dcff,#cfc4ff)!important;}
+
+/* Obchody */
+.store{
+  background:#fff!important;color:#0a1524!important;
+  box-shadow:0 8px 22px rgba(0,0,0,.35),0 0 0 1px rgba(255,255,255,.5) inset;
+}
+.store:hover{background:#f1f5fb!important;transform:translateY(-2px);}
+.store .lbl small{opacity:.65!important;}
+.store.web{background:var(--grad)!important;color:#0a1524!important;}
+
+/* Odkazy v texte */
+main a:not([class]),section a:not([class]),.note a,.crumbs a,footer .copy a,a[style*="var(--blue)"]{color:#9fd0ff!important;}
+main a:not([class]):hover,section a:not([class]):hover{color:#fff!important;}
+
+/* ---------- Podstránky aplikácií ---------- */
+.crumbs{color:var(--soft)!important;}
+body:not(:has(main#top)) .hero{padding:44px 0 40px!important;}
+body:not(:has(main#top)) h1{
+  font-family:var(--serif)!important;font-weight:600!important;color:#fff!important;
+  font-size:clamp(34px,5.6vw,58px)!important;line-height:1.06!important;letter-spacing:-.01em;
+}
+.appicon{width:88px!important;height:88px!important;border-radius:24%!important;}
+section{border-color:var(--line)!important;}
+section.alt{background:linear-gradient(180deg,rgba(255,255,255,.025),rgba(255,255,255,.01))!important;border-top:1px solid var(--line)!important;border-bottom:1px solid var(--line)!important;}
+ul.check li::before{content:"✦"!important;color:var(--gold)!important;}
+.step .n{background:var(--grad)!important;color:#0a1524!important;box-shadow:0 0 24px rgba(111,184,240,.35);}
+table.specs td{color:var(--ink-2)!important;border-bottom:1px solid var(--line)!important;}
+details summary{list-style:none;}
+details summary::-webkit-details-marker{display:none;}
+details summary::after{content:"+";float:right;color:var(--gold);font-weight:400;font-size:20px;line-height:1;}
+details[open] summary::after{content:"–";}
+.note{color:var(--ink-2)!important;}
+
+/* ---------- Misia a pätička ---------- */
+.mission .box{
+  background:
+    radial-gradient(500px 220px at 20% 0%, rgba(95,224,207,.18), transparent 70%),
+    radial-gradient(500px 240px at 90% 100%, rgba(214,168,238,.18), transparent 70%),
+    linear-gradient(160deg,#0e1a2c,#0a1220)!important;
+  border:1px solid var(--line-2);
+  box-shadow:0 30px 80px rgba(0,0,0,.45);
+}
+.mission .box h2{font-size:clamp(30px,4.4vw,44px)!important;}
+.mission .box p{color:#c3d1e1!important;}
+.mission .box .words{color:var(--gold)!important;letter-spacing:.42em!important;}
+
+footer{background:rgba(255,255,255,.02)!important;border-top:1px solid var(--line)!important;}
+.foot,footer .copy{color:var(--soft)!important;}
+.foot a,footer .site a,footer .site b{color:#fff!important;}
+footer .site span[style]{background:var(--grad)!important;-webkit-background-clip:text!important;background-clip:text!important;color:transparent!important;}
+.foot a span[style]{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent!important;}
+
+/* ---------- Jemné objavovanie pri rolovaní ---------- */
+@media (prefers-reduced-motion:no-preference){
+  .card,.d{animation:rise .7s cubic-bezier(.2,.7,.2,1) both;}
+  @supports (animation-timeline:view()){
+    .card,.d{animation:rise linear both;animation-timeline:view();animation-range:entry 0% entry 40%;}
+  }
+}
+@keyframes rise{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:none;}}
+
+@media (max-width:760px){
+  body{background-attachment:scroll;}
+  body > main#top > .hero, main#top > section.hero{padding:70px 0 78px!important;}
+  .hero .logo{width:96px!important;height:96px!important;}
+  .card h3{font-size:22px!important;}
+  .kicker{letter-spacing:.24em!important;}
+}
+
+/* Hlavička: nič sa nesmie lámať; pri užšom okne sa odkazy na appky skryjú skôr */
+.nav .brand,.nav a,.langs,.langs a{white-space:nowrap!important;overflow-wrap:normal!important;}
+.nav .brand{flex:0 0 auto;}
+.nav .navwrap{flex-wrap:nowrap;min-width:0;}
+@media (max-width:1400px){.nav .navapp{display:none!important;}}
+@media (max-width:560px){.langs a{padding:6px 8px;}}
+
+/* Podstránky so 6 jazykmi (4n6): na úzkom displeji skryť tlačidlo Aplikácie (je aj v drobčekovej navigácii) */
+@media (max-width:560px){
+  .nav .navwrap > a.cta{display:none!important;}
+  .langs a{padding:5px 6px!important;font-size:11.5px!important;letter-spacing:.04em!important;}
+}
+@media (max-width:360px){ body:not(:has(main#top)) .nav .brand > span{display:none;} }
+@media (max-width:400px){ table.specs td{padding:8px 7px!important;font-size:13px!important;overflow-wrap:anywhere;hyphens:auto;} }
+body:not(:has(main#top)) h1{hyphens:auto;-webkit-hyphens:auto;overflow-wrap:break-word;}

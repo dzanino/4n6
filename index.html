@@ -3,278 +3,440 @@
 <head>
 <meta charset="UTF-8"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; media-src 'self'; connect-src 'self' https://forensika.goatcounter.com; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests"><meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta property="og:image" content="https://forensika.eu/img/og/4n6.png">
-<link rel="canonical" href="https://dzanino.github.io/4n6/">
-<title>4n6 Tools - forenzné kalkulačky pre súdne lekárstvo</title>
-<meta name="description" content="4n6 Tools Pro a Lite - 27 nástrojov súdneho lekárstva vo vrecku: čas smrti, toxikológia, identifikácia, DVI, antropológia. Počíta, interpretuje a cituje. Celé v zariadení, bez internetu.">
-<meta property="og:title" content="4n6 Tools - forenzné kalkulačky pre súdne lekárstvo">
-<meta property="og:description" content="27 nástrojov súdneho lekárstva vo vrecku. Počíta, interpretuje a cituje. Celé v zariadení, bez internetu.">
-<link rel="icon" href="icon-512.png" type="image/png">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="icon-192.png" type="image/png" sizes="192x192">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:image" content="https://forensika.eu/img/og/4n6.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="4n6 Tools">
+<title>4n6 Tools · forenzné kalkulačky pre súdne lekárstvo</title>
+<meta name="description" content="27 odborných kalkulačiek pre súdne lekárstvo: čas smrti, toxikológia a etanol, DVI a antropológia. Citované metódy, offline, Lite zadarmo.">
+<link rel="canonical" href="https://forensika.eu/4n6/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="4n6 Tools · forenzné kalkulačky pre súdne lekárstvo">
+<meta property="og:description" content="27 nástrojov pre súdne lekárstvo s citáciou pri každej metóde: Henssge, etanol, 67 látok, DVI, antropológia. Všetko v zariadení, bez internetu.">
+<meta property="og:url" content="https://forensika.eu/4n6/">
+<meta property="og:locale" content="sk_SK">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:locale:alternate" content="de_DE">
+<meta property="og:locale:alternate" content="es_ES">
+<meta property="og:locale:alternate" content="pt_BR">
+<meta property="og:locale:alternate" content="pl_PL">
+<meta property="og:site_name" content="Forensika">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://forensika.eu/img/og/4n6.png">
 <style>
-  :root{
-    --ink:#0f1a2b;
-    --muted:#56657a;
-    --navy:#1d3757;
-    --navy-2:#0c1626;
-    --cyan:#57c4ea;
-    --teal:#46cfa2;
-    --sky:#a8e4ff;
-    --paper:#eef2f7;
-    --paper-2:#e3eaf3;
-    --card:#ffffff;
-    --line:#d9e2ec;
-  }
+  .btn-link{color:var(--blue);font-weight:600;}
+  .btn-link:hover{text-decoration:underline;}
+  :root{--ink:#274863;--ink-2:#22415C;--ink-3:#132A3D;--muted:#6b7f93;--paper:#f5f8fc;--paper-2:#eaf1f8;--card:#ffffff;--line:#e2eaf2;--teal:#4FCBBB;--blue:#66B0E8;--violet:#8E86EC;--lila:#C79BE2;}
   *{box-sizing:border-box;margin:0;padding:0;}
   html{scroll-behavior:smooth;}
-  body{
-    font-family:'Helvetica Neue',Arial,sans-serif;
-    color:var(--ink);
-    background:var(--paper);
-    -webkit-font-smoothing:antialiased;
-    line-height:1.55;
-  }
+  body{font-family:'Helvetica Neue',Arial,sans-serif;color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased;line-height:1.6;}
   a{color:inherit;text-decoration:none;}
-  .wrap{max-width:840px;margin:0 auto;padding:0 24px;}
-
-  /* Hero */
-  .hero{
-    position:relative;overflow:hidden;text-align:center;color:#fff;
-    background:
-      radial-gradient(760px 420px at 50% -10%, rgba(87,196,234,.35), transparent 62%),
-      linear-gradient(160deg,#1d3757,#0c1626);
-    padding:64px 0 80px;
-  }
-  .hero .icon{width:96px;height:96px;border-radius:22%;display:block;margin:0 auto 20px;
-    box-shadow:0 14px 34px rgba(0,0,0,.45);}
-  .hero h1{font-size:clamp(38px,7vw,58px);font-weight:700;letter-spacing:.4px;line-height:1.05;margin-bottom:6px;}
-  .hero h1 .n{background:linear-gradient(90deg,var(--sky),var(--cyan) 55%,var(--teal));
-    -webkit-background-clip:text;background-clip:text;color:transparent;}
-  .hero .kicker{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:#9fd6ee;font-weight:600;margin-bottom:18px;}
-  .hero p.lede{font-size:clamp(16px,2.5vw,19px);color:#d6e4f2;max-width:56ch;margin:0 auto 30px;}
-  .hero b{color:#fff;}
-  .hero .btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
-  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:15px;
-    padding:12px 24px;border-radius:999px;transition:.2s;}
-  .btn-primary{color:#0c1626;background:#fff;box-shadow:0 10px 26px rgba(0,0,0,.25);}
-  .btn-primary:hover{transform:translateY(-1px);background:var(--sky);}
-  .btn-ghost{color:#e6f2fb;border:1px solid rgba(255,255,255,.35);}
-  .btn-ghost:hover{background:rgba(255,255,255,.10);border-color:rgba(255,255,255,.6);}
-  .rule{height:6px;background:linear-gradient(90deg,var(--sky),var(--cyan),var(--teal),var(--navy));}
-
-  /* Sections */
-  main{padding:58px 0 20px;}
-  section{margin-bottom:34px;}
-  h2{font-size:clamp(21px,3.2vw,26px);font-weight:700;color:var(--navy);margin-bottom:14px;
-     display:flex;align-items:center;gap:10px;}
-  h2::before{content:"";width:5px;height:22px;border-radius:3px;flex:0 0 auto;
-     background:linear-gradient(180deg,var(--cyan),var(--teal));}
-  h3{font-size:15px;font-weight:700;color:var(--navy);margin:18px 0 8px;letter-spacing:.3px;}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px 28px;
-     box-shadow:0 1px 3px rgba(12,22,38,.05);}
-  .card > h3:first-child{margin-top:0;}
-  p{color:var(--muted);font-size:15.5px;}
-  p + p{margin-top:12px;}
-  strong,b{color:var(--ink);font-weight:700;}
-
-  ul.feat{list-style:none;}
-  ul.feat li{position:relative;padding-left:28px;margin-bottom:9px;color:var(--muted);font-size:15.5px;}
-  ul.feat li:last-child{margin-bottom:0;}
-  ul.feat li::before{content:"";position:absolute;left:6px;top:9px;width:8px;height:8px;border-radius:50%;
-     background:linear-gradient(135deg,var(--cyan),var(--teal));}
-
-  /* Tiers */
-  .tiers{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;}
-  .tier{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px 24px;
-     box-shadow:0 1px 3px rgba(12,22,38,.05);}
-  .tier .name{display:flex;align-items:center;gap:10px;font-size:19px;font-weight:700;color:var(--navy);margin-bottom:6px;}
-  .price{font-size:12px;font-weight:700;padding:3px 10px;border-radius:999px;letter-spacing:.3px;}
-  .price.free{background:#e2f7ee;color:#1c7a4c;}
-  .price.paid{background:#e4f1fb;color:#1f5f8b;}
-  .tier p{font-size:14.5px;margin-bottom:14px;}
-  .stores{display:flex;flex-wrap:wrap;gap:8px;}
-  .store{display:inline-flex;align-items:center;gap:9px;padding:9px 14px 9px 11px;border-radius:12px;
-     background:var(--navy-2);color:#fff;font-size:13px;line-height:1.1;transition:.18s;}
-  .store:hover{background:var(--navy);transform:translateY(-1px);}
-  .store svg{width:20px;height:20px;flex:0 0 auto;}
-  .store .lbl{display:flex;flex-direction:column;}
-  .store .lbl small{font-size:10px;opacity:.75;}
-  .store .lbl span{font-weight:700;font-size:14px;}
-
-  /* Download links */
-  ul.docs{list-style:none;display:grid;gap:10px;}
-  ul.docs a{display:flex;align-items:center;gap:12px;padding:13px 16px;border-radius:12px;
-     background:var(--paper);border:1px solid var(--line);color:var(--navy);
-     font-weight:600;font-size:14.5px;transition:.18s;}
-  ul.docs a:hover{background:#fff;border-color:var(--cyan);transform:translateX(2px);}
-  ul.docs svg{width:18px;height:18px;flex:0 0 auto;stroke:var(--cyan);}
-  a.inline{color:#1f7fb0;font-weight:600;text-decoration:underline;text-underline-offset:2px;}
-  a.inline:hover{color:var(--navy);}
-
-  .note{background:linear-gradient(160deg,#f3f7fb,#e9f0f7);border:1px solid var(--line);}
-
-  /* Footer */
-  footer{margin-top:44px;padding:38px 0 44px;background:#fff;border-top:1px solid var(--line);text-align:center;}
-  .brand{font-size:26px;font-weight:700;letter-spacing:.3px;margin-bottom:8px;}
-  .brand .g{background:linear-gradient(90deg,#4FCBBB,#66B0E8 55%,#8E86EC);
-     -webkit-background-clip:text;background-clip:text;color:transparent;}
-  .words{font-size:11px;letter-spacing:3.5px;font-weight:600;color:var(--muted);text-transform:uppercase;margin-bottom:14px;}
-  footer .site{display:inline-block;color:#1f7fb0;font-weight:600;font-size:14px;margin-bottom:16px;}
-  footer .site:hover{text-decoration:underline;}
-  footer .copy{font-size:13.5px;color:var(--muted);}
-  footer .copy a{color:#1f7fb0;font-weight:600;}
-  footer .copy a:hover{text-decoration:underline;}
+  .wrap{max-width:900px;margin:0 auto;padding:0 24px;}
+  header{position:sticky;top:0;z-index:50;background:rgba(245,248,252,.88);backdrop-filter:saturate(160%) blur(12px);border-bottom:1px solid var(--line);}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:66px;}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:600;font-size:19px;letter-spacing:.3px;}
+  .brand b{font-weight:600;color:var(--ink);}
+  .brand .accent{background:linear-gradient(90deg,var(--teal),var(--blue) 55%,var(--violet));-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .navwrap{display:flex;gap:10px;align-items:center;}
+  .nav a.cta{font-size:14px;font-weight:600;color:var(--ink);border:1px solid var(--line);padding:9px 16px;border-radius:999px;background:#fff;transition:.2s;}
+  .nav a.cta:hover{border-color:var(--blue);color:var(--blue);}
+  .crumbs{font-size:13px;color:var(--muted);padding:14px 0 0;}
+  .crumbs a{color:var(--blue);}
+  .hero{padding:26px 0 30px;}
+  .kicker{font-size:12px;letter-spacing:2.5px;font-weight:700;color:var(--blue);text-transform:uppercase;margin-bottom:10px;}
+  h1{font-size:clamp(28px,4.6vw,42px);font-weight:700;line-height:1.15;margin-bottom:16px;color:var(--ink);}
+  h1 .accent{background:linear-gradient(90deg,var(--teal),var(--blue) 55%,var(--lila));-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .lede{font-size:18px;color:var(--muted);max-width:66ch;margin-bottom:22px;}
+  .btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:8px;}
+  .btn-primary{display:inline-flex;align-items:center;gap:8px;font-weight:700;color:#fff;background:linear-gradient(90deg,var(--teal),var(--blue));padding:13px 24px;border-radius:999px;box-shadow:0 10px 26px rgba(79,203,187,.32);}
+  .btn-ghost{display:inline-flex;align-items:center;gap:8px;font-weight:600;color:var(--ink);border:1px solid var(--line);background:#fff;padding:12px 22px;border-radius:999px;}
+  .pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;}
+  .pill{font-size:12.5px;font-weight:600;color:var(--ink-2);background:var(--paper-2);border:1px solid var(--line);padding:6px 12px;border-radius:999px;}
+  section{padding:38px 0;}
+  section.alt{background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  h2{font-size:clamp(23px,3.4vw,30px);font-weight:700;color:var(--ink);margin-bottom:16px;}
+  h3{font-size:17px;font-weight:700;color:var(--ink);margin-bottom:6px;}
+  p{color:var(--muted);font-size:15.5px;margin-bottom:14px;max-width:74ch;}
+  ul.check{list-style:none;margin:14px 0;}
+  ul.check li{position:relative;padding-left:26px;margin-bottom:10px;color:var(--muted);font-size:15.5px;}
+  ul.check li::before{content:"✓";position:absolute;left:0;top:0;color:var(--teal);font-weight:700;}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px;margin-top:8px;}
+  .d{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;}
+  .d h3{margin-bottom:7px;}
+  .d p{margin:0;font-size:14.5px;}
+  .steps{counter-reset:s;margin-top:8px;}
+  .step{display:flex;gap:16px;margin-bottom:18px;}
+  .step .n{counter-increment:s;flex:0 0 auto;width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--teal),var(--blue));color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:15px;}
+  .step .n::before{content:counter(s);}
+  table.specs{width:100%;border-collapse:collapse;margin-top:8px;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;}
+  table.specs td{padding:10px 14px;font-size:14.5px;border-bottom:1px solid var(--line);color:var(--ink);}
+  table.specs td:first-child{color:var(--muted);width:42%;}
+  table.specs tr:last-child td{border-bottom:none;}
+  details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin-bottom:10px;}
+  details summary{cursor:pointer;font-weight:700;color:var(--ink);font-size:15.5px;}
+  details p{margin:10px 0 0;}
+  .note{background:var(--paper-2);border:1px solid var(--line);border-radius:14px;padding:18px 20px;font-size:14px;color:var(--ink-2);}
+  footer{margin-top:20px;padding:34px 0 40px;background:#fff;border-top:1px solid var(--line);text-align:center;}
+  footer .site{font-size:15px;font-weight:700;}
+  footer .copy{margin-top:8px;font-size:13.5px;color:var(--muted);}
+  footer .copy a{color:var(--blue);font-weight:600;}
+  .appicon{width:72px;height:72px;border-radius:26%;box-shadow:0 8px 22px rgba(19,42,61,.2);margin-bottom:14px;display:block;}
+  table.specs td.b{font-weight:700;}
 </style>
-<link rel="stylesheet" href="glam.css?v=20261017">
-<link rel="me" href="https://orcid.org/0000-0002-4690-0317">
+<link rel="stylesheet" href="forensika-glam.css">
+<link rel="stylesheet" href="n6demo.css?v=20261108">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "4n6 Tools Pro",
+      "url": "https://forensika.eu/4n6/",
+      "applicationCategory": "MedicalApplication",
+      "operatingSystem": "iOS 17+, iPadOS 17+, Android",
+      "softwareVersion": "5.9",
+      "inLanguage": [
+        "sk",
+        "en",
+        "cs",
+        "de",
+        "it",
+        "fr",
+        "uk",
+        "pl",
+        "hu",
+        "zh-Hans",
+        "es",
+        "pt-BR"
+      ],
+      "offers": {
+        "@type": "Offer",
+        "price": "104.99",
+        "priceCurrency": "EUR"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Ján Šikuta"
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Ján Šikuta"
+      },
+      "downloadUrl": "https://apps.apple.com/app/id6785259219",
+      "installUrl": "https://play.google.com/store/apps/details?id=sk.sikuta.forn4n6.pro",
+      "description": "Odborné kalkulačky pre súdne lekárstvo: 27 nástrojov na čas smrti, toxikológiu, identifikáciu, DVI a antropológiu, s citáciou pri každej metóde. Všetko beží v zariadení."
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "4n6 Tools Lite",
+      "applicationCategory": "MedicalApplication",
+      "operatingSystem": "iOS 17+, Android",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Ján Šikuta"
+      },
+      "downloadUrl": "https://apps.apple.com/app/id6783425913",
+      "installUrl": "https://play.google.com/store/apps/details?id=com.sikuta.n6toolslite"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Forensika",
+      "item": "https://forensika.eu/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Aplikácie",
+      "item": "https://forensika.eu/#aplikacie"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "4n6 Tools",
+      "item": "https://forensika.eu/4n6/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Čím sa líši 4n6 Tools Lite od Pro?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Lite je zadarmo a obsahuje sedem plne funkčných nástrojov: Henssgeho nomogram, PMI zo sklovcového draslíka, Traubov index, BMI, telesný povrch a očakávanú hmotnosť srdca, vek z obvodov aorty a prevodník jednotiek. Pro odomyká všetkých 27 nástrojov vrátane toxikológie, etanolu, entomológie, DVI, odontológie a antropológie. Od verzie 5.1 si v Lite otvoríte aj ostatné nástroje ako ukážku: formulár, metódu a literatúru; výsledok vypočíta Pro."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Je 4n6 Tools zdravotnícka pomôcka?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nie. Je to odborná pomôcka pre súdnych lekárov a znalcov; hodnoty sú orientačné, každý výsledok má rozptyl alebo výhradu a konečné posúdenie patrí kvalifikovanému odborníkovi."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Funguje aplikácia bez internetu?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Áno. Všetky výpočty bežia v zariadení, aplikácia nepotrebuje pripojenie a neodosiela žiadne údaje."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Prečo Pro stojí 104,99 €?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ide o rozsiahly odborný nástroj: 27 nástrojov, 67 látok s referenčnými hladinami a metódy revidované podľa pôvodnej literatúry s citáciou pri každom výsledku. Je to jednorazová platba, bez predplatného, reklám a zberu údajov; po DPH a provízii obchodu sa k autorovi dostane približne 57 % ceny."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "V akých jazykoch je aplikácia?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pro od verzie 5.5 aj Lite od verzie 5.3 v dvanástich: slovenčina, angličtina, čeština, nemčina, taliančina, francúzština, ukrajinčina, poľština, maďarčina, čínština (zjednodušená), španielčina a portugalčina (Brazília): celé rozhranie, výsledky aj zápisnica. Pri prvom spustení sa riadi jazykom telefónu a jazyk sa dá kedykoľvek zmeniť tlačidlom v hlavičke."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
-
-<header class="hero">
-  <div class="wrap">
-    <img class="icon" src="icon-512.png" alt="4n6 Tools Pro" width="96" height="96">
-    <div class="kicker">Pro · Lite · iOS · Android</div>
-    <h1><span class="n">4n6</span> Tools</h1>
-    <p class="lede">Forenzné kalkulačky pre súdne lekárstvo - <b>27 nástrojov</b> vo vrecku: čas smrti, toxikológia, identifikácia, DVI, antropológia. Počíta, interpretuje a cituje. Celé v zariadení, bez internetu.</p>
-    <div class="btns">
-      <a class="btn btn-primary" href="#stiahnut">Stiahnuť</a>
-      <a class="btn btn-ghost" href="4n6-Tools-Pro-navod.pdf">Návod (PDF)</a>
-      <a class="btn btn-ghost" href="privacy.html">Ochrana súkromia</a>
-      <a class="btn btn-ghost" href="support.html">Podpora</a>
-    </div>
-  </div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0.9" y2="1"><stop offset="0" stop-color="#2A4E70"/><stop offset="1" stop-color="#132A3D"/></linearGradient>
+<radialGradient id="glassI" cx="36%" cy="26%" r="85%"><stop offset="0" stop-color="#FFFFFF"/><stop offset="0.52" stop-color="#EDF2F8"/><stop offset="1" stop-color="#C9D7E5"/></radialGradient>
+<linearGradient id="pc" gradientUnits="userSpaceOnUse" x1="-80" y1="0" x2="6" y2="0"><stop offset="0" stop-color="#3FB4AC"/><stop offset="1" stop-color="#4C8CCF"/></linearGradient>
+<filter id="blurC" x="-40%" y="-70%" width="180%" height="240%"><feGaussianBlur stdDeviation="3.4"/></filter>
+<clipPath id="lensI"><circle cx="0" cy="0" r="92"/></clipPath>
+<symbol id="forensika-icon" viewBox="0 0 512 512">
+<rect x="0" y="0" width="512" height="512" rx="116" fill="url(#bg)"/>
+<g transform="translate(256,248)">
+<circle cx="0" cy="6" r="118" fill="#0C1E2E" opacity="0.28"/>
+<circle cx="0" cy="0" r="92" fill="url(#glassI)"/>
+<circle cx="0" cy="0" r="90" fill="none" stroke="#16324A" stroke-width="2.5" opacity="0.10"/>
+<g clip-path="url(#lensI)">
+<ellipse cx="-40" cy="-46" rx="44" ry="25" fill="#FFFFFF" opacity="0.5" transform="rotate(-28 -40 -46)"/>
+<path d="M -84 18 L -68 18 L -61 5 L -54 18 L -42 18 L -35 31 L -26 -56 L -17 41 L -9 18 L 2 18" fill="none" stroke="url(#pc)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" filter="url(#blurC)"/>
+<path d="M 8 18 H 86" fill="none" stroke="#5C7EA3" stroke-width="11" stroke-linecap="round" stroke-dasharray="0.5 20"/>
+</g>
+<circle cx="0" cy="0" r="118" fill="none" stroke="#F4F8FC" stroke-width="15"/>
+<rect x="80" y="80" width="64" height="21" rx="10.5" transform="rotate(45 80 80)" fill="#F4F8FC"/>
+</g>
+</symbol>
+</defs>
+</svg>
+<header>
+<div class="wrap nav">
+<a class="brand" href="https://forensika.eu/"><svg width="34" height="34"><use href="#forensika-icon"/></svg><span><b>Forens</b><span class="accent">ika</span></span></a>
+<div class="navwrap">
+<a class="cta" href="https://forensika.eu/#aplikacie">Aplikácie</a>
+<span class="langs"><a class="on" href="./" hreflang="sk">SK</a><a href="https://forensika.eu/en/4n6/" hreflang="en">EN</a><a href="https://forensika.eu/de/4n6/" hreflang="de">DE</a><a href="https://forensika.eu/es/4n6/" hreflang="es">ES</a><a href="https://forensika.eu/pt/4n6/" hreflang="pt-BR">PT</a><a href="https://forensika.eu/pl/4n6/" hreflang="pl">PL</a></span>
+</div>
+</div>
 </header>
-<div class="rule"></div>
-
 <main>
-  <div class="wrap">
-
-    <section>
-      <h2>Čo aplikácia robí</h2>
-      <div class="card">
-        <p>Súbor odborných kalkulačiek a referenčných tabuliek pre súdne lekárstvo - k pitevnému stolu, na miesto činu aj k písaniu protokolov a znaleckých posudkov. Vznikol z každodennej praxe súdneho lekára.</p>
-        <h3>Čas smrti a tanatológia</h3>
-        <ul class="feat">
-          <li><b>Henssgeho nomogram</b> - PMI z rektálnej teploty (Marshall–Hoare), asistent korekčného faktora, 95 % intervaly, priamy dátum a čas smrti</li>
-          <li><b>Posmrtné zmeny</b> - škvrny, stuhnutosť po svalových skupinách, zákal rohovky, Casperovo pravidlo; grafická časová os s prienikom okien</li>
-          <li><b>Draslík v sklovci</b> - štyri publikované metódy a hypoxantín ako nezávislá kontrola</li>
-          <li><b>Forenzná entomológia</b> - vývojové štádiá s ilustráciami, metóda ADD, tepelný súčet s korekciou mikroklímy</li>
-        </ul>
-        <h3>Toxikológia</h3>
-        <ul class="feat">
-          <li><b>Etanol</b> - interpretácia, Widmark, spätný prepočet k času skutku, alkoholemická krivka s pásmom neistoty, čas vytriezvenia, prepočet na dych</li>
-          <li><b>PAL</b> - referenčné koncentrácie 67 látok v pásmach terapeutické – toxické – letálne a posmrtné hodnoty femorálnej krvi (medián, 90. a 97,5. percentil zo 122 000 pitiev), s citáciou pri každom hesle</li>
-          <li><b>CO-Hb</b> - interpretácia karboxyhemoglobínu a posúdenie vitality pri požiari; <b>Traubov index</b></li>
-        </ul>
-        <h3>Trauma, kardiopatológia, identifikácia</h3>
-        <ul class="feat">
-          <li><b>Popáleniny</b> - TBSA podľa Lunda a Browdera, Bauxov index a jeho revízia</li>
-          <li><b>BSA a očakávaná hmotnosť srdca</b>; odhad veku z obvodov aorty; BMI a stav výživy</li>
-          <li><b>DVI</b> - štruktúra podľa INTERPOL DVI Guide, primárne a sekundárne identifikátory, kategórie stotožnenia</li>
-          <li><b>Odontológia</b> - odontogram, porovnanie AM/PM, šesť metód odhadu veku; <b>krvné skupiny a stopy</b> - dedičnosť AB0/Rh, uhol dopadu kvapky</li>
-          <li><b>Antropológia</b> - výška z dlhých kostí, pohlavie a vek kostry, vek plodu z femuru, objemový odhad hmotnosti</li>
-        </ul>
-        <h3>Mikroskopia a obrazová analýza</h3>
-        <ul class="feat">
-          <li>Počítanie buniek a štruktúr s poloautomatickou detekciou; <b>IHC dezmín</b> - kvantifikácia CPA</li>
-          <li><b>Colorime3ka</b> - objektívne pomenovanie farby s kalibráciou sivou kartou; <b>Fotograme3ka</b> - dĺžky, uhly a plochy z fotografie, na iPhonoch s LiDARom natívne meranie</li>
-        </ul>
-        <h3>Navrhnuté pre znaleckú prax</h3>
-        <ul class="feat">
-          <li>Každý výsledok má rozptyl alebo výhradu; nemožný vstup vráti vysvetlenie, nie číslo. Citácie zdrojov pri každej metóde</li>
-          <li><b>Prípad a zápisnica</b> - údaje sa zadajú raz, nástroje odovzdajú výsledky do spoločnej zápisnice so zdieľaním; záloha prípadov do jedného súboru</li>
-          <li>Dvanásť jazykov (od verzie 5.5, Lite od 5.3): slovenčina, angličtina, čeština, nemčina, taliančina, francúzština, ukrajinčina, poľština, maďarčina, čínština (zjednodušená), španielčina a portugalčina (Brazília) - celé rozhranie, výsledky aj zápisnica; nastaviteľná veľkosť písma; svetlý, tmavý a systémový vzhľad</li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="stiahnut">
-      <h2>Lite a Pro</h2>
-      <div class="tiers">
-        <div class="tier">
-          <div class="name">4n6 Tools Lite <span class="price free">Zdarma</span></div>
-          <p>Sedem plne funkčných nástrojov zadarmo: Henssge, draslík v sklovci, Traubov index, BMI a výživa, BSA a hmotnosť srdca, vek z obvodov aorty, prevodník jednotiek. Od verzie 5.1 si ostatné nástroje otvoríte ako ukážku: formulár, metódu a literatúru; výsledok vypočíta Pro.</p>
-          <div class="stores">
-            <a class="store" href="https://apps.apple.com/app/id6783425913" target="_blank" rel="noopener">
-              <svg viewBox="0 0 384 512" fill="currentColor"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
-              <span class="lbl"><small>Stiahnuť na</small><span>App Store</span></span>
-            </a>
-            <a class="store" href="https://play.google.com/store/apps/details?id=com.sikuta.n6toolslite" target="_blank" rel="noopener">
-              <svg viewBox="0 0 512 512"><path fill="#00d3ff" d="M47 30C40 34 36 42 36 53v406c0 11 4 19 11 23l236-229z"/><path fill="#00f076" d="M47 30c5-3 12-3 20 1l301 173-72 70z"/><path fill="#ffce00" d="M368 204l72 41c19 11 19 33 0 44l-72 41-73-83z"/><path fill="#ff3a44" d="M47 482c5 3 12 3 20-1l301-173-72-70z"/></svg>
-              <span class="lbl"><small>K dispozícii na</small><span>Google Play</span></span>
-            </a>
-          </div>
-        </div>
-        <div class="tier">
-          <div class="name">4n6 Tools Pro <span class="price paid">Plná verzia</span></div>
-          <p>Všetkých 27 nástrojov, prípad a zápisnica, záloha prípadov. Jednorazový nákup bez predplatného - každý nákup podporuje ďalší vývoj.</p>
-          <div class="stores">
-            <a class="store" href="https://apps.apple.com/app/id6785259219" target="_blank" rel="noopener">
-              <svg viewBox="0 0 384 512" fill="currentColor"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
-              <span class="lbl"><small>Stiahnuť na</small><span>App Store</span></span>
-            </a>
-            <a class="store" href="https://play.google.com/store/apps/details?id=sk.sikuta.forn4n6.pro" target="_blank" rel="noopener">
-              <svg viewBox="0 0 512 512"><path fill="#00d3ff" d="M47 30C40 34 36 42 36 53v406c0 11 4 19 11 23l236-229z"/><path fill="#00f076" d="M47 30c5-3 12-3 20 1l301 173-72 70z"/><path fill="#ffce00" d="M368 204l72 41c19 11 19 33 0 44l-72 41-73-83z"/><path fill="#ff3a44" d="M47 482c5 3 12 3 20-1l301-173-72-70z"/></svg>
-              <span class="lbl"><small>K dispozícii na</small><span>Google Play</span></span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <h2>Návody na stiahnutie</h2>
-      <div class="card">
-        <p style="margin-bottom:16px;">Stručný návod k 4n6 Tools Pro - ovládanie, prípad a zápisnica, prehľad všetkých 27 nástrojov, nastavenia a zásady interpretácie. Slovenská aj anglická časť v jednom súbore.</p>
-        <ul class="docs">
-          <li><a href="4n6-Tools-Pro-navod.pdf">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg>
-            <b>4n6 Tools Pro 5.9 - stručný návod / quick guide</b> - 6 strán (PDF, slovensky a anglicky) ›</a></li>
-        </ul>
-        <p style="margin-top:14px;font-size:14px;">Návod zodpovedá verzii 5.9 pre iPhone, iPad aj Android. Verzia 5.9 prináša overenie zdrojov (Mallach, Traub, entomológia, Kvaal, vek plodu). Verzia 5.8 prináša stanoviská SSLS 2025 pre etanol a psychoaktívne látky, vek plodu z femuru podľa Carneiro 2016 a Traubov index s dolnou hranicou 160 mg/dl. Verzia 5.5 pridáva poľštinu, maďarčinu, čínštinu (zjednodušenú), španielčinu a portugalčinu (Brazília). Verzia 5.4 pridáva tri témy vzhľadu (Laboratórny prístroj, Farebné sklo, Čierne zlato) a opravuje výpočet Henssgeho v teplom prostredí (od 23,3 °C). Verzia 5.3 pridáva češtinu, nemčinu, taliančinu, francúzštinu a ukrajinčinu; jazyk sa vyberá tlačidlom v hlavičke.</p>
-      </div>
-    </section>
-
-    <section id="privacy">
-      <h2>Súkromie na prvom mieste</h2>
-      <div class="card">
-        <p>Aplikácia nezbiera, neodosiela ani nezdieľa žiadne osobné údaje. Nemá sieťové volania, analytiku ani reklamné knižnice, nevyžaduje registráciu. Fotografie sa spracúvajú v pamäti a nikam sa neukladajú; zápisnicu odosielate výhradne vy tlačidlom Odoslať. <a class="inline" href="privacy.html">Zásady ochrany súkromia ›</a></p>
-      </div>
-    </section>
-
-    <section id="support">
-      <h2>Podpora</h2>
-      <div class="card">
-        <p>Otázky, hlásenia chýb aj návrhy nových metód sú vítané: <a class="inline" href="mailto:admin@forensika.eu?subject=4n6%20Tools">admin@forensika.eu</a>. Časté otázky, požiadavky na zariadenie a postup pri hlásení chyby nájdete na stránke <a class="inline" href="support.html">Podpora ›</a></p>
-      </div>
-    </section>
-
-    <section>
-      <h2>O projekte</h2>
-      <div class="card">
-        <p>4n6 Tools sú najstarším členom rodiny nástrojov <b>Forensika</b> pre súdne lekárstvo. Zo skúseností s nimi vyrástli samostatné aplikácie <a class="inline" href="https://dzanino.github.io/colorime3ka/">Colorime3ka</a> (forenzné hodnotenie farby), <a class="inline" href="https://dzanino.github.io/littlEyeAI/">littlEye AI</a> (histológia a AI v zariadení) a <a class="inline" href="https://dzanino.github.io/aPrehliadky/">aPrehliadky</a> (3D dokumentácia prehliadky s LiDARom). Rovnaká zásada všade: všetko v zariadení, nič v cloude.</p>
-      </div>
-    </section>
-
-    <section>
-      <h2>Vymedzenie</h2>
-      <div class="card note">
-        <p>Aplikácia je odborná pomôcka pre kvalifikovaných lekárov a znalcov. Všetky hodnoty sú orientačné a vychádzajú z publikovaných metód - uvádzajte vždy interval, nie stredovú hodnotu. Nie je zdravotníckou pomôckou a neurčuje diagnózu; finálne posúdenie patrí pitvajúcemu lekárovi alebo expertovi.</p>
-      </div>
-    </section>
-
-  </div>
+<div class="wrap">
+<p class="crumbs"><a href="https://forensika.eu/">Forensika</a> › <a href="https://forensika.eu/#aplikacie">Aplikácie</a> › 4n6 Tools</p>
+<section class="hero">
+<img class="appicon" src="img/4n6-tools.png" alt="4n6 Tools" width="72" height="72">
+<div class="kicker">Súdne lekárstvo · kalkulačky · v zariadení</div>
+<h1>4n6 Tools · <span class="accent">forenzné kalkulačky</span>, ktoré počítajú, interpretujú a citujú</h1>
+<p class="lede">27 nástrojov, ktoré využijete pri prehliadke tela na mieste činu, pri pitve aj pri písaní znaleckého posudku z výsledkov vyšetrení. Každý výsledok má rozptyl alebo výhradu a pri každej metóde je jej citácia: výsledok, ktorý neviete obhájiť, je horší než žiadny.</p>
+<div class="btns" id="stiahnut">
+<a class="btn-primary" href="https://apps.apple.com/app/id6785259219" target="_blank" rel="noopener">Pro v App Store</a>
+<a class="btn-ghost" href="https://play.google.com/store/apps/details?id=sk.sikuta.forn4n6.pro" target="_blank" rel="noopener">Pro na Google Play</a>
+<a class="btn-ghost" href="#lite">Lite zadarmo ›</a>
+</div>
+<div class="pills">
+<span class="pill">Henssge · Marshall–Hoare · 95 % CI</span>
+<span class="pill">Etanol · Widmark</span>
+<span class="pill">67 látok · PAL</span>
+<span class="pill">DVI · INTERPOL 2023</span>
+<span class="pill">Citované metódy</span>
+<span class="pill">12 jazykov · offline</span>
+<span class="pill">iPhone · iPad · Android</span>
+</div>
+</section>
+</div>
 </main>
 
-<footer>
-  <div class="wrap">
-    <div class="brand">Forens<span class="g">ika</span></div>
-    <div class="words">Objasňujeme · Spájame · Posúvame</div>
-    <a class="site" href="https://forensika.eu/">forensika.eu ›</a>
-    <div class="copy"><span data-fz>©</span> 2026 MUDr. Ján Šikuta, PhD. · <a href="https://orcid.org/0000-0002-4690-0317" rel="me noopener" target="_blank">ORCID</a> · <a href="mailto:admin@forensika.eu">admin@forensika.eu</a></div>
-  </div>
-</footer>
+<section class="n6-live" id="vyskusajte">
+<div class="wrap">
+<h2>Tri metódy, ako ich počíta aplikácia</h2>
+<p class="sec-sub">Posuňte hodnoty a sledujte, ako sa mení výsledok aj jeho <b>rozptyl</b>. Rovnaké vzorce ako v aplikácii, s citáciou pri každej metóde; všetky tri nástroje sú zadarmo aj v 4n6 Tools Lite. V aplikácii k nim pribudnú asistenti, výhrady a zápis do zápisnice.</p>
+<div id="n6live"><noscript><p class="note">Ukážky potrebujú JavaScript. Bez neho si ich vyskúšate v aplikácii 4n6 Tools Lite, ktorá je zadarmo.</p></noscript></div>
+</div>
+</section>
 
+<section class="alt n6-trust">
+<div class="wrap">
+<h2>Metódy overené podľa pôvodnej literatúry</h2>
+<p class="sec-sub">Aplikáciu vyvíja súdny lekár pre vlastnú prax. Každý vzorec, prah a interval sa dohľadáva v pôvodnom článku, nie v sekundárnych tabuľkách.</p>
+<div class="grid3">
+<div class="d"><span class="k">27</span><h3>nástrojov s citáciou</h3><p>Každý výsledok má zdroj, rozptyl alebo výhradu. Nemožný vstup vráti vysvetlenie, nie číslo.</p></div>
+<div class="d"><span class="k">3</span><h3>kolá overenia zdrojov</h3><p>Vzorce a prahy prešli tromi samostatnými kontrolami proti pôvodnej literatúre; opravy idú do aplikácie aj s uvedením zdroja.</p></div>
+<div class="d"><span class="k">0</span><h3>odoslaných údajov</h3><p>Všetko beží v zariadení: bez účtu, bez analytiky a bez cloudu. Údaje prípadov opustia zariadenie len vaším exportom.</p></div>
+</div>
+<div class="log"><span class="lbl">Z posledných overení</span><ul>
+<li><b>Henssge:</b> konštanta B a pásma intervalu podľa Henssge 1988 a Schweitzer a Thali 2019</li>
+<li><b>Traubov index:</b> prahy podľa matrice, dolná hranica 160 mg/dl (Karlovsek 2004, Kaehler 2025)</li>
+<li><b>Posmrtné zmeny:</b> Mallachove rozpätia s priemerom ± SD</li>
+<li><b>Etanol:</b> stanoviská Slovenskej súdnolekárskej spoločnosti (SSLS 2025)</li>
+<li><b>Entomológia:</b> prah 1,0 °C pre C. vicina (Donovan 2006) popri 2,0 °C (Marchenko)</li>
+<li><b>Odontológia:</b> rovnice Kvaalovej aj pre horný bočný rezák a dolný špičák</li>
+<li><b>Vek plodu:</b> regresia z dĺžky femuru podľa Carneiro 2016 s 95 % rozpätím</li>
+<li><b>Zuby:</b> rovnice Prince a Ubelakera overené v otvorene dostupných prácach</li>
+</ul></div>
+<p class="n6-author">Autor: <b>MUDr. Ján Šikuta, PhD.</b>, súdny lekár · <a href="https://orcid.org/0000-0002-4690-0317" target="_blank" rel="noopener">ORCID 0000-0002-4690-0317</a></p>
+</div>
+</section>
+
+<section>
+<div class="wrap">
+<h2>Čo aplikácia obsahuje</h2>
+<div class="grid">
+<div class="d"><h3>Čas smrti a tanatológia</h3><p>Henssgeho nomogram s asistentom korekčného faktora a 95 % intervalmi, posmrtné zmeny so spoločnou časovou osou (škvrny, stuhnutosť po svalových skupinách, zákal rohovky, Casperovo pravidlo), sklovcový draslík štyrmi metódami s hypoxantínom ako kontrolou, forenzná entomológia s metódou ADD.</p></div>
+<div class="d"><h3>Toxikológia</h3><p>Etanol: interpretácia, Widmark, spätný prepočet k času skutku, alkoholemická krivka s pásmom neistoty a prepočet na dych; pre Slovensko podľa stanovísk SSLS 2025 (prepočet dychu 1 mg/l = 2,1 g/kg, podmienky spätného výpočtu, hranice 0,30 a 0,80 g/kg a hranice ovplyvnenia pre THC, kokaín, amfetamíny a morfín). Referenčné hladiny 67 látok v pásmach terapeutické – toxické – letálne a posmrtné hodnoty femorálnej krvi zo 122 000 pitiev. CO-Hb a vitalita pri požiari.</p></div>
+<div class="d"><h3>Trauma a kardiopatológia</h3><p>Popáleniny (TBSA podľa Lunda a Browdera, Bauxov index a jeho revízia), telesný povrch a očakávaná hmotnosť srdca, odhad veku z obvodov aorty, Traubov index, BMI a stav výživy.</p></div>
+<div class="d"><h3>Identifikácia a antropológia</h3><p>DVI podľa INTERPOL DVI Guide 2023, odontológia (odontogram, porovnanie AM/PM, šesť metód odhadu veku), krvné skupiny a stopy, výška z dlhých kostí, pohlavie a vek kostry, vek plodu z femuru podľa Carneiro 2016.</p></div>
+<div class="d"><h3>Mikroskopia a obraz</h3><p>Počítanie buniek a štruktúr s poloautomatickou detekciou, kvantifikácia CPA pri IHC dezmínu, kolorimeter so sivou kartou a fotogrametria: dĺžky, uhly a plochy z fotografie, na iPhonoch s LiDARom natívne meranie.</p></div>
+<div class="d"><h3>Prípad a zápisnica</h3><p>Údaje prípadu zadáte raz; nástroje odovzdajú výsledky do spoločnej zápisnice so zdrojmi, ktorú vyexportujete a zálohujete spolu s prípadom.</p></div>
+</div>
+</div>
+</section>
+
+<section class="alt">
+<div class="wrap">
+<h2>Navrhnuté pre znaleckú prax</h2>
+<ul class="check">
+<li>Každý výsledok má rozptyl alebo výhradu; nemožný vstup vráti vysvetlenie, nie číslo</li>
+<li>Pri každej metóde je citácia pôvodného zdroja a jednotný zoznam literatúry</li>
+<li>Metódy revidované podľa pôvodnej literatúry</li>
+<li>Dvanásť jazykov od verzie 5.5, Lite od 5.3 (SK, EN, CS, DE, IT, FR, UK, PL, HU, ZH, ES, PT) vrátane prepočítaných výsledkov a zápisnice, svetlý aj tmavý vzhľad</li>
+</ul>
+</div>
+</section>
+
+
+<section class="n6-tools">
+<div class="wrap">
+<h2>Všetkých 27 nástrojov</h2>
+<p class="sec-sub">Filtrujte podľa oblasti. Nástroje označené Lite sú plne funkčné aj v bezplatnej verzii.</p>
+<div class="n6-filter" id="n6filter"></div>
+<div class="n6-grid" id="n6grid"></div>
+<p class="n6-count" id="n6count"></p>
+</div>
+</section>
+
+<section id="lite">
+<div class="wrap">
+<h2>Lite zadarmo, Pro jednorazovo</h2>
+<p>Lite obsahuje sedem plne funkčných nástrojov, aby ste si overili, či vám aplikácia sedí do praxe. Pro odomyká všetkých 27 nástrojov: jednorazová platba, bez predplatného, bez reklám a bez zberu údajov.</p>
+<table class="specs">
+<tr><td></td><td class="b">Lite · zadarmo</td><td class="b">Pro · <span data-bf="off" style="font:inherit">104,99 €</span><span data-bf="on" hidden style="font:inherit">89,99 € (App Store)</span></td></tr>
+<tr><td>Henssge, sklovcový draslík, Traubov index, BMI, telesný povrch a srdce, vek z aorty, prevodník jednotiek</td><td>✓</td><td>✓</td></tr>
+<tr><td>Posmrtné zmeny, toxikológia a etanol, 67 látok, CO-Hb</td><td>-</td><td>✓</td></tr>
+<tr><td>Entomológia, popáleniny, DVI, odontológia, antropológia</td><td>-</td><td>✓</td></tr>
+<tr><td>Mikroskopia, kolorimeter, fotogrametria, prípad a zápisnica</td><td>-</td><td>✓</td></tr>
+<tr><td>Ukážka ostatných nástrojov (formulár, metóda, literatúra), od verzie 5.1</td><td>✓</td><td>-</td></tr>
+<tr><td>Platforma</td><td>iOS 17+ · Android</td><td>iOS 17+ · Android</td></tr>
+</table>
+<div class="btns" style="margin-top:18px">
+<a class="btn-ghost" href="https://apps.apple.com/app/id6783425913" target="_blank" rel="noopener">Lite v App Store</a>
+<a class="btn-ghost" href="https://play.google.com/store/apps/details?id=com.sikuta.n6toolslite" target="_blank" rel="noopener">Lite na Google Play</a>
+<a class="btn-ghost" href="4n6-Tools-Pro-navod.pdf" target="_blank" rel="noopener">Návod (PDF, SK/EN) ›</a>
+</div>
+</div>
+</section>
+
+<section class="alt" id="privacy">
+<div class="wrap">
+<h2>Súkromie na prvom mieste</h2>
+<ul class="check">
+<li>Všetky výpočty bežia v zariadení, aplikácia nepotrebuje internet</li>
+<li>Neodosiela žiadne údaje, žiadna analytika, žiadny účet</li>
+<li>Údaje prípadov zostávajú v zariadení, kým ich sami neexportujete</li>
+</ul>
+<div class="note">4n6 Tools je odborná pomôcka pre kvalifikovaných odborníkov: nie je zdravotníckou pomôckou a nenahrádza úsudok prehliadajúceho lekára ani znalca. Autorom je MUDr. Ján Šikuta, PhD., súdny lekár. <a href="privacy.html" style="color:var(--blue)">Ochrana súkromia</a> · <a href="support.html" style="color:var(--blue)">Podpora</a></div>
+</div>
+</section>
+
+<section id="support">
+<div class="wrap">
+<h2>Návody a podpora</h2>
+<p>Návod k 4n6 Tools Pro na stiahnutie: <a class="btn-link" href="4n6-Tools-Pro-navod.pdf" target="_blank" rel="noopener">slovensky (PDF)</a> · <a class="btn-link" href="4n6-Tools-Pro-Guide-EN.pdf" target="_blank" rel="noopener">English (PDF)</a> · <a class="btn-link" href="4n6-Tools-Pro-Handbuch-DE.pdf" target="_blank" rel="noopener">Deutsch (PDF)</a>.</p>
+<p>Otázky, chyby a návrhy: <a class="btn-link" href="mailto:admin@forensika.eu?subject=4n6%20Tools">admin@forensika.eu</a>. Časté otázky a postup pri probléme sú na stránke <a class="btn-link" href="support.html">Podpora</a>, spracovanie údajov v <a class="btn-link" href="privacy.html">zásadách ochrany súkromia</a>.</p>
+</div>
+</section>
+
+<section class="n6-hist" id="historia">
+<div class="wrap">
+<h2>História verzií</h2>
+<details><summary>Čo priniesli verzie 5.2 až 5.9</summary>
+<ul class="check">
+<li><b>Verzia 5.9</b> prináša overenie zdrojov: Mallachove rozpätia posmrtných zmien so stĺpcom priemer ± SD, Traubov index s pôvodom prahov podľa matrice, v entomológii aj prah 1,0 °C pre C. vicina (Donovan 2006), rovnice Kvaalovej aj pre horný bočný rezák a dolný špičák a pokyn pre suchú kosť pri veku plodu z femuru.</li>
+<li><b>Verzia 5.8</b> prináša stanoviská Slovenskej súdnolekárskej spoločnosti (SSLS 2025) pre etanol a psychoaktívne látky, vek plodu z femuru podľa Carneiro 2016 s 95 % rozpätím a Traubov index s dolnou hranicou 160 mg/dl; Lite 5.5 má aktualizovaný Traubov index a ukážky nástrojov.</li>
+<li><b>Verzia 5.5</b> pridáva poľštinu, maďarčinu, čínštinu (zjednodušenú), španielčinu a portugalčinu (Brazília): aplikácia je tak v dvanástich jazykoch vrátane výsledkov a zápisnice; rovnako aj Lite 5.3.</li>
+<li><b>Verzia 5.4</b> prináša tri témy vzhľadu (Laboratórny prístroj, Farebné sklo a Čierne zlato, každú svetlú aj tmavú), úvodnú kartu aktívneho prípadu a opravu výpočtu Henssgeho v teplom prostredí (od 23,3 °C).</li>
+<li><b>Verzia 5.3</b> pridáva češtinu, nemčinu, taliančinu, francúzštinu a ukrajinčinu: aplikácia je tak v siedmich jazykoch vrátane výsledkov a zápisnice.</li>
+<li><b>Verzia 5.2</b> bola prepracovaná od základu: nový dizajn, revízia metód podľa pôvodnej literatúry a nové nástroje: DVI podľa INTERPOL DVI Guide 2023, popáleniny (Lund–Browder, Baux), CO-Hb s posúdením vitality, referenčné hladiny 67 látok vrátane posmrtných hodnôt femorálnej krvi a Prípad a zápisnica so spoločným exportom a zálohou prípadov. Dostupná je v App Store aj na Google Play. Od verzie 5.1 si v Lite otvoríte aj ostatné nástroje ako ukážku: formulár, metódu a literatúru; výsledok vypočíta Pro.</li>
+</ul>
+</details>
+</div>
+</section>
+
+<section>
+<div class="wrap">
+<h2>Časté otázky</h2>
+<details><summary>Čím sa líši 4n6 Tools Lite od Pro?</summary><p>Lite je zadarmo a obsahuje sedem plne funkčných nástrojov: Henssgeho nomogram, PMI zo sklovcového draslíka, Traubov index, BMI, telesný povrch a očakávanú hmotnosť srdca, vek z obvodov aorty a prevodník jednotiek. Pro odomyká všetkých 27 nástrojov vrátane toxikológie, etanolu, entomológie, DVI, odontológie a antropológie. Od verzie 5.1 si v Lite otvoríte aj ostatné nástroje ako ukážku: formulár, metódu a literatúru; výsledok vypočíta Pro.</p></details>
+<details><summary>Je 4n6 Tools zdravotnícka pomôcka?</summary><p>Nie. Je to odborná pomôcka pre súdnych lekárov a znalcov; hodnoty sú orientačné, každý výsledok má rozptyl alebo výhradu a konečné posúdenie patrí kvalifikovanému odborníkovi.</p></details>
+<details><summary>Funguje aplikácia bez internetu?</summary><p>Áno. Všetky výpočty bežia v zariadení, aplikácia nepotrebuje pripojenie a neodosiela žiadne údaje.</p></details>
+<details><summary>Prečo Pro stojí 104,99 €?</summary><p>Ide o rozsiahly odborný nástroj: 27 nástrojov, 67 látok s referenčnými hladinami a metódy revidované podľa pôvodnej literatúry s citáciou pri každom výsledku. Je to jednorazová platba, bez predplatného, reklám a zberu údajov; po DPH a provízii obchodu sa k autorovi dostane približne 57 % ceny.</p></details>
+<details><summary>V akých jazykoch je aplikácia?</summary><p>Pro od verzie 5.5 aj Lite od verzie 5.3 v dvanástich: slovenčina, angličtina, čeština, nemčina, taliančina, francúzština, ukrajinčina, poľština, maďarčina, čínština (zjednodušená), španielčina a portugalčina (Brazília): celé rozhranie, výsledky aj zápisnica. Pri prvom spustení sa riadi jazykom telefónu a jazyk sa dá kedykoľvek zmeniť tlačidlom v hlavičke.</p></details>
+<!-- ako-citovat -->
+<details id="cite" style="overflow-wrap:anywhere"><summary>Ako citovať 4n6 Tools Pro</summary>
+<p>Ak 4n6 Tools Pro uvádzate v článku, práci alebo prednáške, môžete citovať takto. Uveďte verziu, ktorú ste použili, nájdete ju v aplikácii.</p>
+<p><b>APA:</b> Šikuta, J. (2026). <i>4n6 Tools Pro</i> (verzia 5.9) [mobilná aplikácia]. https://forensika.eu/4n6/</p>
+<p><b>Vancouver:</b> Šikuta J. 4n6 Tools Pro [mobilná aplikácia]. Verzia 5.9. Bratislava: Ján Šikuta; 2026 [citované DD. MM. RRRR]. Dostupné na: https://forensika.eu/4n6/</p>
+<p>Pri konkrétnom výpočte citujte aj pôvodnú metódu, ktorú nástroj uvádza. Pri Lite uveďte 4n6 Tools Lite a jej verziu.</p>
+<p>Autor: MUDr. Ján Šikuta, PhD. · ORCID <a href="https://orcid.org/0000-0002-4690-0317" rel="me noopener" target="_blank">0000-0002-4690-0317</a></p>
+</details>
+<!-- /ako-citovat -->
+</div>
+</section>
+
+<script src="n6demo.js?v=20261125" defer></script>
+<footer>
+<div class="wrap">
+<div class="site"><a href="https://forensika.eu/"><b>Forens</b><span class="accent" style="background:linear-gradient(90deg,#4FCBBB,#66B0E8 55%,#8E86EC);-webkit-background-clip:text;background-clip:text;color:transparent;">ika</span></a></div>
+<div class="copy"><span data-fz>©</span> 2026 MUDr. Ján Šikuta, PhD. · <a href="mailto:admin@forensika.eu">admin@forensika.eu</a> · <a href="https://orcid.org/0000-0002-4690-0317" rel="me noopener" target="_blank" title="ORCID iD 0000-0002-4690-0317"><svg width="14" height="14" viewBox="0 0 256 256" aria-hidden="true" style="vertical-align:-2px;margin-right:4px"><circle cx="128" cy="128" r="128" fill="#A6CE39"/><path fill="#fff" d="M86.3 186.2H70.9V79.1h15.4v107.1zM108.9 79.1h41.6c39.6 0 57 28.3 57 53.6 0 27.5-21.5 53.6-56.8 53.6h-41.8V79.1zm15.4 93.3h24.5c34.9 0 42.9-26.5 42.9-39.7C191.7 111.2 178 93 148 93h-23.7v79.4zM88.7 56.8c0 5.5-4.5 10.1-10.1 10.1s-10.1-4.6-10.1-10.1c0-5.6 4.5-10.1 10.1-10.1s10.1 4.6 10.1 10.1z"/></svg>ORCID</a> · <a href="https://forensika.eu/">forensika.eu</a></div>
+</div>
+</footer>
 <script src="site.js" defer></script>
 </body>
 </html>
